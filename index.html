@@ -7,6 +7,25 @@
     <title>From Zero To Statistical Hero - Aanvullend Materiaal</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
+        body {
+            background-image: url('27428-1.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            z-index: -1;
+        }
+
         .hero-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -161,22 +180,22 @@
         <nav>
             <a href="#overview">Overzicht</a>
             <a href="#chapters">Hoofdstukken</a>
-            <a
-                href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis">GitHub</a>
         </nav>
     </div>
 
     <div class="hero-section">
         <h1>From Zero To Statistical Hero</h1>
         <p><strong>Aanvullend Leermateriaal voor R Data Analyse</strong></p>
-        <p>Diepgaande theoretische achtergronden, praktische toepassingen en naslagwerken voor criminologisch onderzoek met R</p>
+        <p>Diepgaande theoretische achtergronden, praktische toepassingen en naslagwerken voor criminologisch onderzoek
+            met R</p>
     </div>
 
     <div id="overview">
         <h2>Over Deze Materialen</h2>
         <p>Deze aanvullende pagina's bieden <strong>gedetailleerde theoretische achtergrond</strong> en
             <strong>praktische begeleiding</strong> als aanvulling op de hoofdtekst. Elk hoofdstuk bevat
-            diepgaande uitleg, voorbeelden en best practices voor criminologisch onderzoek met R.</p>
+            diepgaande uitleg, voorbeelden en best practices voor criminologisch onderzoek met R.
+        </p>
     </div>
 
     <div id="chapters" style="margin-top: 60px;">
@@ -209,18 +228,20 @@
             </div>
 
             <!-- Chapter 5: Variable Manipulation - ACTIVE -->
-            <div class="content-card" style="border: 3px solid #667eea;">
+            <div class="content-card" style="border: 3px solid #667eea; cursor: pointer;"
+                onclick="window.location.href='chapter5.html';">
                 <h3>Hoofdstuk 5: Variabele Manipulatie</h3>
                 <p>Diepgaande theoretische achtergronden en praktische toepassingen voor variabele manipulatie in R.</p>
                 <p><strong>Beschikbare Pagina's:</strong></p>
                 <ul>
-                    <li><a href="chapter5/recoding-strategies.html">Recoding Strategieën</a></li>
-                    <li><a href="chapter5/scale-construction-theory.html">Schaalconstructie Theorie</a></li>
-                    <li><a href="chapter5/reverse-coding-guide.html">Reverse Coding Gids</a></li>
-                    <li><a href="chapter5/cronbach-alpha-explained.html">Cronbach's Alpha Uitgelegd</a></li>
-                    <li><a href="chapter5/operators-reference.html">R Operators Naslagwerk</a></li>
-                    <li><a href="chapter5/spss-vs-r-comparison.html">SPSS vs R Vergelijking</a></li>
+                    <li>Recoding Strategieën</li>
+                    <li>Schaalconstructie Theorie</li>
+                    <li>Reverse Coding Gids</li>
+                    <li>Cronbach's Alpha Uitgelegd</li>
+                    <li>R Operators Naslagwerk</li>
+                    <li>SPSS vs R Vergelijking</li>
                 </ul>
+                <a href="chapter5.html" class="btn" onclick="event.stopPropagation();">Bekijk alle pagina's</a>
             </div>
 
             <!-- Chapter 6 - Placeholder -->
@@ -262,21 +283,21 @@
 
         <div class="info-box">
             <h3>Aanvullend Leermateriaal:</h3>
-            <p>Deze website bevat diepgaande theoretische achtergronden en praktische naslagwerken die de hoofdtekst aanvullen. 
-            Elk hoofdstuk bevat gedetailleerde uitleg, voorbeelden uit criminologisch onderzoek, en best practices voor data-analyse met R.</p>
+            <p>Deze website bevat diepgaande theoretische achtergronden en praktische naslagwerken die de hoofdtekst
+                aanvullen.
+                Elk hoofdstuk bevat gedetailleerde uitleg, voorbeelden uit criminologisch onderzoek, en best practices
+                voor data-analyse met R.</p>
         </div>
 
         <div class="tip-box" style="margin-top: 20px;">
             <h3>Opmerking:</h3>
-            <p>Momenteel is alleen <strong>Hoofdstuk 5: Variabele Manipulatie</strong> beschikbaar. 
-            Andere hoofdstukken worden binnenkort toegevoegd.</p>
+            <p>Momenteel is alleen <strong>Hoofdstuk 5: Variabele Manipulatie</strong> beschikbaar.
+                Andere hoofdstukken worden binnenkort toegevoegd.</p>
         </div>
     </div>
 
     <div class="footer" style="margin-top: 40px;">
         <p>&copy; 2026 From Zero To Statistical Hero | Criminologische Onderzoeksmethoden</p>
-        <p><a href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis"
-                style="color: #667eea;">GitHub Repository</a></p>
     </div>
 
     <a href="#" class="back-to-top" id="backToTop">↑</a>
