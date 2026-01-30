@@ -29,21 +29,24 @@
         .hero-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 35px 20px;
             text-align: center;
             border-radius: 12px;
             margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
         .hero-section h1 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
+            font-size: 2.2em;
+            margin-bottom: 10px;
             color: white;
+            font-weight: 700;
         }
 
         .hero-section p {
-            font-size: 1.2em;
+            font-size: 1.05em;
             opacity: 0.95;
+            margin: 5px 0;
         }
 
         .cards-grid {
@@ -57,24 +60,25 @@
             background: white;
             border: 2px solid #e0e0e0;
             border-radius: 10px;
-            padding: 25px;
+            padding: 20px;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .content-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
             border-color: #667eea;
         }
 
         .content-card h3 {
             color: #667eea;
             margin-top: 0;
-            font-size: 1.4em;
+            font-size: 1.3em;
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 12px;
         }
 
         .content-card .icon {
@@ -173,19 +177,22 @@
 
         .collapse-header {
             cursor: pointer;
-            padding: 10px;
-            background: #f0f0f0;
-            border-radius: 5px;
-            margin-top: 15px;
+            padding: 10px 12px;
+            background: linear-gradient(135deg, #f8f9fc 0%, #f0f2f8 100%);
+            border-radius: 6px;
+            margin-top: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
             color: #667eea;
+            border: 1px solid #e0e5f0;
+            transition: all 0.2s ease;
         }
 
         .collapse-header:hover {
-            background: #e8e8e8;
+            background: linear-gradient(135deg, #eef0f8 0%, #e8eaf5 100%);
+            border-color: #667eea;
         }
 
         .collapse-content {
@@ -273,9 +280,10 @@
 
             <!-- Chapter 5: Variable Manipulation - ACTIVE -->
             <div class="content-card" style="border: 3px solid #667eea;">
-                <h3 style="cursor: pointer;" onclick="window.location.href='chapter5.html';">Hoofdstuk 5: Variabele Manipulatie</h3>
+                <h3 style="cursor: pointer;" onclick="window.location.href='chapter5.html';">Hoofdstuk 5: Variabele
+                    Manipulatie</h3>
                 <p>Diepgaande theoretische achtergronden en praktische toepassingen voor variabele manipulatie in R.</p>
-                
+
                 <div class="collapse-header" onclick="toggleCollapse('chapter5-content', this)">
                     <span>Aanvullende Pagina's</span>
                     <span class="arrow">▼</span>
@@ -284,42 +292,63 @@
                     <ul>
                         <li><strong><a href="chapter5/recoding-strategies.html">Recoding Strategieën</a></strong>
                             <ul>
-                                <li><a href="chapter5/recoding-strategies.html#continuous">Continue vs. categorische data</a></li>
-                                <li><a href="chapter5/recoding-strategies.html#principles">Logische groeperingsprincipes</a></li>
-                                <li><a href="chapter5/recoding-strategies.html#examples">10 criminologie-specifieke voorbeelden</a></li>
-                                <li><a href="chapter5/recoding-strategies.html#mistakes">Veelgemaakte fouten vermijden</a></li>
+                                <li><a href="chapter5/recoding-strategies.html#continuous">Continue vs. categorische
+                                        data</a></li>
+                                <li><a href="chapter5/recoding-strategies.html#principles">Logische
+                                        groeperingsprincipes</a></li>
+                                <li><a href="chapter5/recoding-strategies.html#examples">10 criminologie-specifieke
+                                        voorbeelden</a></li>
+                                <li><a href="chapter5/recoding-strategies.html#mistakes">Veelgemaakte fouten
+                                        vermijden</a></li>
                             </ul>
                         </li>
-                        <li><strong><a href="chapter5/scale-construction-theory.html">Schaalconstructie Theorie</a></strong>
+                        <li><strong><a href="chapter5/scale-construction-theory.html">Schaalconstructie
+                                    Theorie</a></strong>
                             <ul>
-                                <li><a href="chapter5/scale-construction-theory.html#latent">Wat zijn latente concepten?</a></li>
-                                <li><a href="chapter5/scale-construction-theory.html#scales">7 gestandaardiseerde vragenlijsten</a></li>
-                                <li><a href="chapter5/scale-construction-theory.html#ethics">Ethische verplichtingen & citeren</a></li>
-                                <li><a href="chapter5/scale-construction-theory.html#development">5-stappen instrument ontwikkeling</a></li>
+                                <li><a href="chapter5/scale-construction-theory.html#latent">Wat zijn latente
+                                        concepten?</a></li>
+                                <li><a href="chapter5/scale-construction-theory.html#scales">7 gestandaardiseerde
+                                        vragenlijsten</a></li>
+                                <li><a href="chapter5/scale-construction-theory.html#ethics">Ethische verplichtingen &
+                                        citeren</a></li>
+                                <li><a href="chapter5/scale-construction-theory.html#development">5-stappen instrument
+                                        ontwikkeling</a></li>
                             </ul>
                         </li>
                         <li><strong><a href="chapter5/reverse-coding-guide.html">Reverse Coding Gids</a></strong>
                             <ul>
                                 <li><a href="chapter5/reverse-coding-guide.html#bias">Wat is acquiescence bias?</a></li>
-                                <li><a href="chapter5/reverse-coding-guide.html#when">Wanneer reverse coding toepassen</a></li>
-                                <li><a href="chapter5/reverse-coding-guide.html#formula">Formule: (Max + Min) - Oude waarde</a></li>
-                                <li><a href="chapter5/reverse-coding-guide.html#code">R-code voor verschillende schaaltypes</a></li>
+                                <li><a href="chapter5/reverse-coding-guide.html#when">Wanneer reverse coding
+                                        toepassen</a></li>
+                                <li><a href="chapter5/reverse-coding-guide.html#formula">Formule: (Max + Min) - Oude
+                                        waarde</a></li>
+                                <li><a href="chapter5/reverse-coding-guide.html#code">R-code voor verschillende
+                                        schaaltypes</a></li>
                             </ul>
                         </li>
-                        <li><strong><a href="chapter5/cronbach-alpha-explained.html">Cronbach's Alpha Uitgelegd</a></strong>
+                        <li><strong><a href="chapter5/cronbach-alpha-explained.html">Cronbach's Alpha
+                                    Uitgelegd</a></strong>
                             <ul>
-                                <li><a href="chapter5/cronbach-alpha-explained.html#consistency">Wat is interne consistentie?</a></li>
-                                <li><a href="chapter5/cronbach-alpha-explained.html#interpretation">Interpretatie grenswaarden (≥.70)</a></li>
-                                <li><a href="chapter5/cronbach-alpha-explained.html#removal">Wanneer items verwijderen</a></li>
-                                <li><a href="chapter5/cronbach-alpha-explained.html#reporting">APA-stijl rapportage</a></li>
+                                <li><a href="chapter5/cronbach-alpha-explained.html#consistency">Wat is interne
+                                        consistentie?</a></li>
+                                <li><a href="chapter5/cronbach-alpha-explained.html#interpretation">Interpretatie
+                                        grenswaarden (≥.70)</a></li>
+                                <li><a href="chapter5/cronbach-alpha-explained.html#removal">Wanneer items
+                                        verwijderen</a></li>
+                                <li><a href="chapter5/cronbach-alpha-explained.html#reporting">APA-stijl rapportage</a>
+                                </li>
                             </ul>
                         </li>
                         <li><strong><a href="chapter5/operators-reference.html">R Operators Naslagwerk</a></strong>
                             <ul>
-                                <li><a href="chapter5/operators-reference.html#arithmetic">Rekenkundig: +, -, *, /, ^</a></li>
-                                <li><a href="chapter5/operators-reference.html#relational">Relationeel: ==, !=, >, <, %in%</a></li>
+                                <li><a href="chapter5/operators-reference.html#arithmetic">Rekenkundig: +, -, *, /,
+                                        ^</a></li>
+                                <li><a href="chapter5/operators-reference.html#relational">Relationeel: ==, !=, >, <,
+                                            %in%</a>
+                                </li>
                                 <li><a href="chapter5/operators-reference.html#logical">Logisch: &, |, !</a></li>
-                                <li><a href="chapter5/operators-reference.html#precedence">Operator precedentie regels</a></li>
+                                <li><a href="chapter5/operators-reference.html#precedence">Operator precedentie
+                                        regels</a></li>
                             </ul>
                         </li>
                         <li><strong><a href="chapter5/spss-vs-r-comparison.html">SPSS vs R Vergelijking</a></strong>
@@ -327,12 +356,13 @@
                                 <li><a href="chapter5/spss-vs-r-comparison.html#compute">COMPUTE → mutate()</a></li>
                                 <li><a href="chapter5/spss-vs-r-comparison.html#recode">RECODE → case_when()</a></li>
                                 <li><a href="chapter5/spss-vs-r-comparison.html#if">IF → ifelse()</a></li>
-                                <li><a href="chapter5/spss-vs-r-comparison.html#workflow">Complete workflow voorbeelden</a></li>
+                                <li><a href="chapter5/spss-vs-r-comparison.html#workflow">Complete workflow
+                                        voorbeelden</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
-                
+
                 <a href="chapter5.html" class="btn" style="margin-top: 15px;">Bekijk alle pagina's</a>
             </div>
 
@@ -380,7 +410,7 @@
         function toggleCollapse(contentId, headerElement) {
             const content = document.getElementById(contentId);
             const arrow = headerElement.querySelector('.arrow');
-            
+
             content.classList.toggle('active');
             arrow.classList.toggle('active');
         }
