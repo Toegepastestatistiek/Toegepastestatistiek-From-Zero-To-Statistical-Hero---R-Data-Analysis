@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5: Variable Manipulation - Supplementary Materials</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .hero-section p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .content-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .content-card h3 {
+            color: #667eea;
+            margin-top: 0;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-card .icon {
+            font-size: 1.8em;
+        }
+
+        .content-card p {
+            color: #555;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+
+        .content-card .btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            font-weight: 600;
+        }
+
+        .content-card .btn:hover {
+            background: #5568d3;
+        }
+
+        .features-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            align-items: start;
+        }
+
+        .feature-item .emoji {
+            font-size: 1.8em;
+        }
+
+        .feature-item .content h4 {
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+
+        .feature-item .content p {
+            margin: 0;
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .quick-links {
+            background: #e8f4f8;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .quick-links h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .quick-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quick-links ul li {
+            margin: 10px 0;
+        }
+
+        .quick-links ul li a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quick-links ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav-bar">
+        <div class="logo">📊 Statistical Hero - Chapter 5</div>
+        <nav>
+            <a href="#overview">Overview</a>
+            <a href="#pages">Supplementary Pages</a>
+            <a href="#features">Features</a>
+            <a
+                href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis">GitHub</a>
+        </nav>
+    </div>
+
+    <div class="hero-section">
+        <h1>📚 Chapter 5: Variable Manipulation</h1>
+        <p><strong>Supplementary Learning Materials</strong></p>
+        <p>In-depth theory, practical examples, and reference guides for mastering R variable manipulation</p>
+    </div>
+
+    <div id="overview">
+        <h2>🎯 About These Materials</h2>
+        <p>These supplementary pages provide <strong>detailed theoretical background</strong> and <strong>practical
+                guidance</strong> to complement the main Chapter 5 RMarkdown tutorial. Each page focuses on a specific
+            topic with comprehensive explanations, examples, and best practices.</p>
+
+        <div class="quick-links">
+            <h3>🚀 Quick Start</h3>
+            <p>If you're coming from the main Chapter 5 tutorial, jump directly to the page you need:</p>
+            <ul>
+                <li><a href="chapter5/recoding-strategies.html">→ Why collect continuous data & how to group it</a></li>
+                <li><a href="chapter5/scale-construction-theory.html">→ Understanding latent concepts & scale
+                        development</a></li>
+                <li><a href="chapter5/reverse-coding-guide.html">→ Step-by-step reverse coding tutorial</a></li>
+                <li><a href="chapter5/cronbach-alpha-explained.html">→ Complete Cronbach's Alpha guide</a></li>
+                <li><a href="chapter5/operators-reference.html">→ R operators quick reference</a></li>
+                <li><a href="chapter5/spss-vs-r-comparison.html">→ Transitioning from SPSS to R</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="pages" style="margin-top: 60px;">
+        <h2>📖 Supplementary Pages</h2>
+
+        <div class="cards-grid">
+
+            <!-- Card 1: Recoding Strategies -->
+            <div class="content-card">
+                <h3><span class="icon">🔢</span> Recoding Strategies</h3>
+                <p>Learn why continuous data collection is crucial and how to create meaningful categorical variables
+                    for criminological research.</p>
+                <p><strong>Topics covered:</strong></p>
+                <ul>
+                    <li>Continuous vs. categorical data</li>
+                    <li>Logical grouping principles</li>
+                    <li>10 criminology-specific examples</li>
+                    <li>Common pitfalls to avoid</li>
+                </ul>
+                <a href="chapter5/recoding-strategies.html" class="btn">Read More →</a>
+            </div>
+
+            <!-- Card 2: Scale Construction Theory -->
+            <div class="content-card">
+                <h3><span class="icon">📐</span> Scale Construction Theory</h3>
+                <p>Deep dive into latent concepts, standardized questionnaires, and the complete process of developing
+                    valid measurement instruments.</p>
+                <p><strong>Topics covered:</strong></p>
+                <ul>
+                    <li>What are latent concepts?</li>
+                    <li>7 standardized questionnaires</li>
+                    <li>Ethical obligations & citation</li>
+                    <li>5-step instrument development</li>
+                </ul>
+                <a href="chapter5/scale-construction-theory.html" class="btn">Read More →</a>
+            </div>
+
+            <!-- Card 3: Reverse Coding Guide -->
+            <div class="content-card">
+                <h3><span class="icon">🔄</span> Reverse Coding Guide</h3>
+                <p>Master the art of reverse coding with step-by-step instructions, visual examples, and practical R
+                    code templates.</p>
+                <p><strong>Topics covered:</strong></p>
+                <ul>
+                    <li>What is acquiescence bias?</li>
+                    <li>When to apply reverse coding</li>
+                    <li>Formula: (Max + Min) - Old value</li>
+                    <li>R code for different scale types</li>
+                </ul>
+                <a href="chapter5/reverse-coding-guide.html" class="btn">Read More →</a>
+            </div>
+
+            <!-- Card 4: Cronbach's Alpha -->
+            <div class="content-card">
+                <h3><span class="icon">📊</span> Cronbach's Alpha Explained</h3>
+                <p>Complete guide to understanding, calculating, and interpreting Cronbach's Alpha for internal
+                    consistency assessment.</p>
+                <p><strong>Topics covered:</strong></p>
+                <ul>
+                    <li>What is internal consistency?</li>
+                    <li>Interpretation grenswaarden (≥.70)</li>
+                    <li>When to remove items</li>
+                    <li>APA-style reporting</li>
+                </ul>
+                <a href="chapter5/cronbach-alpha-explained.html" class="btn">Read More →</a>
+            </div>
+
+            <!-- Card 5: Operators Reference -->
+            <div class="content-card">
+                <h3><span class="icon">🔧</span> R Operators Reference</h3>
+                <p>Comprehensive reference guide for all R operators: arithmetic, relational, logical, and special
+                    operators for data manipulation.</p>
+                <p><strong>Topics covered:</strong></p>
+                <ul>
+                    <li>Arithmetic: +, -, *, /, ^</li>
+                    <li>Relational: ==, !=, >, <, %in%</li>
+                    <li>Logical: &, |, !</li>
+                    <li>Operator precedence rules</li>
+                </ul>
+                <a href="chapter5/operators-reference.html" class="btn">Read More →</a>
+            </div>
+
+            <!-- Card 6: SPSS vs R -->
+            <div class="content-card">
+                <h3><span class="icon">🔄</span> SPSS vs R Comparison</h3>
+                <p>Direct side-by-side comparisons of SPSS and R syntax for variable manipulation, perfect for
+                    transitioning researchers.</p>
+                <p><strong>Topics covered:</strong></p>
+                <ul>
+                    <li>COMPUTE → mutate()</li>
+                    <li>RECODE → case_when()</li>
+                    <li>IF → ifelse()</li>
+                    <li>Complete workflow examples</li>
+                </ul>
+                <a href="chapter5/spss-vs-r-comparison.html" class="btn">Read More →</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="features" class="features-section" style="margin-top: 60px;">
+        <h2>✨ What Makes These Materials Special?</h2>
+
+        <div class="features-grid">
+
+            <div class="feature-item">
+                <div class="emoji">🎓</div>
+                <div class="content">
+                    <h4>Criminology-Focused</h4>
+                    <p>All examples use real criminological research scenarios (fear of crime, recidivism,
+                        victimization, etc.)</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="emoji">💡</div>
+                <div class="content">
+                    <h4>Theory + Practice</h4>
+                    <p>Combines theoretical foundations with immediately applicable R code templates</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="emoji">📱</div>
+                <div class="content">
+                    <h4>Mobile-Responsive</h4>
+                    <p>Professional CSS styling works perfectly on desktop, tablet, and mobile devices</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="emoji">🔗</div>
+                <div class="content">
+                    <h4>Interconnected</h4>
+                    <p>Smart navigation between related topics helps you explore connected concepts</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="emoji">⚡</div>
+                <div class="content">
+                    <h4>Quick Reference</h4>
+                    <p>Tables, checklists, and color-coded boxes for fast information retrieval</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="emoji">✅</div>
+                <div class="content">
+                    <h4>Best Practices</h4>
+                    <p>Practical advice on common mistakes and how to avoid them</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="margin-top: 60px;">
+        <h2>📚 Learning Path Recommendations</h2>
+
+        <div class="info-box">
+            <h3>For Complete Beginners:</h3>
+            <ol>
+                <li>Start with <a href="chapter5/operators-reference.html">Operators Reference</a> to understand R
+                    syntax</li>
+                <li>Read <a href="chapter5/recoding-strategies.html">Recoding Strategies</a> for data transformation
+                    basics</li>
+                <li>Move to <a href="chapter5/scale-construction-theory.html">Scale Theory</a> for conceptual
+                    understanding</li>
+                <li>Practice with <a href="chapter5/reverse-coding-guide.html">Reverse Coding</a> examples</li>
+                <li>Master <a href="chapter5/cronbach-alpha-explained.html">Cronbach's Alpha</a> for scale validation
+                </li>
+            </ol>
+        </div>
+
+        <div class="warning-box" style="margin-top: 20px;">
+            <h3>For SPSS Users Transitioning to R:</h3>
+            <ol>
+                <li>Start with <a href="chapter5/spss-vs-r-comparison.html">SPSS vs R Comparison</a> for familiar
+                    references</li>
+                <li>Study <a href="chapter5/operators-reference.html">Operators Reference</a> to understand R syntax
+                    differences</li>
+                <li>Then follow the beginner path above</li>
+            </ol>
+        </div>
+
+        <div class="tip-box" style="margin-top: 20px;">
+            <h3>For Quick Reference:</h3>
+            <p>Bookmark these pages for fast lookup while coding:</p>
+            <ul>
+                <li><a href="chapter5/operators-reference.html">Operators Reference</a> - Symbol meanings</li>
+                <li><a href="chapter5/reverse-coding-guide.html#formulas">Reverse Coding Formulas</a> - Quick formula
+                    lookup</li>
+                <li><a href="chapter5/cronbach-alpha-explained.html#interpretation">Cronbach's Alpha Interpretation
+                        Table</a> - Threshold values</li>
+            </ul>
+        </div>
+    </div>
+
+    <div
+        style="margin-top: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 12px; text-align: center;">
+        <h2 style="color: white; margin-top: 0;">🎯 Ready to Start Learning?</h2>
+        <p style="font-size: 1.1em; margin: 20px 0;">Choose a topic above or start with the complete Chapter 5 tutorial
+            in your RMarkdown file!</p>
+        <a href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis"
+            style="display: inline-block; background: white; color: #667eea; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px;">
+            📂 View on GitHub
+        </a>
+    </div>
+
+    <div class="footer" style="margin-top: 40px;">
+        <p>&copy; 2026 From Zero To Statistical Hero | Criminology Research Methods</p>
+        <p><a href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis"
+                style="color: #667eea;">GitHub Repository</a></p>
+    </div>
+
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+
+</html>
