@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hoofdstuk 5: Variabele Manipulatie - Aanvullend Materiaal</title>
+    <title>From Zero To Statistical Hero - Aanvullend Materiaal</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
         .hero-section {
@@ -14,40 +15,40 @@
             border-radius: 12px;
             margin-bottom: 40px;
         }
-        
+
         .hero-section h1 {
             font-size: 2.5em;
             margin-bottom: 15px;
             color: white;
         }
-        
+
         .hero-section p {
             font-size: 1.2em;
             opacity: 0.95;
         }
-        
+
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin: 40px 0;
         }
-        
+
         .content-card {
             background: white;
             border: 2px solid #e0e0e0;
             border-radius: 10px;
             padding: 25px;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .content-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             border-color: #667eea;
         }
-        
+
         .content-card h3 {
             color: #667eea;
             margin-top: 0;
@@ -56,17 +57,17 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .content-card .icon {
             font-size: 1.8em;
         }
-        
+
         .content-card p {
             color: #555;
             line-height: 1.6;
             margin: 15px 0;
         }
-        
+
         .content-card .btn {
             display: inline-block;
             background: #667eea;
@@ -77,67 +78,67 @@
             transition: background 0.3s ease;
             font-weight: 600;
         }
-        
+
         .content-card .btn:hover {
             background: #5568d3;
         }
-        
+
         .features-section {
             background: #f8f9fa;
             padding: 30px;
             border-radius: 10px;
             margin: 40px 0;
         }
-        
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
-        
+
         .feature-item {
             display: flex;
             gap: 15px;
             align-items: start;
         }
-        
+
         .feature-item .emoji {
             font-size: 1.8em;
         }
-        
+
         .feature-item .content h4 {
             margin: 0 0 5px 0;
             color: #333;
         }
-        
+
         .feature-item .content p {
             margin: 0;
             color: #666;
             font-size: 0.95em;
         }
-        
+
         .quick-links {
             background: #e8f4f8;
             padding: 25px;
             border-radius: 10px;
             border-left: 5px solid #667eea;
         }
-        
+
         .quick-links h3 {
             margin-top: 0;
             color: #333;
         }
-        
+
         .quick-links ul {
             list-style: none;
             padding: 0;
         }
-        
+
         .quick-links ul li {
             margin: 10px 0;
         }
-        
+
         .quick-links ul li a {
             color: #667eea;
             text-decoration: none;
@@ -146,252 +147,156 @@
             align-items: center;
             gap: 8px;
         }
-        
+
         .quick-links ul li a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
 
-<div class="nav-bar">
-    <div class="logo">📊 Statistical Hero - Hoofdstuk 5</div>
-    <nav>
-        <a href="#overview">Overzicht</a>
-        <a href="#pages">Aanvullende Pagina's</a>
-        <a href="#features">Kenmerken</a>
-        <a href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis">GitHub</a>
-    </nav>
-</div>
-
-<div class="hero-section">
-    <h1>📚 Hoofdstuk 5: Variabele Manipulatie</h1>
-    <p><strong>Aanvullend Leermateriaal</strong></p>
-    <p>Diepgaande theorie, praktische voorbeelden en naslagwerken voor het beheersen van R variabele manipulatie</p>
-</div>
-
-<div id="overview">
-    <h2>🎯 Over Deze Materialen</h2>
-    <p>Deze aanvullende pagina's bieden <strong>gedetailleerde theoretische achtergrond</strong> en <strong>praktische begeleiding</strong> als aanvulling op de hoofdtekst. Elke pagina richt zich op een specifiek onderwerp met uitgebreide uitleg, voorbeelden en best practices.</p>
-    
-    <div class="quick-links">
-        <h3>🚀 Snel Starten</h3>
-        <p>Kom je van de hoofdtekst? Spring direct naar de pagina die je nodig hebt:</p>
-        <ul>
-            <li><a href="chapter5/recoding-strategies.html">→ Waarom continue data verzamelen & hoe groeperen</a></li>
-            <li><a href="chapter5/scale-construction-theory.html">→ Latente concepten & schaal ontwikkeling</a></li>
-            <li><a href="chapter5/reverse-coding-guide.html">→ Stap-voor-stap reverse coding handleiding</a></li>
-            <li><a href="chapter5/cronbach-alpha-explained.html">→ Complete Cronbach's Alpha gids</a></li>
-            <li><a href="chapter5/operators-reference.html">→ R operators naslagwerk</a></li>
-            <li><a href="chapter5/spss-vs-r-comparison.html">→ Overstappen van SPSS naar R</a></li>
-        </ul>
+    <div class="nav-bar">
+        <div class="logo">From Zero To Statistical Hero</div>
+        <nav>
+            <a href="#overview">Overzicht</a>
+            <a href="#chapters">Hoofdstukken</a>
+            <a
+                href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis">GitHub</a>
+        </nav>
     </div>
-</div>
 
-<div id="pages" style="margin-top: 60px;">
-    <h2>📖 Aanvullende Pagina's</h2>
-    
-    <div class="cards-grid">
-        
-        <!-- Card 1: Recoding Strategies -->
-        <div class="content-card">
-            <h3><span class="icon">🔢</span> Recoding Strategieën</h3>
-            <p>Leer waarom continue dataverzameling cruciaal is en hoe je betekenisvolle categorische variabelen maakt voor criminologisch onderzoek.</p>
-            <p><strong>Onderwerpen:</strong></p>
-            <ul>
-                <li>Continue vs. categorische data</li>
-                <li>Logische groeperingsprincipes</li>
-                <li>10 criminologie-specifieke voorbeelden</li>
-                <li>Veelgemaakte fouten vermijden</li>
-            </ul>
-            <a href="chapter5/recoding-strategies.html" class="btn">Lees Meer →</a>
-        </div>
-        
-        <!-- Card 2: Scale Construction Theory -->
-        <div class="content-card">
-            <h3><span class="icon">📐</span> Schaalconstructie Theorie</h3>
-            <p>Diepgaand inzicht in latente concepten, gestandaardiseerde vragenlijsten en het complete proces van het ontwikkelen van valide meetinstrumenten.</p>
-            <p><strong>Onderwerpen:</strong></p>
-            <ul>
-                <li>Wat zijn latente concepten?</li>
-                <li>7 gestandaardiseerde vragenlijsten</li>
-                <li>Ethische verplichtingen & citeren</li>
-                <li>5-stappen instrument ontwikkeling</li>
-            </ul>
-            <a href="chapter5/scale-construction-theory.html" class="btn">Lees Meer →</a>
-        </div>
-        
-        <!-- Card 3: Reverse Coding Guide -->
-        <div class="content-card">
-            <h3><span class="icon">🔄</span> Reverse Coding Gids</h3>
-            <p>Beheers de kunst van reverse coding met stapsgewijze instructies, visuele voorbeelden en praktische R-code templates.</p>
-            <p><strong>Onderwerpen:</strong></p>
-            <ul>
-                <li>Wat is acquiescence bias?</li>
-                <li>Wanneer reverse coding toepassen</li>
-                <li>Formule: (Max + Min) - Oude waarde</li>
-                <li>R-code voor verschillende schaaltypes</li>
-            </ul>
-            <a href="chapter5/reverse-coding-guide.html" class="btn">Lees Meer →</a>
-        </div>
-        
-        <!-- Card 4: Cronbach's Alpha -->
-        <div class="content-card">
-            <h3><span class="icon">📊</span> Cronbach's Alpha Uitgelegd</h3>
-            <p>Complete gids voor het begrijpen, berekenen en interpreteren van Cronbach's Alpha voor interne consistentie beoordeling.</p>
-            <p><strong>Onderwerpen:</strong></p>
-            <ul>
-                <li>Wat is interne consistentie?</li>
-                <li>Interpretatie grenswaarden (≥.70)</li>
-                <li>Wanneer items verwijderen</li>
-                <li>APA-stijl rapportage</li>
-            </ul>
-            <a href="chapter5/cronbach-alpha-explained.html" class="btn">Lees Meer →</a>
-        </div>
-        
-        <!-- Card 5: Operators Reference -->
-        <div class="content-card">
-            <h3><span class="icon">🔧</span> R Operators Naslagwerk</h3>
-            <p>Uitgebreid naslagwerk voor alle R operators: rekenkundig, relationeel, logisch en speciale operators voor datamanipulatie.</p>
-            <p><strong>Onderwerpen:</strong></p>
-            <ul>
-                <li>Rekenkundig: +, -, *, /, ^</li>
-                <li>Relationeel: ==, !=, >, <, %in%</li>
-                <li>Logisch: &, |, !</li>
-                <li>Operator precedentie regels</li>
-            </ul>
-            <a href="chapter5/operators-reference.html" class="btn">Lees Meer →</a>
-        </div>
-        
-        <!-- Card 6: SPSS vs R -->
-        <div class="content-card">
-            <h3><span class="icon">🔄</span> SPSS vs R Vergelijking</h3>
-            <p>Directe vergelijkingen van SPSS en R syntaxis voor variabele manipulatie, perfect voor overstappende onderzoekers.</p>
-            <p><strong>Onderwerpen:</strong></p>
-            <ul>
-                <li>COMPUTE → mutate()</li>
-                <li>RECODE → case_when()</li>
-                <li>IF → ifelse()</li>
-                <li>Complete workflow voorbeelden</li>
-            </ul>
-            <a href="chapter5/spss-vs-r-comparison.html" class="btn">Lees Meer →</a>
-        </div>
-        
+    <div class="hero-section">
+        <h1>From Zero To Statistical Hero</h1>
+        <p><strong>Aanvullend Leermateriaal voor R Data Analyse</strong></p>
+        <p>Diepgaande theoretische achtergronden, praktische toepassingen en naslagwerken voor criminologisch onderzoek met R</p>
     </div>
-</div>
 
-<div id="features" class="features-section" style="margin-top: 60px;">
-    <h2>✨ Wat Maakt Deze Materialen Speciaal?</h2>
-    
-    <div class="features-grid">
-        
-        <div class="feature-item">
-            <div class="emoji">🎓</div>
-            <div class="content">
-                <h4>Criminologie-gericht</h4>
-                <p>Alle voorbeelden gebruiken echte criminologische onderzoeksscenario's (angst voor criminaliteit, recidive, slachtofferschap, etc.)</p>
-            </div>
-        </div>
-        
-        <div class="feature-item">
-            <div class="emoji">💡</div>
-            <div class="content">
-                <h4>Theorie + Praktijk</h4>
-                <p>Combineert theoretische fundamenten met direct toepasbare R-code templates</p>
-            </div>
-        </div>
-        
-        <div class="feature-item">
-            <div class="emoji">📱</div>
-            <div class="content">
-                <h4>Mobiel-responsief</h4>
-                <p>Professionele CSS-styling werkt perfect op desktop, tablet en mobiele apparaten</p>
-            </div>
-        </div>
-        
-        <div class="feature-item">
-            <div class="emoji">🔗</div>
-            <div class="content">
-                <h4>Onderling verbonden</h4>
-                <p>Slimme navigatie tussen gerelateerde onderwerpen helpt je verbonden concepten te verkennen</p>
-            </div>
-        </div>
-        
-        <div class="feature-item">
-            <div class="emoji">⚡</div>
-            <div class="content">
-                <h4>Snel Naslagwerk</h4>
-                <p>Tabellen, checklists en kleurgecodeerde boxen voor snelle informatie ophaling</p>
-            </div>
-        </div>
-        
-        <div class="feature-item">
-            <div class="emoji">✅</div>
-            <div class="content">
-                <h4>Best Practices</h4>
-                <p>Praktisch advies over veelgemaakte fouten en hoe deze te vermijden</p>
-            </div>
-        </div>
-        
+    <div id="overview">
+        <h2>Over Deze Materialen</h2>
+        <p>Deze aanvullende pagina's bieden <strong>gedetailleerde theoretische achtergrond</strong> en
+            <strong>praktische begeleiding</strong> als aanvulling op de hoofdtekst. Elk hoofdstuk bevat
+            diepgaande uitleg, voorbeelden en best practices voor criminologisch onderzoek met R.</p>
     </div>
-</div>
 
-<div style="margin-top: 60px;">
-    <h2>📚 Aanbevolen Leerpaden</h2>
-    
-    <div class="info-box">
-        <h3>Voor Beginners:</h3>
-        <ol>
-            <li>Start met <a href="chapter5/operators-reference.html">Operators Naslagwerk</a> om R-syntaxis te begrijpen</li>
-            <li>Lees <a href="chapter5/recoding-strategies.html">Recoding Strategieën</a> voor datatransformatie basics</li>
-            <li>Ga naar <a href="chapter5/scale-construction-theory.html">Schaaltheorie</a> voor conceptueel begrip</li>
-            <li>Oefen met <a href="chapter5/reverse-coding-guide.html">Reverse Coding</a> voorbeelden</li>
-            <li>Beheers <a href="chapter5/cronbach-alpha-explained.html">Cronbach's Alpha</a> voor schaalvalidatie</li>
-        </ol>
+    <div id="chapters" style="margin-top: 60px;">
+        <h2>Beschikbare Hoofdstukken</h2>
+
+        <div class="cards-grid">
+
+            <!-- Chapter 1 - Placeholder -->
+            <div class="content-card" style="opacity: 0.6;">
+                <h3>Hoofdstuk 1</h3>
+                <p><em>Binnenkort beschikbaar</em></p>
+            </div>
+
+            <!-- Chapter 2 - Placeholder -->
+            <div class="content-card" style="opacity: 0.6;">
+                <h3>Hoofdstuk 2</h3>
+                <p><em>Binnenkort beschikbaar</em></p>
+            </div>
+
+            <!-- Chapter 3 - Placeholder -->
+            <div class="content-card" style="opacity: 0.6;">
+                <h3>Hoofdstuk 3</h3>
+                <p><em>Binnenkort beschikbaar</em></p>
+            </div>
+
+            <!-- Chapter 4 - Placeholder -->
+            <div class="content-card" style="opacity: 0.6;">
+                <h3>Hoofdstuk 4</h3>
+                <p><em>Binnenkort beschikbaar</em></p>
+            </div>
+
+            <!-- Chapter 5: Variable Manipulation - ACTIVE -->
+            <div class="content-card" style="border: 3px solid #667eea;">
+                <h3>Hoofdstuk 5: Variabele Manipulatie</h3>
+                <p>Diepgaande theoretische achtergronden en praktische toepassingen voor variabele manipulatie in R.</p>
+                <p><strong>Beschikbare Pagina's:</strong></p>
+                <ul>
+                    <li><a href="chapter5/recoding-strategies.html">Recoding Strategieën</a></li>
+                    <li><a href="chapter5/scale-construction-theory.html">Schaalconstructie Theorie</a></li>
+                    <li><a href="chapter5/reverse-coding-guide.html">Reverse Coding Gids</a></li>
+                    <li><a href="chapter5/cronbach-alpha-explained.html">Cronbach's Alpha Uitgelegd</a></li>
+                    <li><a href="chapter5/operators-reference.html">R Operators Naslagwerk</a></li>
+                    <li><a href="chapter5/spss-vs-r-comparison.html">SPSS vs R Vergelijking</a></li>
+                </ul>
+            </div>
+
+            <!-- Chapter 6 - Placeholder -->
+            <div class="content-card" style="opacity: 0.6;">
+                <h3>Hoofdstuk 6</h3>
+                <p><em>Binnenkort beschikbaar</em></p>
+            </div>
+
+            <!-- Chapter 7 - Placeholder -->
+            <div class="content-card" style="opacity: 0.6;">
+                <h3>Hoofdstuk 7</h3>
+                <p><em>Binnenkort beschikbaar</em></p>
+            </div>
+
+            <!-- Chapter 8 - Placeholder -->
+            <div class="content-card" style="opacity: 0.6;">
+                <h3>Hoofdstuk 8</h3>
+                <p><em>Binnenkort beschikbaar</em></p>
+            </div>
+
+            <!-- Chapter 9 - Placeholder -->
+            <div class="content-card" style="opacity: 0.6;">
+                <h3>Hoofdstuk 9</h3>
+                <p><em>Binnenkort beschikbaar</em></p>
+            </div>
+
+            <!-- Chapter 10 - Placeholder -->
+            <div class="content-card" style="opacity: 0.6;">
+                <h3>Hoofdstuk 10</h3>
+                <p><em>Binnenkort beschikbaar</em></p>
+            </div>
+
+
+        </div>
     </div>
-    
-    <div class="warning-box" style="margin-top: 20px;">
-        <h3>Voor SPSS-gebruikers die Overstappen naar R:</h3>
-        <ol>
-            <li>Start met <a href="chapter5/spss-vs-r-comparison.html">SPSS vs R Vergelijking</a> voor vertrouwde referenties</li>
-            <li>Bestudeer <a href="chapter5/operators-reference.html">Operators Naslagwerk</a> om R-syntaxis verschillen te begrijpen</li>
-            <li>Volg dan het beginners pad hierboven</li>
-        </ol>
+
+    <div style="margin-top: 60px;">
+        <h2>Hoe Deze Materialen Gebruiken</h2>
+
+        <div class="info-box">
+            <h3>Aanvullend Leermateriaal:</h3>
+            <p>Deze website bevat diepgaande theoretische achtergronden en praktische naslagwerken die de hoofdtekst aanvullen. 
+            Elk hoofdstuk bevat gedetailleerde uitleg, voorbeelden uit criminologisch onderzoek, en best practices voor data-analyse met R.</p>
+        </div>
+
+        <div class="tip-box" style="margin-top: 20px;">
+            <h3>Opmerking:</h3>
+            <p>Momenteel is alleen <strong>Hoofdstuk 5: Variabele Manipulatie</strong> beschikbaar. 
+            Andere hoofdstukken worden binnenkort toegevoegd.</p>
+        </div>
     </div>
-    
-    <div class="tip-box" style="margin-top: 20px;">
-        <h3>Voor Snel Naslagwerk:</h3>
-        <p>Bewaar deze pagina's als bladwijzer voor snelle opzoekingen tijdens het coderen:</p>
-        <ul>
-            <li><a href="chapter5/operators-reference.html">Operators Naslagwerk</a> - Symbool betekenissen</li>
-            <li><a href="chapter5/reverse-coding-guide.html#formulas">Reverse Coding Formules</a> - Snelle formule opzoeken</li>
-            <li><a href="chapter5/cronbach-alpha-explained.html#interpretation">Cronbach's Alpha Interpretatie Tabel</a> - Drempelwaarden</li>
-        </ul>
+
+    <div class="footer" style="margin-top: 40px;">
+        <p>&copy; 2026 From Zero To Statistical Hero | Criminologische Onderzoeksmethoden</p>
+        <p><a href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis"
+                style="color: #667eea;">GitHub Repository</a></p>
     </div>
-</div>
 
-<div class="footer" style="margin-top: 40px;">
-    <p>&copy; 2026 From Zero To Statistical Hero | Criminologische Onderzoeksmethoden</p>
-    <p><a href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis" style="color: #667eea;">GitHub Repository</a></p>
-</div>
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
 
-<a href="#" class="back-to-top" id="backToTop">↑</a>
+    <script>
+        window.addEventListener('scroll', function () {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
 
-<script>
-window.addEventListener('scroll', function() {
-    const backToTop = document.getElementById('backToTop');
-    if (window.pageYOffset > 300) {
-        backToTop.classList.add('visible');
-    } else {
-        backToTop.classList.remove('visible');
-    }
-});
-
-document.getElementById('backToTop').addEventListener('click', function(e) {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-</script>
+        document.getElementById('backToTop').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 
 </body>
+
 </html>
