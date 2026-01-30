@@ -170,6 +170,59 @@
         .quick-links ul li a:hover {
             text-decoration: underline;
         }
+
+        .collapse-header {
+            cursor: pointer;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .collapse-header:hover {
+            background: #e8e8e8;
+        }
+
+        .collapse-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .collapse-content.active {
+            max-height: 1000px;
+        }
+
+        .collapse-content ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .collapse-content ul li {
+            margin: 8px 0;
+        }
+
+        .collapse-content ul li a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .collapse-content ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .arrow.active {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 
@@ -219,11 +272,68 @@
             </div>
 
             <!-- Chapter 5: Variable Manipulation - ACTIVE -->
-            <div class="content-card" style="border: 3px solid #667eea; cursor: pointer;"
-                onclick="window.location.href='chapter5.html';">
-                <h3>Hoofdstuk 5: Variabele Manipulatie</h3>
+            <div class="content-card" style="border: 3px solid #667eea;">
+                <h3 style="cursor: pointer;" onclick="window.location.href='chapter5.html';">Hoofdstuk 5: Variabele Manipulatie</h3>
                 <p>Diepgaande theoretische achtergronden en praktische toepassingen voor variabele manipulatie in R.</p>
-                <a href="chapter5.html" class="btn" onclick="event.stopPropagation();">Bekijk alle pagina's</a>
+                
+                <div class="collapse-header" onclick="toggleCollapse('chapter5-content', this)">
+                    <span>Aanvullende Pagina's</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div id="chapter5-content" class="collapse-content">
+                    <ul>
+                        <li><strong><a href="chapter5/recoding-strategies.html">Recoding Strategieën</a></strong>
+                            <ul>
+                                <li><a href="chapter5/recoding-strategies.html#continuous">Continue vs. categorische data</a></li>
+                                <li><a href="chapter5/recoding-strategies.html#principles">Logische groeperingsprincipes</a></li>
+                                <li><a href="chapter5/recoding-strategies.html#examples">10 criminologie-specifieke voorbeelden</a></li>
+                                <li><a href="chapter5/recoding-strategies.html#mistakes">Veelgemaakte fouten vermijden</a></li>
+                            </ul>
+                        </li>
+                        <li><strong><a href="chapter5/scale-construction-theory.html">Schaalconstructie Theorie</a></strong>
+                            <ul>
+                                <li><a href="chapter5/scale-construction-theory.html#latent">Wat zijn latente concepten?</a></li>
+                                <li><a href="chapter5/scale-construction-theory.html#scales">7 gestandaardiseerde vragenlijsten</a></li>
+                                <li><a href="chapter5/scale-construction-theory.html#ethics">Ethische verplichtingen & citeren</a></li>
+                                <li><a href="chapter5/scale-construction-theory.html#development">5-stappen instrument ontwikkeling</a></li>
+                            </ul>
+                        </li>
+                        <li><strong><a href="chapter5/reverse-coding-guide.html">Reverse Coding Gids</a></strong>
+                            <ul>
+                                <li><a href="chapter5/reverse-coding-guide.html#bias">Wat is acquiescence bias?</a></li>
+                                <li><a href="chapter5/reverse-coding-guide.html#when">Wanneer reverse coding toepassen</a></li>
+                                <li><a href="chapter5/reverse-coding-guide.html#formula">Formule: (Max + Min) - Oude waarde</a></li>
+                                <li><a href="chapter5/reverse-coding-guide.html#code">R-code voor verschillende schaaltypes</a></li>
+                            </ul>
+                        </li>
+                        <li><strong><a href="chapter5/cronbach-alpha-explained.html">Cronbach's Alpha Uitgelegd</a></strong>
+                            <ul>
+                                <li><a href="chapter5/cronbach-alpha-explained.html#consistency">Wat is interne consistentie?</a></li>
+                                <li><a href="chapter5/cronbach-alpha-explained.html#interpretation">Interpretatie grenswaarden (≥.70)</a></li>
+                                <li><a href="chapter5/cronbach-alpha-explained.html#removal">Wanneer items verwijderen</a></li>
+                                <li><a href="chapter5/cronbach-alpha-explained.html#reporting">APA-stijl rapportage</a></li>
+                            </ul>
+                        </li>
+                        <li><strong><a href="chapter5/operators-reference.html">R Operators Naslagwerk</a></strong>
+                            <ul>
+                                <li><a href="chapter5/operators-reference.html#arithmetic">Rekenkundig: +, -, *, /, ^</a></li>
+                                <li><a href="chapter5/operators-reference.html#relational">Relationeel: ==, !=, >, <, %in%</a></li>
+                                <li><a href="chapter5/operators-reference.html#logical">Logisch: &, |, !</a></li>
+                                <li><a href="chapter5/operators-reference.html#precedence">Operator precedentie regels</a></li>
+                            </ul>
+                        </li>
+                        <li><strong><a href="chapter5/spss-vs-r-comparison.html">SPSS vs R Vergelijking</a></strong>
+                            <ul>
+                                <li><a href="chapter5/spss-vs-r-comparison.html#compute">COMPUTE → mutate()</a></li>
+                                <li><a href="chapter5/spss-vs-r-comparison.html#recode">RECODE → case_when()</a></li>
+                                <li><a href="chapter5/spss-vs-r-comparison.html#if">IF → ifelse()</a></li>
+                                <li><a href="chapter5/spss-vs-r-comparison.html#workflow">Complete workflow voorbeelden</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <a href="chapter5.html" class="btn" style="margin-top: 15px;">Bekijk alle pagina's</a>
             </div>
 
             <!-- Chapter 6 - Placeholder -->
@@ -267,6 +377,14 @@
     <a href="#" class="back-to-top" id="backToTop">↑</a>
 
     <script>
+        function toggleCollapse(contentId, headerElement) {
+            const content = document.getElementById(contentId);
+            const arrow = headerElement.querySelector('.arrow');
+            
+            content.classList.toggle('active');
+            arrow.classList.toggle('active');
+        }
+
         window.addEventListener('scroll', function () {
             const backToTop = document.getElementById('backToTop');
             if (window.pageYOffset > 300) {
