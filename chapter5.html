@@ -5,138 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hoofdstuk 5: Variabele Manipulatie - Aanvullend Materiaal</title>
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 35px 20px;
-            text-align: center;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .hero-section h1 {
-            font-size: 2.2em;
-            margin-bottom: 10px;
-            color: white;
-            font-weight: 700;
-        }
-
-        .hero-section p {
-            font-size: 1.05em;
-            opacity: 0.95;
-            margin: 5px 0;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-
-        .content-card {
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .content-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
-            border-color: #667eea;
-        }
-
-        .content-card h3 {
-            color: #667eea;
-            margin-top: 0;
-            font-size: 1.3em;
-            margin-bottom: 12px;
-        }
-
-        .content-card h3 a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        .content-card h3 a:hover {
-            text-decoration: underline;
-        }
-
-        .content-card p {
-            color: #555;
-            line-height: 1.6;
-            margin: 15px 0;
-        }
-
-        .content-card ul {
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-
-        .content-card ul li {
-            margin: 8px 0;
-            line-height: 1.6;
-        }
-
-        .content-card ul li a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        .content-card ul li a:hover {
-            text-decoration: underline;
-        }
-
-        .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .breadcrumb a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css?v=20260204">
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
     <header class="site-header">
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="index.html">Startpagina</a> / Hoofdstuk 5: Variabele Manipulatie
         </nav>
     </header>
 
-    <main id="main-content">
-        <section class="hero" aria-labelledby="chapter-title">
-            <div class="hero-section">
-                <h1 id="chapter-title">Hoofdstuk 5: Variabele Manipulatie in R</h1>
-                <p class="hero-subtitle">Diepgaande theoretische achtergronden, praktische toepassingen en naslagwerken
-                    voor het beheersen van
-                    variabele manipulatie in R</p>
-            </div>
-        </section>
+    <main id="main-content" tabindex="-1">
+        <header class="hero-section" aria-labelledby="chapter-title">
+            <h1 id="chapter-title">Hoofdstuk 5: Variabele Manipulatie in R</h1>
+            <p class="hero-subtitle">Diepgaande theoretische achtergronden, praktische toepassingen en naslagwerken
+                voor het beheersen van
+                variabele manipulatie in R</p>
+        </header>
 
         <section class="chapter-modules" aria-labelledby="modules-title">
             <h2 id="modules-title" class="visually-hidden">Module overzicht</h2>
 
-            <div class="cards-grid module-grid">
+            <nav aria-label="Chapter 5 pages" class="module-grid">
+                <div class="cards-grid">
 
-                <!-- Card 1: Recoding Strategies -->
-                <article class="content-card module-card">
-                    <a href="chapter5/recoding-strategies.html" class="module-link">
+                    <!-- Card 1: Recoding Strategies -->
+                    <article class="content-card module-card">
                         <header class="module-header">
-                            <h3 class="module-title">Hercoderingsstrategieën</h3>
+                            <h3 class="module-title"><a
+                                    href="chapter5/recoding-strategies.html">Hercoderingsstrategieën</a></h3>
                         </header>
                         <p class="module-description">Leer waarom continue dataverzameling cruciaal is en hoe je
                             betekenisvolle categorische variabelen
@@ -147,14 +46,16 @@
                             <li>10 criminologie-specifieke voorbeelden</li>
                             <li>Veelgemaakte fouten vermijden</li>
                         </ul>
-                    </a>
-                </article>
+                        <footer class="module-meta">
+                            <a href="chapter5/recoding-strategies.html" class="btn">Lees meer</a>
+                        </footer>
+                    </article>
 
-                <!-- Card 2: Scale Construction Theory -->
-                <article class="content-card module-card">
-                    <a href="chapter5/scale-construction-theory.html" class="module-link">
+                    <!-- Card 2: Scale Construction Theory -->
+                    <article class="content-card module-card">
                         <header class="module-header">
-                            <h3 class="module-title">Schaalconstructie Theorie</h3>
+                            <h3 class="module-title"><a href="chapter5/scale-construction-theory.html">Schaalconstructie
+                                    Theorie</a></h3>
                         </header>
                         <p class="module-description">Diepgaand inzicht in latente concepten, gestandaardiseerde
                             vragenlijsten en het complete proces van
@@ -165,14 +66,16 @@
                             <li>Ethische verplichtingen & citeren</li>
                             <li>5-stappen instrument ontwikkeling</li>
                         </ul>
-                    </a>
-                </article>
+                        <footer class="module-meta">
+                            <a href="chapter5/scale-construction-theory.html" class="btn">Lees meer</a>
+                        </footer>
+                    </article>
 
-                <!-- Card 3: Reverse Coding Guide -->
-                <article class="content-card module-card">
-                    <a href="chapter5/reverse-coding-guide.html" class="module-link">
+                    <!-- Card 3: Reverse Coding Guide -->
+                    <article class="content-card module-card">
                         <header class="module-header">
-                            <h3 class="module-title">Omgekeerd Coderen Gids</h3>
+                            <h3 class="module-title"><a href="chapter5/reverse-coding-guide.html">Omgekeerd Coderen
+                                    Gids</a></h3>
                         </header>
                         <p class="module-description">Beheers de kunst van reverse coding met stapsgewijze instructies,
                             visuele voorbeelden en praktische
@@ -183,14 +86,16 @@
                             <li>Formule: (Max + Min) - Oude waarde</li>
                             <li>R-code voor verschillende schaaltypes</li>
                         </ul>
-                    </a>
-                </article>
+                        <footer class="module-meta">
+                            <a href="chapter5/reverse-coding-guide.html" class="btn">Lees meer</a>
+                        </footer>
+                    </article>
 
-                <!-- Card 4: Cronbach's Alpha -->
-                <article class="content-card module-card">
-                    <a href="chapter5/cronbach-alpha-explained.html" class="module-link">
+                    <!-- Card 4: Cronbach's Alpha -->
+                    <article class="content-card module-card">
                         <header class="module-header">
-                            <h3 class="module-title">Cronbach's Alpha Uitgelegd</h3>
+                            <h3 class="module-title"><a href="chapter5/cronbach-alpha-explained.html">Cronbach's Alpha
+                                    Uitgelegd</a></h3>
                         </header>
                         <p class="module-description">Complete gids voor het begrijpen, berekenen en interpreteren van
                             Cronbach's Alpha voor interne
@@ -201,14 +106,16 @@
                             <li>Wanneer items verwijderen</li>
                             <li>APA-stijl rapportage</li>
                         </ul>
-                    </a>
-                </article>
+                        <footer class="module-meta">
+                            <a href="chapter5/cronbach-alpha-explained.html" class="btn">Lees meer</a>
+                        </footer>
+                    </article>
 
-                <!-- Card 5: Operators Reference -->
-                <article class="content-card module-card">
-                    <a href="chapter5/operators-reference.html" class="module-link">
+                    <!-- Card 5: Operators Reference -->
+                    <article class="content-card module-card">
                         <header class="module-header">
-                            <h3 class="module-title">R Operators Naslagwerk</h3>
+                            <h3 class="module-title"><a href="chapter5/operators-reference.html">R Operators
+                                    Naslagwerk</a></h3>
                         </header>
                         <p class="module-description">Uitgebreid naslagwerk voor alle R operators: rekenkundig,
                             relationeel, logisch en speciale operators
@@ -219,14 +126,16 @@
                             <li>Logisch: &, |, !</li>
                             <li>Operator precedentie regels</li>
                         </ul>
-                    </a>
-                </article>
+                        <footer class="module-meta">
+                            <a href="chapter5/operators-reference.html" class="btn">Lees meer</a>
+                        </footer>
+                    </article>
 
-                <!-- Card 6: SPSS vs R -->
-                <article class="content-card module-card">
-                    <a href="chapter5/spss-vs-r-comparison.html" class="module-link">
+                    <!-- Card 6: SPSS vs R -->
+                    <article class="content-card module-card">
                         <header class="module-header">
-                            <h3 class="module-title">SPSS vs R Vergelijking</h3>
+                            <h3 class="module-title"><a href="chapter5/spss-vs-r-comparison.html">SPSS vs R
+                                    Vergelijking</a></h3>
                         </header>
                         <p class="module-description">Directe vergelijkingen van SPSS en R syntaxis voor variabele
                             manipulatie, perfect voor overstappende
@@ -237,12 +146,24 @@
                             <li>IF → ifelse()</li>
                             <li>Complete workflow voorbeelden</li>
                         </ul>
-                    </a>
-                </article>
+                        <footer class="module-meta">
+                            <a href="chapter5/spss-vs-r-comparison.html" class="btn">Lees meer</a>
+                        </footer>
+                    </article>
 
-            </div>
+                </div>
+            </nav>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 From Zero To Statistical Hero | Criminologische Onderzoeksmethoden</p>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
+    <script src="js/site.js" defer></script>
+
 </body>
 
 </html>

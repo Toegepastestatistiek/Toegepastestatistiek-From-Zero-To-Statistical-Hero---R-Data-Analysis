@@ -5,119 +5,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cronbach's Alpha - Volledige Gids</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=20260204">
+    <script src="../js/site.js" defer></script>
 </head>
 
 <body>
 
-    <div class="nav-bar">
-        <div class="logo">📊 Statistical Hero - Hoofdstuk 5</div>
-        <nav>
-            <a href="../index.html">Startpagina</a>
-            <a href="scale-construction-theory.html">Scale Theory</a>
-            <a href="reverse-coding-guide.html">Reverse Coding</a>
-            <a href="operators-reference.html">Operators</a>
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="logo" href="../index.html" aria-label="Terug naar startpagina">
+                📊 Statistical Hero <span class="logo-sub">- Hoofdstuk 5</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdnavigatie">
+                <a href="../index.html">Startpagina</a>
+                <a href="scale-construction-theory.html">Scale Theory</a>
+                <a href="reverse-coding-guide.html">Reverse Coding</a>
+                <a href="operators-reference.html">Operators</a>
+            </nav>
+        </div>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../index.html">Startpagina</a></li>
+                <li><a href="../chapter5.html">Hoofdstuk 5</a></li>
+                <li aria-current="page">Cronbach's Alpha Explained</li>
+            </ol>
         </nav>
-    </div>
+    </header>
 
-    <div class="breadcrumb">
-        <a href="../index.html">Startpagina</a> <span>›</span>
-        <a href="#">Hoofdstuk 5</a> <span>›</span>
-        <span>Cronbach's Alpha Explained</span>
-    </div>
+    <main id="main-content" class="page-content" tabindex="-1">
+        <header class="page-header">
+            <h1>📐 Cronbach's Alpha: Deep Dive</h1>
+        </header>
 
-    <h1>📐 Cronbach's Alpha: Deep Dive</h1>
+        <h2>Wat is Cronbach's Alpha?</h2>
 
-    <h2>Wat is Cronbach's Alpha?</h2>
+        <p><strong>Cronbach's Alpha (α)</strong> is de meest gebruikte maat voor <strong>interne consistentie</strong>
+            van
+            een schaal. Het vertelt je of de items in je schaal onderling consistent samenhangen - dat wil zeggen, of ze
+            allemaal hetzelfde concept meten.</p>
 
-    <p><strong>Cronbach's Alpha (α)</strong> is de meest gebruikte maat voor <strong>interne consistentie</strong> van
-        een schaal. Het vertelt je of de items in je schaal onderling consistent samenhangen - dat wil zeggen, of ze
-        allemaal hetzelfde concept meten.</p>
+        <aside class="info-box" role="note" aria-label="Informatie">
+            <strong>Centrale vraag:</strong> Als een persoon hoog scoort op item A, scoort die dan ook hoog op items B,
+            C en
+            D?<br><br>
+            Als JA → Hoge alpha (goede interne consistentie)<br>
+            Als NEE → Lage alpha (slechte interne consistentie)
+        </aside>
 
-    <div class="info-box">
-        <strong>Centrale vraag:</strong> Als een persoon hoog scoort op item A, scoort die dan ook hoog op items B, C en
-        D?<br><br>
-        Als JA → Hoge alpha (goede interne consistentie)<br>
-        Als NEE → Lage alpha (slechte interne consistentie)
-    </div>
+        <h3>Waarom Is Dit Belangrijk?</h3>
 
-    <h3>Waarom Is Dit Belangrijk?</h3>
+        <p>Als items <strong>niet consistent</strong> met elkaar zijn, meten ze blijkbaar <strong>verschillende
+                dingen</strong>. Je mag ze dan niet samen nemen als één schaalvariabele!</p>
 
-    <p>Als items <strong>niet consistent</strong> met elkaar zijn, meten ze blijkbaar <strong>verschillende
-            dingen</strong>. Je mag ze dan niet samen nemen als één schaalvariabele!</p>
+        <aside class="example-box" role="note" aria-label="Voorbeeld">
+            <strong>Voorbeeld:</strong> Stress Schaal<br><br>
+            Stel je combineert deze items:<br>
+            - "Ik voel me vaak gestrest" (meet stress)<br>
+            - "Ik eet graag pizza" (meet eetvoorkeur - <strong>NIET stress!</strong>)<br>
+            - "Ik maak me veel zorgen" (meet stress)<br><br>
 
-    <div class="example-box">
-        <strong>Voorbeeld:</strong> Stress Schaal<br><br>
-        Stel je combineert deze items:<br>
-        - "Ik voel me vaak gestrest" (meet stress)<br>
-        - "Ik eet graag pizza" (meet eetvoorkeur - <strong>NIET stress!</strong>)<br>
-        - "Ik maak me veel zorgen" (meet stress)<br><br>
+            → Cronbach's Alpha zou laag zijn, omdat het pizza-item niet samenhangt met de stress-items. Signaal dat
+            items
+            niet hetzelfde concept meten!
+        </aside>
 
-        → Cronbach's Alpha zou laag zijn, omdat het pizza-item niet samenhangt met de stress-items. Signaal dat items
-        niet hetzelfde concept meten!
-    </div>
+        <hr>
 
-    <hr>
+        <h2>Interpretatie Grenswaarden</h2>
 
-    <h2>Interpretatie Grenswaarden</h2>
+        <table>
+            <caption class="visually-hidden">Interpretatie van Cronbach's Alpha waarden</caption>
+            <thead>
+                <tr>
+                    <th>Cronbach's Alpha</th>
+                    <th>Interne Consistentie</th>
+                    <th>Interpretatie</th>
+                    <th>Actie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #d4edda;">
+                    <td><strong>≥ .90</strong></td>
+                    <td>Excellent</td>
+                    <td>Uitstekend! Items meten zeer consistent</td>
+                    <td>✅ Schaal is uitstekend bruikbaar</td>
+                </tr>
+                <tr style="background-color: #d1ecf1;">
+                    <td><strong>≥ .80</strong></td>
+                    <td>Goed</td>
+                    <td>Goed! Items hangen goed samen</td>
+                    <td>✅ Schaal is goed bruikbaar</td>
+                </tr>
+                <tr style="background-color: #fff3cd;">
+                    <td><strong>≥ .70</strong></td>
+                    <td>Voldoende</td>
+                    <td>Acceptabel voor onderzoek</td>
+                    <td>✅ Schaal mag gebruikt worden</td>
+                </tr>
+                <tr style="background-color: #f8d7da;">
+                    <td><strong>.60 - .70</strong></td>
+                    <td>Zwak</td>
+                    <td>Twijfelachtig, grensgevallen</td>
+                    <td>⚠️ Overweeg items te verwijderen</td>
+                </tr>
+                <tr style="background-color: #f5c6cb;">
+                    <td><strong>
+                            < .60</strong>
+                    </td>
+                    <td>Onacceptabel</td>
+                    <td>Items meten verschillende dingen</td>
+                    <td>❌ Schaal NIET gebruiken!</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Cronbach's Alpha</th>
-                <th>Interne Consistentie</th>
-                <th>Interpretatie</th>
-                <th>Actie</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr style="background-color: #d4edda;">
-                <td><strong>≥ .90</strong></td>
-                <td>Excellent</td>
-                <td>Uitstekend! Items meten zeer consistent</td>
-                <td>✅ Schaal is uitstekend bruikbaar</td>
-            </tr>
-            <tr style="background-color: #d1ecf1;">
-                <td><strong>≥ .80</strong></td>
-                <td>Goed</td>
-                <td>Goed! Items hangen goed samen</td>
-                <td>✅ Schaal is goed bruikbaar</td>
-            </tr>
-            <tr style="background-color: #fff3cd;">
-                <td><strong>≥ .70</strong></td>
-                <td>Voldoende</td>
-                <td>Acceptabel voor onderzoek</td>
-                <td>✅ Schaal mag gebruikt worden</td>
-            </tr>
-            <tr style="background-color: #f8d7da;">
-                <td><strong>.60 - .70</strong></td>
-                <td>Zwak</td>
-                <td>Twijfelachtig, grensgevallen</td>
-                <td>⚠️ Overweeg items te verwijderen</td>
-            </tr>
-            <tr style="background-color: #f5c6cb;">
-                <td><strong>
-                        < .60</strong>
-                </td>
-                <td>Onacceptabel</td>
-                <td>Items meten verschillende dingen</td>
-                <td>❌ Schaal NIET gebruiken!</td>
-            </tr>
-        </tbody>
-    </table>
+        <aside class="warning-box" role="note" aria-label="Waarschuwing">
+            <strong>Minimum vereiste:</strong> α ≥ .70<br>
+            Onder deze grens mag je de schaal NIET gebruiken voor wetenschappelijk onderzoek!
+        </aside>
 
-    <div class="warning-box">
-        <strong>Minimum vereiste:</strong> α ≥ .70<br>
-        Onder deze grens mag je de schaal NIET gebruiken voor wetenschappelijk onderzoek!
-    </div>
+        <hr>
 
-    <hr>
+        <h2>Cronbach's Alpha Berekenen in R</h2>
 
-    <h2>Cronbach's Alpha Berekenen in R</h2>
+        <h3>Stap-voor-Stap Code</h3>
 
-    <h3>Stap-voor-Stap Code</h3>
-
-    <pre><code class="r-code"># STAP 1: Selecteer de schaalitems
+        <pre><code class="r-code"># STAP 1: Selecteer de schaalitems
 scale_items <- data_wave1 |>
   dplyr::select(W1_W_STRESS1, W1_W_STRESS2, W1_W_STRESS3, W1_W_STRESS4)
 
@@ -134,9 +150,9 @@ alpha_result$total$std.alpha          # Gestandaardiseerde alpha
 alpha_result$alpha.drop               # "Alpha if item deleted"
 </code></pre>
 
-    <h3>Output Interpreteren</h3>
+        <h3>Output Interpreteren</h3>
 
-    <pre><code># Reliability analysis   
+        <pre><code># Reliability analysis   
 #  raw_alpha std.alpha G6(smc) average_r S/N   ase mean   sd
 #       0.88      0.88    0.86      0.64 7.1 0.012  2.8 0.89
 
@@ -145,128 +161,132 @@ alpha_result$alpha.drop               # "Alpha if item deleted"
 # ✅ Schaal is bruikbaar voor analyses
 </code></pre>
 
-    <hr>
+        <hr>
 
-    <h2>"Alpha if Item Deleted" - Wanneer Items Verwijderen?</h2>
+        <h2>"Alpha if Item Deleted" - Wanneer Items Verwijderen?</h2>
 
-    <p>De output <code>alpha.drop</code> toont wat er met alpha gebeurt als je elk item zou verwijderen.</p>
+        <p>De output <code>alpha.drop</code> toont wat er met alpha gebeurt als je elk item zou verwijderen.</p>
 
-    <h3>Voorbeeld Output</h3>
+        <h3>Voorbeeld Output</h3>
 
-    <pre><code>#                   raw_alpha std.alpha   r.cor  r.drop
+        <pre><code>#                   raw_alpha std.alpha   r.cor  r.drop
 # W1_W_STRESS1         0.85      0.85    0.75   0.71
 # W1_W_STRESS2         0.86      0.86    0.70   0.68
 # W1_W_STRESS3         0.83      0.83    0.80   0.75
 # W1_W_STRESS4         0.87      0.87    0.68   0.65
 </code></pre>
 
-    <h3>Interpretatie</h3>
+        <h3>Interpretatie</h3>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Item</th>
-                <th>Alpha if Deleted</th>
-                <th>Betekenis</th>
-                <th>Conclusie</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>W1_W_STRESS1</td>
-                <td>0.85</td>
-                <td>Alpha daalt van .88 naar .85 als we dit item verwijderen</td>
-                <td>✅ Behoud item (verlaagt alpha)</td>
-            </tr>
-            <tr>
-                <td>W1_W_STRESS2</td>
-                <td>0.86</td>
-                <td>Alpha daalt van .88 naar .86</td>
-                <td>✅ Behoud item</td>
-            </tr>
-            <tr>
-                <td>W1_W_STRESS3</td>
-                <td>0.83</td>
-                <td>Alpha daalt van .88 naar .83</td>
-                <td>✅ Behoud item (grootste daling!)</td>
-            </tr>
-            <tr>
-                <td>W1_W_STRESS4</td>
-                <td>0.87</td>
-                <td>Alpha daalt van .88 naar .87 (minimale daling)</td>
-                <td>✅ Behoud item (klein effect, maar nog steeds negatief)</td>
-            </tr>
-        </tbody>
-    </table>
+        <table>
+            <caption class="visually-hidden">Interpretatie van Alpha if Item Deleted waarden</caption>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Alpha if Deleted</th>
+                    <th>Betekenis</th>
+                    <th>Conclusie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>W1_W_STRESS1</td>
+                    <td>0.85</td>
+                    <td>Alpha daalt van .88 naar .85 als we dit item verwijderen</td>
+                    <td>✅ Behoud item (verlaagt alpha)</td>
+                </tr>
+                <tr>
+                    <td>W1_W_STRESS2</td>
+                    <td>0.86</td>
+                    <td>Alpha daalt van .88 naar .86</td>
+                    <td>✅ Behoud item</td>
+                </tr>
+                <tr>
+                    <td>W1_W_STRESS3</td>
+                    <td>0.83</td>
+                    <td>Alpha daalt van .88 naar .83</td>
+                    <td>✅ Behoud item (grootste daling!)</td>
+                </tr>
+                <tr>
+                    <td>W1_W_STRESS4</td>
+                    <td>0.87</td>
+                    <td>Alpha daalt van .88 naar .87 (minimale daling)</td>
+                    <td>✅ Behoud item (klein effect, maar nog steeds negatief)</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <div class="tip-box">
-        <strong>Regel:</strong> Als ALLE "alpha if deleted" waarden <strong>lager</strong> zijn dan de overall alpha →
-        Verwijder GEEN items. De schaal is al optimaal!
-    </div>
+        <aside class="tip-box" role="note" aria-label="Tip">
+            <strong>Regel:</strong> Als ALLE "alpha if deleted" waarden <strong>lager</strong> zijn dan de overall alpha
+            →
+            Verwijder GEEN items. De schaal is al optimaal!
+        </aside>
 
-    <hr>
+        <hr>
 
-    <h2>Beslisregels voor Items Verwijderen</h2>
+        <h2>Beslisregels voor Items Verwijderen</h2>
 
-    <h3>Regel 1: Alpha Status</h3>
+        <h3>Regel 1: Alpha Status</h3>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Huidige Alpha</th>
-                <th>Beslissing</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>α < .70</strong> (zwak)</td>
-                <td>Overweeg items verwijderen die alpha <strong>substantieel</strong> verhogen (bijv. van .65 naar .78)
-                </td>
-            </tr>
-            <tr>
-                <td><strong>α ≥ .70</strong> (voldoende)</td>
-                <td>Verwijder alleen items als dit alpha naar ≥ .90 (excellent) brengt</td>
-            </tr>
-            <tr>
-                <td><strong>α ≥ .90</strong> (excellent)</td>
-                <td>Verwijder GEEN items - schaal is al uitstekend</td>
-            </tr>
-        </tbody>
-    </table>
+        <table>
+            <caption class="visually-hidden">Beslisregels voor items verwijderen op basis van Alpha status</caption>
+            <thead>
+                <tr>
+                    <th>Huidige Alpha</th>
+                    <th>Beslissing</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>α < .70</strong> (zwak)</td>
+                    <td>Overweeg items verwijderen die alpha <strong>substantieel</strong> verhogen (bijv. van .65 naar
+                        .78)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>α ≥ .70</strong> (voldoende)</td>
+                    <td>Verwijder alleen items als dit alpha naar ≥ .90 (excellent) brengt</td>
+                </tr>
+                <tr>
+                    <td><strong>α ≥ .90</strong> (excellent)</td>
+                    <td>Verwijder GEEN items - schaal is al uitstekend</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <h3>Regel 2: Corrected Item-Total Correlation (r.drop)</h3>
+        <h3>Regel 2: Corrected Item-Total Correlation (r.drop)</h3>
 
-    <div class="info-box">
-        <strong>r.drop</strong> = correlatie tussen item en totale schaal (zonder dat item zelf)<br>
-        <strong>Minimum vereiste:</strong> r.drop > .30 voor elk item
-    </div>
+        <aside class="info-box" role="note" aria-label="Informatie">
+            <strong>r.drop</strong> = correlatie tussen item en totale schaal (zonder dat item zelf)<br>
+            <strong>Minimum vereiste:</strong> r.drop > .30 voor elk item
+        </aside>
 
-    <pre><code>#                   raw_alpha std.alpha   r.cor  r.drop
+        <pre><code>#                   raw_alpha std.alpha   r.cor  r.drop
 # W1_STRESS1           0.85      0.85    0.75   0.71  ✅
 # W1_STRESS2           0.86      0.86    0.70   0.68  ✅
 # W1_STRESS3           0.83      0.83    0.80   0.75  ✅
 # W1_STRESS4           0.82      0.82    0.42   0.25  ❌ Te laag!
 </code></pre>
 
-    <div class="warning-box">
-        Item met r.drop < .30 hangt zwak samen met rest van schaal → Kandidaat voor verwijdering! </div>
+        <aside class="warning-box" role="note" aria-label="Waarschuwing">
+            Item met r.drop < .30 hangt zwak samen met rest van schaal → Kandidaat voor verwijdering! </aside>
 
-            <h3>Regel 3: Inhoudelijke Check</h3>
+                <h3>Regel 3: Inhoudelijke Check</h3>
 
-            <p>Vraag jezelf af:</p>
-            <ul>
-                <li>Heeft het zin om dit item te verwijderen <strong>theoretisch</strong>?</li>
-                <li>Past het item <strong>inhoudelijk</strong> bij het concept?</li>
-                <li>Blijven er genoeg items over (minimaal 3)?</li>
-            </ul>
+                <p>Vraag jezelf af:</p>
+                <ul>
+                    <li>Heeft het zin om dit item te verwijderen <strong>theoretisch</strong>?</li>
+                    <li>Past het item <strong>inhoudelijk</strong> bij het concept?</li>
+                    <li>Blijven er genoeg items over (minimaal 3)?</li>
+                </ul>
 
-            <hr>
+                <hr>
 
-            <h2>Praktijkvoorbeeld: Problematisch Item</h2>
+                <h2>Praktijkvoorbeeld: Problematisch Item</h2>
 
-            <h3>Scenario: Zelfcontrole Schaal (α = .65)</h3>
+                <h3>Scenario: Zelfcontrole Schaal (α = .65)</h3>
 
-            <pre><code class="r-code"># STAP 1: Bereken alpha
+                <pre><code class="r-code"># STAP 1: Bereken alpha
 scale_items <- data |>
   dplyr::select(Zelfcontrole1, Zelfcontrole2, Zelfcontrole3, Zelfcontrole4)
 
@@ -286,23 +306,23 @@ alpha_result$alpha.drop
 # Zelfcontrole4       0.78      0.78    0.25   0.18  ⚠️ PROBLEEM!
 </code></pre>
 
-            <h3>Analyse</h3>
+                <h3>Analyse</h3>
 
-            <div class="example-box">
-                <strong>Observaties:</strong>
-                <ul>
-                    <li>Huidige alpha = .65 (zwak, onder .70 grens)</li>
-                    <li>Alpha if Item 4 deleted = <strong>.78</strong> (substantiële stijging!)</li>
-                    <li>Item 4 r.drop = .18 (veel te laag, < .30)</li>
-                    <li>Inhoudelijk: Item 4 "Ik word snel boos" wijst meer naar agressie dan zelfcontrole</li>
-                </ul>
+                <aside class="example-box" role="note" aria-label="Voorbeeld">
+                    <strong>Observaties:</strong>
+                    <ul>
+                        <li>Huidige alpha = .65 (zwak, onder .70 grens)</li>
+                        <li>Alpha if Item 4 deleted = <strong>.78</strong> (substantiële stijging!)</li>
+                        <li>Item 4 r.drop = .18 (veel te laag, < .30)</li>
+                        <li>Inhoudelijk: Item 4 "Ik word snel boos" wijst meer naar agressie dan zelfcontrole</li>
+                    </ul>
 
-                <strong>Beslissing:</strong> ✅ Verwijder Item 4
-            </div>
+                    <strong>Beslissing:</strong> ✅ Verwijder Item 4
+                </aside>
 
-            <h3>Na Verwijdering</h3>
+                <h3>Na Verwijdering</h3>
 
-            <pre><code class="r-code"># Herbereken zonder Item 4
+                <pre><code class="r-code"># Herbereken zonder Item 4
 scale_items_revised <- data |>
   dplyr::select(Zelfcontrole1, Zelfcontrole2, Zelfcontrole3)
 
@@ -322,206 +342,205 @@ data <- data |>
   )
 </code></pre>
 
-            <hr>
+                <hr>
 
-            <h2>Factoren die Alpha Beïnvloeden</h2>
+                <h2>Factoren die Alpha Beïnvloeden</h2>
 
-            <h3>1. Aantal Items</h3>
+                <h3>1. Aantal Items</h3>
 
-            <div class="info-box">
-                Meer items = Hogere alpha (ceteris paribus)<br>
-                <strong>Let op:</strong> Dit is NIET altijd beter! Kwaliteit > Kwantiteit
-            </div>
+                <aside class="info-box" role="note" aria-label="Informatie">
+                    Meer items = Hogere alpha (ceteris paribus)<br>
+                    <strong>Let op:</strong> Dit is NIET altijd beter! Kwaliteit > Kwantiteit
+                </aside>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Aantal Items</th>
-                        <th>Typische Alpha</th>
-                        <th>Opmerking</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2 items</td>
-                        <td>.50 - .70</td>
-                        <td>Minimaal (vaak te laag)</td>
-                    </tr>
-                    <tr>
-                        <td>3-5 items</td>
-                        <td>.70 - .85</td>
-                        <td>Ideaal voor meeste schalen</td>
-                    </tr>
-                    <tr>
-                        <td>6-10 items</td>
-                        <td>.80 - .90</td>
-                        <td>Goed, maar let op redundantie</td>
-                    </tr>
-                    <tr>
-                        <td>> 10 items</td>
-                        <td>> .90</td>
-                        <td>Mogelijk te hoog (redundantie?)</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table>
+                    <caption class="visually-hidden">Verband tussen aantal items en Cronbach's Alpha</caption>
+                    <thead>
+                        <tr>
+                            <th>Aantal Items</th>
+                            <th>Typische Alpha</th>
+                            <th>Opmerking</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2 items</td>
+                            <td>.50 - .70</td>
+                            <td>Minimaal (vaak te laag)</td>
+                        </tr>
+                        <tr>
+                            <td>3-5 items</td>
+                            <td>.70 - .85</td>
+                            <td>Ideaal voor meeste schalen</td>
+                        </tr>
+                        <tr>
+                            <td>6-10 items</td>
+                            <td>.80 - .90</td>
+                            <td>Goed, maar let op redundantie</td>
+                        </tr>
+                        <tr>
+                            <td>> 10 items</td>
+                            <td>> .90</td>
+                            <td>Mogelijk te hoog (redundantie?)</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-            <h3>2. Dimensionaliteit</h3>
+                <h3>2. Dimensionaliteit</h3>
 
-            <div class="warning-box">
-                Cronbach's Alpha is alleen geldig voor <strong>unidimensionele</strong> schalen (items meten 1
-                concept)!<br><br>
-                Voor <strong>multidimensionele</strong> schalen: gebruik factoranalyse (gevorderde techniek)
-            </div>
+                <aside class="warning-box" role="note" aria-label="Waarschuwing">
+                    Cronbach's Alpha is alleen geldig voor <strong>unidimensionele</strong> schalen (items meten 1
+                    concept)!<br><br>
+                    Voor <strong>multidimensionele</strong> schalen: gebruik factoranalyse (gevorderde techniek)
+                </aside>
 
-            <h3>3. Homogeniteit vs. Heterogeniteit</h3>
+                <h3>3. Homogeniteit vs. Heterogeniteit</h3>
 
-            <ul>
-                <li><strong>Homogene items:</strong> Formuleren hetzelfde op verschillende manieren → Hogere alpha</li>
-                <li><strong>Heterogene items:</strong> Meten verschillende aspecten van concept → Lagere alpha (maar
-                    mogelijk meer valide)</li>
-            </ul>
-
-            <hr>
-
-            <h2>APA Rapportering</h2>
-
-            <p>Rapporteer Cronbach's Alpha <strong>altijd</strong> in je methodesectie volgens APA-normen:</p>
-
-            <div class="example-box">
-                <h4>Template voor Rapportage</h4>
-                <p>"[Concept] werd gemeten met [naam schaal] ([Auteurs, jaar]), een [gevalideerd/aangepast] instrument
-                    bestaande uit [aantal] items, gemeten op een [aantal]-punten Likertschaal van [laag label] tot [hoog
-                    label]. Een voorbeelditem is '[item tekst]'. De interne consistentie van de schaal [in deze
-                    steekproef] was [kwalificatie] (α = [waarde])."</p>
-            </div>
-
-            <div class="example-box">
-                <h4>Concreet Voorbeeld</h4>
-                <p>"Werkstress werd gemeten met een aangepaste versie van de Perceived Stress Scale (PSS; Cohen et al.,
-                    1983), een gevalideerd instrument bestaande uit 4 items, gemeten op een 5-punten Likertschaal van 1
-                    = '(Bijna) nooit' tot 5 = 'Heel vaak'. Een voorbeelditem is 'Hoe vaak had je het gevoel dat je
-                    belangrijke zaken in je werk/studie niet onder controle had, gedurende de afgelopen twee weken?'. De
-                    interne consistentie van de schaal in deze steekproef was goed (α = .88)."</p>
-            </div>
-
-            <h3>Kwalificaties voor Alpha Waarden</h3>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Alpha</th>
-                        <th>Nederlands</th>
-                        <th>English</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>≥ .90</td>
-                        <td>excellent / uitstekend</td>
-                        <td>excellent</td>
-                    </tr>
-                    <tr>
-                        <td>≥ .80</td>
-                        <td>goed / zeer goed</td>
-                        <td>good</td>
-                    </tr>
-                    <tr>
-                        <td>≥ .70</td>
-                        <td>voldoende / acceptabel</td>
-                        <td>acceptable</td>
-                    </tr>
-                    <tr>
-                        <td>.60 - .70</td>
-                        <td>zwak / twijfelachtig</td>
-                        <td>questionable</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <hr>
-
-            <h2>Veelgestelde Vragen</h2>
-
-            <h3>❓ Kan Alpha te HOOG zijn?</h3>
-
-            <p><strong>Ja!</strong> Alpha > .95 kan wijzen op <strong>redundantie</strong> - items zijn té vergelijkbaar
-                en meten eigenlijk hetzelfde met verschillende woorden. Dit voegt geen informatie toe.</p>
-
-            <h3>❓ Wat als ik NEGATIVE alpha krijg?</h3>
-
-            <p><strong>Oorzaak:</strong> Items zijn <strong>negatief gecorreleerd</strong> - ze meten tegengestelde
-                dingen!</p>
-
-            <div class="warning-box">
-                <strong>Oplossing:</strong> Controleer of je <strong>reverse coded items</strong> hebt vergeten om te
-                keren!<br>
-                → Zie <a href="reverse-coding-guide.html">Reverse Coding Guide</a>
-            </div>
-
-            <h3>❓ Hoeveel items MINIMAAL nodig?</h3>
-
-            <p><strong>Theoretisch:</strong> 2 items (maar alpha vaak te laag)<br>
-                <strong>Praktisch:</strong> Minimaal <strong>3 items</strong> voor betrouwbare schaal<br>
-                <strong>Ideaal:</strong> 4-6 items (balans tussen betrouwbaarheid en lengte vragenlijst)
-            </p>
-
-            <h3>❓ Mag ik alpha verhogen door items toe te voegen?</h3>
-
-            <p><strong>Ja, MAAR:</strong> Alleen als nieuwe items <strong>theoretisch zinvol</strong> zijn en hetzelfde
-                concept meten. Items toevoegen "puur voor hogere alpha" is <strong>methodologisch onjuist</strong>!</p>
-
-            <hr>
-
-            <h2>Checklist: Voor Je Schaal Gebruikt</h2>
-
-            <div style="background-color: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <h4>✅ Voordat je schaalvariabele gebruikt, check:</h4>
-                <ol>
-                    <li>☑️ Cronbach's Alpha berekend? (α ≥ .70)</li>
-                    <li>☑️ "Alpha if deleted" bekeken? (geen items met grote stijging)</li>
-                    <li>☑️ Item-total correlaties gecheckt? (alle r.drop > .30)</li>
-                    <li>☑️ Reverse coded items omgekeerd?</li>
-                    <li>☑️ Minimaal 3 items behouden?</li>
-                    <li>☑️ Inhoudelijk zinvol? (items passen theoretisch bij concept)</li>
-                    <li>☑️ Alpha gerapporteerd in methodesectie?</li>
-                </ol>
-            </div>
-
-            <hr>
-
-            <div class="related-pages">
-                <h3>📚 Gerelateerde Pagina's</h3>
                 <ul>
-                    <li><a href="scale-construction-theory.html">Scale Construction Theory</a></li>
-                    <li><a href="reverse-coding-guide.html">Reverse Coding Guide</a></li>
-                    <li><a href="recoding-strategies.html">Recoding Strategies</a></li>
-                    <li><a href="../index.html">← Terug naar hoofdpagina</a></li>
+                    <li><strong>Homogene items:</strong> Formuleren hetzelfde op verschillende manieren → Hogere alpha
+                    </li>
+                    <li><strong>Heterogene items:</strong> Meten verschillende aspecten van concept → Lagere alpha (maar
+                        mogelijk meer valide)</li>
                 </ul>
-            </div>
 
-            <div class="footer">
-                <p>&copy; 2026 From Zero To Statistical Hero | <a
-                        href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis">GitHub
-                        Repository</a></p>
-            </div>
+                <hr>
 
-            <a href="#" class="back-to-top" id="backToTop">↑</a>
+                <h2>APA Rapportering</h2>
 
-            <script>
-                window.addEventListener('scroll', function () {
-                    const backToTop = document.getElementById('backToTop');
-                    if (window.pageYOffset > 300) {
-                        backToTop.classList.add('visible');
-                    } else {
-                        backToTop.classList.remove('visible');
-                    }
-                });
+                <p>Rapporteer Cronbach's Alpha <strong>altijd</strong> in je methodesectie volgens APA-normen:</p>
 
-                document.getElementById('backToTop').addEventListener('click', function (e) {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            </script>
+                <aside class="example-box" role="note" aria-label="Voorbeeld">
+                    <h4>Template voor Rapportage</h4>
+                    <p>"[Concept] werd gemeten met [naam schaal] ([Auteurs, jaar]), een [gevalideerd/aangepast]
+                        instrument
+                        bestaande uit [aantal] items, gemeten op een [aantal]-punten Likertschaal van [laag label] tot
+                        [hoog
+                        label]. Een voorbeelditem is '[item tekst]'. De interne consistentie van de schaal [in deze
+                        steekproef] was [kwalificatie] (α = [waarde])."</p>
+                </aside>
+
+                <aside class="example-box" role="note" aria-label="Voorbeeld">
+                    <h4>Concreet Voorbeeld</h4>
+                    <p>"Werkstress werd gemeten met een aangepaste versie van de Perceived Stress Scale (PSS; Cohen et
+                        al.,
+                        1983), een gevalideerd instrument bestaande uit 4 items, gemeten op een 5-punten Likertschaal
+                        van 1
+                        = '(Bijna) nooit' tot 5 = 'Heel vaak'. Een voorbeelditem is 'Hoe vaak had je het gevoel dat je
+                        belangrijke zaken in je werk/studie niet onder controle had, gedurende de afgelopen twee
+                        weken?'. De
+                        interne consistentie van de schaal in deze steekproef was goed (α = .88)."</p>
+                </aside>
+
+                <h3>Kwalificaties voor Alpha Waarden</h3>
+
+                <table>
+                    <caption class="visually-hidden">Kwalificaties voor Cronbach's Alpha waarden in Nederlands en Engels
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Alpha</th>
+                            <th>Nederlands</th>
+                            <th>English</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>≥ .90</td>
+                            <td>excellent / uitstekend</td>
+                            <td>excellent</td>
+                        </tr>
+                        <tr>
+                            <td>≥ .80</td>
+                            <td>goed / zeer goed</td>
+                            <td>good</td>
+                        </tr>
+                        <tr>
+                            <td>≥ .70</td>
+                            <td>voldoende / acceptabel</td>
+                            <td>acceptable</td>
+                        </tr>
+                        <tr>
+                            <td>.60 - .70</td>
+                            <td>zwak / twijfelachtig</td>
+                            <td>questionable</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <hr>
+
+                <h2>Veelgestelde Vragen</h2>
+
+                <h3>❓ Kan Alpha te HOOG zijn?</h3>
+
+                <p><strong>Ja!</strong> Alpha > .95 kan wijzen op <strong>redundantie</strong> - items zijn té
+                    vergelijkbaar
+                    en meten eigenlijk hetzelfde met verschillende woorden. Dit voegt geen informatie toe.</p>
+
+                <h3>❓ Wat als ik NEGATIVE alpha krijg?</h3>
+
+                <p><strong>Oorzaak:</strong> Items zijn <strong>negatief gecorreleerd</strong> - ze meten tegengestelde
+                    dingen!</p>
+
+                <aside class="warning-box" role="note" aria-label="Waarschuwing">
+                    <strong>Oplossing:</strong> Controleer of je <strong>reverse coded items</strong> hebt vergeten om
+                    te
+                    keren!<br>
+                    → Zie <a href="reverse-coding-guide.html">Reverse Coding Guide</a>
+                </aside>
+
+                <h3>❓ Hoeveel items MINIMAAL nodig?</h3>
+
+                <p><strong>Theoretisch:</strong> 2 items (maar alpha vaak te laag)<br>
+                    <strong>Praktisch:</strong> Minimaal <strong>3 items</strong> voor betrouwbare schaal<br>
+                    <strong>Ideaal:</strong> 4-6 items (balans tussen betrouwbaarheid en lengte vragenlijst)
+                </p>
+
+                <h3>❓ Mag ik alpha verhogen door items toe te voegen?</h3>
+
+                <p><strong>Ja, MAAR:</strong> Alleen als nieuwe items <strong>theoretisch zinvol</strong> zijn en
+                    hetzelfde
+                    concept meten. Items toevoegen "puur voor hogere alpha" is <strong>methodologisch onjuist</strong>!
+                </p>
+
+                <hr>
+
+                <h2>Checklist: Voor Je Schaal Gebruikt</h2>
+
+                <div style="background-color: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                    <h4>✅ Voordat je schaalvariabele gebruikt, check:</h4>
+                    <ol>
+                        <li>☑️ Cronbach's Alpha berekend? (α ≥ .70)</li>
+                        <li>☑️ "Alpha if deleted" bekeken? (geen items met grote stijging)</li>
+                        <li>☑️ Item-total correlaties gecheckt? (alle r.drop > .30)</li>
+                        <li>☑️ Reverse coded items omgekeerd?</li>
+                        <li>☑️ Minimaal 3 items behouden?</li>
+                        <li>☑️ Inhoudelijk zinvol? (items passen theoretisch bij concept)</li>
+                        <li>☑️ Alpha gerapporteerd in methodesectie?</li>
+                    </ol>
+                </div>
+
+                <hr>
+
+                <div class="related-pages">
+                    <h3>📚 Gerelateerde Pagina's</h3>
+                    <ul>
+                        <li><a href="scale-construction-theory.html">Scale Construction Theory</a></li>
+                        <li><a href="reverse-coding-guide.html">Reverse Coding Guide</a></li>
+                        <li><a href="recoding-strategies.html">Recoding Strategies</a></li>
+                        <li><a href="../index.html">← Terug naar hoofdpagina</a></li>
+                    </ul>
+        </aside>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 From Zero To Statistical Hero | <a
+                href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis">GitHub
+                Repository</a></p>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Terug naar boven">↑</a>
 
 </body>
 

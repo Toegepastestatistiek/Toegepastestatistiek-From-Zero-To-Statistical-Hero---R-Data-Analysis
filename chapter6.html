@@ -5,136 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hoofdstuk 6: Numerieke Maten - Aanvullend Materiaal</title>
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 35px 20px;
-            text-align: center;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .hero-section h1 {
-            font-size: 2.2em;
-            margin-bottom: 10px;
-            color: white;
-            font-weight: 700;
-        }
-
-        .hero-section p {
-            font-size: 1.05em;
-            opacity: 0.95;
-            margin: 5px 0;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-
-        .content-card {
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .content-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
-            border-color: #667eea;
-        }
-
-        .content-card h3 {
-            color: #667eea;
-            margin-top: 0;
-            font-size: 1.3em;
-            margin-bottom: 12px;
-        }
-
-        .content-card h3 a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        .content-card h3 a:hover {
-            text-decoration: underline;
-        }
-
-        .content-card p {
-            color: #555;
-            line-height: 1.6;
-            margin: 15px 0;
-        }
-
-        .content-card ul {
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-
-        .content-card ul li {
-            margin: 8px 0;
-            line-height: 1.6;
-        }
-
-        .content-card ul li a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        .content-card ul li a:hover {
-            text-decoration: underline;
-        }
-
-        .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .breadcrumb a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css?v=20260204">
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
     <header class="site-header">
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="index.html">Startpagina</a> / Hoofdstuk 6: Numerieke Maten
         </nav>
     </header>
 
-    <main id="main-content">
-        <section class="hero" aria-labelledby="chapter-title">
-            <div class="hero-section">
-                <h1 id="chapter-title">Hoofdstuk 6: Numerieke Maten in R</h1>
-                <p class="hero-subtitle">Diepgaande uitleg bij het berekenen en interpreteren van beschrijvende
-                    statistieken</p>
-            </div>
-        </section>
+    <main id="main-content" tabindex="-1">
+        <header class="hero-section" aria-labelledby="chapter-title">
+            <h1 id="chapter-title">Hoofdstuk 6: Numerieke Maten in R</h1>
+            <p class="hero-subtitle">Diepgaande uitleg bij het berekenen en interpreteren van beschrijvende
+                statistieken</p>
+        </header>
 
         <section class="chapter-modules" aria-labelledby="modules-title">
             <h2 id="modules-title" class="visually-hidden">Module overzicht</h2>
 
-            <div class="cards-grid module-grid">
-                <!-- Meetniveaus -->
-                <article class="content-card module-card">
-                    <a href="chapter6/measurement-levels.html" class="module-link">
+            <nav aria-label="Chapter 6 pages" class="module-grid">
+                <div class="cards-grid">
+                    <!-- Meetniveaus -->
+                    <article class="content-card module-card">
                         <header class="module-header">
-                            <h3 class="module-title">Meetniveaus Begrijpen</h3>
+                            <h3 class="module-title"><a href="chapter6/measurement-levels.html">Meetniveaus
+                                    Begrijpen</a></h3>
                         </header>
                         <p class="module-description">Fundamentele basis voor het kiezen van de juiste numerieke maten.
                         </p>
@@ -144,14 +43,16 @@
                             <li>Metrisch niveau</li>
                             <li>Praktijkvoorbeelden</li>
                         </ul>
-                    </a>
-                </article>
+                        <footer class="module-meta">
+                            <a href="chapter6/measurement-levels.html" class="btn">Lees meer</a>
+                        </footer>
+                    </article>
 
-                <!-- Centraliteitsmaten -->
-                <article class="content-card module-card">
-                    <a href="chapter6/centrality-measures.html" class="module-link">
+                    <!-- Centraliteitsmaten -->
+                    <article class="content-card module-card">
                         <header class="module-header">
-                            <h3 class="module-title">Centraliteitsmaten</h3>
+                            <h3 class="module-title"><a href="chapter6/centrality-measures.html">Centraliteitsmaten</a>
+                            </h3>
                         </header>
                         <p class="module-description">Modus, mediaan en gemiddelde - wanneer gebruik je welke?</p>
                         <ul class="module-topics">
@@ -160,14 +61,16 @@
                             <li>Gemiddelde en eigenschappen</li>
                             <li>Wanneer welke maat?</li>
                         </ul>
-                    </a>
-                </article>
+                        <footer class="module-meta">
+                            <a href="chapter6/centrality-measures.html" class="btn">Lees meer</a>
+                        </footer>
+                    </article>
 
-                <!-- Spreidingsmaten -->
-                <article class="content-card module-card">
-                    <a href="chapter6/dispersion-measures.html" class="module-link">
+                    <!-- Spreidingsmaten -->
+                    <article class="content-card module-card">
                         <header class="module-header">
-                            <h3 class="module-title">Spreidingsmaten</h3>
+                            <h3 class="module-title"><a href="chapter6/dispersion-measures.html">Spreidingsmaten</a>
+                            </h3>
                         </header>
                         <p class="module-description">Bereik, IQR, standaardafwijking en variantie volledig uitgelegd.
                         </p>
@@ -177,14 +80,16 @@
                             <li>Standaardafwijking begrijpen</li>
                             <li>Variantie in de praktijk</li>
                         </ul>
-                    </a>
-                </article>
+                        <footer class="module-meta">
+                            <a href="chapter6/dispersion-measures.html" class="btn">Lees meer</a>
+                        </footer>
+                    </article>
 
-                <!-- Normaliteit -->
-                <article class="content-card module-card">
-                    <a href="chapter6/normality-assessment.html" class="module-link">
+                    <!-- Normaliteit -->
+                    <article class="content-card module-card">
                         <header class="module-header">
-                            <h3 class="module-title">Normaliteit Beoordelen</h3>
+                            <h3 class="module-title"><a href="chapter6/normality-assessment.html">Normaliteit
+                                    Beoordelen</a></h3>
                         </header>
                         <p class="module-description">Scheefheid, kurtosis en normaliteitstesten uitgelegd.</p>
                         <ul class="module-topics">
@@ -193,14 +98,16 @@
                             <li>Normaliteitstesten (Shapiro-Wilk)</li>
                             <li>Oplossingen bij niet-normaliteit</li>
                         </ul>
-                    </a>
-                </article>
+                        <footer class="module-meta">
+                            <a href="chapter6/normality-assessment.html" class="btn">Lees meer</a>
+                        </footer>
+                    </article>
 
-                <!-- Betrouwbaarheidsintervallen -->
-                <article class="content-card module-card">
-                    <a href="chapter6/confidence-intervals.html" class="module-link">
+                    <!-- Betrouwbaarheidsintervallen -->
+                    <article class="content-card module-card">
                         <header class="module-header">
-                            <h3 class="module-title">Betrouwbaarheidsintervallen</h3>
+                            <h3 class="module-title"><a
+                                    href="chapter6/confidence-intervals.html">Betrouwbaarheidsintervallen</a></h3>
                         </header>
                         <p class="module-description">Van steekproef naar populatie - CI's correct interpreteren.</p>
                         <ul class="module-topics">
@@ -209,14 +116,15 @@
                             <li>Correcte interpretatie</li>
                             <li>Veelgemaakte fouten</li>
                         </ul>
-                    </a>
-                </article>
+                        <footer class="module-meta">
+                            <a href="chapter6/confidence-intervals.html" class="btn">Lees meer</a>
+                        </footer>
+                    </article>
 
-                <!-- APA Rapportage -->
-                <article class="content-card module-card">
-                    <a href="chapter6/apa-reporting.html" class="module-link">
+                    <!-- APA Rapportage -->
+                    <article class="content-card module-card">
                         <header class="module-header">
-                            <h3 class="module-title">APA Rapportage</h3>
+                            <h3 class="module-title"><a href="chapter6/apa-reporting.html">APA Rapportage</a></h3>
                         </header>
                         <p class="module-description">Professioneel statistieken rapporteren volgens APA 7e editie.</p>
                         <ul class="module-topics">
@@ -225,14 +133,16 @@
                             <li>Afronding regels</li>
                             <li>Voorbeelden per statistiek</li>
                         </ul>
-                    </a>
-                </article>
+                        <footer class="module-meta">
+                            <a href="chapter6/apa-reporting.html" class="btn">Lees meer</a>
+                        </footer>
+                    </article>
 
-                <!-- R Functies -->
-                <article class="content-card module-card">
-                    <a href="chapter6/r-functions-guide.html" class="module-link">
+                    <!-- R Functies -->
+                    <article class="content-card module-card">
                         <header class="module-header">
-                            <h3 class="module-title">R Functies Overzicht</h3>
+                            <h3 class="module-title"><a href="chapter6/r-functions-guide.html">R Functies Overzicht</a>
+                            </h3>
                         </header>
                         <p class="module-description">psych::describe(), skimr::skim() en dplyr summarise() efficiënt
                             gebruiken.</p>
@@ -242,14 +152,15 @@
                             <li>dplyr summarise() tips</li>
                             <li>Welke functie wanneer?</li>
                         </ul>
-                    </a>
-                </article>
+                        <footer class="module-meta">
+                            <a href="chapter6/r-functions-guide.html" class="btn">Lees meer</a>
+                        </footer>
+                    </article>
 
-                <!-- SPSS vs R -->
-                <article class="content-card module-card">
-                    <a href="chapter6/spss-vs-r.html" class="module-link">
+                    <!-- SPSS vs R -->
+                    <article class="content-card module-card">
                         <header class="module-header">
-                            <h3 class="module-title">SPSS naar R Migratie</h3>
+                            <h3 class="module-title"><a href="chapter6/spss-vs-r.html">SPSS naar R Migratie</a></h3>
                         </header>
                         <p class="module-description">Voor SPSS-gebruikers - hoe doe je hetzelfde in R?</p>
                         <ul class="module-topics">
@@ -258,11 +169,23 @@
                             <li>Analyze → Explore in R</li>
                             <li>Waarom R beter is</li>
                         </ul>
-                    </a>
-                </article>
-            </div>
+                        <footer class="module-meta">
+                            <a href="chapter6/spss-vs-r.html" class="btn">Lees meer</a>
+                        </footer>
+                    </article>
+                </div>
+            </nav>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 From Zero To Statistical Hero | Criminologische Onderzoeksmethoden</p>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
+    <script src="js/site.js" defer></script>
+
 </body>
 
 </html>
