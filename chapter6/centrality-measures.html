@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centraliteitsmaten - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> / <a href="../chapter6.html">Hoofdstuk 6</a> / Centraliteitsmaten
+        </div>
+
+        <h1>Centraliteitsmaten: Modus, Mediaan en Gemiddelde</h1>
+
+        <p class="lead">Centraliteitsmaten geven aan waar de data zich centraal bevinden. Ze beantwoorden de vraag: "Wat
+            is een typische waarde in deze dataset?"</p>
+
+        <h2 id="mode">Modus: De Meest Voorkomende Waarde</h2>
+
+        <h3>Definitie</h3>
+        <p>De <strong>modus</strong> is de waarde of categorie die het vaakst voorkomt in de dataset. Dit is de enige
+            centraliteitsmaat die bruikbaar is voor <strong>nominale</strong> variabelen.</p>
+
+        <div class="key-concept">
+            <h4>Kernpunten</h4>
+            <ul>
+                <li><strong>Meetniveau:</strong> Nominaal, Ordinaal, Metrisch</li>
+                <li><strong>Symbool:</strong> Mo of Mode</li>
+                <li><strong>Berekening:</strong> Tel frequenties, hoogste = modus</li>
+                <li><strong>Uniek?</strong> NEE - kan meerdere modi hebben (bimodaal, multimodaal)</li>
+            </ul>
+        </div>
+
+        <h3>Praktijkvoorbeeld: Relatiestatus</h3>
+        <div class="example-box">
+            <h4>Vraag: Hoeveel procent heeft een relatie?</h4>
+            <p><strong>Data:</strong> W1_Relatiestatus (0 = Nee, 1 = Ja)</p>
+            <table class="data-table">
+                <tr>
+                    <th>Relatiestatus</th>
+                    <th>Frequentie</th>
+                    <th>Percentage</th>
+                </tr>
+                <tr>
+                    <td>0 (Nee)</td>
+                    <td>87</td>
+                    <td>28.5%</td>
+                </tr>
+                <tr class="highlight">
+                    <td>1 (Ja)</td>
+                    <td>218</td>
+                    <td>71.5%</td>
+                </tr>
+            </table>
+            <p><strong>Modus = 1 (Ja)</strong> - Meeste respondenten hebben een relatie</p>
+        </div>
+
+        <h3>R Code voor Modus</h3>
+        <div class="code-box">
+            <pre><code># Optie 1: Frequentietabel (visueel aflezen)
+table(data_wave1$W1_Relatiestatus, useNA = "always")
+
+# Optie 2: Eigen modus functie
+calculate_mode <- function(x) {
+  x <- x[!is.na(x)]
+  freq_table <- table(x)
+  mode_value <- names(freq_table)[which.max(freq_table)]
+  return(mode_value)
+}
+
+modus <- calculate_mode(data_wave1$W1_Relatiestatus)
+print(paste("Modus:", modus))
+
+# Optie 3: Met percentages
+data_wave1 %>%
+  count(W1_Relatiestatus) %>%
+  mutate(
+    percentage = n / sum(n) * 100,
+    percentage = round(percentage, 2)
+  ) %>%
+  arrange(desc(n))</code></pre>
+        </div>
+
+        <h3>Bimodale Verdelingen</h3>
+        <div class="warning-box">
+            <p>Een verdeling kan <strong>twee modi</strong> hebben (bimodaal) als twee waarden even vaak voorkomen. Dit
+                kan duiden op twee verschillende subgroepen in je data!</p>
+            <p><strong>Voorbeeld:</strong> Leeftijd met pieken bij 25 jaar (studenten) en 55 jaar (docenten)</p>
+        </div>
+
+        <h2 id="median">Mediaan: De Middelste Waarde</h2>
+
+        <h3>Definitie</h3>
+        <p>De <strong>mediaan</strong> is de waarde waarboven en waaronder precies evenveel observaties liggen. Dit is
+            het 50e percentiel (P50 of Q2).</p>
+
+        <div class="key-concept">
+            <h4>Kernpunten</h4>
+            <ul>
+                <li><strong>Meetniveau:</strong> Ordinaal, Metrisch (NIET nominaal!)</li>
+                <li><strong>Symbool:</strong> Md of Me of Q2 of P50</li>
+                <li><strong>Berekening:</strong> Sorteer data, neem middelste waarde(n)</li>
+                <li><strong>Robuust:</strong> JA - niet gevoelig voor uitschieters</li>
+            </ul>
+        </div>
+
+        <h3>Handmatige Berekening</h3>
+        <div class="example-box">
+            <h4>Voorbeeld: Opleidingsniveau van 9 respondenten</h4>
+            <p><strong>Ruwe data:</strong> 2, 1, 3, 1, 2, 3, 1, 2, 3</p>
+            <p><strong>Stap 1:</strong> Sorteer oplopend: 1, 1, 1, 2, <span class="highlight">2</span>, 2, 3, 3, 3</p>
+            <p><strong>Stap 2:</strong> n = 9 (oneven) → mediaan is positie (9+1)/2 = 5</p>
+            <p><strong>Mediaan = 2 (Middelbaar onderwijs)</strong></p>
+
+            <hr>
+
+            <h4>Bij even aantal (n = 10):</h4>
+            <p><strong>Data:</strong> 1, 1, 1, 2, <span class="highlight">2, 2</span>, 3, 3, 3, 3</p>
+            <p><strong>Mediaan = (2 + 2) / 2 = 2</strong> (gemiddelde van positie 5 en 6)</p>
+        </div>
+
+        <h3>R Code voor Mediaan</h3>
+        <div class="code-box">
+            <pre><code># Mediaan berekenen
+mediaan <- median(data_wave1$W1_Diploma, na.rm = TRUE)
+print(paste("Mediaan:", mediaan))
+
+# Kwartielen (Q1, Q2=mediaan, Q3)
+kwartielen <- quantile(data_wave1$W1_Diploma, 
+                       probs = c(0.25, 0.50, 0.75), 
+                       na.rm = TRUE)
+print(kwartielen)
+
+# Complete overzicht
+summary(data_wave1$W1_Diploma)
+
+# Handmatige verificatie
+gesorteerd <- sort(data_wave1$W1_Diploma)
+n <- length(gesorteerd)
+if (n %% 2 == 1) {
+  mediaan_handmatig <- gesorteerd[(n+1)/2]
+} else {
+  mediaan_handmatig <- (gesorteerd[n/2] + gesorteerd[n/2+1]) / 2
+}</code></pre>
+        </div>
+
+        <h3>Kwartielen en Percentielen</h3>
+        <div class="info-box">
+            <p><strong>Kwartielen</strong> verdelen data in 4 gelijke delen:</p>
+            <ul>
+                <li><strong>Q1 (25e percentiel):</strong> 25% van data ligt hieronder</li>
+                <li><strong>Q2 (50e percentiel):</strong> = Mediaan</li>
+                <li><strong>Q3 (75e percentiel):</strong> 75% van data ligt hieronder</li>
+            </ul>
+            <p><strong>Percentielen</strong> verdelen data in 100 gelijke delen (P1 t/m P99)</p>
+        </div>
+
+        <h3>Wanneer Mediaan Gebruiken?</h3>
+        <div class="example-box">
+            <h4>✅ Mediaan is beter dan gemiddelde bij:</h4>
+            <ul>
+                <li><strong>Scheefverdeelde data:</strong> Inkomen, huizenprijzen, reactietijden</li>
+                <li><strong>Uitschieters:</strong> Extreme waarden beïnvloeden mediaan niet</li>
+                <li><strong>Ordinale data:</strong> Tevredenheidsscores, opleidingsniveau</li>
+            </ul>
+
+            <h4>Voorbeeld: Uitschieters</h4>
+            <p><strong>Inkomen (€/maand):</strong> 1500, 1600, 1700, 1800, 1900, 15000</p>
+            <ul>
+                <li><strong>Mediaan:</strong> (1700 + 1800) / 2 = 1750 (typisch!)</li>
+                <li><strong>Gemiddelde:</strong> (1500+1600+1700+1800+1900+15000) / 6 = 3917 (vertekend!)</li>
+            </ul>
+        </div>
+
+        <h2 id="mean">Gemiddelde: De Rekenkundige Balans</h2>
+
+        <h3>Definitie</h3>
+        <p>Het <strong>gemiddelde</strong> (mean) is de som van alle waarden gedeeld door het aantal waarden. Dit is het
+            mathematische "zwaartepunt" van de verdeling.</p>
+
+        <div class="key-concept">
+            <h4>Kernpunten</h4>
+            <ul>
+                <li><strong>Meetniveau:</strong> Metrisch (NIET nominaal of ordinaal!)*</li>
+                <li><strong>Symbool:</strong> x̄ (steekproef) of μ (populatie) of M (APA-stijl)</li>
+                <li><strong>Formule:</strong> x̄ = (Σx) / n</li>
+                <li><strong>Gevoelig:</strong> JA - uitschieters beïnvloeden het gemiddelde sterk</li>
+            </ul>
+            <p class="footnote">*Technisch incorrect voor ordinaal, maar vaak toegepast bij Likert-schalen (5+
+                categorieën)</p>
+        </div>
+
+        <h3>Formule en Berekening</h3>
+        <div class="formula-box">
+            <p><strong>Steekproefgemiddelde:</strong></p>
+            <p class="math-formula">x̄ = (1/n) × Σ(x<sub>i</sub>) = (x₁ + x₂ + ... + x<sub>n</sub>) / n</p>
+
+            <h4>Voorbeeld: Relatiestress van 5 respondenten</h4>
+            <p><strong>Scores:</strong> 2.5, 3.0, 3.5, 4.0, 2.0</p>
+            <p><strong>Berekening:</strong></p>
+            <p>x̄ = (2.5 + 3.0 + 3.5 + 4.0 + 2.0) / 5 = 15.0 / 5 = <strong>3.0</strong></p>
+        </div>
+
+        <h3>R Code voor Gemiddelde</h3>
+        <div class="code-box">
+            <pre><code># Gemiddelde berekenen
+gemiddelde <- mean(data_wave1$W1_Relstress1_Gem, na.rm = TRUE)
+print(paste("Gemiddelde:", round(gemiddelde, 2)))
+
+# Met summary voor overzicht
+summary(data_wave1$W1_Relstress1_Gem)
+
+# Handmatige berekening (ter verificatie)
+som <- sum(data_wave1$W1_Relstress1_Gem, na.rm = TRUE)
+n <- sum(!is.na(data_wave1$W1_Relstress1_Gem))
+gemiddelde_handmatig <- som / n
+
+# Controleer
+all.equal(gemiddelde, gemiddelde_handmatig)  # Should be TRUE</code></pre>
+        </div>
+
+        <h3>Eigenschappen van het Gemiddelde</h3>
+        <div class="properties-box">
+            <h4>1. Gevoelig voor Uitschieters</h4>
+            <p>Één extreme waarde kan het gemiddelde sterk beïnvloeden.</p>
+            <p><strong>Voorbeeld:</strong> Scores 2, 3, 3, 4, 4 → x̄ = 3.2<br>
+                Met uitschieter: 2, 3, 3, 4, 20 → x̄ = 6.4 (bijna dubbel!)</p>
+
+            <h4>2. Som van Afwijkingen = 0</h4>
+            <p>Σ(x<sub>i</sub> - x̄) = 0 → Het gemiddelde is het "evenwichtspunt"</p>
+
+            <h4>3. Lineaire Transformatie</h4>
+            <ul>
+                <li>Alle waarden +5 → gemiddelde ook +5</li>
+                <li>Alle waarden ×2 → gemiddelde ook ×2</li>
+            </ul>
+
+            <h4>4. Minste Variatie</h4>
+            <p>Bij herhaalde steekproeven varieert het gemiddelde minder dan de mediaan (= efficiënter)</p>
+        </div>
+
+        <h2 id="comparison">Modus vs. Mediaan vs. Gemiddelde</h2>
+
+        <h3>Vergelijkingstabel</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Eigenschap</th>
+                <th>Modus</th>
+                <th>Mediaan</th>
+                <th>Gemiddelde</th>
+            </tr>
+            <tr>
+                <td><strong>Meetniveau</strong></td>
+                <td>Nominaal, Ordinaal, Metrisch</td>
+                <td>Ordinaal, Metrisch</td>
+                <td>Metrisch</td>
+            </tr>
+            <tr>
+                <td><strong>Symbool</strong></td>
+                <td>Mo</td>
+                <td>Md, Me, Q2</td>
+                <td>x̄, μ, M</td>
+            </tr>
+            <tr>
+                <td><strong>Gevoelig voor uitschieters</strong></td>
+                <td>Nee</td>
+                <td>Nee</td>
+                <td>Ja</td>
+            </tr>
+            <tr>
+                <td><strong>Uniek?</strong></td>
+                <td>Nee (bimodaal mogelijk)</td>
+                <td>Ja</td>
+                <td>Ja</td>
+            </tr>
+            <tr>
+                <td><strong>Interpretatie</strong></td>
+                <td>Meest voorkomend</td>
+                <td>Middelste waarde</td>
+                <td>Rekenkundig centrum</td>
+            </tr>
+            <tr>
+                <td><strong>Gebruik in inferentie</strong></td>
+                <td>Zeldzaam</td>
+                <td>Non-parametrische testen</td>
+                <td>Parametrische testen (t, ANOVA)</td>
+            </tr>
+        </table>
+
+        <h3>Keuze Beslisschema</h3>
+        <div class="decision-tree">
+            <h4>Welke centraliteitsmaat gebruiken?</h4>
+            <ol>
+                <li><strong>Is de variabele nominaal?</strong>
+                    <ul>
+                        <li>JA → Gebruik <strong>MODUS</strong></li>
+                        <li>NEE → Ga naar vraag 2</li>
+                    </ul>
+                </li>
+                <li><strong>Is de variabele ordinaal?</strong>
+                    <ul>
+                        <li>JA → Gebruik <strong>MEDIAAN</strong> (technisch correct) of modus</li>
+                        <li>NEE → Ga naar vraag 3</li>
+                    </ul>
+                </li>
+                <li><strong>Zijn er extreme uitschieters?</strong>
+                    <ul>
+                        <li>JA → Gebruik <strong>MEDIAAN</strong> (robuust)</li>
+                        <li>NEE → Ga naar vraag 4</li>
+                    </ul>
+                </li>
+                <li><strong>Is de verdeling sterk scheef?</strong>
+                    <ul>
+                        <li>JA → Gebruik <strong>MEDIAAN</strong></li>
+                        <li>NEE → Gebruik <strong>GEMIDDELDE</strong> (meest informatief)</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <h3>Praktijkvoorbeelden per Type</h3>
+        <div class="example-grid">
+            <div class="example-card">
+                <h4>Gebruik MODUS</h4>
+                <ul>
+                    <li>Geslacht (0=M, 1=V)</li>
+                    <li>Favoriete kleur</li>
+                    <li>Delicttype</li>
+                    <li>Religieuze voorkeur</li>
+                    <li>Politieke partij</li>
+                </ul>
+            </div>
+
+            <div class="example-card">
+                <h4>Gebruik MEDIAAN</h4>
+                <ul>
+                    <li>Inkomen (scheef)</li>
+                    <li>Huizenprijzen (uitschieters)</li>
+                    <li>Opleidingsniveau (ordinaal)</li>
+                    <li>Gezondheidsrating (1-5)</li>
+                    <li>Reactietijden (scheef)</li>
+                </ul>
+            </div>
+
+            <div class="example-card">
+                <h4>Gebruik GEMIDDELDE</h4>
+                <ul>
+                    <li>Leeftijd (normaal verdeeld)</li>
+                    <li>Schaalscores (1-5)</li>
+                    <li>IQ-scores</li>
+                    <li>Temperatuur</li>
+                    <li>Werkstress (metrisch)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Relatie bij Verschillende Verdelingen</h2>
+
+        <div class="distribution-box">
+            <h3>Symmetrische Verdeling (Normaal)</h3>
+            <p><strong>Modus = Mediaan = Gemiddelde</strong></p>
+            <p>Bij een perfect symmetrische verdeling vallen alle drie centraliteitsmaten samen.</p>
+
+            <h3>Rechts-scheve Verdeling (Positief Scheef)</h3>
+            <p><strong>Modus &lt; Mediaan &lt; Gemiddelde</strong></p>
+            <p>Voorbeeld: Inkomen - paar zeer hoge inkomens trekken gemiddelde omhoog</p>
+
+            <h3>Links-scheve Verdeling (Negatief Scheef)</h3>
+            <p><strong>Gemiddelde &lt; Mediaan &lt; Modus</strong></p>
+            <p>Voorbeeld: Leeftijd bij overlijden - paar zeer jonge overlijdens trekken gemiddelde omlaag</p>
+        </div>
+
+        <h2>Veelgemaakte Fouten</h2>
+        <div class="mistakes-box">
+            <h3>❌ Fout 1: Gemiddelde van nominale variabelen</h3>
+            <p><strong>Verkeerd:</strong> mean(Geslacht) waar 0=Man, 1=Vrouw → 0.52</p>
+            <p><strong>Waarom fout?</strong> Geslacht heeft geen volgorde - "0.52" betekent niets!</p>
+            <p><strong>Correct:</strong> 48% man, 52% vrouw (Modus = Vrouw)</p>
+
+            <h3>❌ Fout 2: Gemiddelde bij sterke scheefheid</h3>
+            <p><strong>Verkeerd:</strong> Gemiddeld inkomen = €65,000 (terwijl mediaan = €35,000)</p>
+            <p><strong>Waarom misleidend?</strong> Paar miljonairs trekken gemiddelde omhoog</p>
+            <p><strong>Correct:</strong> Rapporteer mediaan bij scheve verdelingen</p>
+
+            <h3>❌ Fout 3: Mediaan van nominale variabelen</h3>
+            <p><strong>Verkeerd:</strong> median(Delicttype) waar 1=Diefstal, 2=Geweld, 3=Fraude</p>
+            <p><strong>Waarom fout?</strong> Geen natuurlijke volgorde - mediaan vereist ordinaal meetniveau!</p>
+            <p><strong>Correct:</strong> Gebruik modus</p>
+        </div>
+
+        <h2>R Code: Alle Centraliteitsmaten Tegelijk</h2>
+        <div class="code-box">
+            <pre><code># Voor metrische variabele - alle maten
+library(psych)
+psych::describe(data_wave1$W1_Relstress1_Gem)
+
+# Handmatige berekening alle drie
+data_wave1 %>%
+  summarise(
+    Modus = calculate_mode(W1_Relstress1_Gem),
+    Mediaan = median(W1_Relstress1_Gem, na.rm = TRUE),
+    Gemiddelde = mean(W1_Relstress1_Gem, na.rm = TRUE),
+    Q1 = quantile(W1_Relstress1_Gem, 0.25, na.rm = TRUE),
+    Q3 = quantile(W1_Relstress1_Gem, 0.75, na.rm = TRUE)
+  )
+
+# Per groep vergelijken
+data_wave1 %>%
+  group_by(W1_Diploma) %>%
+  summarise(
+    N = n(),
+    Mediaan = median(W1_Relstress1_Gem, na.rm = TRUE),
+    Gemiddelde = mean(W1_Relstress1_Gem, na.rm = TRUE),
+    .groups = "drop"
+  )</code></pre>
+        </div>
+
+        <div class="summary-box">
+            <h3>Samenvattend</h3>
+            <ul>
+                <li><strong>Modus:</strong> Meest voorkomende waarde - voor alle meetniveaus</li>
+                <li><strong>Mediaan:</strong> Middelste waarde - robuust tegen uitschieters</li>
+                <li><strong>Gemiddelde:</strong> Rekenkundig centrum - meest informatief maar gevoelig</li>
+                <li><strong>Keuze:</strong> Hangt af van meetniveau en verdeling van de data</li>
+            </ul>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="measurement-levels.html" class="btn-secondary">← Vorige: Meetniveaus</a>
+            <a href="dispersion-measures.html" class="btn-primary">Volgende: Spreidingsmaten →</a>
+        </div>
+    </div>
+
+    <style>
+        .lead {
+            font-size: 1.2em;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .key-concept,
+        .example-box,
+        .warning-box,
+        .info-box,
+        .formula-box,
+        .properties-box,
+        .decision-tree,
+        .distribution-box,
+        .mistakes-box,
+        .summary-box {
+            background: #f8f9fc;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .warning-box {
+            border-left-color: #f39c12;
+            background: #fef9f3;
+        }
+
+        .info-box {
+            border-left-color: #3498db;
+            background: #f0f8ff;
+        }
+
+        .data-table,
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .data-table th,
+        .data-table td,
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .data-table th,
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+        }
+
+        .data-table tr.highlight {
+            background: #e8f4f8;
+            font-weight: 600;
+        }
+
+        .code-box {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .code-box pre {
+            margin: 0;
+            overflow-x: auto;
+        }
+
+        .code-box code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .example-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .example-card h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .math-formula {
+            font-size: 1.1em;
+            font-style: italic;
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: 700;
+        }
+
+        .footnote {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+    </style>
+</body>
+
+</html>

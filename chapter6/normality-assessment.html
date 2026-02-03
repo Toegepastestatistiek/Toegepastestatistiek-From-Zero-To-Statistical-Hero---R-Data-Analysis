@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normaliteit Beoordelen - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> / <a href="../chapter6.html">Hoofdstuk 6</a> / Normaliteit
+        </div>
+
+        <h1>Normaliteit Beoordelen: Scheefheid, Kurtosis en Tests</h1>
+        
+        <p class="lead">Veel statistische testen (t-toets, ANOVA, regressie) veronderstellen normale verdeling. Hier leer je hoe je normaliteit beoordeelt en wat je doet bij niet-normale data.</p>
+
+        <h2 id="skewness">Scheefheid (Skewness)</h2>
+        
+        <p><strong>Scheefheid</strong> meet de asymmetrie van een verdeling.</p>
+
+        <div class="formula-box">
+            <p><strong>Interpretatie:</strong></p>
+            <ul>
+                <li><strong>Scheefheid ≈ 0:</strong> Symmetrisch (normaal)</li>
+                <li><strong>Scheefheid > 0:</strong> Rechts-scheef (staart rechts)</li>
+                <li><strong>Scheefheid < 0:</strong> Links-scheef (staart links)</li>
+            </ul>
+            <p><strong>Vuistregel:</strong> |Scheefheid| < 1 is acceptabel voor normale verdeling</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Visuele Voorbeelden:</h4>
+            <pre>
+Links-scheef (negatief):        Symmetrisch:           Rechts-scheef (positief):
+    ╱╲                            ╱╲                          ╱╲
+   ╱  ╲                          ╱  ╲                        ╱  ╲
+  ╱    ╲___                     ╱    ╲                   ___╱    ╲
+ ╱         ╲___            ____╱      ╲____        ___╱         ╲
+──────────────────        ────────────────────    ──────────────────
+Staart links              Staart beide kanten     Staart rechts
+Scheefheid < 0            Scheefheid ≈ 0          Scheefheid > 0
+            </pre>
+        </div>
+
+        <h3>R Code</h3>
+        <div class="code-box">
+            <pre><code>library(psych)
+
+# Scheefheid berekenen
+scheefheid <- psych::skew(data_wave1$W1_Relstress1_Gem, na.rm = TRUE)
+print(paste("Scheefheid:", round(scheefheid, 3)))
+
+# Interpretatie
+if (abs(scheefheid) < 0.5) {
+  print("Vrijwel symmetrisch")
+} else if (abs(scheefheid) < 1) {
+  print("Licht scheef - acceptabel")
+} else {
+  print("Sterk scheef - overwegen transformatie")
+}
+
+# Histogram voor visualisatie
+hist(data_wave1$W1_Relstress1_Gem,
+     main = "Verdeling Relatiestress",
+     xlab = "Score",
+     col = "lightblue",
+     breaks = 20)</code></pre>
+        </div>
+
+        <h2 id="kurtosis">Kurtosis</h2>
+        
+        <p><strong>Kurtosis</strong> meet de "gepuntheid" van een verdeling - hoe veel extreme waarden er zijn.</p>
+
+        <div class="formula-box">
+            <p><strong>Interpretatie:</strong></p>
+            <ul>
+                <li><strong>Kurtosis ≈ 0:</strong> Mesokurtisch (normaal)</li>
+                <li><strong>Kurtosis > 0:</strong> Leptokurtisch (gepunt, veel extremen)</li>
+                <li><strong>Kurtosis < 0:</strong> Platykurtisch (plat, weinig extremen)</li>
+            </ul>
+            <p><strong>Vuistregel:</strong> |Kurtosis| < 1 is acceptabel voor normale verdeling</p>
+        </div>
+
+        <h3>R Code</h3>
+        <div class="code-box">
+            <pre><code># Kurtosis berekenen
+kurtosis <- psych::kurtosi(data_wave1$W1_Relstress1_Gem, na.rm = TRUE)
+print(paste("Kurtosis:", round(kurtosis, 3)))
+
+# Interpretatie
+if (kurtosis > 1) {
+  print("Leptokurtisch - veel extreme waarden")
+} else if (kurtosis < -1) {
+  print("Platykurtisch - weinig extreme waarden")
+} else {
+  print("Mesokurtisch - normaal")
+}</code></pre>
+        </div>
+
+        <h2 id="tests">Normaliteitstesten</h2>
+
+        <h3>Shapiro-Wilk Test</h3>
+        <p>De meest gebruikte test voor normaliteit.</p>
+
+        <div class="info-box">
+            <p><strong>Hypothesen:</strong></p>
+            <ul>
+                <li><strong>H₀:</strong> Data is normaal verdeeld</li>
+                <li><strong>H₁:</strong> Data is NIET normaal verdeeld</li>
+            </ul>
+            <p><strong>Beslisregel:</strong></p>
+            <ul>
+                <li>p > .05 → Normaal verdeeld (H₀ behouden)</li>
+                <li>p ≤ .05 → NIET normaal verdeeld (H₀ verwerpen)</li>
+            </ul>
+        </div>
+
+        <div class="code-box">
+            <pre><code># Shapiro-Wilk test
+shapiro.test(data_wave1$W1_Relstress1_Gem)
+
+# Voor grotere datasets (n > 5000), gebruik sample
+if (nrow(data_wave1) > 5000) {
+  sample_data <- sample(data_wave1$W1_Relstress1_Gem, 5000, replace = FALSE)
+  shapiro.test(sample_data)
+}</code></pre>
+        </div>
+
+        <div class="warning-box">
+            <h4>⚠️ Waarschuwing: Steekproefgrootte</h4>
+            <p>Bij <strong>grote steekproeven</strong> (n > 1000) wijst Shapiro-Wilk bijna altijd normaliteit af, zelfs bij triviale afwijkingen!</p>
+            <p><strong>Oplossing:</strong> Kijk naar scheefheid, kurtosis en QQ-plot in plaats van alleen de p-waarde</p>
+        </div>
+
+        <h3>Q-Q Plot (Quantile-Quantile Plot)</h3>
+        <p>Visuele methode om normaliteit te beoordelen.</p>
+
+        <div class="code-box">
+            <pre><code># Q-Q Plot maken
+qqnorm(data_wave1$W1_Relstress1_Gem,
+       main = "Q-Q Plot Relatiestress")
+qqline(data_wave1$W1_Relstress1_Gem, col = "red", lwd = 2)
+
+# Interpretatie:
+# - Punten op rode lijn = normaal verdeeld
+# - Punten boven lijn rechtsboven = rechts-scheef
+# - Punten onder lijn linksboven = links-scheef</code></pre>
+        </div>
+
+        <h2 id="solutions">Oplossingen bij Niet-Normaliteit</h2>
+
+        <h3>Optie 1: Data Transformatie</h3>
+        <div class="example-box">
+            <h4>Veelgebruikte Transformaties:</h4>
+            <ul>
+                <li><strong>Log-transformatie:</strong> Voor rechts-scheve data
+                    <pre><code>data$log_inkomen <- log(data$inkomen)</code></pre>
+                </li>
+                <li><strong>Vierkantswortel:</strong> Voor gematigde scheefheid
+                    <pre><code>data$sqrt_scores <- sqrt(data$scores)</code></pre>
+                </li>
+                <li><strong>Reciproke:</strong> Voor extreme scheefheid
+                    <pre><code>data$recip_tijd <- 1 / data$reactietijd</code></pre>
+                </li>
+            </ul>
+        </div>
+
+        <h3>Optie 2: Non-Parametrische Testen</h3>
+        <table class="alt-table">
+            <tr>
+                <th>Parametrische Test</th>
+                <th>Non-Parametrisch Alternatief</th>
+            </tr>
+            <tr>
+                <td>t-toets (2 groepen)</td>
+                <td>Mann-Whitney U test / Wilcoxon</td>
+            </tr>
+            <tr>
+                <td>ANOVA (>2 groepen)</td>
+                <td>Kruskal-Wallis test</td>
+            </tr>
+            <tr>
+                <td>Pearson correlatie</td>
+                <td>Spearman correlatie</td>
+            </tr>
+        </table>
+
+        <h3>Optie 3: Robuuste Methoden</h3>
+        <p>Gebruik mediaan en IQR in plaats van gemiddelde en SD bij scheefheid.</p>
+
+        <div class="code-box">
+            <pre><code># In plaats van:
+mean(data$inkomen)
+sd(data$inkomen)
+
+# Gebruik:
+median(data$inkomen)
+IQR(data$inkomen)</code></pre>
+        </div>
+
+        <h2>Complete Normaliteitscheck</h2>
+        <div class="code-box">
+            <pre><code>normaliteitscheck <- function(x, var_name = "Variable") {
+  cat("\n=== Normaliteitscheck:", var_name, "===\n\n")
+  
+  # 1. Beschrijvende statistieken
+  cat("Beschrijvende statistieken:\n")
+  cat("N:", sum(!is.na(x)), "\n")
+  cat("Gemiddelde:", round(mean(x, na.rm = TRUE), 3), "\n")
+  cat("Mediaan:", round(median(x, na.rm = TRUE), 3), "\n")
+  cat("SD:", round(sd(x, na.rm = TRUE), 3), "\n\n")
+  
+  # 2. Scheefheid en kurtosis
+  scheef <- psych::skew(x, na.rm = TRUE)
+  kurt <- psych::kurtosi(x, na.rm = TRUE)
+  cat("Scheefheid:", round(scheef, 3))
+  if (abs(scheef) < 0.5) cat(" (vrijwel symmetrisch)\n")
+  else if (abs(scheef) < 1) cat(" (licht scheef - acceptabel)\n")
+  else cat(" (sterk scheef!)\n")
+  
+  cat("Kurtosis:", round(kurt, 3))
+  if (abs(kurt) < 1) cat(" (acceptabel)\n")
+  else cat(" (afwijkend!)\n\n")
+  
+  # 3. Shapiro-Wilk test
+  if (sum(!is.na(x)) <= 5000) {
+    shapiro_result <- shapiro.test(x)
+    cat("Shapiro-Wilk test: p =", round(shapiro_result$p.value, 4))
+    if (shapiro_result$p.value > 0.05) cat(" (normaal)\n")
+    else cat(" (NIET normaal)\n")
+  } else {
+    cat("Sample te groot voor Shapiro-Wilk (n > 5000)\n")
+  }
+  
+  # 4. Visualisaties
+  par(mfrow = c(1, 2))
+  hist(x, main = paste("Histogram:", var_name),
+       xlab = var_name, col = "lightblue", breaks = 20)
+  qqnorm(x, main = paste("Q-Q Plot:", var_name))
+  qqline(x, col = "red", lwd = 2)
+  par(mfrow = c(1, 1))
+}
+
+# Gebruik
+normaliteitscheck(data_wave1$W1_Relstress1_Gem, "Relatiestress")</code></pre>
+        </div>
+
+        <div class="summary-box">
+            <h3>Samenvattend</h3>
+            <ul>
+                <li><strong>Scheefheid:</strong> Meet asymmetrie (|scheef| < 1 is acceptabel)</li>
+                <li><strong>Kurtosis:</strong> Meet gepuntheid (|kurt| < 1 is acceptabel)</li>
+                <li><strong>Shapiro-Wilk:</strong> Test normaliteit (pas op bij grote n!)</li>
+                <li><strong>Q-Q Plot:</strong> Visuele beoordeling (punten op lijn = normaal)</li>
+                <li><strong>Niet-normaal?</strong> Transformeer, gebruik non-parametrisch, of mediaan/IQR</li>
+            </ul>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="dispersion-measures.html" class="btn-secondary">← Vorige: Spreidingsmaten</a>
+            <a href="confidence-intervals.html" class="btn-primary">Volgende: Betrouwbaarheidsintervallen →</a>
+        </div>
+    </div>
+
+    <style>
+        .lead { font-size: 1.2em; color: #555; margin: 20px 0; }
+        .example-box, .warning-box, .info-box, .formula-box, .summary-box {
+            background: #f8f9fc;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .warning-box { border-left-color: #f39c12; background: #fef9f3; }
+        .info-box { border-left-color: #3498db; background: #f0f8ff; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #667eea; color: white; }
+        .code-box { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .code-box pre { margin: 0; overflow-x: auto; font-family: 'Courier New', monospace; line-height: 1.5; }
+        pre { background: white; padding: 15px; font-family: monospace; overflow-x: auto; }
+        .navigation-buttons { display: flex; justify-content: space-between; margin: 40px 0; }
+        .btn-primary, .btn-secondary { padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+        .btn-primary { background: #667eea; color: white; }
+        .btn-secondary { background: #e0e0e0; color: #333; }
+        .btn-primary:hover { background: #5568d3; }
+        .btn-secondary:hover { background: #d0d0d0; }
+    </style>
+</body>
+</html>

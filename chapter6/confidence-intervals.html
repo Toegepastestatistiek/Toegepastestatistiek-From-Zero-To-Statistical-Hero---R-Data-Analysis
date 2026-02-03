@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betrouwbaarheidsintervallen - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> / <a href="../chapter6.html">Hoofdstuk 6</a> / Betrouwbaarheidsintervallen
+        </div>
+
+        <h1>Betrouwbaarheidsintervallen: Van Steekproef naar Populatie</h1>
+
+        <p class="lead">Een betrouwbaarheidsinterval (BI) geeft een bereik waarbinnen de populatieparameter
+            waarschijnlijk ligt, gebaseerd op je steekproef.</p>
+
+        <h2 id="concept">Het Concept van Betrouwbaarheidsintervallen</h2>
+
+        <div class="info-box">
+            <h4>Wat is een 95% Betrouwbaarheidsinterval?</h4>
+            <p><strong>Correcte interpretatie:</strong></p>
+            <p>"Als we <strong>oneindig vaak</strong> een steekproef nemen en telkens een 95% BI berekenen, zal
+                <strong>95% van deze intervallen</strong> de werkelijke populatiewaarde bevatten."</p>
+
+            <p style="margin-top: 15px;"><strong>Voor één specifiek interval:</strong></p>
+            <p>"We zijn 95% <strong>confident</strong> dat dit interval de populatieparameter bevat."</p>
+        </div>
+
+        <div class="warning-box">
+            <h4>⚠️ FOUTE Interpretaties</h4>
+            <ul>
+                <li>❌ "Er is 95% kans dat de populatiewaarde in dit interval ligt"</li>
+                <li>❌ "95% van de data ligt in dit interval"</li>
+                <li>❌ "We zijn 95% zeker dat..."</li>
+            </ul>
+            <p><strong>Waarom fout?</strong> De populatieparameter is een <strong>vaste waarde</strong> (geen
+                kansverdeling). Het interval vángt deze waarde, of niet - er is geen "kans".</p>
+        </div>
+
+        <h2 id="calculation">Berekening van een 95% BI voor het Gemiddelde</h2>
+
+        <div class="formula-box">
+            <h4>Formule:</h4>
+            <p>$$ \text{95% BI} = \bar{x} \pm t_{\alpha/2, df} \times SE $$</p>
+
+            <p><strong>Waarbij:</strong></p>
+            <ul>
+                <li>$\bar{x}$ = steekproefgemiddelde</li>
+                <li>$t_{\alpha/2, df}$ = kritieke t-waarde (tweezijdig, α=0.05)</li>
+                <li>$df$ = vrijheidsgraden (n - 1)</li>
+                <li>$SE$ = standaardfout = $\frac{SD}{\sqrt{n}}$</li>
+            </ul>
+        </div>
+
+        <h3>Stap-voor-Stap Voorbeeld</h3>
+        <div class="example-box">
+            <p><strong>Gegeven:</strong> Relatiestress scores (schaal 1-5)</p>
+            <ul>
+                <li>n = 150 respondenten</li>
+                <li>M = 3.45</li>
+                <li>SD = 0.82</li>
+            </ul>
+
+            <h4>Stap 1: Bereken SE</h4>
+            <p>$$ SE = \frac{SD}{\sqrt{n}} = \frac{0.82}{\sqrt{150}} = \frac{0.82}{12.247} = 0.067 $$</p>
+
+            <h4>Stap 2: Bepaal t-kritiek</h4>
+            <p>Voor df = 150 - 1 = 149 en α = 0.05 (tweezijdig): <strong>t = 1.976</strong></p>
+
+            <h4>Stap 3: Bereken Foutenmarge</h4>
+            <p>$$ \text{Foutenmarge} = t \times SE = 1.976 \times 0.067 = 0.132 $$</p>
+
+            <h4>Stap 4: Bereken 95% BI</h4>
+            <p>$$ \text{Ondergrens} = 3.45 - 0.132 = 3.318 $$</p>
+            <p>$$ \text{Bovengrens} = 3.45 + 0.132 = 3.582 $$</p>
+
+            <h4>Resultaat:</h4>
+            <p><strong>95% BI = [3.32, 3.58]</strong></p>
+            <p><em>Interpretatie:</em> We zijn 95% confident dat het gemiddelde relatiestress niveau in de populatie
+                tussen 3.32 en 3.58 ligt.</p>
+        </div>
+
+        <h2 id="r-code">R Code voor Betrouwbaarheidsintervallen</h2>
+
+        <h3>Methode 1: Handmatig Berekenen</h3>
+        <div class="code-box">
+            <pre><code># Data voorbereiden
+stress <- data_wave1$W1_Relstress1_Gem
+n <- sum(!is.na(stress))
+gemiddelde <- mean(stress, na.rm = TRUE)
+sd <- sd(stress, na.rm = TRUE)
+
+# SE berekenen
+se <- sd / sqrt(n)
+
+# t-kritiek vinden (95% BI, tweezijdig)
+t_kritiek <- qt(0.975, df = n - 1)  # 0.975 = 1 - 0.025
+
+# 95% BI berekenen
+ondergrens <- gemiddelde - t_kritiek * se
+bovengrens <- gemiddelde + t_kritiek * se
+
+# Resultaat
+cat("M =", round(gemiddelde, 3), "\n")
+cat("SE =", round(se, 3), "\n")
+cat("95% BI = [", round(ondergrens, 3), ",", round(bovengrens, 3), "]\n")</code></pre>
+        </div>
+
+        <h3>Methode 2: Met t.test()</h3>
+        <div class="code-box">
+            <pre><code># Eenvoudigste methode
+result <- t.test(data_wave1$W1_Relstress1_Gem)
+
+# 95% BI opvragen
+result$conf.int
+
+# Volledige output
+result
+# Output:
+# 95 percent confidence interval:
+#  3.318  3.582</code></pre>
+        </div>
+
+        <h3>Methode 3: Met psych::describe()</h3>
+        <div class="code-box">
+            <pre><code>library(psych)
+
+# Beschrijvende statistieken met CI
+describe(data_wave1$W1_Relstress1_Gem)
+
+# Voor meerdere variabelen
+describe(data_wave1[, c("W1_Relstress1_Gem", 
+                         "W1_Werkstress_Gem",
+                         "W1_Financstress_Gem")])</code></pre>
+        </div>
+
+        <h2 id="factors">Factoren die de Breedte Beïnvloeden</h2>
+
+        <table class="alt-table">
+            <tr>
+                <th>Factor</th>
+                <th>Effect</th>
+                <th>Waarom?</th>
+            </tr>
+            <tr>
+                <td><strong>Steekproefgrootte (n)</strong></td>
+                <td>n ↑ → BI smaller</td>
+                <td>SE = SD/√n → meer data = preciezer</td>
+            </tr>
+            <tr>
+                <td><strong>Standaarddeviatie (SD)</strong></td>
+                <td>SD ↑ → BI breder</td>
+                <td>Meer variabiliteit = meer onzekerheid</td>
+            </tr>
+            <tr>
+                <td><strong>Betrouwbaarheidsniveau</strong></td>
+                <td>95% → 99% = breder</td>
+                <td>Meer zekerheid = breder interval</td>
+            </tr>
+        </table>
+
+        <div class="example-box">
+            <h4>Simulatie: Effect van n</h4>
+            <pre>
+n = 30:   95% BI = [3.14, 3.76]  (breedte = 0.62)
+n = 150:  95% BI = [3.32, 3.58]  (breedte = 0.26)
+n = 500:  95% BI = [3.38, 3.52]  (breedte = 0.14)
+n = 2000: 95% BI = [3.41, 3.49]  (breedte = 0.08)
+
+Conclusie: Verviervoudigen van n halveert de breedte van het BI!
+            </pre>
+        </div>
+
+        <h2 id="different-levels">Andere Betrouwbaarheidsniveaus</h2>
+
+        <div class="info-box">
+            <h4>Betrouwbaarheidsniveau Kiezen</h4>
+            <ul>
+                <li><strong>90% BI:</strong> Minder streng, smaller interval (α = 0.10)</li>
+                <li><strong>95% BI:</strong> Standaard in sociale wetenschappen (α = 0.05)</li>
+                <li><strong>99% BI:</strong> Zeer streng, breder interval (α = 0.01)</li>
+            </ul>
+        </div>
+
+        <div class="code-box">
+            <pre><code># 90% BI
+t.test(data_wave1$W1_Relstress1_Gem, conf.level = 0.90)$conf.int
+
+# 95% BI (default)
+t.test(data_wave1$W1_Relstress1_Gem)$conf.int
+
+# 99% BI
+t.test(data_wave1$W1_Relstress1_Gem, conf.level = 0.99)$conf.int
+
+# Vergelijk breedte
+ci_90 <- t.test(data_wave1$W1_Relstress1_Gem, conf.level = 0.90)$conf.int
+ci_95 <- t.test(data_wave1$W1_Relstress1_Gem, conf.level = 0.95)$conf.int
+ci_99 <- t.test(data_wave1$W1_Relstress1_Gem, conf.level = 0.99)$conf.int
+
+cat("90% BI breedte:", round(diff(ci_90), 3), "\n")
+cat("95% BI breedte:", round(diff(ci_95), 3), "\n")
+cat("99% BI breedte:", round(diff(ci_99), 3), "\n")</code></pre>
+        </div>
+
+        <h2 id="visualization">Visualisatie van BI</h2>
+
+        <div class="code-box">
+            <pre><code>library(ggplot2)
+
+# Data voorbereiden
+vars <- c("Relatiestress", "Werkstress", "Financiële stress")
+means <- c(
+  mean(data_wave1$W1_Relstress1_Gem, na.rm = TRUE),
+  mean(data_wave1$W1_Werkstress_Gem, na.rm = TRUE),
+  mean(data_wave1$W1_Financstress_Gem, na.rm = TRUE)
+)
+
+# 95% BI berekenen voor elke variabele
+ci_rel <- t.test(data_wave1$W1_Relstress1_Gem)$conf.int
+ci_werk <- t.test(data_wave1$W1_Werkstress_Gem)$conf.int
+ci_fin <- t.test(data_wave1$W1_Financstress_Gem)$conf.int
+
+# Dataframe maken
+plot_data <- data.frame(
+  variabele = vars,
+  gemiddelde = means,
+  ondergrens = c(ci_rel[1], ci_werk[1], ci_fin[1]),
+  bovengrens = c(ci_rel[2], ci_werk[2], ci_fin[2])
+)
+
+# Error bar plot
+ggplot(plot_data, aes(x = variabele, y = gemiddelde)) +
+  geom_point(size = 4, color = "#667eea") +
+  geom_errorbar(aes(ymin = ondergrens, ymax = bovengrens),
+                width = 0.2, size = 1, color = "#667eea") +
+  labs(title = "Gemiddelden met 95% Betrouwbaarheidsintervallen",
+       x = "Stressbron",
+       y = "Score (1-5)") +
+  theme_minimal() +
+  theme(text = element_text(size = 14))</code></pre>
+        </div>
+
+        <h2 id="common-mistakes">Veelgemaakte Fouten</h2>
+
+        <div class="warning-box">
+            <h4>1. Foutieve Interpretatie van "95%"</h4>
+            <p>❌ <strong>Fout:</strong> "Er is 95% kans dat de populatiewaarde tussen 3.32 en 3.58 ligt"</p>
+            <p>✅ <strong>Correct:</strong> "We zijn 95% confident dat dit interval de populatiewaarde bevat"</p>
+        </div>
+
+        <div class="warning-box">
+            <h4>2. Verwarring met Standaarddeviatie</h4>
+            <p>❌ <strong>Fout:</strong> BI zegt iets over de spreiding in de data</p>
+            <p>✅ <strong>Correct:</strong> BI zegt iets over de <strong>onzekerheid rond het gemiddelde</strong></p>
+            <p><em>Voor spreiding gebruik je SD of IQR, niet BI!</em></p>
+        </div>
+
+        <div class="warning-box">
+            <h4>3. Overlappende BI = Geen Verschil?</h4>
+            <p>❌ <strong>Fout:</strong> "De BI overlappen, dus er is geen significant verschil"</p>
+            <p>✅ <strong>Correct:</strong> Overlappende BI suggereren geen verschil, maar je moet een
+                <strong>t-toets</strong> doen voor zekerheid</p>
+        </div>
+
+        <h2 id="practical-use">Praktisch Gebruik</h2>
+
+        <div class="example-box">
+            <h4>Wanneer Gebruik je BI?</h4>
+            <ol>
+                <li><strong>Schatting populatieparameters:</strong> "Het gemiddelde inkomen in België ligt tussen
+                    €35.000 en €38.000"</li>
+                <li><strong>Precisie beoordelen:</strong> Smal BI = precieze schatting, breed BI = onzekere schatting
+                </li>
+                <li><strong>Groepen vergelijken:</strong> Kijk of BI overlappen (informeel) of doe t-toets (formeel)
+                </li>
+                <li><strong>Effect sizes rapporteren:</strong> Cohen's d met 95% BI geeft effect én onzekerheid</li>
+            </ol>
+        </div>
+
+        <h2>Complete Functie voor Rapportage</h2>
+
+        <div class="code-box">
+            <pre><code>rapporteer_met_ci <- function(x, var_name = "Variable", conf_level = 0.95) {
+  # Bereken statistieken
+  n <- sum(!is.na(x))
+  m <- mean(x, na.rm = TRUE)
+  sd_val <- sd(x, na.rm = TRUE)
+  se <- sd_val / sqrt(n)
+  
+  # BI berekenen
+  ci <- t.test(x, conf.level = conf_level)$conf.int
+  
+  # Output
+  cat("\n=== Beschrijvende Statistieken:", var_name, "===\n\n")
+  cat("N:", n, "\n")
+  cat("M:", round(m, 2), "\n")
+  cat("SD:", round(sd_val, 2), "\n")
+  cat("SE:", round(se, 3), "\n")
+  cat(paste0(conf_level * 100, "% BI = ["),
+      round(ci[1], 2), ",", round(ci[2], 2), "]\n\n")
+  
+  cat("Interpretatie:\n")
+  cat("We zijn", paste0(conf_level * 100, "%"), "confident dat het populatiegemiddelde\n")
+  cat("tussen", round(ci[1], 2), "en", round(ci[2], 2), "ligt.\n")
+}
+
+# Gebruik
+rapporteer_met_ci(data_wave1$W1_Relstress1_Gem,
+                  var_name = "Relatiestress",
+                  conf_level = 0.95)</code></pre>
+        </div>
+
+        <div class="summary-box">
+            <h3>Samenvattend</h3>
+            <ul>
+                <li><strong>95% BI:</strong> Bereik waarbinnen populatieparameter waarschijnlijk ligt</li>
+                <li><strong>Formule:</strong> M ± t × SE (waarbij SE = SD/√n)</li>
+                <li><strong>Breder BI:</strong> Meer onzekerheid (kleine n, grote SD, hoger betrouwbaarheidsniveau)</li>
+                <li><strong>Smaller BI:</strong> Meer precisie (grote n, kleine SD, lager betrouwbaarheidsniveau)</li>
+                <li><strong>Interpretatie:</strong> "We zijn 95% confident dat..." (NIET "95% kans dat...")</li>
+                <li><strong>R Code:</strong> t.test(x)$conf.int voor snelle berekening</li>
+            </ul>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="normality-assessment.html" class="btn-secondary">← Vorige: Normaliteit</a>
+            <a href="apa-reporting.html" class="btn-primary">Volgende: APA Rapportage →</a>
+        </div>
+    </div>
+
+    <style>
+        .lead {
+            font-size: 1.2em;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .example-box,
+        .warning-box,
+        .info-box,
+        .formula-box,
+        .summary-box {
+            background: #f8f9fc;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .warning-box {
+            border-left-color: #f39c12;
+            background: #fef9f3;
+        }
+
+        .info-box {
+            border-left-color: #3498db;
+            background: #f0f8ff;
+        }
+
+        .formula-box {
+            border-left-color: #9b59b6;
+            background: #f9f5ff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        .code-box {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .code-box pre {
+            margin: 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+
+        pre {
+            background: white;
+            padding: 15px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+    </style>
+</body>
+
+</html>
