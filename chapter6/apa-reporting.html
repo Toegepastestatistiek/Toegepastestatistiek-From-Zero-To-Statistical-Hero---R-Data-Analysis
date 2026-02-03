@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APA Rapportage - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> / <a href="../chapter6.html">Hoofdstuk 6</a> / APA Rapportage
+        </div>
+
+        <h1>Rapporteren volgens APA 7e Editie</h1>
+        
+        <p class="lead">Hoe rapporteer je beschrijvende statistieken professioneel volgens de richtlijnen van de American Psychological Association (APA, 7e editie)?</p>
+
+        <h2 id="basics">Basisregels APA Rapportage</h2>
+
+        <div class="info-box">
+            <h4>Kernprincipes</h4>
+            <ol>
+                <li><strong>Symbolen cursief:</strong> M, SD, SE, p, t, F, r (NIET cursief: n, df, N)</li>
+                <li><strong>Spaties rond symbolen:</strong> <em>M</em> = 3.45 (niet M=3.45)</li>
+                <li><strong>Consistente decimalen:</strong> Meestal 2 decimalen voor M, SD, SE</li>
+                <li><strong>Nullen voor decimalen:</strong> p = .03 (niet p = 0.03) als waarde < 1</li>
+                <li><strong>Hoofdletters voor populatie:</strong> N (populatie), n (steekproef)</li>
+            </ol>
+        </div>
+
+        <h2 id="descriptives">Beschrijvende Statistieken</h2>
+
+        <h3>Gemiddelde en Standaarddeviatie</h3>
+        <div class="example-box">
+            <p><strong>Formaat:</strong> <em>M</em> = waarde, <em>SD</em> = waarde</p>
+            
+            <h4>✅ Correct:</h4>
+            <ul>
+                <li>De gemiddelde relatiestress was <em>M</em> = 3.45, <em>SD</em> = 0.82.</li>
+                <li>Werkstress (<em>M</em> = 2.87, <em>SD</em> = 1.12) was lager dan relatiestress.</li>
+                <li>Respondenten rapporteerden matige financiële stress (<em>M</em> = 3.21, <em>SD</em> = 0.95).</li>
+            </ul>
+
+            <h4>❌ Fout:</h4>
+            <ul>
+                <li>M=3.45, SD=0.82 (geen spaties, niet cursief)</li>
+                <li>Mean = 3.45 (gebruik M, niet Mean)</li>
+                <li>M = 3.4500 (te veel decimalen)</li>
+            </ul>
+        </div>
+
+        <h3>Met Betrouwbaarheidsintervallen</h3>
+        <div class="example-box">
+            <p><strong>Formaat:</strong> <em>M</em> = waarde, <em>SD</em> = waarde, 95% BI [ondergrens, bovengrens]</p>
+            
+            <h4>Voorbeelden:</h4>
+            <ul>
+                <li>Relatiestress: <em>M</em> = 3.45, <em>SD</em> = 0.82, 95% BI [3.32, 3.58]</li>
+                <li>De gemiddelde werkstress was <em>M</em> = 2.87 (<em>SD</em> = 1.12, 95% BI [2.69, 3.05]).</li>
+            </ul>
+        </div>
+
+        <h3>Mediaan en IQR (bij scheefheid)</h3>
+        <div class="example-box">
+            <p><strong>Formaat:</strong> <em>Mdn</em> = waarde, <em>IQR</em> = waarde</p>
+            
+            <h4>Voorbeelden:</h4>
+            <ul>
+                <li>Het mediane inkomen was <em>Mdn</em> = €35,000, <em>IQR</em> = €18,000.</li>
+                <li>De verdelingen waren rechts-scheef, daarom rapporteren we medianen (<em>Mdn</em> = 3.00, <em>IQR</em> = 2.00).</li>
+            </ul>
+        </div>
+
+        <h2 id="rounding">Afrondingsregels</h2>
+
+        <table class="alt-table">
+            <tr>
+                <th>Statistiek</th>
+                <th>Decimalen</th>
+                <th>Voorbeeld</th>
+            </tr>
+            <tr>
+                <td>M, SD, SE, Mdn, IQR</td>
+                <td>2 decimalen</td>
+                <td><em>M</em> = 3.45, <em>SD</em> = 0.82</td>
+            </tr>
+            <tr>
+                <td>p-waarde (p ≥ .001)</td>
+                <td>2-3 decimalen</td>
+                <td>p = .03 of p = .003</td>
+            </tr>
+            <tr>
+                <td>p-waarde (p < .001)</td>
+                <td>-</td>
+                <td>p < .001 (niet p = .000)</td>
+            </tr>
+            <tr>
+                <td>Correlatie (r)</td>
+                <td>2 decimalen</td>
+                <td>r = .45</td>
+            </tr>
+            <tr>
+                <td>Cohen's d</td>
+                <td>2 decimalen</td>
+                <td>d = 0.52</td>
+            </tr>
+            <tr>
+                <td>t, F, χ²</td>
+                <td>2 decimalen</td>
+                <td>t = 3.21, F = 5.67</td>
+            </tr>
+            <tr>
+                <td>df (vrijheidsgraden)</td>
+                <td>0 decimalen (geheel getal)</td>
+                <td>df = 148</td>
+            </tr>
+            <tr>
+                <td>N, n (steekproefgrootte)</td>
+                <td>0 decimalen (geheel getal)</td>
+                <td>N = 150, n = 75</td>
+            </tr>
+        </table>
+
+        <div class="warning-box">
+            <h4>⚠️ Belangrijke Afrondingsregels</h4>
+            <ul>
+                <li><strong>Geen leading zero bij p, r, α:</strong> p = .03 (niet p = 0.03) omdat deze waarden niet groter dan 1 kunnen zijn</li>
+                <li><strong>Wel leading zero bij M, SD, d:</strong> M = 0.45 (wel 0, want waarde kan > 1 zijn)</li>
+                <li><strong>p < .001 in plaats van p = .000:</strong> Rapporteer zeer kleine p-waarden als "p < .001"</li>
+            </ul>
+        </div>
+
+        <h2 id="tables">Tabellen volgens APA</h2>
+
+        <h3>Basisstructuur</h3>
+        <div class="info-box">
+            <p><strong>APA Tabelregels:</strong></p>
+            <ul>
+                <li>Alleen <strong>horizontale lijnen</strong> (geen verticale lijnen)</li>
+                <li>Dubbele lijn boven en onder de tabel</li>
+                <li>Enkele lijn onder kolomkoppen</li>
+                <li>Titel boven de tabel, <em>cursief</em></li>
+                <li>Noten onder de tabel indien nodig</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Voorbeeld: Tabel 1</h4>
+            <p style="font-style: italic; margin-bottom: 10px;">Beschrijvende Statistieken voor Stressmaten</p>
+            <table style="border-top: 3px solid #000; border-bottom: 3px solid #000;">
+                <tr style="border-bottom: 1px solid #000;">
+                    <th style="text-align: left; background: white; color: #000; font-weight: bold;">Variabele</th>
+                    <th style="background: white; color: #000; font-weight: bold;"><em>M</em></th>
+                    <th style="background: white; color: #000; font-weight: bold;"><em>SD</em></th>
+                    <th style="background: white; color: #000; font-weight: bold;">95% BI</th>
+                    <th style="background: white; color: #000; font-weight: bold;"><em>n</em></th>
+                </tr>
+                <tr>
+                    <td>Relatiestress</td>
+                    <td style="text-align: center;">3.45</td>
+                    <td style="text-align: center;">0.82</td>
+                    <td style="text-align: center;">[3.32, 3.58]</td>
+                    <td style="text-align: center;">150</td>
+                </tr>
+                <tr>
+                    <td>Werkstress</td>
+                    <td style="text-align: center;">2.87</td>
+                    <td style="text-align: center;">1.12</td>
+                    <td style="text-align: center;">[2.69, 3.05]</td>
+                    <td style="text-align: center;">150</td>
+                </tr>
+                <tr>
+                    <td>Financiële stress</td>
+                    <td style="text-align: center;">3.21</td>
+                    <td style="text-align: center;">0.95</td>
+                    <td style="text-align: center;">[3.06, 3.36]</td>
+                    <td style="text-align: center;">150</td>
+                </tr>
+            </table>
+            <p style="font-size: 0.9em; margin-top: 10px;"><em>Noot.</em> BI = betrouwbaarheidsinterval. Alle variabelen gemeten op 5-puntsschaal.</p>
+        </div>
+
+        <h3>R Code voor APA Tabel</h3>
+        <div class="code-box">
+            <pre><code>library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# Data voorbereiden
+apa_tabel <- data.frame(
+  Variabele = c("Relatiestress", "Werkstress", "Financiële stress"),
+  M = c(3.45, 2.87, 3.21),
+  SD = c(0.82, 1.12, 0.95),
+  CI = c("[3.32, 3.58]", "[2.69, 3.05]", "[3.06, 3.36]"),
+  n = c(150, 150, 150)
+)
+
+# APA-stijl tabel maken
+kable(apa_tabel, 
+      caption = "Beschrijvende Statistieken voor Stressmaten",
+      col.names = c("Variabele", "M", "SD", "95% BI", "n"),
+      align = c("l", "c", "c", "c", "c")) %>%
+  kable_styling(bootstrap_options = c("bordered"),
+                full_width = FALSE) %>%
+  footnote(general = "BI = betrouwbaarheidsinterval. Alle variabelen gemeten op 5-puntsschaal.",
+           general_title = "Noot.")
+</code></pre>
+        </div>
+
+        <h2 id="inline">Rapportage in Lopende Tekst</h2>
+
+        <h3>Enkelvoudige Resultaten</h3>
+        <div class="example-box">
+            <p><strong>Sjabloon:</strong> De gemiddelde [variabele] was <em>M</em> = [waarde], <em>SD</em> = [waarde].</p>
+            
+            <h4>Voorbeelden:</h4>
+            <ul>
+                <li>De gemiddelde relatiestress was <em>M</em> = 3.45, <em>SD</em> = 0.82.</li>
+                <li>Respondenten rapporteerden matige werkstress (<em>M</em> = 2.87, <em>SD</em> = 1.12).</li>
+                <li>Het gemiddelde opleidingsniveau was <em>M</em> = 3.20, <em>SD</em> = 1.05, op een schaal van 1 (laag) tot 5 (hoog).</li>
+            </ul>
+        </div>
+
+        <h3>Vergelijkingen tussen Groepen</h3>
+        <div class="example-box">
+            <h4>Met t-toets:</h4>
+            <p>Mannen (<em>M</em> = 3.12, <em>SD</em> = 0.89) rapporteerden significant lagere relatiestress dan vrouwen (<em>M</em> = 3.67, <em>SD</em> = 0.74), <em>t</em>(148) = 3.45, <em>p</em> = .001, <em>d</em> = 0.67.</p>
+
+            <h4>Met ANOVA:</h4>
+            <p>Er was een significant effect van opleidingsniveau op werkstress, <em>F</em>(3, 146) = 5.67, <em>p</em> = .001, η² = .10.</p>
+        </div>
+
+        <h3>Met Betrouwbaarheidsintervallen</h3>
+        <div class="example-box">
+            <p>Het verschil in relatiestress tussen mannen en vrouwen was <em>M</em><sub>verschil</sub> = 0.55, 95% BI [0.23, 0.87], wat een matig effect vertegenwoordigt.</p>
+        </div>
+
+        <h2 id="common-stats">Veel Voorkomende Statistieken</h2>
+
+        <h3>1. Gemiddelde met SD</h3>
+        <div class="code-box">
+            <pre><code># R code
+m <- mean(x, na.rm = TRUE)
+sd <- sd(x, na.rm = TRUE)
+
+# Rapportage
+# M = 3.45, SD = 0.82</code></pre>
+        </div>
+
+        <h3>2. Correlatie</h3>
+        <div class="code-box">
+            <pre><code># R code
+cor.test(x, y)
+
+# Rapportage (als r = 0.45, p = .003)
+# r = .45, p = .003</code></pre>
+        </div>
+
+        <h3>3. t-toets</h3>
+        <div class="code-box">
+            <pre><code># R code
+t.test(x ~ groep, data = data)
+
+# Rapportage (als t = 3.21, df = 148, p = .002)
+# t(148) = 3.21, p = .002</code></pre>
+        </div>
+
+        <h3>4. Chi-kwadraat</h3>
+        <div class="code-box">
+            <pre><code># R code
+chisq.test(table(x, y))
+
+# Rapportage (als χ² = 12.45, df = 3, p = .006)
+# χ²(3) = 12.45, p = .006</code></pre>
+        </div>
+
+        <h2 id="complete-example">Compleet Voorbeeld</h2>
+
+        <div class="example-box">
+            <h4>Resultaten Sectie (Fictief Onderzoek)</h4>
+            <p style="margin-top: 15px;"><strong>Beschrijvende Statistieken</strong></p>
+            <p>Tabel 1 toont de beschrijvende statistieken voor de drie stressmaten. Relatiestress was gemiddeld het hoogst (<em>M</em> = 3.45, <em>SD</em> = 0.82), gevolgd door financiële stress (<em>M</em> = 3.21, <em>SD</em> = 0.95) en werkstress (<em>M</em> = 2.87, <em>SD</em> = 1.12). Alle variabelen waren bij benadering normaal verdeeld, met scheefheid en kurtosis waarden tussen -1 en 1.</p>
+
+            <p style="margin-top: 15px;"><strong>Verschillen tussen Mannen en Vrouwen</strong></p>
+            <p>Een onafhankelijke t-toets toonde aan dat vrouwen (<em>M</em> = 3.67, <em>SD</em> = 0.74) significant hogere relatiestress rapporteerden dan mannen (<em>M</em> = 3.12, <em>SD</em> = 0.89), <em>t</em>(148) = 3.45, <em>p</em> = .001, 95% BI [0.23, 0.87], <em>d</em> = 0.67. Dit vertegenwoordigt een matig tot groot effect.</p>
+
+            <p style="margin-top: 15px;"><strong>Correlaties tussen Stressmaten</strong></p>
+            <p>Relatiestress correleerde significant positief met werkstress, <em>r</em> = .45, <em>p</em> < .001, en met financiële stress, <em>r</em> = .38, <em>p</em> = .002. Ook werkstress en financiële stress waren significant gecorreleerd, <em>r</em> = .52, <em>p</em> < .001.</p>
+        </div>
+
+        <h2>APA Rapportage Functie in R</h2>
+
+        <div class="code-box">
+            <pre><code>apa_rapporteer <- function(x, naam = "Variable", decimals = 2) {
+  # Bereken statistieken
+  m <- mean(x, na.rm = TRUE)
+  sd_val <- sd(x, na.rm = TRUE)
+  n <- sum(!is.na(x))
+  
+  # 95% BI
+  ci <- t.test(x)$conf.int
+  
+  # Formatteer volgens APA
+  m_str <- format(round(m, decimals), nsmall = decimals)
+  sd_str <- format(round(sd_val, decimals), nsmall = decimals)
+  ci_str <- paste0("[", format(round(ci[1], decimals), nsmall = decimals),
+                   ", ", format(round(ci[2], decimals), nsmall = decimals), "]")
+  
+  # Output
+  cat(naam, ": M = ", m_str, ", SD = ", sd_str, 
+      ", 95% BI ", ci_str, ", n = ", n, sep = "")
+}
+
+# Gebruik
+apa_rapporteer(data_wave1$W1_Relstress1_Gem, "Relatiestress")
+# Output: Relatiestress: M = 3.45, SD = 0.82, 95% BI [3.32, 3.58], n = 150</code></pre>
+        </div>
+
+        <div class="summary-box">
+            <h3>Samenvattend: APA Checklist</h3>
+            <ul>
+                <li>✅ <strong>Cursief:</strong> M, SD, SE, p, t, F, r (niet: n, df, N)</li>
+                <li>✅ <strong>Spaties:</strong> M = 3.45 (niet M=3.45)</li>
+                <li>✅ <strong>Decimalen:</strong> 2 voor M/SD, 2-3 voor p</li>
+                <li>✅ <strong>Geen leading zero:</strong> p = .03, r = .45 (niet 0.03)</li>
+                <li>✅ <strong>p < .001:</strong> Bij zeer kleine p-waarden (niet p = .000)</li>
+                <li>✅ <strong>Tabellen:</strong> Alleen horizontale lijnen, titel cursief</li>
+                <li>✅ <strong>95% BI:</strong> Altijd rapporteren [ondergrens, bovengrens]</li>
+                <li>✅ <strong>Effect sizes:</strong> Cohen's d, η², r bij significante resultaten</li>
+            </ul>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="confidence-intervals.html" class="btn-secondary">← Vorige: Betrouwbaarheidsintervallen</a>
+            <a href="r-functions-guide.html" class="btn-primary">Volgende: R Functies Gids →</a>
+        </div>
+    </div>
+
+    <style>
+        .lead { font-size: 1.2em; color: #555; margin: 20px 0; }
+        .example-box, .warning-box, .info-box, .summary-box {
+            background: #f8f9fc;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .warning-box { border-left-color: #f39c12; background: #fef9f3; }
+        .info-box { border-left-color: #3498db; background: #f0f8ff; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background: #667eea; color: white; }
+        .alt-table th { background: #667eea; }
+        .code-box { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .code-box pre { margin: 0; overflow-x: auto; font-family: 'Courier New', monospace; line-height: 1.5; }
+        .navigation-buttons { display: flex; justify-content: space-between; margin: 40px 0; }
+        .btn-primary, .btn-secondary { padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+        .btn-primary { background: #667eea; color: white; }
+        .btn-secondary { background: #e0e0e0; color: #333; }
+        .btn-primary:hover { background: #5568d3; }
+        .btn-secondary:hover { background: #d0d0d0; }
+    </style>
+</body>
+</html>

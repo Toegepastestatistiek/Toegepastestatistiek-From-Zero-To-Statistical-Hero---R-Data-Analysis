@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meetniveaus Begrijpen - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> / <a href="../chapter6.html">Hoofdstuk 6</a> / Meetniveaus
+        </div>
+
+        <h1>Meetniveaus Begrijpen</h1>
+
+        <p class="lead">Het meetniveau van een variabele bepaalt welke statistische analyses en numerieke maten je kunt
+            gebruiken. Dit is een van de meest fundamentele concepten in statistiek.</p>
+
+        <h2 id="nominal">Nominaal Niveau</h2>
+        <p><strong>Definitie:</strong> Categorieën zonder natuurlijke volgorde. De getallen zijn labels, geen
+            hoeveelheden.</p>
+
+        <h3>Eigenschappen</h3>
+        <ul>
+            <li><strong>Geen volgorde:</strong> Categorie 1 is niet "meer" of "minder" dan categorie 2</li>
+            <li><strong>Geen afstand:</strong> Het verschil tussen categorieën is niet meetbaar</li>
+            <li><strong>Wel/niet gelijk:</strong> Je kunt alleen vergelijken of twee waarden gelijk zijn</li>
+        </ul>
+
+        <h3>Voorbeelden</h3>
+        <div class="example-box">
+            <h4>Criminologie voorbeelden:</h4>
+            <ul>
+                <li><strong>Geslacht:</strong> 0 = Man, 1 = Vrouw, 2 = Andere</li>
+                <li><strong>Delicttype:</strong> 1 = Diefstal, 2 = Geweld, 3 = Fraude, 4 = Vandalisme</li>
+                <li><strong>Wel/geen relatie:</strong> 0 = Nee, 1 = Ja</li>
+                <li><strong>Buurt:</strong> 1 = Centrum, 2 = Noord, 3 = Zuid, 4 = Oost, 5 = West</li>
+                <li><strong>Etnische achtergrond:</strong> Diverse categorieën</li>
+            </ul>
+        </div>
+
+        <h3>Toegestane Numerieke Maten</h3>
+        <table class="info-table">
+            <tr>
+                <th>Toegestaan</th>
+                <th>NIET Toegestaan</th>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>Modus (meest voorkomende categorie)</li>
+                        <li>Frequenties en percentages</li>
+                        <li>Chi-kwadraat toets</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Mediaan (geen volgorde!)</li>
+                        <li>Gemiddelde (zinloos!)</li>
+                        <li>Standaardafwijking</li>
+                        <li>Correlatie</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <div class="warning-box">
+            <h4>⚠️ Veelgemaakte Fout</h4>
+            <p><strong>FOUT:</strong> Gemiddelde geslacht berekenen: (0+0+1+1+1)/5 = 0.6</p>
+            <p><strong>Waarom fout?</strong> Geslacht heeft geen volgorde - "0.6" betekent niets!</p>
+            <p><strong>CORRECT:</strong> 40% man, 60% vrouw (modus = vrouw)</p>
+        </div>
+
+        <h2 id="ordinal">Ordinaal Niveau</h2>
+        <p><strong>Definitie:</strong> Categorieën met een natuurlijke volgorde, maar de afstand tussen categorieën is
+            niet gelijk of niet bekend.</p>
+
+        <h3>Eigenschappen</h3>
+        <ul>
+            <li><strong>Wel volgorde:</strong> Categorie 3 is "meer" dan categorie 2</li>
+            <li><strong>Geen gelijke afstanden:</strong> Verschil tussen 1→2 ≠ verschil tussen 2→3</li>
+            <li><strong>Rangorde:</strong> Je kunt sorteren van laag naar hoog</li>
+        </ul>
+
+        <h3>Voorbeelden</h3>
+        <div class="example-box">
+            <h4>Criminologie voorbeelden:</h4>
+            <ul>
+                <li><strong>Opleidingsniveau:</strong> 1 = Laag, 2 = Midden, 3 = Hoog</li>
+                <li><strong>Inkomenscategorieën:</strong> 1 = &lt;€2000, 2 = €2000-€4000, 3 = &gt;€4000</li>
+                <li><strong>Ernst delict:</strong> 1 = Licht, 2 = Matig, 3 = Ernstig, 4 = Zeer ernstig</li>
+                <li><strong>Gezondheid:</strong> 1 = Slecht, 2 = Matig, 3 = Goed, 4 = Uitstekend</li>
+                <li><strong>Leeftijdsgroepen:</strong> 1 = 18-25, 2 = 26-40, 3 = 41-65, 4 = 65+</li>
+            </ul>
+        </div>
+
+        <h3>Toegestane Numerieke Maten</h3>
+        <table class="info-table">
+            <tr>
+                <th>Toegestaan</th>
+                <th>NIET Toegestaan</th>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>Modus</li>
+                        <li><strong>Mediaan</strong> (centrale categorie)</li>
+                        <li><strong>Kwartielen</strong> (Q1, Q2, Q3)</li>
+                        <li>Bereik (max - min)</li>
+                        <li>Interkwartielafstand (IQR)</li>
+                        <li>Spearman's rangcorrelatie</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Gemiddelde (afstanden niet gelijk!)</li>
+                        <li>Standaardafwijking</li>
+                        <li>Variantie</li>
+                        <li>Pearson correlatie</li>
+                        <li>t-toets</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <div class="warning-box">
+            <h4>⚠️ Veelgemaakte Fout</h4>
+            <p><strong>FOUT:</strong> Gemiddelde opleidingsniveau = 2.3</p>
+            <p><strong>Waarom controversieel?</strong> Afstand tussen laag→midden ≠ midden→hoog (3 jaar basisschool vs.
+                4 jaar universiteit)</p>
+            <p><strong>BETER:</strong> Mediaan = 2 (Midden), 25% heeft laag, 50% heeft midden, 25% heeft hoog</p>
+            <p><strong>OPMERKING:</strong> In de praktijk wordt gemiddelde vaak toch berekend bij Likert-schalen
+                (5-puntsschalen), maar dit is technisch niet helemaal correct!</p>
+        </div>
+
+        <h2 id="metric">Metrisch Niveau</h2>
+        <p><strong>Definitie:</strong> Numerieke waarden met gelijke afstanden tussen eenheden en een betekenisvol
+            nulpunt (ratio) of willekeurig nulpunt (interval).</p>
+
+        <h3>Eigenschappen</h3>
+        <ul>
+            <li><strong>Gelijke afstanden:</strong> 1→2 is even groot als 2→3</li>
+            <li><strong>Alle rekenkundige bewerkingen:</strong> +, -, ×, ÷</li>
+            <li><strong>Meest informatief:</strong> Alle statistische technieken zijn mogelijk</li>
+        </ul>
+
+        <h3>Twee Subtypen</h3>
+        <div class="example-box">
+            <h4>Interval (willekeurig nulpunt):</h4>
+            <ul>
+                <li><strong>Temperatuur (Celsius):</strong> 0°C betekent niet "geen temperatuur"</li>
+                <li><strong>IQ-score:</strong> 0 IQ betekent niet "geen intelligentie"</li>
+                <li>20°C is NIET twee keer zo warm als 10°C!</li>
+            </ul>
+
+            <h4>Ratio (absoluut nulpunt):</h4>
+            <ul>
+                <li><strong>Leeftijd:</strong> 0 jaar = geboorte</li>
+                <li><strong>Aantal delicten:</strong> 0 = geen delicten</li>
+                <li><strong>Inkomen (euro's):</strong> 0 = geen inkomen</li>
+                <li><strong>Tijd (seconden):</strong> 0 = geen tijd verstreken</li>
+                <li>€2000 is WEL twee keer zoveel als €1000!</li>
+            </ul>
+        </div>
+
+        <h3>Voorbeelden uit C&W Studie</h3>
+        <div class="example-box">
+            <ul>
+                <li><strong>Leeftijd (jaren):</strong> Continue ratio-variabele</li>
+                <li><strong>Schaalscores (1-5):</strong> Gemiddelde van Likert-items (technisch ordinaal, maar behandeld
+                    als metrisch)</li>
+                <li><strong>Werkstress_Gem:</strong> 1.00 - 5.00 (gemiddelde van 4 items)</li>
+                <li><strong>Relstress_Gem:</strong> 1.00 - 5.00 (gemiddelde van 4 items)</li>
+                <li><strong>Aantal contacten per week:</strong> 0, 1, 2, 3, ... (discrete ratio)</li>
+            </ul>
+        </div>
+
+        <h3>Toegestane Numerieke Maten</h3>
+        <table class="info-table">
+            <tr>
+                <th>Alle Maten Toegestaan!</th>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>Modus</li>
+                        <li>Mediaan en kwartielen</li>
+                        <li><strong>Gemiddelde</strong> (meest gebruikt!)</li>
+                        <li>Bereik en IQR</li>
+                        <li><strong>Standaardafwijking en variantie</strong></li>
+                        <li><strong>Scheefheid en kurtosis</strong></li>
+                        <li>Pearson correlatie</li>
+                        <li>t-toets, ANOVA, regressie</li>
+                        <li>Alle parametrische testen</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <h2 id="examples">Praktijkvoorbeelden: Meetniveau Bepalen</h2>
+
+        <h3>Oefening 1: Classificeer Deze Variabelen</h3>
+        <div class="exercise-box">
+            <table class="info-table">
+                <tr>
+                    <th>Variabele</th>
+                    <th>Meetniveau</th>
+                    <th>Uitleg</th>
+                </tr>
+                <tr>
+                    <td>Geboortejaar</td>
+                    <td>Ratio (Metrisch)</td>
+                    <td>Gelijke afstanden, absoluut nulpunt (jaar 0)</td>
+                </tr>
+                <tr>
+                    <td>Postcode</td>
+                    <td>Nominaal</td>
+                    <td>Label, geen volgorde (9000 is niet "meer" dan 1000)</td>
+                </tr>
+                <tr>
+                    <td>Tevredenheidsscore (1-10)</td>
+                    <td>Ordinaal (vaak als metrisch behandeld)</td>
+                    <td>Volgorde duidelijk, maar afstanden niet strikt gelijk</td>
+                </tr>
+                <tr>
+                    <td>Aantal arrestaties</td>
+                    <td>Ratio (Metrisch)</td>
+                    <td>Discreet, absoluut nulpunt (0 = geen arrestaties)</td>
+                </tr>
+                <tr>
+                    <td>Type misdrijf</td>
+                    <td>Nominaal</td>
+                    <td>Categorieën zonder volgorde</td>
+                </tr>
+                <tr>
+                    <td>Gevangenisstraf (jaren)</td>
+                    <td>Ratio (Metrisch)</td>
+                    <td>Continue, absoluut nulpunt (0 jaar = vrijspraak)</td>
+                </tr>
+                <tr>
+                    <td>Buurt criminaliteit (laag/midden/hoog)</td>
+                    <td>Ordinaal</td>
+                    <td>Duidelijke volgorde, afstanden niet exact gelijk</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Beslisschema: Welk Meetniveau?</h2>
+        <div class="decision-box">
+            <h3>Stel jezelf deze vragen:</h3>
+            <ol>
+                <li><strong>Is er een natuurlijke volgorde?</strong>
+                    <ul>
+                        <li>NEE → <strong>Nominaal</strong></li>
+                        <li>JA → Ga naar vraag 2</li>
+                    </ul>
+                </li>
+                <li><strong>Zijn de afstanden tussen waarden gelijk?</strong>
+                    <ul>
+                        <li>NEE → <strong>Ordinaal</strong></li>
+                        <li>JA → <strong>Metrisch</strong> (interval of ratio)</li>
+                    </ul>
+                </li>
+                <li><strong>Is er een absoluut nulpunt?</strong>
+                    <ul>
+                        <li>NEE → <strong>Interval</strong></li>
+                        <li>JA → <strong>Ratio</strong></li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <h2>Praktische Implicaties voor R-code</h2>
+        <div class="code-box">
+            <h3>Nominale variabele analyseren</h3>
+            <pre><code># Relatiestatus (0 = Nee, 1 = Ja)
+table(data$W1_Relatiestatus)  # Frequenties
+prop.table(table(data$W1_Relatiestatus))  # Percentages
+calculate_mode(data$W1_Relatiestatus)  # Modus
+
+# FOUT: mean(data$W1_Relatiestatus)  # Gemiddelde is zinloos!</code></pre>
+
+            <h3>Ordinale variabele analyseren</h3>
+            <pre><code># Opleidingsniveau (1 = Laag, 2 = Midden, 3 = Hoog)
+median(data$W1_Diploma, na.rm = TRUE)  # Mediaan
+quantile(data$W1_Diploma, c(0.25, 0.50, 0.75), na.rm = TRUE)  # Kwartielen
+IQR(data$W1_Diploma, na.rm = TRUE)  # Interkwartielafstand
+
+# CONTROVERSIEEL: mean(data$W1_Diploma)  # Technisch niet helemaal correct</code></pre>
+
+            <h3>Metrische variabele analyseren</h3>
+            <pre><code># Werkstress schaal (1-5, gemiddelde van items)
+mean(data$W1_Werkstress_Gem, na.rm = TRUE)  # Gemiddelde
+sd(data$W1_Werkstress_Gem, na.rm = TRUE)  # Standaardafwijking
+psych::describe(data$W1_Werkstress_Gem)  # Alle maten tegelijk
+t.test(data$W1_Werkstress_Gem)$conf.int  # 95% CI</code></pre>
+        </div>
+
+        <h2>Veelgemaakte Fouten en Waarschuwingen</h2>
+        <div class="warning-box">
+            <h3>1. Gemiddelde van nominale variabelen</h3>
+            <p><strong>Fout:</strong> mean(Geslacht) → 0.52 betekent... wat precies?</p>
+            <p><strong>Correct:</strong> 48% man, 52% vrouw</p>
+
+            <h3>2. Likert-schalen als metrisch behandelen</h3>
+            <p><strong>Controversie:</strong> Technisch zijn 5-puntsschalen ordinaal, maar in de praktijk worden ze vaak
+                als metrisch behandeld.</p>
+            <p><strong>Oplossing:</strong> Dit is acceptabel als je minimaal 5 categorieën hebt en de verdeling niet te
+                scheef is.</p>
+
+            <h3>3. Categorieën tellen als getallen</h3>
+            <p><strong>Fout:</strong> Delicttype 1, 2, 3 optellen → "gemiddeld delicttype 2.1"</p>
+            <p><strong>Waarom fout:</strong> De getallen zijn labels, geen hoeveelheden!</p>
+
+            <h3>4. Metrische data onnodig categoriseren</h3>
+            <p><strong>Suboptimaal:</strong> Leeftijd (ratio) → categorieën (ordinaal) → informatieverlies!</p>
+            <p><strong>Beter:</strong> Houd leeftijd continue, gebruik categorieën alleen voor tabellen/grafieken.</p>
+        </div>
+
+        <h2>Samenvatting</h2>
+        <div class="summary-box">
+            <p><strong>Gouden regel:</strong> Het meetniveau bepaalt welke statistische analyses je kunt gebruiken. Als
+                je een ordinale variabele als metrisch behandelt, krijg je technisch incorrecte resultaten!</p>
+
+            <table class="info-table">
+                <tr>
+                    <th>Niveau</th>
+                    <th>Eigenschappen</th>
+                    <th>Maten</th>
+                </tr>
+                <tr>
+                    <td><strong>Nominaal</strong></td>
+                    <td>Geen volgorde</td>
+                    <td>Modus, percentages</td>
+                </tr>
+                <tr>
+                    <td><strong>Ordinaal</strong></td>
+                    <td>Volgorde, geen gelijke afstanden</td>
+                    <td>+ Mediaan, IQR</td>
+                </tr>
+                <tr>
+                    <td><strong>Metrisch</strong></td>
+                    <td>Gelijke afstanden</td>
+                    <td>+ Gemiddelde, SD, alle testen</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="../chapter6.html" class="btn-secondary">← Terug naar Overzicht</a>
+            <a href="centrality-measures.html" class="btn-primary">Volgende: Centraliteitsmaten →</a>
+        </div>
+    </div>
+
+    <style>
+        .lead {
+            font-size: 1.2em;
+            color: #555;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .example-box,
+        .warning-box,
+        .exercise-box,
+        .decision-box,
+        .code-box,
+        .summary-box {
+            background: #f8f9fc;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .warning-box {
+            border-left-color: #f39c12;
+            background: #fef9f3;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .info-table th,
+        .info-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .info-table th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        .info-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .code-box pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        .code-box code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+    </style>
+</body>
+
+</html>

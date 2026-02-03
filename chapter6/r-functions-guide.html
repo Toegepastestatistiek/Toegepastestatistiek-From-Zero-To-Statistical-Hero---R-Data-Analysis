@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R Functies Gids - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> / <a href="../chapter6.html">Hoofdstuk 6</a> / R Functies
+        </div>
+
+        <h1>Beschrijvende Statistieken in R: Complete Functiegids</h1>
+        
+        <p class="lead">Overzicht van de belangrijkste R functies en packages voor beschrijvende statistieken, met praktische voorbeelden en vergelijkingen.</p>
+
+        <h2 id="base-r">Basis R Functies</h2>
+
+        <h3>Centraliteitsmaten</h3>
+        <div class="code-box">
+            <pre><code># Gemiddelde
+mean(data$variabele, na.rm = TRUE)
+
+# Mediaan
+median(data$variabele, na.rm = TRUE)
+
+# Modus (handmatige functie)
+calculate_mode <- function(x) {
+  unique_vals <- unique(x[!is.na(x)])
+  tabulated <- tabulate(match(x, unique_vals))
+  unique_vals[which.max(tabulated)]
+}
+calculate_mode(data$variabele)</code></pre>
+        </div>
+
+        <h3>Spreidingsmaten</h3>
+        <div class="code-box">
+            <pre><code># Standaarddeviatie
+sd(data$variabele, na.rm = TRUE)
+
+# Variantie
+var(data$variabele, na.rm = TRUE)
+
+# Bereik (range)
+range(data$variabele, na.rm = TRUE)
+diff(range(data$variabele, na.rm = TRUE))  # Bereik als enkel getal
+
+# Interkwartielafstand
+IQR(data$variabele, na.rm = TRUE)
+
+# Kwartielen
+quantile(data$variabele, probs = c(0.25, 0.50, 0.75), na.rm = TRUE)</code></pre>
+        </div>
+
+        <h3>Samenvatting</h3>
+        <div class="code-box">
+            <pre><code># Basis samenvatting
+summary(data$variabele)
+# Output: Min, Q1, Median, Mean, Q3, Max, NA's
+
+# Voor meerdere variabelen
+summary(data[, c("var1", "var2", "var3")])</code></pre>
+        </div>
+
+        <h2 id="psych-describe">psych::describe() - Meest Compleet</h2>
+
+        <p>De <code>psych</code> package biedt de meest uitgebreide functie voor beschrijvende statistieken.</p>
+
+        <h3>Installatie en Laden</h3>
+        <div class="code-box">
+            <pre><code># Installeren (eenmalig)
+install.packages("psych")
+
+# Laden (elke sessie)
+library(psych)</code></pre>
+        </div>
+
+        <h3>Basis Gebruik</h3>
+        <div class="code-box">
+            <pre><code># Eén variabele
+describe(data_wave1$W1_Relstress1_Gem)
+
+# Meerdere variabelen
+describe(data_wave1[, c("W1_Relstress1_Gem", 
+                         "W1_Werkstress_Gem",
+                         "W1_Financstress_Gem")])
+
+# Hele dataset
+describe(data_wave1)</code></pre>
+        </div>
+
+        <h3>Output Kolommen</h3>
+        <table class="alt-table">
+            <tr>
+                <th>Kolom</th>
+                <th>Betekenis</th>
+                <th>Gebruik</th>
+            </tr>
+            <tr>
+                <td><strong>vars</strong></td>
+                <td>Variabele nummer</td>
+                <td>Identificatie bij meerdere variabelen</td>
+            </tr>
+            <tr>
+                <td><strong>n</strong></td>
+                <td>Aantal geldige cases</td>
+                <td>Steekproefgrootte</td>
+            </tr>
+            <tr>
+                <td><strong>mean</strong></td>
+                <td>Gemiddelde</td>
+                <td>Centrale tendens</td>
+            </tr>
+            <tr>
+                <td><strong>sd</strong></td>
+                <td>Standaarddeviatie</td>
+                <td>Spreiding</td>
+            </tr>
+            <tr>
+                <td><strong>median</strong></td>
+                <td>Mediaan</td>
+                <td>Centrale tendens (robuust)</td>
+            </tr>
+            <tr>
+                <td><strong>trimmed</strong></td>
+                <td>Getrimmed gemiddelde (10%)</td>
+                <td>Gemiddelde zonder extreme waarden</td>
+            </tr>
+            <tr>
+                <td><strong>mad</strong></td>
+                <td>Mediaan absolute deviatie</td>
+                <td>Robuuste spreidingsmaat</td>
+            </tr>
+            <tr>
+                <td><strong>min</strong></td>
+                <td>Minimum</td>
+                <td>Laagste waarde</td>
+            </tr>
+            <tr>
+                <td><strong>max</strong></td>
+                <td>Maximum</td>
+                <td>Hoogste waarde</td>
+            </tr>
+            <tr>
+                <td><strong>range</strong></td>
+                <td>Bereik (max - min)</td>
+                <td>Totale spreiding</td>
+            </tr>
+            <tr>
+                <td><strong>skew</strong></td>
+                <td>Scheefheid</td>
+                <td>Symmetrie beoordelen</td>
+            </tr>
+            <tr>
+                <td><strong>kurtosis</strong></td>
+                <td>Kurtosis</td>
+                <td>Gepuntheid beoordelen</td>
+            </tr>
+            <tr>
+                <td><strong>se</strong></td>
+                <td>Standaardfout</td>
+                <td>Precisie schatting</td>
+            </tr>
+        </table>
+
+        <h3>Voorbeeld Output</h3>
+        <div class="example-box">
+            <pre>
+                     vars   n mean   sd median trimmed  mad  min  max range  skew kurtosis   se
+W1_Relstress1_Gem    1   150 3.45 0.82   3.50    3.47 0.74 1.20 5.00  3.80 -0.15    -0.42 0.07
+W1_Werkstress_Gem    2   150 2.87 1.12   2.80    2.84 1.19 1.00 5.00  4.00  0.23    -0.89 0.09
+W1_Financstress_Gem  3   150 3.21 0.95   3.20    3.22 1.04 1.00 5.00  4.00 -0.08    -0.54 0.08
+            </pre>
+        </div>
+
+        <h3>Nuttige Opties</h3>
+        <div class="code-box">
+            <pre><code># Fast = TRUE voor snellere berekening (geen skew/kurtosis)
+describe(data, fast = TRUE)
+
+# Omit = TRUE om missing values te verwijderen
+describe(data, omit = TRUE)
+
+# Quant = c(.25, .75) voor specifieke kwartielen
+describe(data, quant = c(.25, .75))
+
+# IQR = TRUE voor interkwartielafstand
+describe(data, IQR = TRUE)</code></pre>
+        </div>
+
+        <h2 id="skimr">skimr::skim() - Visueel en Uitgebreid</h2>
+
+        <p>De <code>skimr</code> package geeft een uitgebreid overzicht met mini-histogrammen.</p>
+
+        <h3>Installatie en Gebruik</h3>
+        <div class="code-box">
+            <pre><code># Installeren
+install.packages("skimr")
+
+# Laden
+library(skimr)
+
+# Hele dataset bekijken
+skim(data_wave1)
+
+# Specifieke variabelen
+data_wave1 %>%
+  select(W1_Relstress1_Gem, W1_Werkstress_Gem, W1_Financstress_Gem) %>%
+  skim()</code></pre>
+        </div>
+
+        <h3>Voordelen van skimr</h3>
+        <div class="info-box">
+            <ul>
+                <li>✅ <strong>Visuele histogrammen:</strong> Zie verdeling direct in console</li>
+                <li>✅ <strong>Automatische type detectie:</strong> Verschillende statistieken per datatype</li>
+                <li>✅ <strong>Missing value overzicht:</strong> Aantal en percentage NA's per variabele</li>
+                <li>✅ <strong>Compacte output:</strong> Alles op één scherm</li>
+            </ul>
+        </div>
+
+        <h3>Voorbeeld Output</h3>
+        <div class="example-box">
+            <pre>
+── Data Summary ────────────────────────
+                           Values
+Name                       data_wave1
+Number of rows             150
+Number of columns          15
+_______________________
+Column type frequency:
+  numeric                  12
+________________________
+
+── Variable type: numeric ──────────────────────────────────────────────────
+  skim_variable         n_missing complete_rate  mean    sd    p0   p25   p50   p75  p100 hist 
+1 W1_Relstress1_Gem             0          1.00  3.45  0.82  1.20  2.90  3.50  4.10  5.00 ▁▃▇▇▃
+2 W1_Werkstress_Gem             0          1.00  2.87  1.12  1.00  2.00  2.80  3.75  5.00 ▅▇▆▅▂
+3 W1_Financstress_Gem           0          1.00  3.21  0.95  1.00  2.50  3.20  3.90  5.00 ▂▅▇▇▃
+            </pre>
+        </div>
+
+        <h2 id="dplyr">dplyr - Flexibel en Krachtig</h2>
+
+        <p>De <code>dplyr</code> package is ideaal voor groepsgewijze statistieken.</p>
+
+        <h3>Basis Functies</h3>
+        <div class="code-box">
+            <pre><code>library(dplyr)
+
+# Eén variabele, meerdere statistieken
+data_wave1 %>%
+  summarise(
+    n = n(),
+    gemiddelde = mean(W1_Relstress1_Gem, na.rm = TRUE),
+    mediaan = median(W1_Relstress1_Gem, na.rm = TRUE),
+    sd = sd(W1_Relstress1_Gem, na.rm = TRUE),
+    min = min(W1_Relstress1_Gem, na.rm = TRUE),
+    max = max(W1_Relstress1_Gem, na.rm = TRUE)
+  )</code></pre>
+        </div>
+
+        <h3>Groepsgewijze Statistieken</h3>
+        <div class="code-box">
+            <pre><code># Per geslacht
+data_wave1 %>%
+  group_by(geslacht) %>%
+  summarise(
+    n = n(),
+    M = mean(W1_Relstress1_Gem, na.rm = TRUE),
+    SD = sd(W1_Relstress1_Gem, na.rm = TRUE)
+  )
+
+# Output:
+# geslacht     n     M    SD
+# Man         75  3.12  0.89
+# Vrouw       75  3.67  0.74</code></pre>
+        </div>
+
+        <h3>Across() voor Meerdere Variabelen</h3>
+        <div class="code-box">
+            <pre><code># Zelfde statistieken voor meerdere variabelen
+data_wave1 %>%
+  summarise(across(
+    c(W1_Relstress1_Gem, W1_Werkstress_Gem, W1_Financstress_Gem),
+    list(
+      gemiddelde = ~mean(., na.rm = TRUE),
+      sd = ~sd(., na.rm = TRUE),
+      mediaan = ~median(., na.rm = TRUE)
+    )
+  ))
+
+# Per groep
+data_wave1 %>%
+  group_by(geslacht) %>%
+  summarise(across(
+    c(W1_Relstress1_Gem, W1_Werkstress_Gem),
+    list(M = ~mean(., na.rm = TRUE), SD = ~sd(., na.rm = TRUE))
+  ))</code></pre>
+        </div>
+
+        <h2 id="comparison">Vergelijking Packages</h2>
+
+        <table class="alt-table">
+            <tr>
+                <th>Package/Functie</th>
+                <th>Voordelen</th>
+                <th>Nadelen</th>
+                <th>Beste voor</th>
+            </tr>
+            <tr>
+                <td><strong>Basis R</strong><br>(mean, sd, summary)</td>
+                <td>• Geen installatie nodig<br>• Eenvoudig<br>• Snel</td>
+                <td>• Beperkte output<br>• Geen skew/kurtosis<br>• Handmatig voor meerdere variabelen</td>
+                <td>Snelle berekeningen</td>
+            </tr>
+            <tr>
+                <td><strong>psych::describe()</strong></td>
+                <td>• Meest compleet<br>• Scheefheid/kurtosis<br>• SE automatisch<br>• Meerdere variabelen tegelijk</td>
+                <td>• Extra package<br>• Veel kolommen (kan overweldigend zijn)</td>
+                <td>Volledige analyse</td>
+            </tr>
+            <tr>
+                <td><strong>skimr::skim()</strong></td>
+                <td>• Visuele histogrammen<br>• Type-specifieke statistieken<br>• Missing value overzicht<br>• Compacte output</td>
+                <td>• Extra package<br>• Minder controle over output</td>
+                <td>Data exploratie</td>
+            </tr>
+            <tr>
+                <td><strong>dplyr</strong></td>
+                <td>• Flexibel<br>• Groepsgewijze analyses<br>• Integratie met tidyverse<br>• Kies eigen statistieken</td>
+                <td>• Meer code nodig<br>• Steile leercurve</td>
+                <td>Groepsvergelijkingen</td>
+            </tr>
+        </table>
+
+        <h2 id="recommendation">Aanbevolen Workflow</h2>
+
+        <div class="example-box">
+            <h4>1. Data Exploratie (Begin)</h4>
+            <pre><code>library(skimr)
+skim(data_wave1)  # Snel overzicht met visuele histogrammen</code></pre>
+
+            <h4>2. Volledige Analyse</h4>
+            <pre><code>library(psych)
+describe(data_wave1)  # Complete statistieken incl. skew/kurtosis</code></pre>
+
+            <h4>3. Groepsvergelijkingen</h4>
+            <pre><code>library(dplyr)
+data_wave1 %>%
+  group_by(geslacht) %>%
+  summarise(across(
+    c(W1_Relstress1_Gem, W1_Werkstress_Gem),
+    list(M = ~mean(., na.rm = TRUE), SD = ~sd(., na.rm = TRUE))
+  ))</code></pre>
+
+            <h4>4. Rapportage (APA)</h4>
+            <pre><code># Gebruik psych::describe() en rond af naar 2 decimalen
+results <- describe(data_wave1$W1_Relstress1_Gem)
+cat("M =", round(results$mean, 2), ", SD =", round(results$sd, 2))</code></pre>
+        </div>
+
+        <h2>Custom Functie: Alles-in-Eén</h2>
+
+        <div class="code-box">
+            <pre><code>complete_descriptives <- function(data, var_name) {
+  library(psych)
+  
+  # Basis statistieken
+  desc <- describe(data[[var_name]])
+  
+  # 95% BI
+  ci <- t.test(data[[var_name]])$conf.int
+  
+  # Shapiro-Wilk (als n <= 5000)
+  shapiro_p <- ifelse(desc$n <= 5000,
+                      shapiro.test(data[[var_name]])$p.value,
+                      NA)
+  
+  # Output maken
+  cat("\n=== Beschrijvende Statistieken:", var_name, "===\n\n")
+  cat("N:", desc$n, "\n")
+  cat("M:", round(desc$mean, 2), "\n")
+  cat("SD:", round(desc$sd, 2), "\n")
+  cat("Mdn:", round(desc$median, 2), "\n")
+  cat("IQR:", round(IQR(data[[var_name]], na.rm = TRUE), 2), "\n")
+  cat("Min:", round(desc$min, 2), "\n")
+  cat("Max:", round(desc$max, 2), "\n")
+  cat("Scheefheid:", round(desc$skew, 2), "\n")
+  cat("Kurtosis:", round(desc$kurtosis, 2), "\n")
+  cat("95% BI: [", round(ci[1], 2), ",", round(ci[2], 2), "]\n")
+  
+  if (!is.na(shapiro_p)) {
+    cat("Shapiro-Wilk p:", round(shapiro_p, 3), "\n")
+  }
+  
+  # Histogram
+  hist(data[[var_name]],
+       main = paste("Histogram:", var_name),
+       xlab = var_name,
+       col = "lightblue",
+       breaks = 20)
+}
+
+# Gebruik
+complete_descriptives(data_wave1, "W1_Relstress1_Gem")</code></pre>
+        </div>
+
+        <div class="summary-box">
+            <h3>Samenvattend</h3>
+            <ul>
+                <li><strong>Basis R:</strong> mean(), sd(), summary() voor snelle berekeningen</li>
+                <li><strong>psych::describe():</strong> Meest complete output, ideaal voor volledige analyse</li>
+                <li><strong>skimr::skim():</strong> Visueel overzicht met histogrammen, perfect voor exploratie</li>
+                <li><strong>dplyr:</strong> Flexibel voor groepsgewijze analyses en custom statistieken</li>
+                <li><strong>Keuze:</strong> Gebruik skimr voor exploratie, psych voor analyse, dplyr voor groepen</li>
+            </ul>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="apa-reporting.html" class="btn-secondary">← Vorige: APA Rapportage</a>
+            <a href="spss-vs-r.html" class="btn-primary">Volgende: SPSS vs R →</a>
+        </div>
+    </div>
+
+    <style>
+        .lead { font-size: 1.2em; color: #555; margin: 20px 0; }
+        .example-box, .info-box, .summary-box {
+            background: #f8f9fc;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .info-box { border-left-color: #3498db; background: #f0f8ff; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #667eea; color: white; }
+        .code-box { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .code-box pre { margin: 0; overflow-x: auto; font-family: 'Courier New', monospace; line-height: 1.5; }
+        pre { background: white; padding: 15px; font-family: monospace; overflow-x: auto; line-height: 1.4; }
+        .navigation-buttons { display: flex; justify-content: space-between; margin: 40px 0; }
+        .btn-primary, .btn-secondary { padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+        .btn-primary { background: #667eea; color: white; }
+        .btn-secondary { background: #e0e0e0; color: #333; }
+        .btn-primary:hover { background: #5568d3; }
+        .btn-secondary:hover { background: #d0d0d0; }
+    </style>
+</body>
+</html>

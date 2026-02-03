@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPSS vs R - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> / <a href="../chapter6.html">Hoofdstuk 6</a> / SPSS vs R
+        </div>
+
+        <h1>Van SPSS naar R: Beschrijvende Statistieken</h1>
+        
+        <p class="lead">Voor SPSS gebruikers: hoe doe je dezelfde analyses in R? Deze gids toont equivalente commando's en waarom R vaak beter is.</p>
+
+        <h2 id="descriptives">Analyze → Descriptive Statistics → Descriptives</h2>
+
+        <h3>SPSS Menu</h3>
+        <div class="example-box">
+            <p><strong>SPSS stappen:</strong></p>
+            <ol>
+                <li>Analyze → Descriptive Statistics → Descriptives</li>
+                <li>Selecteer variabelen → pijltje naar rechts</li>
+                <li>Options: Mean, Std. deviation, Minimum, Maximum</li>
+                <li>OK</li>
+            </ol>
+        </div>
+
+        <h3>R Equivalent</h3>
+        <div class="code-box">
+            <pre><code>library(psych)
+
+# Eén variabele
+describe(data$variabele)
+
+# Meerdere variabelen (zoals SPSS)
+describe(data[, c("var1", "var2", "var3")])
+
+# Of met basis R
+summary(data$variabele)
+
+# Custom statistieken kiezen
+library(dplyr)
+data %>%
+  summarise(
+    N = n(),
+    Mean = mean(variabele, na.rm = TRUE),
+    SD = sd(variabele, na.rm = TRUE),
+    Min = min(variabele, na.rm = TRUE),
+    Max = max(variabele, na.rm = TRUE)
+  )</code></pre>
+        </div>
+
+        <div class="info-box">
+            <h4>🎯 Voordelen R</h4>
+            <ul>
+                <li>✅ Geen menu's - alles in code (reproduceerbaar!)</li>
+                <li>✅ Meer statistieken tegelijk (skew, kurtosis, SE, CI)</li>
+                <li>✅ Makkelijk automatiseren voor veel variabelen</li>
+                <li>✅ Output direct bruikbaar in verdere analyses</li>
+            </ul>
+        </div>
+
+        <h2 id="frequencies">Analyze → Descriptive Statistics → Frequencies</h2>
+
+        <h3>SPSS Menu</h3>
+        <div class="example-box">
+            <p><strong>SPSS stappen:</strong></p>
+            <ol>
+                <li>Analyze → Descriptive Statistics → Frequencies</li>
+                <li>Selecteer variabelen</li>
+                <li>Statistics: Quartiles, Mean, Median, Mode, Std. deviation</li>
+                <li>Charts: Histograms</li>
+                <li>OK</li>
+            </ol>
+        </div>
+
+        <h3>R Equivalent</h3>
+        <div class="code-box">
+            <pre><code># Frequentietabel
+table(data$variabele)
+
+# Met percentages
+prop.table(table(data$variabele)) * 100
+
+# Complete output (zoals SPSS Frequencies)
+library(psych)
+describe(data$variabele)
+
+# Histogram
+hist(data$variabele,
+     main = "Histogram",
+     xlab = "Variabele",
+     col = "lightblue",
+     breaks = 20)
+
+# Of met ggplot2 (mooier)
+library(ggplot2)
+ggplot(data, aes(x = variabele)) +
+  geom_histogram(fill = "#667eea", color = "white", bins = 20) +
+  labs(title = "Histogram", x = "Variabele", y = "Frequentie") +
+  theme_minimal()</code></pre>
+        </div>
+
+        <h3>Vergelijkingstabel</h3>
+        <table class="alt-table">
+            <tr>
+                <th>SPSS Output</th>
+                <th>R Code</th>
+            </tr>
+            <tr>
+                <td>Frequencies (counts)</td>
+                <td><code>table(data$var)</code></td>
+            </tr>
+            <tr>
+                <td>Percent</td>
+                <td><code>prop.table(table(data$var)) * 100</code></td>
+            </tr>
+            <tr>
+                <td>Valid Percent</td>
+                <td><code>prop.table(table(data$var[!is.na(data$var)])) * 100</code></td>
+            </tr>
+            <tr>
+                <td>Cumulative Percent</td>
+                <td><code>cumsum(prop.table(table(data$var))) * 100</code></td>
+            </tr>
+        </table>
+
+        <h2 id="explore">Analyze → Descriptive Statistics → Explore</h2>
+
+        <h3>SPSS Menu</h3>
+        <div class="example-box">
+            <p><strong>SPSS stappen:</strong></p>
+            <ol>
+                <li>Analyze → Descriptive Statistics → Explore</li>
+                <li>Dependent List: selecteer variabelen</li>
+                <li>Factor List: groepsvariabele (optioneel)</li>
+                <li>Statistics: Descriptives, Outliers, Percentiles</li>
+                <li>Plots: Boxplot, Histogram, Normality plots with tests</li>
+                <li>OK</li>
+            </ol>
+        </div>
+
+        <h3>R Equivalent</h3>
+        <div class="code-box">
+            <pre><code>library(psych)
+library(ggplot2)
+
+# Volledige exploratie (zoals SPSS Explore)
+describe(data$variabele)
+
+# Normaliteitstesten
+shapiro.test(data$variabele)
+
+# Q-Q plot
+qqnorm(data$variabele)
+qqline(data$variabele, col = "red")
+
+# Boxplot
+boxplot(data$variabele,
+        main = "Boxplot",
+        ylab = "Variabele",
+        col = "lightblue")
+
+# Histogram met normale curve
+hist(data$variabele,
+     probability = TRUE,
+     col = "lightblue",
+     main = "Histogram met Normale Curve")
+curve(dnorm(x, mean = mean(data$variabele, na.rm = TRUE),
+            sd = sd(data$variabele, na.rm = TRUE)),
+      add = TRUE, col = "red", lwd = 2)
+
+# Uitschieters detecteren (zoals SPSS)
+outliers <- boxplot.stats(data$variabele)$out
+cat("Uitschieters:", outliers)</code></pre>
+        </div>
+
+        <h3>Per Groep (zoals Factor List in SPSS)</h3>
+        <div class="code-box">
+            <pre><code># Beschrijvende statistieken per groep
+library(dplyr)
+data %>%
+  group_by(geslacht) %>%
+  summarise(
+    N = n(),
+    Mean = mean(variabele, na.rm = TRUE),
+    SD = sd(variabele, na.rm = TRUE),
+    Median = median(variabele, na.rm = TRUE)
+  )
+
+# Boxplot per groep
+ggplot(data, aes(x = geslacht, y = variabele, fill = geslacht)) +
+  geom_boxplot() +
+  labs(title = "Boxplot per Groep") +
+  theme_minimal()
+
+# BETER: skimr voor volledige exploratie
+library(skimr)
+skim(data)</code></pre>
+        </div>
+
+        <div class="info-box">
+            <h4>🎯 Voordelen R bij Explore</h4>
+            <ul>
+                <li>✅ Alles in één overzicht met skimr::skim()</li>
+                <li>✅ Visuele histogrammen direct in console</li>
+                <li>✅ Flexibelere plots met ggplot2</li>
+                <li>✅ Programmatische detectie van uitschieters</li>
+                <li>✅ Eenvoudig automatiseren voor meerdere variabelen</li>
+            </ul>
+        </div>
+
+        <h2 id="comparison-table">Complete Vergelijkingstabel</h2>
+
+        <table class="alt-table">
+            <tr>
+                <th>SPSS Functie</th>
+                <th>R Package</th>
+                <th>R Code</th>
+            </tr>
+            <tr>
+                <td><strong>Mean</strong></td>
+                <td>Basis R</td>
+                <td><code>mean(x, na.rm = TRUE)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Median</strong></td>
+                <td>Basis R</td>
+                <td><code>median(x, na.rm = TRUE)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Mode</strong></td>
+                <td>Custom</td>
+                <td><code>names(sort(table(x), decreasing = TRUE))[1]</code></td>
+            </tr>
+            <tr>
+                <td><strong>Std. Deviation</strong></td>
+                <td>Basis R</td>
+                <td><code>sd(x, na.rm = TRUE)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Variance</strong></td>
+                <td>Basis R</td>
+                <td><code>var(x, na.rm = TRUE)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Range</strong></td>
+                <td>Basis R</td>
+                <td><code>diff(range(x, na.rm = TRUE))</code></td>
+            </tr>
+            <tr>
+                <td><strong>Minimum</strong></td>
+                <td>Basis R</td>
+                <td><code>min(x, na.rm = TRUE)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Maximum</strong></td>
+                <td>Basis R</td>
+                <td><code>max(x, na.rm = TRUE)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Quartiles</strong></td>
+                <td>Basis R</td>
+                <td><code>quantile(x, c(0.25, 0.5, 0.75), na.rm = TRUE)</code></td>
+            </tr>
+            <tr>
+                <td><strong>IQR</strong></td>
+                <td>Basis R</td>
+                <td><code>IQR(x, na.rm = TRUE)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Skewness</strong></td>
+                <td>psych</td>
+                <td><code>psych::skew(x, na.rm = TRUE)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Kurtosis</strong></td>
+                <td>psych</td>
+                <td><code>psych::kurtosi(x, na.rm = TRUE)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Std. Error</strong></td>
+                <td>Custom</td>
+                <td><code>sd(x, na.rm = TRUE) / sqrt(sum(!is.na(x)))</code></td>
+            </tr>
+            <tr>
+                <td><strong>95% CI</strong></td>
+                <td>Basis R</td>
+                <td><code>t.test(x)$conf.int</code></td>
+            </tr>
+            <tr>
+                <td><strong>Shapiro-Wilk</strong></td>
+                <td>Basis R</td>
+                <td><code>shapiro.test(x)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Kolmogorov-Smirnov</strong></td>
+                <td>Basis R</td>
+                <td><code>ks.test(x, "pnorm")</code></td>
+            </tr>
+        </table>
+
+        <h2 id="why-r">Waarom R Beter is dan SPSS</h2>
+
+        <div class="example-box">
+            <h4>1. Reproduceerbaarheid</h4>
+            <p><strong>SPSS:</strong> Klik-gedrag niet reproduceerbaar, syntax soms vergeten op te slaan</p>
+            <p><strong>R:</strong> Alles in scripts → perfecte reproduceerbaarheid</p>
+            
+            <h4>2. Automatisering</h4>
+            <div class="code-box">
+                <pre><code># R: Beschrijvende statistieken voor 50 variabelen in 1 regel
+library(psych)
+describe(data[, 1:50])
+
+# SPSS: 50 keer menu's klikken OF lange syntax typen</code></pre>
+            </div>
+
+            <h4>3. Flexibiliteit</h4>
+            <p><strong>SPSS:</strong> Beperkt tot vooraf gedefinieerde opties</p>
+            <p><strong>R:</strong> Onbeperkte custom functies en packages</p>
+
+            <h4>4. Visualisaties</h4>
+            <div class="code-box">
+                <pre><code># R: Professionele plots met ggplot2
+library(ggplot2)
+ggplot(data, aes(x = geslacht, y = stress, fill = geslacht)) +
+  geom_violin(alpha = 0.5) +
+  geom_boxplot(width = 0.2) +
+  geom_jitter(alpha = 0.3, width = 0.1) +
+  labs(title = "Stress per Geslacht",
+       y = "Stress Score") +
+  theme_minimal() +
+  scale_fill_manual(values = c("#667eea", "#f093fb"))
+
+# SPSS: Basis plots, moeilijk aan te passen</code></pre>
+            </div>
+
+            <h4>5. Groepsgewijze Analyses</h4>
+            <div class="code-box">
+                <pre><code># R: Statistieken voor alle combinaties van groepen
+library(dplyr)
+data %>%
+  group_by(geslacht, opleidingsniveau) %>%
+  summarise(across(
+    c(stress1, stress2, stress3),
+    list(M = ~mean(., na.rm = TRUE), SD = ~sd(., na.rm = TRUE))
+  ))
+
+# SPSS: Veel handmatig werk of complexe syntax</code></pre>
+            </div>
+
+            <h4>6. Kosten</h4>
+            <p><strong>SPSS:</strong> €1000+ per jaar licentie</p>
+            <p><strong>R:</strong> 100% gratis en open source</p>
+
+            <h4>7. Community & Updates</h4>
+            <p><strong>SPSS:</strong> Beperkte updates, commerciële support</p>
+            <p><strong>R:</strong> Dagelijkse nieuwe packages, actieve community, Stack Overflow</p>
+
+            <h4>8. Integratie</h4>
+            <p><strong>R:</strong> Naadloos met Python, databases, web APIs, Git, RMarkdown</p>
+            <p><strong>SPSS:</strong> Gesloten ecosysteem</p>
+        </div>
+
+        <h2 id="transition-tips">Transitie Tips voor SPSS Gebruikers</h2>
+
+        <div class="info-box">
+            <h4>Start Hier:</h4>
+            <ol>
+                <li><strong>Install RStudio:</strong> Gebruiksvriendelijke interface (zoals SPSS)</li>
+                <li><strong>Learn psych::describe():</strong> Vervangt 90% van SPSS Descriptives/Explore</li>
+                <li><strong>Master dplyr:</strong> Voor groepsgewijze analyses (SPLIT FILE in SPSS)</li>
+                <li><strong>Use RMarkdown:</strong> Combineer analyses + rapportage (beter dan SPSS Output Viewer)</li>
+                <li><strong>Embrace scripting:</strong> Alles in code = reproduceerbaar en deelbaar</li>
+            </ol>
+        </div>
+
+        <h3>Veelgebruikte SPSS → R Vertalingen</h3>
+        <table class="alt-table">
+            <tr>
+                <th>SPSS Concept</th>
+                <th>R Equivalent</th>
+            </tr>
+            <tr>
+                <td>Data View</td>
+                <td><code>View(data)</code></td>
+            </tr>
+            <tr>
+                <td>Variable View</td>
+                <td><code>str(data)</code> of <code>glimpse(data)</code></td>
+            </tr>
+            <tr>
+                <td>Compute Variable</td>
+                <td><code>data$new_var <- data$x + data$y</code></td>
+            </tr>
+            <tr>
+                <td>Recode</td>
+                <td><code>data$var <- recode(data$var, "1" = "Laag", "2" = "Hoog")</code></td>
+            </tr>
+            <tr>
+                <td>Select Cases</td>
+                <td><code>data %>% filter(conditie)</code></td>
+            </tr>
+            <tr>
+                <td>Split File</td>
+                <td><code>data %>% group_by(groep)</code></td>
+            </tr>
+            <tr>
+                <td>Output Viewer</td>
+                <td>RMarkdown (.Rmd → .html/.pdf/.docx)</td>
+            </tr>
+            <tr>
+                <td>Syntax Editor</td>
+                <td>RStudio Script Editor (.R files)</td>
+            </tr>
+        </table>
+
+        <h2>Volledige Workflow Vergelijking</h2>
+
+        <div class="example-box">
+            <h4>Taak: Beschrijvende statistieken per geslacht voor 3 stressmaten</h4>
+
+            <p><strong>SPSS Workflow:</strong></p>
+            <ol>
+                <li>Data → Split File → Organize output by groups → Select geslacht</li>
+                <li>Analyze → Descriptive Statistics → Descriptives</li>
+                <li>Selecteer stress1, stress2, stress3</li>
+                <li>Options → Mean, SD, Min, Max</li>
+                <li>OK</li>
+                <li>Copy output naar Word</li>
+                <li>Handmatig formatteren</li>
+            </ol>
+
+            <p><strong>R Workflow:</strong></p>
+            <div class="code-box">
+                <pre><code>library(dplyr)
+library(knitr)
+
+# Analyse + Tabel in 1 code block
+results <- data %>%
+  group_by(geslacht) %>%
+  summarise(across(
+    c(stress1, stress2, stress3),
+    list(M = ~mean(., na.rm = TRUE), 
+         SD = ~sd(., na.rm = TRUE),
+         Min = ~min(., na.rm = TRUE),
+         Max = ~max(., na.rm = TRUE))
+  ))
+
+# Direct naar professionele tabel
+kable(results, digits = 2, caption = "Beschrijvende Statistieken per Geslacht")
+
+# Automatisch in RMarkdown → .docx</code></pre>
+            </div>
+            <p><strong>Resultaat:</strong> R = 5 regels code (reproduceerbaar), SPSS = 7 handmatige stappen (niet reproduceerbaar)</p>
+        </div>
+
+        <div class="summary-box">
+            <h3>Samenvattend</h3>
+            <ul>
+                <li><strong>SPSS Descriptives</strong> = R <code>psych::describe()</code></li>
+                <li><strong>SPSS Frequencies</strong> = R <code>table()</code> + <code>prop.table()</code></li>
+                <li><strong>SPSS Explore</strong> = R <code>skimr::skim()</code></li>
+                <li><strong>SPSS Split File</strong> = R <code>group_by()</code></li>
+                <li><strong>Waarom R?</strong> Gratis, reproduceerbaar, flexibel, automatiseerbaar, betere plots</li>
+                <li><strong>Beste start:</strong> Leer psych, dplyr, ggplot2, RMarkdown</li>
+            </ul>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="r-functions-guide.html" class="btn-secondary">← Vorige: R Functies Gids</a>
+            <a href="../chapter6.html" class="btn-primary">Terug naar Hoofdstuk 6 →</a>
+        </div>
+    </div>
+
+    <style>
+        .lead { font-size: 1.2em; color: #555; margin: 20px 0; }
+        .example-box, .info-box, .summary-box {
+            background: #f8f9fc;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .info-box { border-left-color: #3498db; background: #f0f8ff; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #667eea; color: white; }
+        .code-box { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .code-box pre { margin: 0; overflow-x: auto; font-family: 'Courier New', monospace; line-height: 1.5; }
+        .navigation-buttons { display: flex; justify-content: space-between; margin: 40px 0; }
+        .btn-primary, .btn-secondary { padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+        .btn-primary { background: #667eea; color: white; }
+        .btn-secondary { background: #e0e0e0; color: #333; }
+        .btn-primary:hover { background: #5568d3; }
+        .btn-secondary:hover { background: #d0d0d0; }
+    </style>
+</body>
+</html>
