@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centraliteitsmaten - Hoofdstuk 6</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
     <div class="container">
         <div class="breadcrumb">
@@ -13,13 +15,15 @@
         </div>
 
         <h1>Centraliteitsmaten: Modus, Mediaan en Gemiddelde</h1>
-        
-        <p class="lead">Centraliteitsmaten geven aan waar de data zich centraal bevinden. Ze beantwoorden de vraag: "Wat is een typische waarde in deze dataset?"</p>
+
+        <p class="lead">Centraliteitsmaten geven aan waar de data zich centraal bevinden. Ze beantwoorden de vraag: "Wat
+            is een typische waarde in deze dataset?"</p>
 
         <h2 id="mode">Modus: De Meest Voorkomende Waarde</h2>
-        
+
         <h3>Definitie</h3>
-        <p>De <strong>modus</strong> is de waarde of categorie die het vaakst voorkomt in de dataset. Dit is de enige centraliteitsmaat die bruikbaar is voor <strong>nominale</strong> variabelen.</p>
+        <p>De <strong>modus</strong> is de waarde of categorie die het vaakst voorkomt in de dataset. Dit is de enige
+            centraliteitsmaat die bruikbaar is voor <strong>nominale</strong> variabelen.</p>
 
         <div class="key-concept">
             <h4>Kernpunten</h4>
@@ -83,14 +87,16 @@ data_wave1 %>%
 
         <h3>Bimodale Verdelingen</h3>
         <div class="warning-box">
-            <p>Een verdeling kan <strong>twee modi</strong> hebben (bimodaal) als twee waarden even vaak voorkomen. Dit kan duiden op twee verschillende subgroepen in je data!</p>
+            <p>Een verdeling kan <strong>twee modi</strong> hebben (bimodaal) als twee waarden even vaak voorkomen. Dit
+                kan duiden op twee verschillende subgroepen in je data!</p>
             <p><strong>Voorbeeld:</strong> Leeftijd met pieken bij 25 jaar (studenten) en 55 jaar (docenten)</p>
         </div>
 
         <h2 id="median">Mediaan: De Middelste Waarde</h2>
 
         <h3>Definitie</h3>
-        <p>De <strong>mediaan</strong> is de waarde waarboven en waaronder precies evenveel observaties liggen. Dit is het 50e percentiel (P50 of Q2).</p>
+        <p>De <strong>mediaan</strong> is de waarde waarboven en waaronder precies evenveel observaties liggen. Dit is
+            het 50e percentiel (P50 of Q2).</p>
 
         <div class="key-concept">
             <h4>Kernpunten</h4>
@@ -173,7 +179,8 @@ if (n %% 2 == 1) {
         <h2 id="mean">Gemiddelde: De Rekenkundige Balans</h2>
 
         <h3>Definitie</h3>
-        <p>Het <strong>gemiddelde</strong> (mean) is de som van alle waarden gedeeld door het aantal waarden. Dit is het mathematische "zwaartepunt" van de verdeling.</p>
+        <p>Het <strong>gemiddelde</strong> (mean) is de som van alle waarden gedeeld door het aantal waarden. Dit is het
+            mathematische "zwaartepunt" van de verdeling.</p>
 
         <div class="key-concept">
             <h4>Kernpunten</h4>
@@ -183,14 +190,15 @@ if (n %% 2 == 1) {
                 <li><strong>Formule:</strong> x̄ = (Σx) / n</li>
                 <li><strong>Gevoelig:</strong> JA - uitschieters beïnvloeden het gemiddelde sterk</li>
             </ul>
-            <p class="footnote">*Technisch incorrect voor ordinaal, maar vaak toegepast bij Likert-schalen (5+ categorieën)</p>
+            <p class="footnote">*Technisch incorrect voor ordinaal, maar vaak toegepast bij Likert-schalen (5+
+                categorieën)</p>
         </div>
 
         <h3>Formule en Berekening</h3>
         <div class="formula-box">
             <p><strong>Steekproefgemiddelde:</strong></p>
             <p class="math-formula">x̄ = (1/n) × Σ(x<sub>i</sub>) = (x₁ + x₂ + ... + x<sub>n</sub>) / n</p>
-            
+
             <h4>Voorbeeld: Relatiestress van 5 respondenten</h4>
             <p><strong>Scores:</strong> 2.5, 3.0, 3.5, 4.0, 2.0</p>
             <p><strong>Berekening:</strong></p>
@@ -220,7 +228,7 @@ all.equal(gemiddelde, gemiddelde_handmatig)  # Should be TRUE</code></pre>
             <h4>1. Gevoelig voor Uitschieters</h4>
             <p>Één extreme waarde kan het gemiddelde sterk beïnvloeden.</p>
             <p><strong>Voorbeeld:</strong> Scores 2, 3, 3, 4, 4 → x̄ = 3.2<br>
-               Met uitschieter: 2, 3, 3, 4, 20 → x̄ = 6.4 (bijna dubbel!)</p>
+                Met uitschieter: 2, 3, 3, 4, 20 → x̄ = 6.4 (bijna dubbel!)</p>
 
             <h4>2. Som van Afwijkingen = 0</h4>
             <p>Σ(x<sub>i</sub> - x̄) = 0 → Het gemiddelde is het "evenwichtspunt"</p>
@@ -288,20 +296,28 @@ all.equal(gemiddelde, gemiddelde_handmatig)  # Should be TRUE</code></pre>
             <h4>Welke centraliteitsmaat gebruiken?</h4>
             <ol>
                 <li><strong>Is de variabele nominaal?</strong>
-                    <ul><li>JA → Gebruik <strong>MODUS</strong></li>
-                    <li>NEE → Ga naar vraag 2</li></ul>
+                    <ul>
+                        <li>JA → Gebruik <strong>MODUS</strong></li>
+                        <li>NEE → Ga naar vraag 2</li>
+                    </ul>
                 </li>
                 <li><strong>Is de variabele ordinaal?</strong>
-                    <ul><li>JA → Gebruik <strong>MEDIAAN</strong> (technisch correct) of modus</li>
-                    <li>NEE → Ga naar vraag 3</li></ul>
+                    <ul>
+                        <li>JA → Gebruik <strong>MEDIAAN</strong> (technisch correct) of modus</li>
+                        <li>NEE → Ga naar vraag 3</li>
+                    </ul>
                 </li>
                 <li><strong>Zijn er extreme uitschieters?</strong>
-                    <ul><li>JA → Gebruik <strong>MEDIAAN</strong> (robuust)</li>
-                    <li>NEE → Ga naar vraag 4</li></ul>
+                    <ul>
+                        <li>JA → Gebruik <strong>MEDIAAN</strong> (robuust)</li>
+                        <li>NEE → Ga naar vraag 4</li>
+                    </ul>
                 </li>
                 <li><strong>Is de verdeling sterk scheef?</strong>
-                    <ul><li>JA → Gebruik <strong>MEDIAAN</strong></li>
-                    <li>NEE → Gebruik <strong>GEMIDDELDE</strong> (meest informatief)</li></ul>
+                    <ul>
+                        <li>JA → Gebruik <strong>MEDIAAN</strong></li>
+                        <li>NEE → Gebruik <strong>GEMIDDELDE</strong> (meest informatief)</li>
+                    </ul>
                 </li>
             </ol>
         </div>
@@ -420,38 +436,157 @@ data_wave1 %>%
     </div>
 
     <style>
-        .lead { font-size: 1.2em; color: #555; margin: 20px 0; }
-        .key-concept, .example-box, .warning-box, .info-box, .formula-box, .properties-box, 
-        .decision-tree, .distribution-box, .mistakes-box, .summary-box {
+        .lead {
+            font-size: 1.2em;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .key-concept,
+        .example-box,
+        .warning-box,
+        .info-box,
+        .formula-box,
+        .properties-box,
+        .decision-tree,
+        .distribution-box,
+        .mistakes-box,
+        .summary-box {
             background: #f8f9fc;
             border-left: 4px solid #667eea;
             padding: 20px;
             margin: 20px 0;
             border-radius: 8px;
         }
-        .warning-box { border-left-color: #f39c12; background: #fef9f3; }
-        .info-box { border-left-color: #3498db; background: #f0f8ff; }
-        .data-table, .comparison-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        .data-table th, .data-table td, .comparison-table th, .comparison-table td {
-            border: 1px solid #ddd; padding: 12px; text-align: left;
+
+        .warning-box {
+            border-left-color: #f39c12;
+            background: #fef9f3;
         }
-        .data-table th, .comparison-table th { background: #667eea; color: white; }
-        .data-table tr.highlight { background: #e8f4f8; font-weight: 600; }
-        .code-box { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 20px 0; }
-        .code-box pre { margin: 0; overflow-x: auto; }
-        .code-box code { font-family: 'Courier New', monospace; font-size: 0.9em; line-height: 1.5; }
-        .example-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0; }
-        .example-card { background: white; border: 2px solid #e0e0e0; padding: 15px; border-radius: 8px; }
-        .example-card h4 { color: #667eea; margin-top: 0; }
-        .math-formula { font-size: 1.1em; font-style: italic; margin: 10px 0; padding: 10px; background: white; border-radius: 4px; }
-        .highlight { color: #e74c3c; font-weight: 700; }
-        .footnote { font-size: 0.9em; font-style: italic; color: #666; margin-top: 10px; }
-        .navigation-buttons { display: flex; justify-content: space-between; margin: 40px 0; }
-        .btn-primary, .btn-secondary { padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; }
-        .btn-primary { background: #667eea; color: white; }
-        .btn-secondary { background: #e0e0e0; color: #333; }
-        .btn-primary:hover { background: #5568d3; }
-        .btn-secondary:hover { background: #d0d0d0; }
+
+        .info-box {
+            border-left-color: #3498db;
+            background: #f0f8ff;
+        }
+
+        .data-table,
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .data-table th,
+        .data-table td,
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .data-table th,
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+        }
+
+        .data-table tr.highlight {
+            background: #e8f4f8;
+            font-weight: 600;
+        }
+
+        .code-box {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .code-box pre {
+            margin: 0;
+            overflow-x: auto;
+        }
+
+        .code-box code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .example-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .example-card h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .math-formula {
+            font-size: 1.1em;
+            font-style: italic;
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: 700;
+        }
+
+        .footnote {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
     </style>
 </body>
+
 </html>

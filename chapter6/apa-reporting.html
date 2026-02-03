@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APA Rapportage - Hoofdstuk 6</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
     <div class="container">
         <div class="breadcrumb">
@@ -13,8 +15,9 @@
         </div>
 
         <h1>Rapporteren volgens APA 7e Editie</h1>
-        
-        <p class="lead">Hoe rapporteer je beschrijvende statistieken professioneel volgens de richtlijnen van de American Psychological Association (APA, 7e editie)?</p>
+
+        <p class="lead">Hoe rapporteer je beschrijvende statistieken professioneel volgens de richtlijnen van de
+            American Psychological Association (APA, 7e editie)?</p>
 
         <h2 id="basics">Basisregels APA Rapportage</h2>
 
@@ -34,7 +37,7 @@
         <h3>Gemiddelde en Standaarddeviatie</h3>
         <div class="example-box">
             <p><strong>Formaat:</strong> <em>M</em> = waarde, <em>SD</em> = waarde</p>
-            
+
             <h4>✅ Correct:</h4>
             <ul>
                 <li>De gemiddelde relatiestress was <em>M</em> = 3.45, <em>SD</em> = 0.82.</li>
@@ -53,7 +56,7 @@
         <h3>Met Betrouwbaarheidsintervallen</h3>
         <div class="example-box">
             <p><strong>Formaat:</strong> <em>M</em> = waarde, <em>SD</em> = waarde, 95% BI [ondergrens, bovengrens]</p>
-            
+
             <h4>Voorbeelden:</h4>
             <ul>
                 <li>Relatiestress: <em>M</em> = 3.45, <em>SD</em> = 0.82, 95% BI [3.32, 3.58]</li>
@@ -64,11 +67,12 @@
         <h3>Mediaan en IQR (bij scheefheid)</h3>
         <div class="example-box">
             <p><strong>Formaat:</strong> <em>Mdn</em> = waarde, <em>IQR</em> = waarde</p>
-            
+
             <h4>Voorbeelden:</h4>
             <ul>
                 <li>Het mediane inkomen was <em>Mdn</em> = €35,000, <em>IQR</em> = €18,000.</li>
-                <li>De verdelingen waren rechts-scheef, daarom rapporteren we medianen (<em>Mdn</em> = 3.00, <em>IQR</em> = 2.00).</li>
+                <li>De verdelingen waren rechts-scheef, daarom rapporteren we medianen (<em>Mdn</em> = 3.00,
+                    <em>IQR</em> = 2.00).</li>
             </ul>
         </div>
 
@@ -93,7 +97,7 @@
             <tr>
                 <td>p-waarde (p < .001)</td>
                 <td>-</td>
-                <td>p < .001 (niet p = .000)</td>
+                <td>p < .001 (niet p=.000)</td>
             </tr>
             <tr>
                 <td>Correlatie (r)</td>
@@ -125,9 +129,10 @@
         <div class="warning-box">
             <h4>⚠️ Belangrijke Afrondingsregels</h4>
             <ul>
-                <li><strong>Geen leading zero bij p, r, α:</strong> p = .03 (niet p = 0.03) omdat deze waarden niet groter dan 1 kunnen zijn</li>
+                <li><strong>Geen leading zero bij p, r, α:</strong> p = .03 (niet p = 0.03) omdat deze waarden niet
+                    groter dan 1 kunnen zijn</li>
                 <li><strong>Wel leading zero bij M, SD, d:</strong> M = 0.45 (wel 0, want waarde kan > 1 zijn)</li>
-                <li><strong>p < .001 in plaats van p = .000:</strong> Rapporteer zeer kleine p-waarden als "p < .001"</li>
+                <li><strong>p < .001 in plaats van p=.000:</strong> Rapporteer zeer kleine p-waarden als "p < .001"</li>
             </ul>
         </div>
 
@@ -178,7 +183,8 @@
                     <td style="text-align: center;">150</td>
                 </tr>
             </table>
-            <p style="font-size: 0.9em; margin-top: 10px;"><em>Noot.</em> BI = betrouwbaarheidsinterval. Alle variabelen gemeten op 5-puntsschaal.</p>
+            <p style="font-size: 0.9em; margin-top: 10px;"><em>Noot.</em> BI = betrouwbaarheidsinterval. Alle variabelen
+                gemeten op 5-puntsschaal.</p>
         </div>
 
         <h3>R Code voor APA Tabel</h3>
@@ -212,28 +218,34 @@ kable(apa_tabel,
 
         <h3>Enkelvoudige Resultaten</h3>
         <div class="example-box">
-            <p><strong>Sjabloon:</strong> De gemiddelde [variabele] was <em>M</em> = [waarde], <em>SD</em> = [waarde].</p>
-            
+            <p><strong>Sjabloon:</strong> De gemiddelde [variabele] was <em>M</em> = [waarde], <em>SD</em> = [waarde].
+            </p>
+
             <h4>Voorbeelden:</h4>
             <ul>
                 <li>De gemiddelde relatiestress was <em>M</em> = 3.45, <em>SD</em> = 0.82.</li>
                 <li>Respondenten rapporteerden matige werkstress (<em>M</em> = 2.87, <em>SD</em> = 1.12).</li>
-                <li>Het gemiddelde opleidingsniveau was <em>M</em> = 3.20, <em>SD</em> = 1.05, op een schaal van 1 (laag) tot 5 (hoog).</li>
+                <li>Het gemiddelde opleidingsniveau was <em>M</em> = 3.20, <em>SD</em> = 1.05, op een schaal van 1
+                    (laag) tot 5 (hoog).</li>
             </ul>
         </div>
 
         <h3>Vergelijkingen tussen Groepen</h3>
         <div class="example-box">
             <h4>Met t-toets:</h4>
-            <p>Mannen (<em>M</em> = 3.12, <em>SD</em> = 0.89) rapporteerden significant lagere relatiestress dan vrouwen (<em>M</em> = 3.67, <em>SD</em> = 0.74), <em>t</em>(148) = 3.45, <em>p</em> = .001, <em>d</em> = 0.67.</p>
+            <p>Mannen (<em>M</em> = 3.12, <em>SD</em> = 0.89) rapporteerden significant lagere relatiestress dan vrouwen
+                (<em>M</em> = 3.67, <em>SD</em> = 0.74), <em>t</em>(148) = 3.45, <em>p</em> = .001, <em>d</em> = 0.67.
+            </p>
 
             <h4>Met ANOVA:</h4>
-            <p>Er was een significant effect van opleidingsniveau op werkstress, <em>F</em>(3, 146) = 5.67, <em>p</em> = .001, η² = .10.</p>
+            <p>Er was een significant effect van opleidingsniveau op werkstress, <em>F</em>(3, 146) = 5.67, <em>p</em> =
+                .001, η² = .10.</p>
         </div>
 
         <h3>Met Betrouwbaarheidsintervallen</h3>
         <div class="example-box">
-            <p>Het verschil in relatiestress tussen mannen en vrouwen was <em>M</em><sub>verschil</sub> = 0.55, 95% BI [0.23, 0.87], wat een matig effect vertegenwoordigt.</p>
+            <p>Het verschil in relatiestress tussen mannen en vrouwen was <em>M</em><sub>verschil</sub> = 0.55, 95% BI
+                [0.23, 0.87], wat een matig effect vertegenwoordigt.</p>
         </div>
 
         <h2 id="common-stats">Veel Voorkomende Statistieken</h2>
@@ -280,13 +292,22 @@ chisq.test(table(x, y))
         <div class="example-box">
             <h4>Resultaten Sectie (Fictief Onderzoek)</h4>
             <p style="margin-top: 15px;"><strong>Beschrijvende Statistieken</strong></p>
-            <p>Tabel 1 toont de beschrijvende statistieken voor de drie stressmaten. Relatiestress was gemiddeld het hoogst (<em>M</em> = 3.45, <em>SD</em> = 0.82), gevolgd door financiële stress (<em>M</em> = 3.21, <em>SD</em> = 0.95) en werkstress (<em>M</em> = 2.87, <em>SD</em> = 1.12). Alle variabelen waren bij benadering normaal verdeeld, met scheefheid en kurtosis waarden tussen -1 en 1.</p>
+            <p>Tabel 1 toont de beschrijvende statistieken voor de drie stressmaten. Relatiestress was gemiddeld het
+                hoogst (<em>M</em> = 3.45, <em>SD</em> = 0.82), gevolgd door financiële stress (<em>M</em> = 3.21,
+                <em>SD</em> = 0.95) en werkstress (<em>M</em> = 2.87, <em>SD</em> = 1.12). Alle variabelen waren bij
+                benadering normaal verdeeld, met scheefheid en kurtosis waarden tussen -1 en 1.</p>
 
             <p style="margin-top: 15px;"><strong>Verschillen tussen Mannen en Vrouwen</strong></p>
-            <p>Een onafhankelijke t-toets toonde aan dat vrouwen (<em>M</em> = 3.67, <em>SD</em> = 0.74) significant hogere relatiestress rapporteerden dan mannen (<em>M</em> = 3.12, <em>SD</em> = 0.89), <em>t</em>(148) = 3.45, <em>p</em> = .001, 95% BI [0.23, 0.87], <em>d</em> = 0.67. Dit vertegenwoordigt een matig tot groot effect.</p>
+            <p>Een onafhankelijke t-toets toonde aan dat vrouwen (<em>M</em> = 3.67, <em>SD</em> = 0.74) significant
+                hogere relatiestress rapporteerden dan mannen (<em>M</em> = 3.12, <em>SD</em> = 0.89), <em>t</em>(148) =
+                3.45, <em>p</em> = .001, 95% BI [0.23, 0.87], <em>d</em> = 0.67. Dit vertegenwoordigt een matig tot
+                groot effect.</p>
 
             <p style="margin-top: 15px;"><strong>Correlaties tussen Stressmaten</strong></p>
-            <p>Relatiestress correleerde significant positief met werkstress, <em>r</em> = .45, <em>p</em> < .001, en met financiële stress, <em>r</em> = .38, <em>p</em> = .002. Ook werkstress en financiële stress waren significant gecorreleerd, <em>r</em> = .52, <em>p</em> < .001.</p>
+            <p>Relatiestress correleerde significant positief met werkstress, <em>r</em> = .45, <em>p</em>
+                < .001, en met financiële stress, <em>r</em> = .38, <em>p</em> = .002. Ook werkstress en financiële
+                    stress waren significant gecorreleerd, <em>r</em> = .52, <em>p</em>
+                    < .001.</p>
         </div>
 
         <h2>APA Rapportage Functie in R</h2>
@@ -338,28 +359,102 @@ apa_rapporteer(data_wave1$W1_Relstress1_Gem, "Relatiestress")
     </div>
 
     <style>
-        .lead { font-size: 1.2em; color: #555; margin: 20px 0; }
-        .example-box, .warning-box, .info-box, .summary-box {
+        .lead {
+            font-size: 1.2em;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .example-box,
+        .warning-box,
+        .info-box,
+        .summary-box {
             background: #f8f9fc;
             border-left: 4px solid #667eea;
             padding: 20px;
             margin: 20px 0;
             border-radius: 8px;
         }
-        .warning-box { border-left-color: #f39c12; background: #fef9f3; }
-        .info-box { border-left-color: #3498db; background: #f0f8ff; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
-        th { background: #667eea; color: white; }
-        .alt-table th { background: #667eea; }
-        .code-box { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 20px 0; }
-        .code-box pre { margin: 0; overflow-x: auto; font-family: 'Courier New', monospace; line-height: 1.5; }
-        .navigation-buttons { display: flex; justify-content: space-between; margin: 40px 0; }
-        .btn-primary, .btn-secondary { padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; }
-        .btn-primary { background: #667eea; color: white; }
-        .btn-secondary { background: #e0e0e0; color: #333; }
-        .btn-primary:hover { background: #5568d3; }
-        .btn-secondary:hover { background: #d0d0d0; }
+
+        .warning-box {
+            border-left-color: #f39c12;
+            background: #fef9f3;
+        }
+
+        .info-box {
+            border-left-color: #3498db;
+            background: #f0f8ff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        .alt-table th {
+            background: #667eea;
+        }
+
+        .code-box {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .code-box pre {
+            margin: 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
     </style>
 </body>
+
 </html>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Betrouwbaarheidsintervallen - Hoofdstuk 6</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
     <div class="container">
         <div class="breadcrumb">
@@ -13,16 +15,18 @@
         </div>
 
         <h1>Betrouwbaarheidsintervallen: Van Steekproef naar Populatie</h1>
-        
-        <p class="lead">Een betrouwbaarheidsinterval (BI) geeft een bereik waarbinnen de populatieparameter waarschijnlijk ligt, gebaseerd op je steekproef.</p>
+
+        <p class="lead">Een betrouwbaarheidsinterval (BI) geeft een bereik waarbinnen de populatieparameter
+            waarschijnlijk ligt, gebaseerd op je steekproef.</p>
 
         <h2 id="concept">Het Concept van Betrouwbaarheidsintervallen</h2>
-        
+
         <div class="info-box">
             <h4>Wat is een 95% Betrouwbaarheidsinterval?</h4>
             <p><strong>Correcte interpretatie:</strong></p>
-            <p>"Als we <strong>oneindig vaak</strong> een steekproef nemen en telkens een 95% BI berekenen, zal <strong>95% van deze intervallen</strong> de werkelijke populatiewaarde bevatten."</p>
-            
+            <p>"Als we <strong>oneindig vaak</strong> een steekproef nemen en telkens een 95% BI berekenen, zal
+                <strong>95% van deze intervallen</strong> de werkelijke populatiewaarde bevatten."</p>
+
             <p style="margin-top: 15px;"><strong>Voor één specifiek interval:</strong></p>
             <p>"We zijn 95% <strong>confident</strong> dat dit interval de populatieparameter bevat."</p>
         </div>
@@ -34,7 +38,8 @@
                 <li>❌ "95% van de data ligt in dit interval"</li>
                 <li>❌ "We zijn 95% zeker dat..."</li>
             </ul>
-            <p><strong>Waarom fout?</strong> De populatieparameter is een <strong>vaste waarde</strong> (geen kansverdeling). Het interval vángt deze waarde, of niet - er is geen "kans".</p>
+            <p><strong>Waarom fout?</strong> De populatieparameter is een <strong>vaste waarde</strong> (geen
+                kansverdeling). Het interval vángt deze waarde, of niet - er is geen "kans".</p>
         </div>
 
         <h2 id="calculation">Berekening van een 95% BI voor het Gemiddelde</h2>
@@ -42,7 +47,7 @@
         <div class="formula-box">
             <h4>Formule:</h4>
             <p>$$ \text{95% BI} = \bar{x} \pm t_{\alpha/2, df} \times SE $$</p>
-            
+
             <p><strong>Waarbij:</strong></p>
             <ul>
                 <li>$\bar{x}$ = steekproefgemiddelde</li>
@@ -76,7 +81,8 @@
 
             <h4>Resultaat:</h4>
             <p><strong>95% BI = [3.32, 3.58]</strong></p>
-            <p><em>Interpretatie:</em> We zijn 95% confident dat het gemiddelde relatiestress niveau in de populatie tussen 3.32 en 3.58 ligt.</p>
+            <p><em>Interpretatie:</em> We zijn 95% confident dat het gemiddelde relatiestress niveau in de populatie
+                tussen 3.32 en 3.58 ligt.</p>
         </div>
 
         <h2 id="r-code">R Code voor Betrouwbaarheidsintervallen</h2>
@@ -257,7 +263,8 @@ ggplot(plot_data, aes(x = variabele, y = gemiddelde)) +
         <div class="warning-box">
             <h4>3. Overlappende BI = Geen Verschil?</h4>
             <p>❌ <strong>Fout:</strong> "De BI overlappen, dus er is geen significant verschil"</p>
-            <p>✅ <strong>Correct:</strong> Overlappende BI suggereren geen verschil, maar je moet een <strong>t-toets</strong> doen voor zekerheid</p>
+            <p>✅ <strong>Correct:</strong> Overlappende BI suggereren geen verschil, maar je moet een
+                <strong>t-toets</strong> doen voor zekerheid</p>
         </div>
 
         <h2 id="practical-use">Praktisch Gebruik</h2>
@@ -265,9 +272,12 @@ ggplot(plot_data, aes(x = variabele, y = gemiddelde)) +
         <div class="example-box">
             <h4>Wanneer Gebruik je BI?</h4>
             <ol>
-                <li><strong>Schatting populatieparameters:</strong> "Het gemiddelde inkomen in België ligt tussen €35.000 en €38.000"</li>
-                <li><strong>Precisie beoordelen:</strong> Smal BI = precieze schatting, breed BI = onzekere schatting</li>
-                <li><strong>Groepen vergelijken:</strong> Kijk of BI overlappen (informeel) of doe t-toets (formeel)</li>
+                <li><strong>Schatting populatieparameters:</strong> "Het gemiddelde inkomen in België ligt tussen
+                    €35.000 en €38.000"</li>
+                <li><strong>Precisie beoordelen:</strong> Smal BI = precieze schatting, breed BI = onzekere schatting
+                </li>
+                <li><strong>Groepen vergelijken:</strong> Kijk of BI overlappen (informeel) of doe t-toets (formeel)
+                </li>
                 <li><strong>Effect sizes rapporteren:</strong> Cohen's d met 95% BI geeft effect én onzekerheid</li>
             </ol>
         </div>
@@ -324,29 +334,111 @@ rapporteer_met_ci(data_wave1$W1_Relstress1_Gem,
     </div>
 
     <style>
-        .lead { font-size: 1.2em; color: #555; margin: 20px 0; }
-        .example-box, .warning-box, .info-box, .formula-box, .summary-box {
+        .lead {
+            font-size: 1.2em;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .example-box,
+        .warning-box,
+        .info-box,
+        .formula-box,
+        .summary-box {
             background: #f8f9fc;
             border-left: 4px solid #667eea;
             padding: 20px;
             margin: 20px 0;
             border-radius: 8px;
         }
-        .warning-box { border-left-color: #f39c12; background: #fef9f3; }
-        .info-box { border-left-color: #3498db; background: #f0f8ff; }
-        .formula-box { border-left-color: #9b59b6; background: #f9f5ff; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background: #667eea; color: white; }
-        .code-box { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 20px 0; }
-        .code-box pre { margin: 0; overflow-x: auto; font-family: 'Courier New', monospace; line-height: 1.5; }
-        pre { background: white; padding: 15px; font-family: monospace; overflow-x: auto; }
-        .navigation-buttons { display: flex; justify-content: space-between; margin: 40px 0; }
-        .btn-primary, .btn-secondary { padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; }
-        .btn-primary { background: #667eea; color: white; }
-        .btn-secondary { background: #e0e0e0; color: #333; }
-        .btn-primary:hover { background: #5568d3; }
-        .btn-secondary:hover { background: #d0d0d0; }
+
+        .warning-box {
+            border-left-color: #f39c12;
+            background: #fef9f3;
+        }
+
+        .info-box {
+            border-left-color: #3498db;
+            background: #f0f8ff;
+        }
+
+        .formula-box {
+            border-left-color: #9b59b6;
+            background: #f9f5ff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        .code-box {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .code-box pre {
+            margin: 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+
+        pre {
+            background: white;
+            padding: 15px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
     </style>
 </body>
+
 </html>
