@@ -5,16 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meetniveaus Begrijpen - Hoofdstuk 6</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=20260204">
+    <script src="../js/site.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="breadcrumb">
-            <a href="../index.html">Startpagina</a> / <a href="../chapter6.html">Hoofdstuk 6</a> / Meetniveaus
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="logo" href="../index.html" aria-label="Terug naar startpagina">
+                📊 Statistical Hero <span class="logo-sub">- Hoofdstuk 6</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdnavigatie">
+                <a href="../chapter6.html">Hoofdstuk 6 Overzicht</a>
+            </nav>
         </div>
 
-        <h1>Meetniveaus Begrijpen</h1>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../index.html">Startpagina</a></li>
+                <li><a href="../chapter6.html">Hoofdstuk 6</a></li>
+                <li aria-current="page">Meetniveaus</li>
+            </ol>
+        </nav>
+    </header>
+
+    <main id="main-content" class="page-content" tabindex="-1">
+        <div class="container">
+            <header class="page-header">
+                <h1>Meetniveaus Begrijpen</h1>
+            </header>
 
         <p class="lead">Het meetniveau van een variabele bepaalt welke statistische analyses en numerieke maten je kunt
             gebruiken. Dit is een van de meest fundamentele concepten in statistiek.</p>
@@ -449,6 +470,17 @@ t.test(data$W1_Werkstress_Gem)$conf.int  # 95% CI</code></pre>
             background: #d0d0d0;
         }
     </style>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 From Zero To Statistical Hero | <a
+                href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis">GitHub
+                Repository</a></p>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Terug naar boven">↑</a>
+
 </body>
 
 </html>
