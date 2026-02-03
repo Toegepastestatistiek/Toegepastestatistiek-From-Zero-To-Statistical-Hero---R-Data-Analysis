@@ -178,7 +178,7 @@ a:hover {
 
 /* === NAVIGATION === */
 .nav-bar {
-  background-color: var(--primary-color);
+  background-color: #5568d3;
   color: white;
   padding: 15px 30px;
   margin: -20px -20px 30px -20px;
