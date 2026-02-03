@@ -111,114 +111,158 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="breadcrumb">
-            <a href="index.html">Home</a> / Hoofdstuk 6: Numerieke Maten
-        </div>
+    <header class="site-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Startpagina</a> / Hoofdstuk 6: Numerieke Maten
+        </nav>
+    </header>
 
-        <div class="hero-section">
-            <h1>Hoofdstuk 6: Numerieke Maten in R</h1>
-            <p>Diepgaande uitleg bij het berekenen en interpreteren van beschrijvende statistieken</p>
-        </div>
-
-        <div class="cards-grid">
-            <!-- Meetniveaus -->
-            <div class="content-card">
-                <h3><a href="chapter6/measurement-levels.html">Meetniveaus Begrijpen</a></h3>
-                <p>Fundamentele basis voor het kiezen van de juiste numerieke maten.</p>
-                <ul>
-                    <li><a href="chapter6/measurement-levels.html#nominal">Nominaal niveau</a></li>
-                    <li><a href="chapter6/measurement-levels.html#ordinal">Ordinaal niveau</a></li>
-                    <li><a href="chapter6/measurement-levels.html#metric">Metrisch niveau</a></li>
-                    <li><a href="chapter6/measurement-levels.html#examples">Praktijkvoorbeelden</a></li>
-                </ul>
+    <main id="main-content">
+        <section class="hero" aria-labelledby="chapter-title">
+            <div class="hero-section">
+                <h1 id="chapter-title">Hoofdstuk 6: Numerieke Maten in R</h1>
+                <p class="hero-subtitle">Diepgaande uitleg bij het berekenen en interpreteren van beschrijvende
+                    statistieken</p>
             </div>
+        </section>
 
-            <!-- Centraliteitsmaten -->
-            <div class="content-card">
-                <h3><a href="chapter6/centrality-measures.html">Centraliteitsmaten</a></h3>
-                <p>Modus, mediaan en gemiddelde - wanneer gebruik je welke?</p>
-                <ul>
-                    <li><a href="chapter6/centrality-measures.html#mode">Modus berekenen en interpreteren</a></li>
-                    <li><a href="chapter6/centrality-measures.html#median">Mediaan en kwartielen</a></li>
-                    <li><a href="chapter6/centrality-measures.html#mean">Gemiddelde en eigenschappen</a></li>
-                    <li><a href="chapter6/centrality-measures.html#comparison">Wanneer welke maat?</a></li>
-                </ul>
-            </div>
+        <section class="chapter-modules" aria-labelledby="modules-title">
+            <h2 id="modules-title" class="visually-hidden">Module overzicht</h2>
 
-            <!-- Spreidingsmaten -->
-            <div class="content-card">
-                <h3><a href="chapter6/dispersion-measures.html">Spreidingsmaten</a></h3>
-                <p>Bereik, IQR, standaardafwijking en variantie volledig uitgelegd.</p>
-                <ul>
-                    <li><a href="chapter6/dispersion-measures.html#range">Bereik en beperkingen</a></li>
-                    <li><a href="chapter6/dispersion-measures.html#iqr">IQR en uitschieters detecteren</a></li>
-                    <li><a href="chapter6/dispersion-measures.html#sd">Standaardafwijking begrijpen</a></li>
-                    <li><a href="chapter6/dispersion-measures.html#variance">Variantie in de praktijk</a></li>
-                </ul>
-            </div>
+            <div class="cards-grid module-grid">
+                <!-- Meetniveaus -->
+                <article class="content-card module-card">
+                    <a href="chapter6/measurement-levels.html" class="module-link">
+                        <header class="module-header">
+                            <h3 class="module-title">Meetniveaus Begrijpen</h3>
+                        </header>
+                        <p class="module-description">Fundamentele basis voor het kiezen van de juiste numerieke maten.
+                        </p>
+                        <ul class="module-topics">
+                            <li>Nominaal niveau</li>
+                            <li>Ordinaal niveau</li>
+                            <li>Metrisch niveau</li>
+                            <li>Praktijkvoorbeelden</li>
+                        </ul>
+                    </a>
+                </article>
 
-            <!-- Normaliteit -->
-            <div class="content-card">
-                <h3><a href="chapter6/normality-assessment.html">Normaliteit Beoordelen</a></h3>
-                <p>Scheefheid, kurtosis en normaliteitstesten uitgelegd.</p>
-                <ul>
-                    <li><a href="chapter6/normality-assessment.html#skewness">Scheefheid interpreteren</a></li>
-                    <li><a href="chapter6/normality-assessment.html#kurtosis">Kurtosis begrijpen</a></li>
-                    <li><a href="chapter6/normality-assessment.html#tests">Normaliteitstesten (Shapiro-Wilk)</a></li>
-                    <li><a href="chapter6/normality-assessment.html#solutions">Oplossingen bij niet-normaliteit</a></li>
-                </ul>
-            </div>
+                <!-- Centraliteitsmaten -->
+                <article class="content-card module-card">
+                    <a href="chapter6/centrality-measures.html" class="module-link">
+                        <header class="module-header">
+                            <h3 class="module-title">Centraliteitsmaten</h3>
+                        </header>
+                        <p class="module-description">Modus, mediaan en gemiddelde - wanneer gebruik je welke?</p>
+                        <ul class="module-topics">
+                            <li>Modus berekenen en interpreteren</li>
+                            <li>Mediaan en kwartielen</li>
+                            <li>Gemiddelde en eigenschappen</li>
+                            <li>Wanneer welke maat?</li>
+                        </ul>
+                    </a>
+                </article>
 
-            <!-- Betrouwbaarheidsintervallen -->
-            <div class="content-card">
-                <h3><a href="chapter6/confidence-intervals.html">Betrouwbaarheidsintervallen</a></h3>
-                <p>Van steekproef naar populatie - CI's correct interpreteren.</p>
-                <ul>
-                    <li><a href="chapter6/confidence-intervals.html#concept">Wat is een CI?</a></li>
-                    <li><a href="chapter6/confidence-intervals.html#calculation">Berekening stap-voor-stap</a></li>
-                    <li><a href="chapter6/confidence-intervals.html#interpretation">Correcte interpretatie</a></li>
-                    <li><a href="chapter6/confidence-intervals.html#misconceptions">Veelgemaakte fouten</a></li>
-                </ul>
-            </div>
+                <!-- Spreidingsmaten -->
+                <article class="content-card module-card">
+                    <a href="chapter6/dispersion-measures.html" class="module-link">
+                        <header class="module-header">
+                            <h3 class="module-title">Spreidingsmaten</h3>
+                        </header>
+                        <p class="module-description">Bereik, IQR, standaardafwijking en variantie volledig uitgelegd.
+                        </p>
+                        <ul class="module-topics">
+                            <li>Bereik en beperkingen</li>
+                            <li>IQR en uitschieters detecteren</li>
+                            <li>Standaardafwijking begrijpen</li>
+                            <li>Variantie in de praktijk</li>
+                        </ul>
+                    </a>
+                </article>
 
-            <!-- APA Rapportage -->
-            <div class="content-card">
-                <h3><a href="chapter6/apa-reporting.html">APA Rapportage</a></h3>
-                <p>Professioneel statistieken rapporteren volgens APA 7e editie.</p>
-                <ul>
-                    <li><a href="chapter6/apa-reporting.html#basics">Basisprincipes APA-stijl</a></li>
-                    <li><a href="chapter6/apa-reporting.html#tables">Tabellen maken</a></li>
-                    <li><a href="chapter6/apa-reporting.html#rounding">Afronding regels</a></li>
-                    <li><a href="chapter6/apa-reporting.html#examples">Voorbeelden per statistiek</a></li>
-                </ul>
-            </div>
+                <!-- Normaliteit -->
+                <article class="content-card module-card">
+                    <a href="chapter6/normality-assessment.html" class="module-link">
+                        <header class="module-header">
+                            <h3 class="module-title">Normaliteit Beoordelen</h3>
+                        </header>
+                        <p class="module-description">Scheefheid, kurtosis en normaliteitstesten uitgelegd.</p>
+                        <ul class="module-topics">
+                            <li>Scheefheid interpreteren</li>
+                            <li>Kurtosis begrijpen</li>
+                            <li>Normaliteitstesten (Shapiro-Wilk)</li>
+                            <li>Oplossingen bij niet-normaliteit</li>
+                        </ul>
+                    </a>
+                </article>
 
-            <!-- R Functies -->
-            <div class="content-card">
-                <h3><a href="chapter6/r-functions-guide.html">R Functies Overzicht</a></h3>
-                <p>psych::describe(), skimr::skim() en dplyr summarise() efficiënt gebruiken.</p>
-                <ul>
-                    <li><a href="chapter6/r-functions-guide.html#psych">psych::describe() uitgelegd</a></li>
-                    <li><a href="chapter6/r-functions-guide.html#skimr">skimr::skim() moderne output</a></li>
-                    <li><a href="chapter6/r-functions-guide.html#dplyr">dplyr summarise() tips</a></li>
-                    <li><a href="chapter6/r-functions-guide.html#comparison">Welke functie wanneer?</a></li>
-                </ul>
-            </div>
+                <!-- Betrouwbaarheidsintervallen -->
+                <article class="content-card module-card">
+                    <a href="chapter6/confidence-intervals.html" class="module-link">
+                        <header class="module-header">
+                            <h3 class="module-title">Betrouwbaarheidsintervallen</h3>
+                        </header>
+                        <p class="module-description">Van steekproef naar populatie - CI's correct interpreteren.</p>
+                        <ul class="module-topics">
+                            <li>Wat is een CI?</li>
+                            <li>Berekening stap-voor-stap</li>
+                            <li>Correcte interpretatie</li>
+                            <li>Veelgemaakte fouten</li>
+                        </ul>
+                    </a>
+                </article>
 
-            <!-- SPSS vs R -->
-            <div class="content-card">
-                <h3><a href="chapter6/spss-vs-r.html">SPSS naar R Migratie</a></h3>
-                <p>Voor SPSS-gebruikers - hoe doe je hetzelfde in R?</p>
-                <ul>
-                    <li><a href="chapter6/spss-vs-r.html#descriptives">Analyze → Descriptives in R</a></li>
-                    <li><a href="chapter6/spss-vs-r.html#frequencies">Analyze → Frequencies in R</a></li>
-                    <li><a href="chapter6/spss-vs-r.html#explore">Analyze → Explore in R</a></li>
-                    <li><a href="chapter6/spss-vs-r.html#advantages">Waarom R beter is</a></li>
-                </ul>
+                <!-- APA Rapportage -->
+                <article class="content-card module-card">
+                    <a href="chapter6/apa-reporting.html" class="module-link">
+                        <header class="module-header">
+                            <h3 class="module-title">APA Rapportage</h3>
+                        </header>
+                        <p class="module-description">Professioneel statistieken rapporteren volgens APA 7e editie.</p>
+                        <ul class="module-topics">
+                            <li>Basisprincipes APA-stijl</li>
+                            <li>Tabellen maken</li>
+                            <li>Afronding regels</li>
+                            <li>Voorbeelden per statistiek</li>
+                        </ul>
+                    </a>
+                </article>
+
+                <!-- R Functies -->
+                <article class="content-card module-card">
+                    <a href="chapter6/r-functions-guide.html" class="module-link">
+                        <header class="module-header">
+                            <h3 class="module-title">R Functies Overzicht</h3>
+                        </header>
+                        <p class="module-description">psych::describe(), skimr::skim() en dplyr summarise() efficiënt
+                            gebruiken.</p>
+                        <ul class="module-topics">
+                            <li>psych::describe() uitgelegd</li>
+                            <li>skimr::skim() moderne output</li>
+                            <li>dplyr summarise() tips</li>
+                            <li>Welke functie wanneer?</li>
+                        </ul>
+                    </a>
+                </article>
+
+                <!-- SPSS vs R -->
+                <article class="content-card module-card">
+                    <a href="chapter6/spss-vs-r.html" class="module-link">
+                        <header class="module-header">
+                            <h3 class="module-title">SPSS naar R Migratie</h3>
+                        </header>
+                        <p class="module-description">Voor SPSS-gebruikers - hoe doe je hetzelfde in R?</p>
+                        <ul class="module-topics">
+                            <li>Analyze → Descriptives in R</li>
+                            <li>Analyze → Frequencies in R</li>
+                            <li>Analyze → Explore in R</li>
+                            <li>Waarom R beter is</li>
+                        </ul>
+                    </a>
+                </article>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 
 </html>

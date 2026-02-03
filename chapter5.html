@@ -59,25 +59,38 @@
             margin-bottom: 12px;
         }
 
+        .content-card h3 a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .content-card h3 a:hover {
+            text-decoration: underline;
+        }
+
         .content-card p {
             color: #555;
             line-height: 1.6;
             margin: 15px 0;
         }
 
-        .content-card .btn {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: background 0.3s ease;
-            font-weight: 600;
+        .content-card ul {
+            margin: 10px 0;
+            padding-left: 20px;
         }
 
-        .content-card .btn:hover {
-            background: #5568d3;
+        .content-card ul li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .content-card ul li a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .content-card ul li a:hover {
+            text-decoration: underline;
         }
 
         .breadcrumb {
@@ -98,158 +111,138 @@
 </head>
 
 <body>
-
-    <div class="nav-bar">
-        <div class="logo">From Zero To Statistical Hero</div>
-        <nav>
-            <a href="index.html">Home</a>
+    <header class="site-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Startpagina</a> / Hoofdstuk 5: Variabele Manipulatie
         </nav>
-    </div>
+    </header>
 
-    <div class="breadcrumb">
-        <a href="index.html">Home</a> / Hoofdstuk 5: Variabele Manipulatie
-    </div>
-
-    <div class="hero-section">
-        <h1>Hoofdstuk 5: Variabele Manipulatie</h1>
-        <p><strong>Aanvullend Leermateriaal</strong></p>
-        <p>Diepgaande theoretische achtergronden, praktische toepassingen en naslagwerken voor het beheersen van
-            variabele manipulatie in R</p>
-    </div>
-
-    <div id="pages" style="margin-top: 40px;">
-
-
-        <div class="cards-grid">
-
-            <!-- Card 1: Recoding Strategies -->
-            <div class="content-card">
-                <h3><a href="chapter5/recoding-strategies.html" style="color: #667eea; text-decoration: none;">Recoding
-                        Strategieën</a></h3>
-                <p>Leer waarom continue dataverzameling cruciaal is en hoe je betekenisvolle categorische variabelen
-                    maakt voor criminologisch onderzoek.</p>
-                <p><strong>Onderwerpen:</strong></p>
-                <ul>
-                    <li><a href="chapter5/recoding-strategies.html#continuous">Continue vs. categorische data</a></li>
-                    <li><a href="chapter5/recoding-strategies.html#principles">Logische groeperingsprincipes</a></li>
-                    <li><a href="chapter5/recoding-strategies.html#examples">10 criminologie-specifieke voorbeelden</a>
-                    </li>
-                    <li><a href="chapter5/recoding-strategies.html#mistakes">Veelgemaakte fouten vermijden</a></li>
-                </ul>
-                <a href="chapter5/recoding-strategies.html" class="btn">Meer informatie</a>
+    <main id="main-content">
+        <section class="hero" aria-labelledby="chapter-title">
+            <div class="hero-section">
+                <h1 id="chapter-title">Hoofdstuk 5: Variabele Manipulatie in R</h1>
+                <p class="hero-subtitle">Diepgaande theoretische achtergronden, praktische toepassingen en naslagwerken
+                    voor het beheersen van
+                    variabele manipulatie in R</p>
             </div>
+        </section>
 
-            <!-- Card 2: Scale Construction Theory -->
-            <div class="content-card">
-                <h3><a href="chapter5/scale-construction-theory.html"
-                        style="color: #667eea; text-decoration: none;">Schaalconstructie Theorie</a></h3>
-                <p>Diepgaand inzicht in latente concepten, gestandaardiseerde vragenlijsten en het complete proces van
-                    het ontwikkelen van valide meetinstrumenten.</p>
-                <p><strong>Onderwerpen:</strong></p>
-                <ul>
-                    <li><a href="chapter5/scale-construction-theory.html#latent">Wat zijn latente concepten?</a></li>
-                    <li><a href="chapter5/scale-construction-theory.html#scales">7 gestandaardiseerde vragenlijsten</a>
-                    </li>
-                    <li><a href="chapter5/scale-construction-theory.html#ethics">Ethische verplichtingen & citeren</a>
-                    </li>
-                    <li><a href="chapter5/scale-construction-theory.html#development">5-stappen instrument
-                            ontwikkeling</a></li>
-                </ul>
-                <a href="chapter5/scale-construction-theory.html" class="btn">Meer informatie</a>
+        <section class="chapter-modules" aria-labelledby="modules-title">
+            <h2 id="modules-title" class="visually-hidden">Module overzicht</h2>
+
+            <div class="cards-grid module-grid">
+
+                <!-- Card 1: Recoding Strategies -->
+                <article class="content-card module-card">
+                    <a href="chapter5/recoding-strategies.html" class="module-link">
+                        <header class="module-header">
+                            <h3 class="module-title">Hercoderingsstrategieën</h3>
+                        </header>
+                        <p class="module-description">Leer waarom continue dataverzameling cruciaal is en hoe je
+                            betekenisvolle categorische variabelen
+                            maakt voor criminologisch onderzoek.</p>
+                        <ul class="module-topics">
+                            <li>Continue vs. categorische data</li>
+                            <li>Logische groeperingsprincipes</li>
+                            <li>10 criminologie-specifieke voorbeelden</li>
+                            <li>Veelgemaakte fouten vermijden</li>
+                        </ul>
+                    </a>
+                </article>
+
+                <!-- Card 2: Scale Construction Theory -->
+                <article class="content-card module-card">
+                    <a href="chapter5/scale-construction-theory.html" class="module-link">
+                        <header class="module-header">
+                            <h3 class="module-title">Schaalconstructie Theorie</h3>
+                        </header>
+                        <p class="module-description">Diepgaand inzicht in latente concepten, gestandaardiseerde
+                            vragenlijsten en het complete proces van
+                            het ontwikkelen van valide meetinstrumenten.</p>
+                        <ul class="module-topics">
+                            <li>Wat zijn latente concepten?</li>
+                            <li>7 gestandaardiseerde vragenlijsten</li>
+                            <li>Ethische verplichtingen & citeren</li>
+                            <li>5-stappen instrument ontwikkeling</li>
+                        </ul>
+                    </a>
+                </article>
+
+                <!-- Card 3: Reverse Coding Guide -->
+                <article class="content-card module-card">
+                    <a href="chapter5/reverse-coding-guide.html" class="module-link">
+                        <header class="module-header">
+                            <h3 class="module-title">Omgekeerd Coderen Gids</h3>
+                        </header>
+                        <p class="module-description">Beheers de kunst van reverse coding met stapsgewijze instructies,
+                            visuele voorbeelden en praktische
+                            R-code templates.</p>
+                        <ul class="module-topics">
+                            <li>Wat is acquiescence bias?</li>
+                            <li>Wanneer reverse coding toepassen</li>
+                            <li>Formule: (Max + Min) - Oude waarde</li>
+                            <li>R-code voor verschillende schaaltypes</li>
+                        </ul>
+                    </a>
+                </article>
+
+                <!-- Card 4: Cronbach's Alpha -->
+                <article class="content-card module-card">
+                    <a href="chapter5/cronbach-alpha-explained.html" class="module-link">
+                        <header class="module-header">
+                            <h3 class="module-title">Cronbach's Alpha Uitgelegd</h3>
+                        </header>
+                        <p class="module-description">Complete gids voor het begrijpen, berekenen en interpreteren van
+                            Cronbach's Alpha voor interne
+                            consistentie beoordeling.</p>
+                        <ul class="module-topics">
+                            <li>Wat is interne consistentie?</li>
+                            <li>Interpretatie grenswaarden (≥.70)</li>
+                            <li>Wanneer items verwijderen</li>
+                            <li>APA-stijl rapportage</li>
+                        </ul>
+                    </a>
+                </article>
+
+                <!-- Card 5: Operators Reference -->
+                <article class="content-card module-card">
+                    <a href="chapter5/operators-reference.html" class="module-link">
+                        <header class="module-header">
+                            <h3 class="module-title">R Operators Naslagwerk</h3>
+                        </header>
+                        <p class="module-description">Uitgebreid naslagwerk voor alle R operators: rekenkundig,
+                            relationeel, logisch en speciale operators
+                            voor datamanipulatie.</p>
+                        <ul class="module-topics">
+                            <li>Rekenkundig: +, -, *, /, ^</li>
+                            <li>Relationeel: ==, !=, >, <, %in%</li>
+                            <li>Logisch: &, |, !</li>
+                            <li>Operator precedentie regels</li>
+                        </ul>
+                    </a>
+                </article>
+
+                <!-- Card 6: SPSS vs R -->
+                <article class="content-card module-card">
+                    <a href="chapter5/spss-vs-r-comparison.html" class="module-link">
+                        <header class="module-header">
+                            <h3 class="module-title">SPSS vs R Vergelijking</h3>
+                        </header>
+                        <p class="module-description">Directe vergelijkingen van SPSS en R syntaxis voor variabele
+                            manipulatie, perfect voor overstappende
+                            onderzoekers.</p>
+                        <ul class="module-topics">
+                            <li>COMPUTE → mutate()</li>
+                            <li>RECODE → case_when()</li>
+                            <li>IF → ifelse()</li>
+                            <li>Complete workflow voorbeelden</li>
+                        </ul>
+                    </a>
+                </article>
+
             </div>
-
-            <!-- Card 3: Reverse Coding Guide -->
-            <div class="content-card">
-                <h3><a href="chapter5/reverse-coding-guide.html" style="color: #667eea; text-decoration: none;">Reverse
-                        Coding Gids</a></h3>
-                <p>Beheers de kunst van reverse coding met stapsgewijze instructies, visuele voorbeelden en praktische
-                    R-code templates.</p>
-                <p><strong>Onderwerpen:</strong></p>
-                <ul>
-                    <li><a href="chapter5/reverse-coding-guide.html#bias">Wat is acquiescence bias?</a></li>
-                    <li><a href="chapter5/reverse-coding-guide.html#when">Wanneer reverse coding toepassen</a></li>
-                    <li><a href="chapter5/reverse-coding-guide.html#formula">Formule: (Max + Min) - Oude waarde</a></li>
-                    <li><a href="chapter5/reverse-coding-guide.html#code">R-code voor verschillende schaaltypes</a></li>
-                </ul>
-                <a href="chapter5/reverse-coding-guide.html" class="btn">Meer informatie</a>
-            </div>
-
-            <!-- Card 4: Cronbach's Alpha -->
-            <div class="content-card">
-                <h3><a href="chapter5/cronbach-alpha-explained.html"
-                        style="color: #667eea; text-decoration: none;">Cronbach's Alpha Uitgelegd</a></h3>
-                <p>Complete gids voor het begrijpen, berekenen en interpreteren van Cronbach's Alpha voor interne
-                    consistentie beoordeling.</p>
-                <p><strong>Onderwerpen:</strong></p>
-                <ul>
-                    <li><a href="chapter5/cronbach-alpha-explained.html#consistency">Wat is interne consistentie?</a>
-                    </li>
-                    <li><a href="chapter5/cronbach-alpha-explained.html#interpretation">Interpretatie grenswaarden
-                            (≥.70)</a></li>
-                    <li><a href="chapter5/cronbach-alpha-explained.html#removal">Wanneer items verwijderen</a></li>
-                    <li><a href="chapter5/cronbach-alpha-explained.html#reporting">APA-stijl rapportage</a></li>
-                </ul>
-                <a href="chapter5/cronbach-alpha-explained.html" class="btn">Meer informatie</a>
-            </div>
-
-            <!-- Card 5: Operators Reference -->
-            <div class="content-card">
-                <h3><a href="chapter5/operators-reference.html" style="color: #667eea; text-decoration: none;">R
-                        Operators Naslagwerk</a></h3>
-                <p>Uitgebreid naslagwerk voor alle R operators: rekenkundig, relationeel, logisch en speciale operators
-                    voor datamanipulatie.</p>
-                <p><strong>Onderwerpen:</strong></p>
-                <ul>
-                    <li><a href="chapter5/operators-reference.html#arithmetic">Rekenkundig: +, -, *, /, ^</a></li>
-                    <li><a href="chapter5/operators-reference.html#relational">Relationeel: ==, !=, >, <, %in%</a>
-                    </li>
-                    <li><a href="chapter5/operators-reference.html#logical">Logisch: &, |, !</a></li>
-                    <li><a href="chapter5/operators-reference.html#precedence">Operator precedentie regels</a></li>
-                </ul>
-                <a href="chapter5/operators-reference.html" class="btn">Meer informatie</a>
-            </div>
-
-            <!-- Card 6: SPSS vs R -->
-            <div class="content-card">
-                <h3><a href="chapter5/spss-vs-r-comparison.html" style="color: #667eea; text-decoration: none;">SPSS vs
-                        R Vergelijking</a></h3>
-                <p>Directe vergelijkingen van SPSS en R syntaxis voor variabele manipulatie, perfect voor overstappende
-                    onderzoekers.</p>
-                <p><strong>Onderwerpen:</strong></p>
-                <ul>
-                    <li><a href="chapter5/spss-vs-r-comparison.html#compute">COMPUTE → mutate()</a></li>
-                    <li><a href="chapter5/spss-vs-r-comparison.html#recode">RECODE → case_when()</a></li>
-                    <li><a href="chapter5/spss-vs-r-comparison.html#if">IF → ifelse()</a></li>
-                    <li><a href="chapter5/spss-vs-r-comparison.html#workflow">Complete workflow voorbeelden</a></li>
-                </ul>
-                <a href="chapter5/spss-vs-r-comparison.html" class="btn">Meer informatie</a>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="footer" style="margin-top: 40px;">
-        <p>&copy; 2026 From Zero To Statistical Hero | Criminologische Onderzoeksmethoden</p>
-    </div>
-
-    <a href="#" class="back-to-top" id="backToTop">↑</a>
-
-    <script>
-        window.addEventListener('scroll', function () {
-            const backToTop = document.getElementById('backToTop');
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-
-        document.getElementById('backToTop').addEventListener('click', function (e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
-
+        </section>
+    </main>
 </body>
 
 </html>

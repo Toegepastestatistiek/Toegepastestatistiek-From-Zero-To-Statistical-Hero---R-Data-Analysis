@@ -242,263 +242,300 @@
 
 <body>
 
-    <div class="nav-bar">
-        <div class="logo">From Zero To Statistical Hero</div>
-        <nav>
-            <a href="#chapters">Hoofdstukken</a>
-        </nav>
-    </div>
-
-    <div class="hero-section">
-        <h1>Aanvullend Leermateriaal voor R Data Analyse</h1>
-        <p>Diepgaande theoretische achtergronden, praktische toepassingen en naslagwerken voor criminologisch onderzoek met R. Deze website biedt uitgebreide documentatie ter ondersteuning van het studieboek.</p>
-    </div>
-
-    <div id="chapters" style="margin-top: 40px;">
-
-
-        <div class="cards-grid">
-
-            <!-- Chapter 1 - Placeholder -->
-            <div class="content-card" style="opacity: 0.6;">
-                <h3>Hoofdstuk 1</h3>
-                <p><em>Binnenkort beschikbaar</em></p>
-            </div>
-
-            <!-- Chapter 2 - Placeholder -->
-            <div class="content-card" style="opacity: 0.6;">
-                <h3>Hoofdstuk 2</h3>
-                <p><em>Binnenkort beschikbaar</em></p>
-            </div>
-
-            <!-- Chapter 3 - Placeholder -->
-            <div class="content-card" style="opacity: 0.6;">
-                <h3>Hoofdstuk 3</h3>
-                <p><em>Binnenkort beschikbaar</em></p>
-            </div>
-
-            <!-- Chapter 4 - Placeholder -->
-            <div class="content-card" style="opacity: 0.6;">
-                <h3>Hoofdstuk 4</h3>
-                <p><em>Binnenkort beschikbaar</em></p>
-            </div>
-
-            <!-- Chapter 5: Variable Manipulation - ACTIVE -->
-            <div class="content-card" style="border: 3px solid #667eea;">
-                <h3 style="cursor: pointer;" onclick="window.location.href='chapter5.html';">Hoofdstuk 5: Variabele
-                    Manipulatie</h3>
-                <p>Diepgaande theoretische achtergronden en praktische toepassingen voor variabele manipulatie in R.</p>
-
-                <div class="collapse-header" onclick="toggleCollapse('chapter5-content', this)">
-                    <span>Aanvullende Pagina's</span>
-                    <span class="arrow">▼</span>
-                </div>
-                <div id="chapter5-content" class="collapse-content">
-                    <ul>
-                        <li><strong><a href="chapter5/recoding-strategies.html">Recoding Strategieën</a></strong>
-                            <ul>
-                                <li><a href="chapter5/recoding-strategies.html#continuous">Continue vs. categorische
-                                        data</a></li>
-                                <li><a href="chapter5/recoding-strategies.html#principles">Logische
-                                        groeperingsprincipes</a></li>
-                                <li><a href="chapter5/recoding-strategies.html#examples">10 criminologie-specifieke
-                                        voorbeelden</a></li>
-                                <li><a href="chapter5/recoding-strategies.html#mistakes">Veelgemaakte fouten
-                                        vermijden</a></li>
-                            </ul>
-                        </li>
-                        <li><strong><a href="chapter5/scale-construction-theory.html">Schaalconstructie
-                                    Theorie</a></strong>
-                            <ul>
-                                <li><a href="chapter5/scale-construction-theory.html#latent">Wat zijn latente
-                                        concepten?</a></li>
-                                <li><a href="chapter5/scale-construction-theory.html#scales">7 gestandaardiseerde
-                                        vragenlijsten</a></li>
-                                <li><a href="chapter5/scale-construction-theory.html#ethics">Ethische verplichtingen &
-                                        citeren</a></li>
-                                <li><a href="chapter5/scale-construction-theory.html#development">5-stappen instrument
-                                        ontwikkeling</a></li>
-                            </ul>
-                        </li>
-                        <li><strong><a href="chapter5/reverse-coding-guide.html">Reverse Coding Gids</a></strong>
-                            <ul>
-                                <li><a href="chapter5/reverse-coding-guide.html#bias">Wat is acquiescence bias?</a></li>
-                                <li><a href="chapter5/reverse-coding-guide.html#when">Wanneer reverse coding
-                                        toepassen</a></li>
-                                <li><a href="chapter5/reverse-coding-guide.html#formula">Formule: (Max + Min) - Oude
-                                        waarde</a></li>
-                                <li><a href="chapter5/reverse-coding-guide.html#code">R-code voor verschillende
-                                        schaaltypes</a></li>
-                            </ul>
-                        </li>
-                        <li><strong><a href="chapter5/cronbach-alpha-explained.html">Cronbach's Alpha
-                                    Uitgelegd</a></strong>
-                            <ul>
-                                <li><a href="chapter5/cronbach-alpha-explained.html#consistency">Wat is interne
-                                        consistentie?</a></li>
-                                <li><a href="chapter5/cronbach-alpha-explained.html#interpretation">Interpretatie
-                                        grenswaarden (≥.70)</a></li>
-                                <li><a href="chapter5/cronbach-alpha-explained.html#removal">Wanneer items
-                                        verwijderen</a></li>
-                                <li><a href="chapter5/cronbach-alpha-explained.html#reporting">APA-stijl rapportage</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><strong><a href="chapter5/operators-reference.html">R Operators Naslagwerk</a></strong>
-                            <ul>
-                                <li><a href="chapter5/operators-reference.html#arithmetic">Rekenkundig: +, -, *, /,
-                                        ^</a></li>
-                                <li><a href="chapter5/operators-reference.html#relational">Relationeel: ==, !=, >, <,
-                                            %in%</a>
-                                </li>
-                                <li><a href="chapter5/operators-reference.html#logical">Logisch: &, |, !</a></li>
-                                <li><a href="chapter5/operators-reference.html#precedence">Operator precedentie
-                                        regels</a></li>
-                            </ul>
-                        </li>
-                        <li><strong><a href="chapter5/spss-vs-r-comparison.html">SPSS vs R Vergelijking</a></strong>
-                            <ul>
-                                <li><a href="chapter5/spss-vs-r-comparison.html#compute">COMPUTE → mutate()</a></li>
-                                <li><a href="chapter5/spss-vs-r-comparison.html#recode">RECODE → case_when()</a></li>
-                                <li><a href="chapter5/spss-vs-r-comparison.html#if">IF → ifelse()</a></li>
-                                <li><a href="chapter5/spss-vs-r-comparison.html#workflow">Complete workflow
-                                        voorbeelden</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <a href="chapter5.html" class="btn" style="margin-top: 15px;">Bekijk alle pagina's</a>
-            </div>
-
-            <!-- Chapter 6: Numerieke Maten - ACTIVE -->
-            <div class="content-card" style="border: 3px solid #667eea;">
-                <h3 style="cursor: pointer;" onclick="window.location.href='chapter6.html';">Hoofdstuk 6: Numerieke
-                    Maten & Beschrijvende Statistieken</h3>
-                <p>Uitgebreide theorie over centraliteitsmaten, spreidingsmaten, normaliteit en
-                    betrouwbaarheidsintervallen in R.</p>
-
-                <div class="collapse-header" onclick="toggleCollapse('chapter6-content', this)">
-                    <span>Aanvullende Pagina's</span>
-                    <span class="arrow">▼</span>
-                </div>
-                <div id="chapter6-content" class="collapse-content">
-                    <ul>
-                        <li><strong><a href="chapter6/measurement-levels.html">Meetniveaus</a></strong>
-                            <ul>
-                                <li><a href="chapter6/measurement-levels.html#nominal">Nominaal niveau</a></li>
-                                <li><a href="chapter6/measurement-levels.html#ordinal">Ordinaal niveau</a></li>
-                                <li><a href="chapter6/measurement-levels.html#metric">Metrisch niveau (Interval &
-                                        Ratio)</a></li>
-                                <li><a href="chapter6/measurement-levels.html#examples">Praktijkvoorbeelden
-                                        criminologie</a></li>
-                            </ul>
-                        </li>
-                        <li><strong><a href="chapter6/centrality-measures.html">Centraliteitsmaten</a></strong>
-                            <ul>
-                                <li><a href="chapter6/centrality-measures.html#mode">Modus: meest voorkomende waarde</a>
-                                </li>
-                                <li><a href="chapter6/centrality-measures.html#median">Mediaan: middelste waarde</a>
-                                </li>
-                                <li><a href="chapter6/centrality-measures.html#mean">Gemiddelde: rekenkundig
-                                        gemiddelde</a></li>
-                                <li><a href="chapter6/centrality-measures.html#comparison">Wanneer welke maat
-                                        gebruiken?</a></li>
-                            </ul>
-                        </li>
-                        <li><strong><a href="chapter6/dispersion-measures.html">Spreidingsmaten</a></strong>
-                            <ul>
-                                <li><a href="chapter6/dispersion-measures.html#range">Bereik (Range)</a></li>
-                                <li><a href="chapter6/dispersion-measures.html#iqr">Interkwartielafstand (IQR)</a></li>
-                                <li><a href="chapter6/dispersion-measures.html#sd">Standaarddeviatie (SD)</a></li>
-                                <li><a href="chapter6/dispersion-measures.html#variance">Variantie</a></li>
-                            </ul>
-                        </li>
-                        <li><strong><a href="chapter6/normality-assessment.html">Normaliteit Beoordelen</a></strong>
-                            <ul>
-                                <li><a href="chapter6/normality-assessment.html#skewness">Scheefheid (Skewness)</a></li>
-                                <li><a href="chapter6/normality-assessment.html#kurtosis">Kurtosis (Gepuntheid)</a></li>
-                                <li><a href="chapter6/normality-assessment.html#tests">Shapiro-Wilk & Q-Q Plots</a></li>
-                                <li><a href="chapter6/normality-assessment.html#solutions">Oplossingen bij
-                                        niet-normaliteit</a></li>
-                            </ul>
-                        </li>
-                        <li><strong><a
-                                    href="chapter6/confidence-intervals.html">Betrouwbaarheidsintervallen</a></strong>
-                            <ul>
-                                <li><a href="chapter6/confidence-intervals.html#concept">Het 95% BI concept</a></li>
-                                <li><a href="chapter6/confidence-intervals.html#calculation">Berekening
-                                        stap-voor-stap</a></li>
-                                <li><a href="chapter6/confidence-intervals.html#r-code">R Code voorbeelden</a></li>
-                                <li><a href="chapter6/confidence-intervals.html#common-mistakes">Veelgemaakte fouten</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><strong><a href="chapter6/apa-reporting.html">APA Rapportage</a></strong>
-                            <ul>
-                                <li><a href="chapter6/apa-reporting.html#basics">APA 7e editie basisregels</a></li>
-                                <li><a href="chapter6/apa-reporting.html#rounding">Afrondingsregels per statistiek</a>
-                                </li>
-                                <li><a href="chapter6/apa-reporting.html#tables">Tabellen volgens APA-stijl</a></li>
-                                <li><a href="chapter6/apa-reporting.html#inline">Rapportage in lopende tekst</a></li>
-                            </ul>
-                        </li>
-                        <li><strong><a href="chapter6/r-functions-guide.html">R Functies Gids</a></strong>
-                            <ul>
-                                <li><a href="chapter6/r-functions-guide.html#base-r">Basis R functies</a></li>
-                                <li><a href="chapter6/r-functions-guide.html#psych-describe">psych::describe() volledige
-                                        gids</a></li>
-                                <li><a href="chapter6/r-functions-guide.html#skimr">skimr::skim() visueel overzicht</a>
-                                </li>
-                                <li><a href="chapter6/r-functions-guide.html#dplyr">dplyr groepsgewijze analyses</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><strong><a href="chapter6/spss-vs-r.html">SPSS vs R Vergelijking</a></strong>
-                            <ul>
-                                <li><a href="chapter6/spss-vs-r.html#descriptives">Analyze → Descriptives</a></li>
-                                <li><a href="chapter6/spss-vs-r.html#frequencies">Analyze → Frequencies</a></li>
-                                <li><a href="chapter6/spss-vs-r.html#explore">Analyze → Explore</a></li>
-                                <li><a href="chapter6/spss-vs-r.html#why-r">Waarom R beter is dan SPSS</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <a href="chapter6.html" class="btn" style="margin-top: 15px;">Bekijk alle pagina's</a>
-            </div>
-
-            <!-- Chapter 7 - Placeholder -->
-            <div class="content-card" style="opacity: 0.6;">
-                <h3>Hoofdstuk 7</h3>
-                <p><em>Binnenkort beschikbaar</em></p>
-            </div>
-
-            <!-- Chapter 8 - Placeholder -->
-            <div class="content-card" style="opacity: 0.6;">
-                <h3>Hoofdstuk 8</h3>
-                <p><em>Binnenkort beschikbaar</em></p>
-            </div>
-
-            <!-- Chapter 9 - Placeholder -->
-            <div class="content-card" style="opacity: 0.6;">
-                <h3>Hoofdstuk 9</h3>
-                <p><em>Binnenkort beschikbaar</em></p>
-            </div>
-
-            <!-- Chapter 10 - Placeholder -->
-            <div class="content-card" style="opacity: 0.6;">
-                <h3>Hoofdstuk 10</h3>
-                <p><em>Binnenkort beschikbaar</em></p>
-            </div>
-
-
+    <header class="site-header">
+        <div class="nav-bar">
+            <div class="logo">From Zero To Statistical Hero</div>
+            <nav aria-label="Main navigation">
+                <a href="#chapters">Hoofdstukken</a>
+            </nav>
         </div>
-    </div>
+    </header>
 
-    <div class="footer" style="margin-top: 40px;">
-        <p>&copy; 2026 From Zero To Statistical Hero | Criminologische Onderzoeksmethoden</p>
-    </div>
+    <main id="main-content">
+        <section class="hero" aria-labelledby="page-title">
+            <div class="hero-section">
+                <h1 id="page-title">Aanvullend Leermateriaal voor R Data Analyse</h1>
+                <p class="hero-subtitle">Diepgaande theoretische achtergronden, praktische toepassingen en naslagwerken
+                    voor criminologisch onderzoek
+                    met R. Deze website biedt uitgebreide documentatie ter ondersteuning van het studieboek.</p>
+            </div>
+        </section>
+
+        <section class="chapter-modules" aria-labelledby="chapters">
+            <h2 id="chapters" class="visually-hidden" style="margin-top: 40px;">Hoofdstukken</h2>
+
+            <div class="cards-grid module-grid">
+
+                <!-- Chapter 1 - Placeholder -->
+                <article class="content-card module-card" style="opacity: 0.6;">
+                    <h3>Hoofdstuk 1</h3>
+                    <p><em>Binnenkort beschikbaar</em></p>
+                </article>
+
+                <!-- Chapter 2 - Placeholder -->
+                <article class="content-card module-card" style="opacity: 0.6;">
+                    <h3>Hoofdstuk 2</h3>
+                    <p><em>Binnenkort beschikbaar</em></p>
+                </article>
+
+                <!-- Chapter 3 - Placeholder -->
+                <article class="content-card module-card" style="opacity: 0.6;">
+                    <h3>Hoofdstuk 3</h3>
+                    <p><em>Binnenkort beschikbaar</em></p>
+                </article>
+
+                <!-- Chapter 4 - Placeholder -->
+                <article class="content-card module-card" style="opacity: 0.6;">
+                    <h3>Hoofdstuk 4</h3>
+                    <p><em>Binnenkort beschikbaar</em></p>
+                </article>
+
+                <!-- Hoofdstuk 5: Variable Manipulation - ACTIVE -->
+                <article class="content-card module-card" style="border: 3px solid #667eea;">
+                    <header class="module-header">
+                        <h3 style="cursor: pointer;" onclick="window.location.href='chapter5.html';">Hoofdstuk 5:
+                            Variabele
+                            Manipulatie</h3>
+                    </header>
+                    <p class="module-description">Diepgaande theoretische achtergronden en praktische toepassingen voor
+                        variabele manipulatie in R.</p>
+
+                    <div class="collapse-header" onclick="toggleCollapse('chapter5-content', this)">
+                        <span>Aanvullende Pagina's</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div id="chapter5-content" class="collapse-content">
+                        <ul>
+                            <li><strong><a href="chapter5/recoding-strategies.html">Recoding Strategieën</a></strong>
+                                <ul>
+                                    <li><a href="chapter5/recoding-strategies.html#continuous">Continue vs. categorische
+                                            data</a></li>
+                                    <li><a href="chapter5/recoding-strategies.html#principles">Logische
+                                            groeperingsprincipes</a></li>
+                                    <li><a href="chapter5/recoding-strategies.html#examples">10 criminologie-specifieke
+                                            voorbeelden</a></li>
+                                    <li><a href="chapter5/recoding-strategies.html#mistakes">Veelgemaakte fouten
+                                            vermijden</a></li>
+                                </ul>
+                            </li>
+                            <li><strong><a href="chapter5/scale-construction-theory.html">Schaalconstructie
+                                        Theorie</a></strong>
+                                <ul>
+                                    <li><a href="chapter5/scale-construction-theory.html#latent">Wat zijn latente
+                                            concepten?</a></li>
+                                    <li><a href="chapter5/scale-construction-theory.html#scales">7 gestandaardiseerde
+                                            vragenlijsten</a></li>
+                                    <li><a href="chapter5/scale-construction-theory.html#ethics">Ethische verplichtingen
+                                            &
+                                            citeren</a></li>
+                                    <li><a href="chapter5/scale-construction-theory.html#development">5-stappen
+                                            instrument
+                                            ontwikkeling</a></li>
+                                </ul>
+                            </li>
+                            <li><strong><a href="chapter5/reverse-coding-guide.html">Reverse Coding Gids</a></strong>
+                                <ul>
+                                    <li><a href="chapter5/reverse-coding-guide.html#bias">Wat is acquiescence bias?</a>
+                                    </li>
+                                    <li><a href="chapter5/reverse-coding-guide.html#when">Wanneer reverse coding
+                                            toepassen</a></li>
+                                    <li><a href="chapter5/reverse-coding-guide.html#formula">Formule: (Max + Min) - Oude
+                                            waarde</a></li>
+                                    <li><a href="chapter5/reverse-coding-guide.html#code">R-code voor verschillende
+                                            schaaltypes</a></li>
+                                </ul>
+                            </li>
+                            <li><strong><a href="chapter5/cronbach-alpha-explained.html">Cronbach's Alpha
+                                        Uitgelegd</a></strong>
+                                <ul>
+                                    <li><a href="chapter5/cronbach-alpha-explained.html#consistency">Wat is interne
+                                            consistentie?</a></li>
+                                    <li><a href="chapter5/cronbach-alpha-explained.html#interpretation">Interpretatie
+                                            grenswaarden (≥.70)</a></li>
+                                    <li><a href="chapter5/cronbach-alpha-explained.html#removal">Wanneer items
+                                            verwijderen</a></li>
+                                    <li><a href="chapter5/cronbach-alpha-explained.html#reporting">APA-stijl
+                                            rapportage</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong><a href="chapter5/operators-reference.html">R Operators Naslagwerk</a></strong>
+                                <ul>
+                                    <li><a href="chapter5/operators-reference.html#arithmetic">Rekenkundig: +, -, *, /,
+                                            ^</a></li>
+                                    <li><a href="chapter5/operators-reference.html#relational">Relationeel: ==, !=, >,
+                                            <, %in%</a>
+                                    </li>
+                                    <li><a href="chapter5/operators-reference.html#logical">Logisch: &, |, !</a></li>
+                                    <li><a href="chapter5/operators-reference.html#precedence">Operator precedentie
+                                            regels</a></li>
+                                </ul>
+                            </li>
+                            <li><strong><a href="chapter5/spss-vs-r-comparison.html">SPSS vs R Vergelijking</a></strong>
+                                <ul>
+                                    <li><a href="chapter5/spss-vs-r-comparison.html#compute">COMPUTE → mutate()</a></li>
+                                    <li><a href="chapter5/spss-vs-r-comparison.html#recode">RECODE → case_when()</a>
+                                    </li>
+                                    <li><a href="chapter5/spss-vs-r-comparison.html#if">IF → ifelse()</a></li>
+                                    <li><a href="chapter5/spss-vs-r-comparison.html#workflow">Complete workflow
+                                            voorbeelden</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <footer class="module-meta">
+                        <a href="chapter5.html" class="btn" style="margin-top: 15px;">Bekijk alle pagina's</a>
+                    </footer>
+                </article>
+
+                <!-- Hoofdstuk 6: Numerieke Maten - ACTIVE -->
+                <article class="content-card module-card" style="border: 3px solid #667eea;">
+                    <header class="module-header">
+                        <h3 style="cursor: pointer;" onclick="window.location.href='chapter6.html';">Hoofdstuk 6:
+                            Numerieke
+                            Maten & Beschrijvende Statistieken</h3>
+                    </header>
+                    <p class="module-description">Uitgebreide theorie over centraliteitsmaten, spreidingsmaten,
+                        normaliteit en
+                        betrouwbaarheidsintervallen in R.</p>
+
+                    <div class="collapse-header" onclick="toggleCollapse('chapter6-content', this)">
+                        <span>Aanvullende Pagina's</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div id="chapter6-content" class="collapse-content">
+                        <ul>
+                            <li><strong><a href="chapter6/measurement-levels.html">Meetniveaus</a></strong>
+                                <ul>
+                                    <li><a href="chapter6/measurement-levels.html#nominal">Nominaal niveau</a></li>
+                                    <li><a href="chapter6/measurement-levels.html#ordinal">Ordinaal niveau</a></li>
+                                    <li><a href="chapter6/measurement-levels.html#metric">Metrisch niveau (Interval &
+                                            Ratio)</a></li>
+                                    <li><a href="chapter6/measurement-levels.html#examples">Praktijkvoorbeelden
+                                            criminologie</a></li>
+                                </ul>
+                            </li>
+                            <li><strong><a href="chapter6/centrality-measures.html">Centraliteitsmaten</a></strong>
+                                <ul>
+                                    <li><a href="chapter6/centrality-measures.html#mode">Modus: meest voorkomende
+                                            waarde</a>
+                                    </li>
+                                    <li><a href="chapter6/centrality-measures.html#median">Mediaan: middelste waarde</a>
+                                    </li>
+                                    <li><a href="chapter6/centrality-measures.html#mean">Gemiddelde: rekenkundig
+                                            gemiddelde</a></li>
+                                    <li><a href="chapter6/centrality-measures.html#comparison">Wanneer welke maat
+                                            gebruiken?</a></li>
+                                </ul>
+                            </li>
+                            <li><strong><a href="chapter6/dispersion-measures.html">Spreidingsmaten</a></strong>
+                                <ul>
+                                    <li><a href="chapter6/dispersion-measures.html#range">Bereik (Range)</a></li>
+                                    <li><a href="chapter6/dispersion-measures.html#iqr">Interkwartielafstand (IQR)</a>
+                                    </li>
+                                    <li><a href="chapter6/dispersion-measures.html#sd">Standaarddeviatie (SD)</a></li>
+                                    <li><a href="chapter6/dispersion-measures.html#variance">Variantie</a></li>
+                                </ul>
+                            </li>
+                            <li><strong><a href="chapter6/normality-assessment.html">Normaliteit Beoordelen</a></strong>
+                                <ul>
+                                    <li><a href="chapter6/normality-assessment.html#skewness">Scheefheid (Skewness)</a>
+                                    </li>
+                                    <li><a href="chapter6/normality-assessment.html#kurtosis">Kurtosis (Gepuntheid)</a>
+                                    </li>
+                                    <li><a href="chapter6/normality-assessment.html#tests">Shapiro-Wilk & Q-Q Plots</a>
+                                    </li>
+                                    <li><a href="chapter6/normality-assessment.html#solutions">Oplossingen bij
+                                            niet-normaliteit</a></li>
+                                </ul>
+                            </li>
+                            <li><strong><a
+                                        href="chapter6/confidence-intervals.html">Betrouwbaarheidsintervallen</a></strong>
+                                <ul>
+                                    <li><a href="chapter6/confidence-intervals.html#concept">Het 95% BI concept</a></li>
+                                    <li><a href="chapter6/confidence-intervals.html#calculation">Berekening
+                                            stap-voor-stap</a></li>
+                                    <li><a href="chapter6/confidence-intervals.html#r-code">R Code voorbeelden</a></li>
+                                    <li><a href="chapter6/confidence-intervals.html#common-mistakes">Veelgemaakte
+                                            fouten</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong><a href="chapter6/apa-reporting.html">APA Rapportage</a></strong>
+                                <ul>
+                                    <li><a href="chapter6/apa-reporting.html#basics">APA 7e editie basisregels</a></li>
+                                    <li><a href="chapter6/apa-reporting.html#rounding">Afrondingsregels per
+                                            statistiek</a>
+                                    </li>
+                                    <li><a href="chapter6/apa-reporting.html#tables">Tabellen volgens APA-stijl</a></li>
+                                    <li><a href="chapter6/apa-reporting.html#inline">Rapportage in lopende tekst</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong><a href="chapter6/r-functions-guide.html">R Functies Gids</a></strong>
+                                <ul>
+                                    <li><a href="chapter6/r-functions-guide.html#base-r">Basis R functies</a></li>
+                                    <li><a href="chapter6/r-functions-guide.html#psych-describe">psych::describe()
+                                            volledige
+                                            gids</a></li>
+                                    <li><a href="chapter6/r-functions-guide.html#skimr">skimr::skim() visueel
+                                            overzicht</a>
+                                    </li>
+                                    <li><a href="chapter6/r-functions-guide.html#dplyr">dplyr groepsgewijze analyses</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong><a href="chapter6/spss-vs-r.html">SPSS vs R Vergelijking</a></strong>
+                                <ul>
+                                    <li><a href="chapter6/spss-vs-r.html#descriptives">Analyze → Descriptives</a></li>
+                                    <li><a href="chapter6/spss-vs-r.html#frequencies">Analyze → Frequencies</a></li>
+                                    <li><a href="chapter6/spss-vs-r.html#explore">Analyze → Explore</a></li>
+                                    <li><a href="chapter6/spss-vs-r.html#why-r">Waarom R beter is dan SPSS</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <footer class="module-meta">
+                        <a href="chapter6.html" class="btn" style="margin-top: 15px;">Bekijk alle pagina's</a>
+                    </footer>
+                </article>
+
+                <!-- Chapter 7 - Placeholder -->
+                <article class="content-card module-card" style="opacity: 0.6;">
+                    <h3>Hoofdstuk 7</h3>
+                    <p><em>Binnenkort beschikbaar</em></p>
+                </article>
+
+                <!-- Chapter 8 - Placeholder -->
+                <article class="content-card module-card" style="opacity: 0.6;">
+                    <h3>Hoofdstuk 8</h3>
+                    <p><em>Binnenkort beschikbaar</em></p>
+                </article>
+
+                <!-- Chapter 9 - Placeholder -->
+                <article class="content-card module-card" style="opacity: 0.6;">
+                    <h3>Hoofdstuk 9</h3>
+                    <p><em>Binnenkort beschikbaar</em></p>
+                </article>
+
+                <!-- Chapter 10 - Placeholder -->
+                <article class="content-card module-card" style="opacity: 0.6;">
+                    <h3>Hoofdstuk 10</h3>
+                    <p><em>Binnenkort beschikbaar</em></p>
+                </article>
+
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer" style="margin-top: 40px;">
+            <p>&copy; 2026 From Zero To Statistical Hero | Criminologische Onderzoeksmethoden</p>
+        </div>
+    </footer>
 
     <a href="#" class="back-to-top" id="backToTop">↑</a>
 
