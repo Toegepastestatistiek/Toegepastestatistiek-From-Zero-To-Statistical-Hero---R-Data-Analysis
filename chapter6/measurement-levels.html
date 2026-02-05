@@ -5,16 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meetniveaus Begrijpen - Hoofdstuk 6</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=20260204">
+    <script src="../js/site.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="breadcrumb">
-            <a href="../index.html">Startpagina</a> / <a href="../chapter6.html">Hoofdstuk 6</a> / Meetniveaus
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="logo" href="../index.html" aria-label="Terug naar startpagina">
+                📊 Statistical Hero <span class="logo-sub">- Hoofdstuk 6</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdnavigatie">
+                <a href="../index.html">Startpagina</a>
+                <a href="centrality-measures.html">Centraliteit</a>
+                <a href="dispersion-measures.html">Spreiding</a>
+                <a href="measurement-levels.html">Meetniveaus</a>
+                <a href="spss-vs-r.html">SPSS vs R</a>
+            </nav>
         </div>
 
-        <h1>Meetniveaus Begrijpen</h1>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../index.html">Startpagina</a></li>
+                <li><a href="../chapter6.html">Hoofdstuk 6</a></li>
+                <li aria-current="page">Meetniveaus</li>
+            </ol>
+        </nav>
+    </header>
+
+    <main id="main-content" class="page-content" tabindex="-1">
+        <header class="page-header">
+            <h1>Meetniveaus Begrijpen</h1>
+        </header>
 
         <p class="lead">Het meetniveau van een variabele bepaalt welke statistische analyses en numerieke maten je kunt
             gebruiken. Dit is een van de meest fundamentele concepten in statistiek.</p>
@@ -353,102 +377,112 @@ t.test(data$W1_Werkstress_Gem)$conf.int  # 95% CI</code></pre>
             <a href="../chapter6.html" class="btn-secondary">← Terug naar Overzicht</a>
             <a href="centrality-measures.html" class="btn-primary">Volgende: Centraliteitsmaten →</a>
         </div>
-    </div>
+        </div>
 
-    <style>
-        .lead {
-            font-size: 1.2em;
-            color: #555;
-            margin: 20px 0;
-            line-height: 1.6;
-        }
+        <style>
+            .lead {
+                font-size: 1.2em;
+                color: #555;
+                margin: 20px 0;
+                line-height: 1.6;
+            }
 
-        .example-box,
-        .warning-box,
-        .exercise-box,
-        .decision-box,
-        .code-box,
-        .summary-box {
-            background: #f8f9fc;
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
+            .example-box,
+            .warning-box,
+            .exercise-box,
+            .decision-box,
+            .code-box,
+            .summary-box {
+                background: #f8f9fc;
+                border-left: 4px solid #667eea;
+                padding: 20px;
+                margin: 20px 0;
+                border-radius: 8px;
+            }
 
-        .warning-box {
-            border-left-color: #f39c12;
-            background: #fef9f3;
-        }
+            .warning-box {
+                border-left-color: #f39c12;
+                background: #fef9f3;
+            }
 
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+            .info-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+            }
 
-        .info-table th,
-        .info-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+            .info-table th,
+            .info-table td {
+                border: 1px solid #ddd;
+                padding: 12px;
+                text-align: left;
+            }
 
-        .info-table th {
-            background: #667eea;
-            color: white;
-            font-weight: 600;
-        }
+            .info-table th {
+                background: #667eea;
+                color: white;
+                font-weight: 600;
+            }
 
-        .info-table tr:nth-child(even) {
-            background: #f9f9f9;
-        }
+            .info-table tr:nth-child(even) {
+                background: #f9f9f9;
+            }
 
-        .code-box pre {
-            background: #2d2d2d;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 6px;
-            overflow-x: auto;
-        }
+            .code-box pre {
+                background: #2d2d2d;
+                color: #f8f8f2;
+                padding: 15px;
+                border-radius: 6px;
+                overflow-x: auto;
+            }
 
-        .code-box code {
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-        }
+            .code-box code {
+                font-family: 'Courier New', monospace;
+                font-size: 0.9em;
+            }
 
-        .navigation-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin: 40px 0;
-        }
+            .navigation-buttons {
+                display: flex;
+                justify-content: space-between;
+                margin: 40px 0;
+            }
 
-        .btn-primary,
-        .btn-secondary {
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-        }
+            .btn-primary,
+            .btn-secondary {
+                padding: 12px 24px;
+                border-radius: 6px;
+                text-decoration: none;
+                font-weight: 600;
+            }
 
-        .btn-primary {
-            background: #667eea;
-            color: white;
-        }
+            .btn-primary {
+                background: #667eea;
+                color: white;
+            }
 
-        .btn-secondary {
-            background: #e0e0e0;
-            color: #333;
-        }
+            .btn-secondary {
+                background: #e0e0e0;
+                color: #333;
+            }
 
-        .btn-primary:hover {
-            background: #5568d3;
-        }
+            .btn-primary:hover {
+                background: #5568d3;
+            }
 
-        .btn-secondary:hover {
-            background: #d0d0d0;
-        }
-    </style>
+            .btn-secondary:hover {
+                background: #d0d0d0;
+            }
+        </style>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 From Zero To Statistical Hero | <a
+                href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis">GitHub
+                Repository</a></p>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Terug naar boven">↑</a>
+
 </body>
 
 </html>

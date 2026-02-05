@@ -5,210 +5,230 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Omgekeerd Coderen Gids - Stap-voor-Stap Uitleg</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=20260204">
+    <script src="../js/site.js" defer></script>
 </head>
 
 <body>
 
-    <div class="nav-bar">
-        <div class="logo">📊 Statistical Hero - Hoofdstuk 5</div>
-        <nav>
-            <a href="../index.html">Startpagina</a>
-            <a href="scale-construction-theory.html">Scale Theory</a>
-            <a href="cronbach-alpha-explained.html">Cronbach's Alpha</a>
-            <a href="operators-reference.html">Operators</a>
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="logo" href="../index.html" aria-label="Terug naar startpagina">
+                📊 Statistical Hero <span class="logo-sub">- Hoofdstuk 5</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdnavigatie">
+                <a href="../index.html">Startpagina</a>
+                <a href="scale-construction-theory.html">Scale Theory</a>
+                <a href="cronbach-alpha-explained.html">Cronbach's Alpha</a>
+                <a href="operators-reference.html">Operators</a>
+            </nav>
+        </div>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../index.html">Startpagina</a></li>
+                <li><a href="../chapter5.html">Hoofdstuk 5</a></li>
+                <li aria-current="page">Omgekeerd Coderen Gids</li>
+            </ol>
         </nav>
-    </div>
+    </header>
 
-    <div class="breadcrumb">
-        <a href="../index.html">Startpagina</a> <span>›</span>
-        <a href="#">Hoofdstuk 5</a> <span>›</span>
-        <span>Reverse Coding Guide</span>
-    </div>
+    <main id="main-content" class="page-content" tabindex="-1">
+        <header class="page-header">
+            <h1>🔄 Reverse Coding: Complete Guide</h1>
+        </header>
 
-    <h1>🔄 Reverse Coding: Complete Guide</h1>
+        <h2>Wat is Reverse Coding?</h2>
 
-    <h2>Wat is Reverse Coding?</h2>
+        <p class="lead">Bij reverse coding (ook wel "omkeren" of "spiegelen") draai je de waarden van een variabele om,
+            zodat lage
+            waarden hoog worden en hoge waarden laag.</p>
 
-    <p>Bij reverse coding (ook wel "omkeren" of "spiegelen") draai je de waarden van een variabele om, zodat lage
-        waarden hoog worden en hoge waarden laag.</p>
+        <div class="info-box">
+            <strong>Simpel gezegd:</strong> Als respondent "5" antwoordde, wordt dat "1". Als ze "1" antwoordden, wordt
+            dat
+            "5". Het midden (3) blijft hetzelfde.
+        </div>
 
-    <div class="info-box">
-        <strong>Simpel gezegd:</strong> Als respondent "5" antwoordde, wordt dat "1". Als ze "1" antwoordden, wordt dat
-        "5". Het midden (3) blijft hetzelfde.
-    </div>
+        <h2>Waarom Bestaat Reverse Coding?</h2>
 
-    <h2>Waarom Bestaat Reverse Coding?</h2>
+        <h3>Reden 1: Acquiescence Bias Voorkomen</h3>
 
-    <h3>Reden 1: Acquiescence Bias Voorkomen</h3>
+        <p><strong>Acquiescence bias</strong> (ja-zeg neiging) = de neiging van respondenten om consistent "akkoord" te
+            antwoorden, ongeacht de vraag inhoud.</p>
 
-    <p><strong>Acquiescence bias</strong> (ja-zeg neiging) = de neiging van respondenten om consistent "akkoord" te
-        antwoorden, ongeacht de vraag inhoud.</p>
+        <div class="example-box">
+            <strong>Probleem zonder reverse coding:</strong><br>
+            Alle items in dezelfde richting:<br>
+            - "Ik voel me vaak gestrest"<br>
+            - "Ik heb moeite om te ontspannen"<br>
+            - "Ik maak me veel zorgen"<br><br>
 
-    <div class="example-box">
-        <strong>Probleem zonder reverse coding:</strong><br>
-        Alle items in dezelfde richting:<br>
-        - "Ik voel me vaak gestrest"<br>
-        - "Ik heb moeite om te ontspannen"<br>
-        - "Ik maak me veel zorgen"<br><br>
+            Respondent die steeds "akkoord" zegt (zonder goed te lezen) krijgt hoge stress-score, zelfs als dit niet
+            klopt!
+        </div>
 
-        Respondent die steeds "akkoord" zegt (zonder goed te lezen) krijgt hoge stress-score, zelfs als dit niet klopt!
-    </div>
+        <div class="example-box">
+            <strong>Oplossing met reverse coding:</strong><br>
+            Mix van positief en negatief geformuleerde items:<br>
+            - "Ik voel me vaak gestrest" [normaal]<br>
+            - <strong>"Ik voel me ontspannen en kalm"</strong> [tegengesteld = reverse!]<br>
+            - "Ik maak me veel zorgen" [normaal]<br><br>
 
-    <div class="example-box">
-        <strong>Oplossing met reverse coding:</strong><br>
-        Mix van positief en negatief geformuleerde items:<br>
-        - "Ik voel me vaak gestrest" [normaal]<br>
-        - <strong>"Ik voel me ontspannen en kalm"</strong> [tegengesteld = reverse!]<br>
-        - "Ik maak me veel zorgen" [normaal]<br><br>
+            Nu moet respondent daadwerkelijk lezen! "Akkoord" op item 2 betekent LAGE stress (moet omgekeerd worden).
+        </div>
 
-        Nu moet respondent daadwerkelijk lezen! "Akkoord" op item 2 betekent LAGE stress (moet omgekeerd worden).
-    </div>
+        <h3>Reden 2: Zorgt voor Aandacht</h3>
 
-    <h3>Reden 2: Zorgt voor Aandacht</h3>
+        <p>Tegengesteld geformuleerde items <strong>dwingen respondenten na te denken</strong> over hun antwoorden in
+            plaats
+            van automatisch hetzelfde te antwoorden.</p>
 
-    <p>Tegengesteld geformuleerde items <strong>dwingen respondenten na te denken</strong> over hun antwoorden in plaats
-        van automatisch hetzelfde te antwoorden.</p>
+        <hr>
 
-    <hr>
+        <h2>Wanneer Moet Je Reverse Coding Toepassen?</h2>
 
-    <h2>Wanneer Moet Je Reverse Coding Toepassen?</h2>
+        <table>
+            <caption class="visually-hidden">Situaties wanneer reverse coding wel of niet moet worden toegepast
+            </caption>
+            <thead>
+                <tr>
+                    <th>Situatie</th>
+                    <th>Voorbeeld</th>
+                    <th>Actie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Item meet TEGENGESTELDE richting</strong></td>
+                    <td>"Ik voel me ontspannen" in STRESS schaal</td>
+                    <td>✅ Reverse coding toepassen</td>
+                </tr>
+                <tr>
+                    <td><strong>Item meet ZELFDE richting</strong></td>
+                    <td>"Ik voel me gestrest" in STRESS schaal</td>
+                    <td>❌ GEEN reverse coding</td>
+                </tr>
+                <tr>
+                    <td><strong>Positief item in negatieve schaal</strong></td>
+                    <td>"Inkomen is voldoende" in FINANCIËLE STRESS schaal</td>
+                    <td>✅ Reverse coding toepassen</td>
+                </tr>
+                <tr>
+                    <td><strong>Negatief item in positieve schaal</strong></td>
+                    <td>"Ik voel me eenzaam" in SOCIALE STEUN schaal</td>
+                    <td>✅ Reverse coding toepassen</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Situatie</th>
-                <th>Voorbeeld</th>
-                <th>Actie</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Item meet TEGENGESTELDE richting</strong></td>
-                <td>"Ik voel me ontspannen" in STRESS schaal</td>
-                <td>✅ Reverse coding toepassen</td>
-            </tr>
-            <tr>
-                <td><strong>Item meet ZELFDE richting</strong></td>
-                <td>"Ik voel me gestrest" in STRESS schaal</td>
-                <td>❌ GEEN reverse coding</td>
-            </tr>
-            <tr>
-                <td><strong>Positief item in negatieve schaal</strong></td>
-                <td>"Inkomen is voldoende" in FINANCIËLE STRESS schaal</td>
-                <td>✅ Reverse coding toepassen</td>
-            </tr>
-            <tr>
-                <td><strong>Negatief item in positieve schaal</strong></td>
-                <td>"Ik voel me eenzaam" in SOCIALE STEUN schaal</td>
-                <td>✅ Reverse coding toepassen</td>
-            </tr>
-        </tbody>
-    </table>
+        <hr>
 
-    <hr>
+        <h2>De Formule: Hoe Werkt Het?</h2>
 
-    <h2>De Formule: Hoe Werkt Het?</h2>
+        <div style="background-color: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0; text-align: center;">
+            <h3>🧮 Universele Formule</h3>
+            <p style="font-size: 1.5em; font-weight: bold; color: #2c3e50;">
+                Nieuwe waarde = (Max + Min) - Oude waarde
+            </p>
+        </div>
 
-    <div style="background-color: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0; text-align: center;">
-        <h3>🧮 Universele Formule</h3>
-        <p style="font-size: 1.5em; font-weight: bold; color: #2c3e50;">
-            Nieuwe waarde = (Max + Min) - Oude waarde
-        </p>
-    </div>
+        <h3>Stap-voor-Stap Berekening</h3>
 
-    <h3>Stap-voor-Stap Berekening</h3>
+        <div class="example-box">
+            <strong>Gegeven:</strong> 5-puntsschaal (1 tot 5)<br><br>
 
-    <div class="example-box">
-        <strong>Gegeven:</strong> 5-puntsschaal (1 tot 5)<br><br>
+            <strong>STAP 1:</strong> Identificeer min en max<br>
+            - Min = 1<br>
+            - Max = 5<br><br>
 
-        <strong>STAP 1:</strong> Identificeer min en max<br>
-        - Min = 1<br>
-        - Max = 5<br><br>
+            <strong>STAP 2:</strong> Bereken (Max + Min)</strong><br>
+            - 5 + 1 = <strong>6</strong><br><br>
 
-        <strong>STAP 2:</strong> Bereken (Max + Min)</strong><br>
-        - 5 + 1 = <strong>6</strong><br><br>
+            <strong>STAP 3:</strong> Trek oude waarde af voor elke respondent<br>
+            - Oude waarde 1 → Nieuwe waarde = 6 - 1 = <strong>5</strong> ✅<br>
+            - Oude waarde 2 → Nieuwe waarde = 6 - 2 = <strong>4</strong> ✅<br>
+            - Oude waarde 3 → Nieuwe waarde = 6 - 3 = <strong>3</strong> ✅ (midden blijft!)<br>
+            - Oude waarde 4 → Nieuwe waarde = 6 - 4 = <strong>2</strong> ✅<br>
+            - Oude waarde 5 → Nieuwe waarde = 6 - 5 = <strong>1</strong> ✅<br>
+        </div>
 
-        <strong>STAP 3:</strong> Trek oude waarde af voor elke respondent<br>
-        - Oude waarde 1 → Nieuwe waarde = 6 - 1 = <strong>5</strong> ✅<br>
-        - Oude waarde 2 → Nieuwe waarde = 6 - 2 = <strong>4</strong> ✅<br>
-        - Oude waarde 3 → Nieuwe waarde = 6 - 3 = <strong>3</strong> ✅ (midden blijft!)<br>
-        - Oude waarde 4 → Nieuwe waarde = 6 - 4 = <strong>2</strong> ✅<br>
-        - Oude waarde 5 → Nieuwe waarde = 6 - 5 = <strong>1</strong> ✅<br>
-    </div>
+        <h3>Visuele Representatie</h3>
 
-    <h3>Visuele Representatie</h3>
+        <table>
+            <caption class="visually-hidden">Visuele representatie van reverse coding transformatie</caption>
+            <thead>
+                <tr>
+                    <th>Originele Waarde</th>
+                    <th>Betekenis (Voorbeeld)</th>
+                    <th>→</th>
+                    <th>Nieuwe Waarde (Reversed)</th>
+                    <th>Nieuwe Betekenis</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #ffebee;">
+                    <td><strong>1</strong></td>
+                    <td>Helemaal mee oneens</td>
+                    <td>→</td>
+                    <td><strong>5</strong></td>
+                    <td>Helemaal mee eens</td>
+                </tr>
+                <tr style="background-color: #fff3e0;">
+                    <td><strong>2</strong></td>
+                    <td>Mee oneens</td>
+                    <td>→</td>
+                    <td><strong>4</strong></td>
+                    <td>Mee eens</td>
+                </tr>
+                <tr style="background-color: #fff9c4;">
+                    <td><strong>3</strong></td>
+                    <td>Neutraal</td>
+                    <td>→</td>
+                    <td><strong>3</strong></td>
+                    <td>Neutraal (blijft!)</td>
+                </tr>
+                <tr style="background-color: #c8e6c9;">
+                    <td><strong>4</strong></td>
+                    <td>Mee eens</td>
+                    <td>→</td>
+                    <td><strong>2</strong></td>
+                    <td>Mee oneens</td>
+                </tr>
+                <tr style="background-color: #a5d6a7;">
+                    <td><strong>5</strong></td>
+                    <td>Helemaal mee eens</td>
+                    <td>→</td>
+                    <td><strong>1</strong></td>
+                    <td>Helemaal mee oneens</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Originele Waarde</th>
-                <th>Betekenis (Voorbeeld)</th>
-                <th>→</th>
-                <th>Nieuwe Waarde (Reversed)</th>
-                <th>Nieuwe Betekenis</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr style="background-color: #ffebee;">
-                <td><strong>1</strong></td>
-                <td>Helemaal mee oneens</td>
-                <td>→</td>
-                <td><strong>5</strong></td>
-                <td>Helemaal mee eens</td>
-            </tr>
-            <tr style="background-color: #fff3e0;">
-                <td><strong>2</strong></td>
-                <td>Mee oneens</td>
-                <td>→</td>
-                <td><strong>4</strong></td>
-                <td>Mee eens</td>
-            </tr>
-            <tr style="background-color: #fff9c4;">
-                <td><strong>3</strong></td>
-                <td>Neutraal</td>
-                <td>→</td>
-                <td><strong>3</strong></td>
-                <td>Neutraal (blijft!)</td>
-            </tr>
-            <tr style="background-color: #c8e6c9;">
-                <td><strong>4</strong></td>
-                <td>Mee eens</td>
-                <td>→</td>
-                <td><strong>2</strong></td>
-                <td>Mee oneens</td>
-            </tr>
-            <tr style="background-color: #a5d6a7;">
-                <td><strong>5</strong></td>
-                <td>Helemaal mee eens</td>
-                <td>→</td>
-                <td><strong>1</strong></td>
-                <td>Helemaal mee oneens</td>
-            </tr>
-        </tbody>
-    </table>
+        <hr>
 
-    <hr>
+        <h2>Praktijkvoorbeeld: Financiële Stress</h2>
 
-    <h2>Praktijkvoorbeeld: Financiële Stress</h2>
+        <h3>Schaal met 3 Items (1 moet reversed)</h3>
 
-    <h3>Schaal met 3 Items (1 moet reversed)</h3>
+        <div class="example-box">
+            <strong>Item 1:</strong> "Met mijn inkomen is het moeilijk om veel meer te veroorloven dan
+            basisbenodigdheden"<br>
+            → Hoge score = <strong>MEER stress</strong> [NORMAAL - niet omkeren]<br><br>
 
-    <div class="example-box">
-        <strong>Item 1:</strong> "Met mijn inkomen is het moeilijk om veel meer te veroorloven dan
-        basisbenodigdheden"<br>
-        → Hoge score = <strong>MEER stress</strong> [NORMAAL - niet omkeren]<br><br>
+            <strong>Item 2:</strong> "Ik heb het gevoel dat mijn inkomen een levensstandaard toelaat die ik wens"<br>
+            → Hoge score = <strong>MINDER stress</strong> [TEGENGESTELD - WEL omkeren! 🔄]<br><br>
 
-        <strong>Item 2:</strong> "Ik heb het gevoel dat mijn inkomen een levensstandaard toelaat die ik wens"<br>
-        → Hoge score = <strong>MINDER stress</strong> [TEGENGESTELD - WEL omkeren! 🔄]<br><br>
+            <strong>Item 3:</strong> "Met mijn inkomen is het moeilijk om rond te komen"<br>
+            → Hoge score = <strong>MEER stress</strong> [NORMAAL - niet omkeren]<br>
+        </div>
 
-        <strong>Item 3:</strong> "Met mijn inkomen is het moeilijk om rond te komen"<br>
-        → Hoge score = <strong>MEER stress</strong> [NORMAAL - niet omkeren]<br>
-    </div>
+        <h3>R Code voor Reverse Coding</h3>
 
-    <h3>R Code voor Reverse Coding</h3>
-
-    <pre><code class="r-code"># STAP 1: Controleer originele waarden
+        <div class="code-box">
+            <pre><code class="r-code"># STAP 1: Controleer originele waarden
 table(data$W1_FINSTRESS2, useNA = "always")
 
 # STAP 2: Reverse code Item 2
@@ -238,95 +258,101 @@ data <- data |>
     )
   )
 </code></pre>
+        </div>
 
-    <hr>
+        <hr>
 
-    <h2>Verschillende Schaaltypen</h2>
+        <h2>Verschillende Schaaltypen</h2>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Schaaltype</th>
-                <th>Min</th>
-                <th>Max</th>
-                <th>Formule</th>
-                <th>Voorbeeld (waarde 2)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>5-puntsschaal</strong></td>
-                <td>1</td>
-                <td>5</td>
-                <td>(5 + 1) - x</td>
-                <td>6 - 2 = <strong>4</strong></td>
-            </tr>
-            <tr>
-                <td><strong>7-puntsschaal</strong></td>
-                <td>1</td>
-                <td>7</td>
-                <td>(7 + 1) - x</td>
-                <td>8 - 2 = <strong>6</strong></td>
-            </tr>
-            <tr>
-                <td><strong>10-puntsschaal</strong></td>
-                <td>1</td>
-                <td>10</td>
-                <td>(10 + 1) - x</td>
-                <td>11 - 2 = <strong>9</strong></td>
-            </tr>
-            <tr>
-                <td><strong>4-puntsschaal (geen midden)</strong></td>
-                <td>1</td>
-                <td>4</td>
-                <td>(4 + 1) - x</td>
-                <td>5 - 2 = <strong>3</strong></td>
-            </tr>
-            <tr>
-                <td><strong>0-10 schaal</strong></td>
-                <td>0</td>
-                <td>10</td>
-                <td>(10 + 0) - x</td>
-                <td>10 - 2 = <strong>8</strong></td>
-            </tr>
-        </tbody>
-    </table>
+        <table>
+            <caption class="visually-hidden">Reverse coding formules voor verschillende schaaltypen</caption>
+            <thead>
+                <tr>
+                    <th>Schaaltype</th>
+                    <th>Min</th>
+                    <th>Max</th>
+                    <th>Formule</th>
+                    <th>Voorbeeld (waarde 2)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>5-puntsschaal</strong></td>
+                    <td>1</td>
+                    <td>5</td>
+                    <td>(5 + 1) - x</td>
+                    <td>6 - 2 = <strong>4</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>7-puntsschaal</strong></td>
+                    <td>1</td>
+                    <td>7</td>
+                    <td>(7 + 1) - x</td>
+                    <td>8 - 2 = <strong>6</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>10-puntsschaal</strong></td>
+                    <td>1</td>
+                    <td>10</td>
+                    <td>(10 + 1) - x</td>
+                    <td>11 - 2 = <strong>9</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>4-puntsschaal (geen midden)</strong></td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>(4 + 1) - x</td>
+                    <td>5 - 2 = <strong>3</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>0-10 schaal</strong></td>
+                    <td>0</td>
+                    <td>10</td>
+                    <td>(10 + 0) - x</td>
+                    <td>10 - 2 = <strong>8</strong></td>
+                </tr>
+            </tbody>
+        </table>
 
-    <div class="tip-box">
-        De formule (Max + Min) - x werkt voor ELKE schaal, ongeacht het type of bereik!
-    </div>
+        <div class="tip-box">
+            De formule (Max + Min) - x werkt voor ELKE schaal, ongeacht het type of bereik!
+        </div>
 
-    <hr>
+        <hr>
 
-    <h2>Veelgemaakte Fouten</h2>
+        <h2>Veelgemaakte Fouten</h2>
 
-    <h3>❌ FOUT 1: Vergeten te Reverse Coden</h3>
+        <h3>❌ FOUT 1: Vergeten te Reverse Coden</h3>
 
-    <div class="warning-box">
-        <strong>Symptoom:</strong> Cronbach's Alpha is zeer laag (α < .50) of zelfs negatief!<br>
-            <strong>Oorzaak:</strong> Items meten in verschillende richtingen maar zijn niet omgekeerd<br>
-            <strong>Oplossing:</strong> Identificeer welke items tegengesteld zijn en reverse code ze
-    </div>
+        <div class="warning-box">
+            <strong>Symptoom:</strong> Cronbach's Alpha is zeer laag (α < .50) of zelfs negatief!<br>
+                <strong>Oorzaak:</strong> Items meten in verschillende richtingen maar zijn niet omgekeerd<br>
+                <strong>Oplossing:</strong> Identificeer welke items tegengesteld zijn en reverse code ze
+        </div>
 
-    <h3>❌ FOUT 2: Verkeerde Formule Gebruiken</h3>
+        <h3>❌ FOUT 2: Verkeerde Formule Gebruiken</h3>
 
-    <pre><code class="r-code"># FOUT: 
+        <div class="code-box">
+            <pre><code class="r-code"># FOUT: 
 reversed = 6 / original  # ❌ VERKEERD!
 
 # CORRECT:
 reversed = (5 + 1) - original  # ✅ GOED!
 </code></pre>
+        </div>
 
-    <h3>❌ FOUT 3: Alleen Items Omkeren in Schaalberekening</h3>
+        <h3>❌ FOUT 3: Alleen Items Omkeren in Schaalberekening</h3>
 
-    <div class="warning-box">
-        Als je Item 2 moet omkeren, maak dan EERST een nieuwe variabele (<code>W1_FINSTRESS2_reversed</code>) en gebruik
-        die in je schaalberekening. Verander NOOIT de originele variabele!
-    </div>
+        <div class="warning-box">
+            Als je Item 2 moet omkeren, maak dan EERST een nieuwe variabele (<code>W1_FINSTRESS2_reversed</code>) en
+            gebruik
+            die in je schaalberekening. Verander NOOIT de originele variabele!
+        </div>
 
-    <h3>❌ FOUT 4: Missing Values Niet Behouden</h3>
+        <h3>❌ FOUT 4: Missing Values Niet Behouden</h3>
 
-    <pre><code class="r-code"># FOUT: Missing values worden 6
+        <div class="code-box">
+            <pre><code class="r-code"># FOUT: Missing values worden 6
 reversed = (5 + 1) - original  # NA wordt 6 - NA = NA? Nee, soms errors!
 
 # CORRECT: Expliciet missing behouden
@@ -335,31 +361,34 @@ reversed = dplyr::if_else(is.na(original), NA_real_, (5 + 1) - original)
 # OF (nog beter in dplyr):
 reversed = (5 + 1) - original  # dplyr behoudt NA automatisch
 </code></pre>
+        </div>
 
-    <hr>
+        <hr>
 
-    <h2>Verificatie Checklist</h2>
+        <h2>Verificatie Checklist</h2>
 
-    <p>Na reverse coding, controleer ALTIJD:</p>
+        <p>Na reverse coding, controleer ALTIJD:</p>
 
-    <div style="background-color: #e8f8f5; padding: 15px; border-left: 5px solid #27ae60; margin: 20px 0;">
-        <h4>✅ Verificatie Stappen</h4>
-        <ol>
-            <li><strong>Kruistabel</strong>: <code>table(origineel, reversed)</code> - moet perfecte diagonaal zijn</li>
-            <li><strong>Frequenties</strong>: Verdeling van reversed moet spiegelbeeld zijn van origineel</li>
-            <li><strong>Missing values</strong>: Aantal NA's moet hetzelfde blijven</li>
-            <li><strong>Logic check</strong>: Als iemand hoog scoorde op origineel → moet nu laag zijn</li>
-            <li><strong>Cronbach's Alpha</strong>: Moet nu normaal zijn (≥ .70) in plaats van laag/negatief</li>
-        </ol>
-    </div>
+        <div style="background-color: #e8f8f5; padding: 15px; border-left: 5px solid #27ae60; margin: 20px 0;">
+            <h4>✅ Verificatie Stappen</h4>
+            <ol>
+                <li><strong>Kruistabel</strong>: <code>table(origineel, reversed)</code> - moet perfecte diagonaal zijn
+                </li>
+                <li><strong>Frequenties</strong>: Verdeling van reversed moet spiegelbeeld zijn van origineel</li>
+                <li><strong>Missing values</strong>: Aantal NA's moet hetzelfde blijven</li>
+                <li><strong>Logic check</strong>: Als iemand hoog scoorde op origineel → moet nu laag zijn</li>
+                <li><strong>Cronbach's Alpha</strong>: Moet nu normaal zijn (≥ .70) in plaats van laag/negatief</li>
+            </ol>
+        </div>
 
-    <hr>
+        <hr>
 
-    <h2>R Code Templates</h2>
+        <h2>R Code Templates</h2>
 
-    <h3>Template 1: Single Item Reverse</h3>
+        <h3>Template 1: Single Item Reverse</h3>
 
-    <pre><code class="r-code"># Voor 1 item op 5-puntsschaal
+        <div class="code-box">
+            <pre><code class="r-code"># Voor 1 item op 5-puntsschaal
 data <- data |>
   dplyr::mutate(
     item_reversed = (5 + 1) - item_original
@@ -370,10 +399,12 @@ data <- data |>
 # Verificatie
 table(data$item_original, data$item_reversed, useNA = "always")
 </code></pre>
+        </div>
 
-    <h3>Template 2: Multiple Items Reverse</h3>
+        <h3>Template 2: Multiple Items Reverse</h3>
 
-    <pre><code class="r-code"># Voor meerdere items tegelijk
+        <div class="code-box">
+            <pre><code class="r-code"># Voor meerdere items tegelijk
 data <- data |>
   dplyr::mutate(
     item2_rev = (5 + 1) - item2,
@@ -381,10 +412,12 @@ data <- data |>
     item6_rev = (5 + 1) - item6
   )
 </code></pre>
+        </div>
 
-    <h3>Template 3: Reverse + Scale Berekening in One Go</h3>
+        <h3>Template 3: Reverse + Scale Berekening in One Go</h3>
 
-    <pre><code class="r-code"># Alles in één mutate()
+        <div class="code-box">
+            <pre><code class="r-code"># Alles in één mutate()
 data <- data |>
   dplyr::mutate(
     # Reverse items
@@ -398,42 +431,26 @@ data <- data |>
     )
   )
 </code></pre>
+        </div>
 
-    <hr>
+        <hr>
 
-    <div class="related-pages">
-        <h3>📚 Gerelateerde Pagina's</h3>
-        <ul>
-            <li><a href="scale-construction-theory.html">Scale Construction Theory</a></li>
-            <li><a href="cronbach-alpha-explained.html">Cronbach's Alpha Deep Dive</a></li>
-            <li><a href="operators-reference.html">R Operators Reference</a></li>
-            <li><a href="../index.html">← Terug naar hoofdpagina</a></li>
-        </ul>
-    </div>
+        <div class="related-pages">
+            <h3>📚 Gerelateerde Pagina's</h3>
+            <ul>
+                <li><a href="scale-construction-theory.html">Scale Construction Theory</a></li>
+                <li><a href="cronbach-alpha-explained.html">Cronbach's Alpha Deep Dive</a></li>
+                <li><a href="operators-reference.html">R Operators Reference</a></li>
+                <li><a href="../index.html">← Terug naar hoofdpagina</a></li>
+    </main>
 
-    <div class="footer">
+    <footer class="site-footer">
         <p>&copy; 2026 From Zero To Statistical Hero | <a
                 href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis">GitHub
                 Repository</a></p>
-    </div>
+    </footer>
 
-    <a href="#" class="back-to-top" id="backToTop">↑</a>
-
-    <script>
-        window.addEventListener('scroll', function () {
-            const backToTop = document.getElementById('backToTop');
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-
-        document.getElementById('backToTop').addEventListener('click', function (e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Terug naar boven">↑</a>
 
 </body>
 

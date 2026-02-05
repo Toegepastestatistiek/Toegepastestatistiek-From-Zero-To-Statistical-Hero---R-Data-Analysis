@@ -5,16 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R Functies Gids - Hoofdstuk 6</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=20260204">
+    <script src="../js/site.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="breadcrumb">
-            <a href="../index.html">Startpagina</a> / <a href="../chapter6.html">Hoofdstuk 6</a> / R Functies
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="logo" href="../index.html" aria-label="Terug naar startpagina">
+                📊 Statistical Hero <span class="logo-sub">- Hoofdstuk 6</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdnavigatie">
+                <a href="../index.html">Startpagina</a>
+                <a href="centrality-measures.html">Centraliteit</a>
+                <a href="dispersion-measures.html">Spreiding</a>
+                <a href="measurement-levels.html">Meetniveaus</a>
+                <a href="spss-vs-r.html">SPSS vs R</a>
+            </nav>
         </div>
 
-        <h1>Beschrijvende Statistieken in R: Complete Functiegids</h1>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../index.html">Startpagina</a></li>
+                <li><a href="../chapter6.html">Hoofdstuk 6</a></li>
+                <li aria-current="page">R Functies</li>
+            </ol>
+        </nav>
+    </header>
+
+    <main id="main-content" class="page-content" tabindex="-1">
+        <header class="page-header">
+            <h1>Beschrijvende Statistieken in R: Complete Functiegids</h1>
+        </header>
 
         <p class="lead">Overzicht van de belangrijkste R functies en packages voor beschrijvende statistieken, met
             praktische voorbeelden en vergelijkingen.</p>
@@ -428,103 +452,113 @@ complete_descriptives(data_wave1, "W1_Relstress1_Gem")</code></pre>
             <a href="apa-reporting.html" class="btn-secondary">← Vorige: APA Rapportage</a>
             <a href="spss-vs-r.html" class="btn-primary">Volgende: SPSS vs R →</a>
         </div>
-    </div>
+        </div>
 
-    <style>
-        .lead {
-            font-size: 1.2em;
-            color: #555;
-            margin: 20px 0;
-        }
+        <style>
+            .lead {
+                font-size: 1.2em;
+                color: #555;
+                margin: 20px 0;
+            }
 
-        .example-box,
-        .info-box,
-        .summary-box {
-            background: #f8f9fc;
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
+            .example-box,
+            .info-box,
+            .summary-box {
+                background: #f8f9fc;
+                border-left: 4px solid #667eea;
+                padding: 20px;
+                margin: 20px 0;
+                border-radius: 8px;
+            }
 
-        .info-box {
-            border-left-color: #3498db;
-            background: #f0f8ff;
-        }
+            .info-box {
+                border-left-color: #3498db;
+                background: #f0f8ff;
+            }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+            }
 
-        th,
-        td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 12px;
+                text-align: left;
+            }
 
-        th {
-            background: #667eea;
-            color: white;
-        }
+            th {
+                background: #667eea;
+                color: white;
+            }
 
-        .code-box {
-            background: #2d2d2d;
-            color: #f8f8f2;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
+            .code-box {
+                background: #2d2d2d;
+                color: #f8f8f2;
+                padding: 20px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
 
-        .code-box pre {
-            margin: 0;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            line-height: 1.5;
-        }
+            .code-box pre {
+                margin: 0;
+                overflow-x: auto;
+                font-family: 'Courier New', monospace;
+                line-height: 1.5;
+            }
 
-        pre {
-            background: white;
-            padding: 15px;
-            font-family: monospace;
-            overflow-x: auto;
-            line-height: 1.4;
-        }
+            pre {
+                background: white;
+                padding: 15px;
+                font-family: monospace;
+                overflow-x: auto;
+                line-height: 1.4;
+            }
 
-        .navigation-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin: 40px 0;
-        }
+            .navigation-buttons {
+                display: flex;
+                justify-content: space-between;
+                margin: 40px 0;
+            }
 
-        .btn-primary,
-        .btn-secondary {
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-        }
+            .btn-primary,
+            .btn-secondary {
+                padding: 12px 24px;
+                border-radius: 6px;
+                text-decoration: none;
+                font-weight: 600;
+            }
 
-        .btn-primary {
-            background: #667eea;
-            color: white;
-        }
+            .btn-primary {
+                background: #667eea;
+                color: white;
+            }
 
-        .btn-secondary {
-            background: #e0e0e0;
-            color: #333;
-        }
+            .btn-secondary {
+                background: #e0e0e0;
+                color: #333;
+            }
 
-        .btn-primary:hover {
-            background: #5568d3;
-        }
+            .btn-primary:hover {
+                background: #5568d3;
+            }
 
-        .btn-secondary:hover {
-            background: #d0d0d0;
-        }
-    </style>
+            .btn-secondary:hover {
+                background: #d0d0d0;
+            }
+        </style>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 From Zero To Statistical Hero | <a
+                href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis">GitHub
+                Repository</a></p>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Terug naar boven">↑</a>
+
 </body>
 
 </html>

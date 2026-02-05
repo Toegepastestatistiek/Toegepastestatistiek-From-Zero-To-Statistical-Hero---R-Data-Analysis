@@ -5,314 +5,321 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hercoderingsstrategieën - Best Practices voor Dataverzameling</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=20260204">
+    <script src="../js/site.js" defer></script>
 </head>
 
 <body>
 
-    <div class="nav-bar">
-        <div class="logo">📊 Statistical Hero - Hoofdstuk 5</div>
-        <nav>
-            <a href="../index.html">Startpagina</a>
-            <a href="scale-construction-theory.html">Schaaltheorie</a>
-            <a href="cronbach-alpha-explained.html">Cronbach's Alpha</a>
-            <a href="operators-reference.html">Operators</a>
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="logo" href="../index.html" aria-label="Terug naar startpagina">
+                📊 Statistical Hero <span class="logo-sub">- Hoofdstuk 5</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdnavigatie">
+                <a href="../index.html">Startpagina</a>
+                <a href="scale-construction-theory.html">Schaaltheorie</a>
+                <a href="cronbach-alpha-explained.html">Cronbach's Alpha</a>
+                <a href="operators-reference.html">Operators</a>
+            </nav>
+        </div>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../index.html">Startpagina</a></li>
+                <li><a href="../chapter5.html">Hoofdstuk 5</a></li>
+                <li aria-current="page">Hercoderingsstrategieen</li>
+            </ol>
         </nav>
-    </div>
+    </header>
 
-    <div class="breadcrumb">
-        <a href="../index.html">Startpagina</a> <span>›</span>
-        <a href="#">Hoofdstuk 5</a> <span>›</span>
-        <span>Hercoderingsstrategieën</span>
-    </div>
+    <main id="main-content" class="page-content" tabindex="-1">
+        <header class="page-header">
+            <h1>📋 Best Practices voor Dataverzameling en Groepering</h1>
+        </header>
 
-    <h1>📋 Best Practices voor Dataverzameling en Groepering</h1>
+        <h2>Waarom Continue Data Verzamelen?</h2>
 
-    <h2>Waarom Continue Data Verzamelen?</h2>
+        <p class="lead">Bij het ontwerpen van je vragenlijst of dataverzameling is het <strong>altijd beter om continue
+                variabelen</strong> te verzamelen (exacte waarden) in plaats van vooraf gegroepeerde categorieën.</p>
 
-    <p>Bij het ontwerpen van je vragenlijst of dataverzameling is het <strong>altijd beter om continue
-            variabelen</strong> te verzamelen (exacte waarden) in plaats van vooraf gegroepeerde categorieën.</p>
+        <div class="info-box">
+            Verzamel continue data → Groepeer tijdens analyse. Verzamel NOOIT vooraf gegroepeerde data tijdens
+            dataverzameling!
+        </div>
 
-    <div class="info-box">
-        Verzamel continue data → Groepeer tijdens analyse. Verzamel NOOIT vooraf gegroepeerde data tijdens
-        dataverzameling!
-    </div>
+        <h3>Voordelen Continue Data</h3>
 
-    <h3>Voordelen Continue Data</h3>
+        <table>
+            <caption class="visually-hidden">Voordelen van continue data verzamelen</caption>
+            <thead>
+                <tr>
+                    <th>Voordeel</th>
+                    <th>Uitleg</th>
+                    <th>Voorbeeld</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Statistische Kracht</strong></td>
+                    <td>Continue variabelen laten krachtigere parametrische toetsen toe</td>
+                    <td>t-test, ANOVA, regressie mogelijk</td>
+                </tr>
+                <tr>
+                    <td><strong>Flexibiliteit</strong></td>
+                    <td>Je kunt later beslissen hoe te groeperen</td>
+                    <td>Verschillende indelingen proberen</td>
+                </tr>
+                <tr>
+                    <td><strong>Geen Informatieverlies</strong></td>
+                    <td>Eenmaal gegroepeerd = voor altijd verloren</td>
+                    <td>Exact geboortejaar vs. leeftijdscategorie</td>
+                </tr>
+                <tr>
+                    <td><strong>Meer Analyse-opties</strong></td>
+                    <td>Continue variabelen bevatten meer informatie</td>
+                    <td>Correlaties, regressiecoëfficiënten</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Voordeel</th>
-                <th>Uitleg</th>
-                <th>Voorbeeld</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Statistische Kracht</strong></td>
-                <td>Continue variabelen laten krachtigere parametrische toetsen toe</td>
-                <td>t-test, ANOVA, regressie mogelijk</td>
-            </tr>
-            <tr>
-                <td><strong>Flexibiliteit</strong></td>
-                <td>Je kunt later beslissen hoe te groeperen</td>
-                <td>Verschillende indelingen proberen</td>
-            </tr>
-            <tr>
-                <td><strong>Geen Informatieverlies</strong></td>
-                <td>Eenmaal gegroepeerd = voor altijd verloren</td>
-                <td>Exact geboortejaar vs. leeftijdscategorie</td>
-            </tr>
-            <tr>
-                <td><strong>Meer Analyse-opties</strong></td>
-                <td>Continue variabelen bevatten meer informatie</td>
-                <td>Correlaties, regressiecoëfficiënten</td>
-            </tr>
-        </tbody>
-    </table>
+        <h3>Juiste vs. Onjuiste Dataverzameling</h3>
 
-    <h3>Juiste vs. Onjuiste Dataverzameling</h3>
+        <div class="example-box">
+            <strong>Leeftijd:</strong><br>
+            ✅ <strong>Goed:</strong> Vraag geboortejaar (1990, 1985, 2000) → kun je later naar wens groeperen<br>
+            ❌ <strong>Fout:</strong> Vraag leeftijdscategorie (18-25, 26-35) → exact geboortejaar definitief verloren
+        </div>
 
-    <div class="example-box">
-        <strong>Leeftijd:</strong><br>
-        ✅ <strong>Goed:</strong> Vraag geboortejaar (1990, 1985, 2000) → kun je later naar wens groeperen<br>
-        ❌ <strong>Fout:</strong> Vraag leeftijdscategorie (18-25, 26-35) → exact geboortejaar definitief verloren
-    </div>
+        <div class="example-box">
+            <strong>Inkomen:</strong><br>
+            ✅ <strong>Goed:</strong> Vraag exact maandinkomen in euro's (€2.450, €3.120)<br>
+            ❌ <strong>Fout:</strong> Vraag inkomensgroep (€2000-€3000) → exacte waarde onbekend
+        </div>
 
-    <div class="example-box">
-        <strong>Inkomen:</strong><br>
-        ✅ <strong>Goed:</strong> Vraag exact maandinkomen in euro's (€2.450, €3.120)<br>
-        ❌ <strong>Fout:</strong> Vraag inkomensgroep (€2000-€3000) → exacte waarde onbekend
-    </div>
+        <div class="example-box">
+            <strong>Slachtofferschap:</strong><br>
+            ✅ <strong>Goed:</strong> Hoeveel keer bent u het afgelopen jaar slachtoffer geworden? (exacte telling: 0, 1,
+            2,
+            3...)<br>
+            ❌ <strong>Fout:</strong> Bent u slachtoffer geworden? (0=Nee, 1=Een keer, 2=Meerdere keren)
+        </div>
 
-    <div class="example-box">
-        <strong>Slachtofferschap:</strong><br>
-        ✅ <strong>Goed:</strong> Hoeveel keer bent u het afgelopen jaar slachtoffer geworden? (exacte telling: 0, 1, 2,
-        3...)<br>
-        ❌ <strong>Fout:</strong> Bent u slachtoffer geworden? (0=Nee, 1=Een keer, 2=Meerdere keren)
-    </div>
+        <hr>
 
-    <hr>
+        <h2>Logische Groepering: Praktische Richtlijnen</h2>
 
-    <h2>Logische Groepering: Praktische Richtlijnen</h2>
+        <p>Wanneer je continue variabelen <strong>tijdens de analysefase</strong> groepeert, volg deze principes:</p>
 
-    <p>Wanneer je continue variabelen <strong>tijdens de analysefase</strong> groepeert, volg deze principes:</p>
+        <h3>1. Gebruik Gelijke Intervallen (waar mogelijk)</h3>
 
-    <h3>1. Gebruik Gelijke Intervallen (waar mogelijk)</h3>
+        <div class="tip-box">
+            <strong>Correct:</strong> 0-999, 1000-1999, 2000-2999, 3000+ <br>
+            <strong>Fout:</strong> 0-999, 1000-2999, 3000-5000 (ongelijke intervallen zonder reden)
+        </div>
 
-    <div class="tip-box">
-        <strong>Correct:</strong> 0-999, 1000-1999, 2000-2999, 3000+ <br>
-        <strong>Fout:</strong> 0-999, 1000-2999, 3000-5000 (ongelijke intervallen zonder reden)
-    </div>
+        <p><strong>Let op:</strong> Laatste categorie kan open zijn (bijv. "€6000 of meer") als er weinig cases zijn in
+            hogere categorieën.</p>
 
-    <p><strong>Let op:</strong> Laatste categorie kan open zijn (bijv. "€6000 of meer") als er weinig cases zijn in
-        hogere categorieën.</p>
+        <h3>2. Voorkom Overlappende Grenzen</h3>
 
-    <h3>2. Voorkom Overlappende Grenzen</h3>
+        <div class="tip-box">
+            <strong>Correct:</strong> &lt; €2000, €2000-€3999, €4000-€5999, €6000+<br>
+            <strong>Fout:</strong> &lt; €2000, €2000-€3000, €2000-€4000 (verwarrende overlap!)
+        </div>
 
-    <div class="tip-box">
-        <strong>Correct:</strong> &lt; €2000, €2000-€3999, €4000-€5999, €6000+<br>
-        <strong>Fout:</strong> &lt; €2000, €2000-€3000, €2000-€4000 (verwarrende overlap!)
-    </div>
+        <div class="warning-box">
+            Grenzen moeten elkaar NIET overlappen! Elke waarde moet in precies één categorie vallen.
+        </div>
 
-    <div class="warning-box">
-        Grenzen moeten elkaar NIET overlappen! Elke waarde moet in precies één categorie vallen.
-    </div>
+        <h3>3. Theoretisch of Praktisch Gefundeerde Groepering</h3>
 
-    <h3>3. Theoretisch of Praktisch Gefundeerde Groepering</h3>
+        <p>Je groepering moet <strong>altijd gebaseerd</strong> zijn op:</p>
 
-    <p>Je groepering moet <strong>altijd gebaseerd</strong> zijn op:</p>
-
-    <ul>
-        <li><strong>Onderzoeksvraag:</strong> Welke vergelijkingen wil je maken?</li>
-        <li><strong>Theoretisch kader:</strong> Wat zegt de theorie over relevante grenzen?</li>
-        <li><strong>Eerdere studies:</strong> Hoe hebben anderen dit concept geoperationaliseerd?</li>
-        <li><strong>Praktische betekenis:</strong> Hebben categorieën maatschappelijke of wettelijke relevantie?</li>
-    </ul>
-
-    <hr>
-
-    <h2>Criminologie-specifieke Voorbeelden</h2>
-
-    <p>Hieronder vind je <strong>10 voorbeelden</strong> van hoe dezelfde variabele verschillend gegroepeerd kan worden
-        afhankelijk van je onderzoeksdoel:</p>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Variabele</th>
-                <th>Continue Meting</th>
-                <th>Theoretische Groepering</th>
-                <th>Rationale</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Leeftijd</strong></td>
-                <td>Geboortejaar / exacte leeftijd</td>
-                <td><strong>Drugsgebruik studie:</strong><br>
-                    - Minderjarig (&lt; 18 jaar)<br>
-                    - Jong volwassen (18-25)<br>
-                    - Volwassen (25+)</td>
-                <td>Wettelijke leeftijdsgrenzen; ontwikkelingspsychologie; risicoperiodes voor experimenteel gedrag</td>
-            </tr>
-            <tr>
-                <td><strong>Leeftijd</strong></td>
-                <td>Exacte leeftijd</td>
-                <td><strong>Recidive studie:</strong><br>
-                    - Jeugd (12-17)<br>
-                    - Jong volwassen (18-24)<br>
-                    - Volwassen (25-39)<br>
-                    - Ouder (40+)</td>
-                <td>Age-crime curve; verschillende interventiemogelijkheden per levensfase</td>
-            </tr>
-            <tr>
-                <td><strong>Inkomen</strong></td>
-                <td>Maandinkomen in euro's</td>
-                <td><strong>Inbraakstudie:</strong><br>
-                    - Laag inkomen (&lt; €1500)<br>
-                    - Middeninkomen (€1500-€3500)<br>
-                    - Hoog inkomen (&gt; €3500)</td>
-                <td>Armoedegrens; koopkracht; doelwitkeuze bij vermogensdelicten</td>
-            </tr>
-            <tr>
-                <td><strong>Buurtinkomen</strong></td>
-                <td>Gemiddeld inkomen per huishouden</td>
-                <td><strong>Buurtcriminaliteit:</strong><br>
-                    - Achtergestelde buurt (&lt; €20.000/jaar)<br>
-                    - Welvarende buurt (&gt; €20.000/jaar)</td>
-                <td>Social disorganization theory; relatieve deprivatie; buurtkarakteristieken</td>
-            </tr>
-            <tr>
-                <td><strong>Aantal delicten</strong></td>
-                <td>Exacte telling (0, 1, 2, 3...)</td>
-                <td><strong>Daderprofilering:</strong><br>
-                    - Geen (0)<br>
-                    - Sporadisch (1-2)<br>
-                    - Frequent (3-5)<br>
-                    - Chronisch (6+)</td>
-                <td>Career criminal literatuur; interventieniveaus; DeLisi's chronic offender research</td>
-            </tr>
-            <tr>
-                <td><strong>Slachtofferschap</strong></td>
-                <td>Aantal keer slachtoffer (0, 1, 2...)</td>
-                <td><strong>Repeat victimization:</strong><br>
-                    - Nooit (0)<br>
-                    - Eenmalig (1)<br>
-                    - Herhaald (2+)</td>
-                <td>Repeat victimization theory; preventiestrategieën; Farrell & Pease (1993)</td>
-            </tr>
-            <tr>
-                <td><strong>Alcoholgebruik</strong></td>
-                <td>Glazen per week</td>
-                <td><strong>Geweldsstudie:</strong><br>
-                    - Geen (0)<br>
-                    - Matig (1-7/week)<br>
-                    - Excessief (&gt; 7/week)</td>
-                <td>WHO richtlijnen; alcohol-geweld relatie; General Theory of Crime</td>
-            </tr>
-            <tr>
-                <td><strong>Woonduur buurt</strong></td>
-                <td>Aantal jaren</td>
-                <td><strong>Sociale cohesie:</strong><br>
-                    - Kort (&lt; 2 jaar)<br>
-                    - Gemiddeld (2-10 jaar)<br>
-                    - Lang (&gt; 10 jaar)</td>
-                <td>Collective efficacy theory (Sampson); gemeenschapsvorming; sociale binding</td>
-            </tr>
-            <tr>
-                <td><strong>Aantal arrestaties</strong></td>
-                <td>Exacte telling</td>
-                <td><strong>Criminele carrière:</strong><br>
-                    - Geen contact (0)<br>
-                    - Beperkt contact (1-3)<br>
-                    - Intensief contact (4+)</td>
-                <td>Moffitt's life-course theory; labeling theory; criminal career paradigm</td>
-            </tr>
-            <tr>
-                <td><strong>Buurtconcentratie criminaliteit</strong></td>
-                <td>Misdaden per 1000 inwoners</td>
-                <td><strong>Hotspot analyse:</strong><br>
-                    - Veilig (&lt; 20 per 1000)<br>
-                    - Gemiddeld (20-50)<br>
-                    - Onveilig (&gt; 50)</td>
-                <td>Environmental criminology; routine activity theory; Sherman's law of crime concentration</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div class="warning-box">
-        Deze groeperingen zijn <strong>voorbeelden</strong> - jouw specifieke onderzoeksvraag en theoretisch kader
-        bepalen de optimale indeling! Dezelfde variabele kan anders gegroepeerd worden afhankelijk van je
-        onderzoeksdoel.
-    </div>
-
-    <hr>
-
-    <h2>Praktisch Advies voor Je Onderzoek</h2>
-
-    <ol>
-        <li><strong>Verzamel altijd continue data</strong> tijdens dataverzameling (vraag exact geboortejaar, niet
-            leeftijdscategorie)</li>
-        <li><strong>Groepeer pas in analysefase</strong> wanneer je weet welke vergelijkingen theoretisch zinvol zijn
-        </li>
-        <li><strong>Documenteer je keuzes:</strong> Leg in je methodesectie uit waarom je bepaalde grenzen kiest</li>
-        <li><strong>Vergelijk met literatuur:</strong> Gebruik vergelijkbare indelingen als eerdere studies (vergroot
-            repliceerbaarheid)</li>
-        <li><strong>Test meerdere indelingen:</strong> Soms is het nuttig om verschillende groeperingen te vergelijken
-            (sensitiviteitsanalyse)</li>
-        <li><strong>Denk criminologisch:</strong> Groepeer op basis van wettelijke grenzen, theoretische concepten, of
-            maatschappelijke betekenis</li>
-    </ol>
-
-    <div class="example-box">
-        <strong>Praktijkvoorbeeld: Criminaliteitsangst bij verschillende leeftijdsgroepen</strong><br><br>
-        Je kunt leeftijd groeperen op basis van:
         <ul>
-            <li><strong>Wettelijke grenzen:</strong> &lt; 18 (minderjarig) vs. 18+ (meerderjarig)</li>
-            <li><strong>Kwetsbaarheidsperspectief:</strong> &lt; 65 vs. 65+ (ouderen als kwetsbare groep)</li>
-            <li><strong>Levensfase:</strong> 18-30 (jong), 31-50 (middenleeftijd), 51-70 (ouder), 71+ (senior)</li>
+            <li><strong>Onderzoeksvraag:</strong> Welke vergelijkingen wil je maken?</li>
+            <li><strong>Theoretisch kader:</strong> Wat zegt de theorie over relevante grenzen?</li>
+            <li><strong>Eerdere studies:</strong> Hoe hebben anderen dit concept geoperationaliseerd?</li>
+            <li><strong>Praktische betekenis:</strong> Hebben categorieën maatschappelijke of wettelijke relevantie?
+            </li>
         </ul>
-        Kies de indeling die bij je onderzoeksvraag past - en verzamel de data altijd continu zodat je deze keuze later
-        kunt maken!
-    </div>
 
-    <hr>
+        <hr>
 
-    <div class="related-pages">
-        <h3>📚 Gerelateerde Pagina's</h3>
-        <ul>
-            <li><a href="operators-reference.html">R Operators Reference Guide</a></li>
-            <li><a href="spss-vs-r-comparison.html">SPSS vs R Comparison</a></li>
-            <li><a href="../index.html">← Terug naar hoofdpagina</a></li>
-        </ul>
-    </div>
+        <h2>Criminologie-specifieke Voorbeelden</h2>
 
-    <div class="footer">
+        <p>Hieronder vind je <strong>10 voorbeelden</strong> van hoe dezelfde variabele verschillend gegroepeerd kan
+            worden
+            afhankelijk van je onderzoeksdoel:</p>
+
+        <table>
+            <caption class="visually-hidden">Criminologie-specifieke voorbeelden van variabele groepering</caption>
+            <thead>
+                <tr>
+                    <th>Variabele</th>
+                    <th>Continue Meting</th>
+                    <th>Theoretische Groepering</th>
+                    <th>Rationale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Leeftijd</strong></td>
+                    <td>Geboortejaar / exacte leeftijd</td>
+                    <td><strong>Drugsgebruik studie:</strong><br>
+                        - Minderjarig (&lt; 18 jaar)<br>
+                        - Jong volwassen (18-25)<br>
+                        - Volwassen (25+)</td>
+                    <td>Wettelijke leeftijdsgrenzen; ontwikkelingspsychologie; risicoperiodes voor experimenteel gedrag
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Leeftijd</strong></td>
+                    <td>Exacte leeftijd</td>
+                    <td><strong>Recidive studie:</strong><br>
+                        - Jeugd (12-17)<br>
+                        - Jong volwassen (18-24)<br>
+                        - Volwassen (25-39)<br>
+                        - Ouder (40+)</td>
+                    <td>Age-crime curve; verschillende interventiemogelijkheden per levensfase</td>
+                </tr>
+                <tr>
+                    <td><strong>Inkomen</strong></td>
+                    <td>Maandinkomen in euro's</td>
+                    <td><strong>Inbraakstudie:</strong><br>
+                        - Laag inkomen (&lt; €1500)<br>
+                        - Middeninkomen (€1500-€3500)<br>
+                        - Hoog inkomen (&gt; €3500)</td>
+                    <td>Armoedegrens; koopkracht; doelwitkeuze bij vermogensdelicten</td>
+                </tr>
+                <tr>
+                    <td><strong>Buurtinkomen</strong></td>
+                    <td>Gemiddeld inkomen per huishouden</td>
+                    <td><strong>Buurtcriminaliteit:</strong><br>
+                        - Achtergestelde buurt (&lt; €20.000/jaar)<br>
+                        - Welvarende buurt (&gt; €20.000/jaar)</td>
+                    <td>Social disorganization theory; relatieve deprivatie; buurtkarakteristieken</td>
+                </tr>
+                <tr>
+                    <td><strong>Aantal delicten</strong></td>
+                    <td>Exacte telling (0, 1, 2, 3...)</td>
+                    <td><strong>Daderprofilering:</strong><br>
+                        - Geen (0)<br>
+                        - Sporadisch (1-2)<br>
+                        - Frequent (3-5)<br>
+                        - Chronisch (6+)</td>
+                    <td>Career criminal literatuur; interventieniveaus; DeLisi's chronic offender research</td>
+                </tr>
+                <tr>
+                    <td><strong>Slachtofferschap</strong></td>
+                    <td>Aantal keer slachtoffer (0, 1, 2...)</td>
+                    <td><strong>Repeat victimization:</strong><br>
+                        - Nooit (0)<br>
+                        - Eenmalig (1)<br>
+                        - Herhaald (2+)</td>
+                    <td>Repeat victimization theory; preventiestrategieën; Farrell & Pease (1993)</td>
+                </tr>
+                <tr>
+                    <td><strong>Alcoholgebruik</strong></td>
+                    <td>Glazen per week</td>
+                    <td><strong>Geweldsstudie:</strong><br>
+                        - Geen (0)<br>
+                        - Matig (1-7/week)<br>
+                        - Excessief (&gt; 7/week)</td>
+                    <td>WHO richtlijnen; alcohol-geweld relatie; General Theory of Crime</td>
+                </tr>
+                <tr>
+                    <td><strong>Woonduur buurt</strong></td>
+                    <td>Aantal jaren</td>
+                    <td><strong>Sociale cohesie:</strong><br>
+                        - Kort (&lt; 2 jaar)<br>
+                        - Gemiddeld (2-10 jaar)<br>
+                        - Lang (&gt; 10 jaar)</td>
+                    <td>Collective efficacy theory (Sampson); gemeenschapsvorming; sociale binding</td>
+                </tr>
+                <tr>
+                    <td><strong>Aantal arrestaties</strong></td>
+                    <td>Exacte telling</td>
+                    <td><strong>Criminele carrière:</strong><br>
+                        - Geen contact (0)<br>
+                        - Beperkt contact (1-3)<br>
+                        - Intensief contact (4+)</td>
+                    <td>Moffitt's life-course theory; labeling theory; criminal career paradigm</td>
+                </tr>
+                <tr>
+                    <td><strong>Buurtconcentratie criminaliteit</strong></td>
+                    <td>Misdaden per 1000 inwoners</td>
+                    <td><strong>Hotspot analyse:</strong><br>
+                        - Veilig (&lt; 20 per 1000)<br>
+                        - Gemiddeld (20-50)<br>
+                        - Onveilig (&gt; 50)</td>
+                    <td>Environmental criminology; routine activity theory; Sherman's law of crime concentration</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning-box">
+            Deze groeperingen zijn <strong>voorbeelden</strong> - jouw specifieke onderzoeksvraag en theoretisch kader
+            bepalen de optimale indeling! Dezelfde variabele kan anders gegroepeerd worden afhankelijk van je
+            onderzoeksdoel.
+        </div>
+
+        <hr>
+
+        <h2>Praktisch Advies voor Je Onderzoek</h2>
+
+        <ol>
+            <li><strong>Verzamel altijd continue data</strong> tijdens dataverzameling (vraag exact geboortejaar, niet
+                leeftijdscategorie)</li>
+            <li><strong>Groepeer pas in analysefase</strong> wanneer je weet welke vergelijkingen theoretisch zinvol
+                zijn
+            </li>
+            <li><strong>Documenteer je keuzes:</strong> Leg in je methodesectie uit waarom je bepaalde grenzen kiest
+            </li>
+            <li><strong>Vergelijk met literatuur:</strong> Gebruik vergelijkbare indelingen als eerdere studies
+                (vergroot
+                repliceerbaarheid)</li>
+            <li><strong>Test meerdere indelingen:</strong> Soms is het nuttig om verschillende groeperingen te
+                vergelijken
+                (sensitiviteitsanalyse)</li>
+            <li><strong>Denk criminologisch:</strong> Groepeer op basis van wettelijke grenzen, theoretische concepten,
+                of
+                maatschappelijke betekenis</li>
+        </ol>
+
+        <div class="example-box">
+            <strong>Praktijkvoorbeeld: Criminaliteitsangst bij verschillende leeftijdsgroepen</strong><br><br>
+            Je kunt leeftijd groeperen op basis van:
+            <ul>
+                <li><strong>Wettelijke grenzen:</strong> &lt; 18 (minderjarig) vs. 18+ (meerderjarig)</li>
+                <li><strong>Kwetsbaarheidsperspectief:</strong> &lt; 65 vs. 65+ (ouderen als kwetsbare groep)</li>
+                <li><strong>Levensfase:</strong> 18-30 (jong), 31-50 (middenleeftijd), 51-70 (ouder), 71+ (senior)</li>
+            </ul>
+            Kies de indeling die bij je onderzoeksvraag past - en verzamel de data altijd continu zodat je deze keuze
+            later
+            kunt maken!
+        </div>
+
+        <hr>
+
+        <div class="related-pages">
+            <h3>📚 Gerelateerde Pagina's</h3>
+            <ul>
+                <li><a href="operators-reference.html">R Operators Reference Guide</a></li>
+                <li><a href="spss-vs-r-comparison.html">SPSS vs R Comparison</a></li>
+                <li><a href="../index.html">← Terug naar hoofdpagina</a></li>
+            </ul>
+    </main>
+
+    <footer class="site-footer">
         <p>&copy; 2026 From Zero To Statistical Hero | <a
                 href="https://github.com/Toegepastestatistiek/Toegepastestatistiek-From-Zero-To-Statistical-Hero---R-Data-Analysis">GitHub
                 Repository</a></p>
-    </div>
+    </footer>
 
-    <a href="#" class="back-to-top" id="backToTop">↑</a>
-
-    <script>
-        // Back to top button functionality
-        window.addEventListener('scroll', function () {
-            const backToTop = document.getElementById('backToTop');
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-
-        document.getElementById('backToTop').addEventListener('click', function (e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Terug naar boven">↑</a>
 
 </body>
 
