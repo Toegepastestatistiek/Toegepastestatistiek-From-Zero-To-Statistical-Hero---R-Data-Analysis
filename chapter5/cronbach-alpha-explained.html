@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 
 <head>
@@ -40,7 +40,7 @@
             <h1>📐 Cronbach's Alpha: Deep Dive</h1>
         </header>
 
-        <h2>Wat is Cronbach's Alpha?</h2>
+        <h2 id="wat-is-cronbachs-alpha">Wat is Cronbach's Alpha?</h2>
 
         <p class="lead"><strong>Cronbach's Alpha (α)</strong> is de meest gebruikte maat voor <strong>interne
                 consistentie</strong>
@@ -56,7 +56,7 @@
             Als NEE → Lage alpha (slechte interne consistentie)
         </div>
 
-        <h3>Waarom Is Dit Belangrijk?</h3>
+        <h3 id="waarom-is-dit-belangrijk">Waarom Is Dit Belangrijk?</h3>
 
         <p>Als items <strong>niet consistent</strong> met elkaar zijn, meten ze blijkbaar <strong>verschillende
                 dingen</strong>. Je mag ze dan niet samen nemen als één schaalvariabele!</p>
@@ -75,7 +75,7 @@
 
         <hr>
 
-        <h2>Interpretatie Grenswaarden</h2>
+        <h2 id="interpretatie-grenswaarden">Interpretatie Grenswaarden</h2>
 
         <table>
             <caption class="visually-hidden">Interpretatie van Cronbach's Alpha waarden</caption>
@@ -130,9 +130,9 @@
 
         <hr>
 
-        <h2>Cronbach's Alpha Berekenen in R</h2>
+        <h2 id="cronbachs-alpha-berekenen-in-r">Cronbach's Alpha Berekenen in R</h2>
 
-        <h3>Stap-voor-Stap Code</h3>
+        <h3 id="stap-voor-stap-code">Stap-voor-Stap Code</h3>
 
         <pre><code class="r-code"># STAP 1: Selecteer de schaalitems
 scale_items <- data_wave1 |>
@@ -151,7 +151,7 @@ alpha_result$total$std.alpha          # Gestandaardiseerde alpha
 alpha_result$alpha.drop               # "Alpha if item deleted"
 </code></pre>
 
-        <h3>Output Interpreteren</h3>
+        <h3 id="output-interpreteren">Output Interpreteren</h3>
 
         <pre><code># Reliability analysis   
 #  raw_alpha std.alpha G6(smc) average_r S/N   ase mean   sd
@@ -164,11 +164,11 @@ alpha_result$alpha.drop               # "Alpha if item deleted"
 
         <hr>
 
-        <h2>"Alpha if Item Deleted" - Wanneer Items Verwijderen?</h2>
+        <h2 id="alpha-if-item-deleted---wanneer-items-verwijderen">"Alpha if Item Deleted" - Wanneer Items Verwijderen?</h2>
 
         <p>De output <code>alpha.drop</code> toont wat er met alpha gebeurt als je elk item zou verwijderen.</p>
 
-        <h3>Voorbeeld Output</h3>
+        <h3 id="voorbeeld-output">Voorbeeld Output</h3>
 
         <pre><code>#                   raw_alpha std.alpha   r.cor  r.drop
 # W1_W_STRESS1         0.85      0.85    0.75   0.71
@@ -177,7 +177,7 @@ alpha_result$alpha.drop               # "Alpha if item deleted"
 # W1_W_STRESS4         0.87      0.87    0.68   0.65
 </code></pre>
 
-        <h3>Interpretatie</h3>
+        <h3 id="interpretatie">Interpretatie</h3>
 
         <table>
             <caption class="visually-hidden">Interpretatie van Alpha if Item Deleted waarden</caption>
@@ -225,9 +225,9 @@ alpha_result$alpha.drop               # "Alpha if item deleted"
 
         <hr>
 
-        <h2>Beslisregels voor Items Verwijderen</h2>
+        <h2 id="beslisregels-voor-items-verwijderen">Beslisregels voor Items Verwijderen</h2>
 
-        <h3>Regel 1: Alpha Status</h3>
+        <h3 id="regel-1-alpha-status">Regel 1: Alpha Status</h3>
 
         <table>
             <caption class="visually-hidden">Beslisregels voor items verwijderen op basis van Alpha status</caption>
@@ -255,7 +255,7 @@ alpha_result$alpha.drop               # "Alpha if item deleted"
             </tbody>
         </table>
 
-        <h3>Regel 2: Corrected Item-Total Correlation (r.drop)</h3>
+        <h3 id="regel-2-corrected-item-total-correlation-rdrop">Regel 2: Corrected Item-Total Correlation (r.drop)</h3>
 
         <div class="info-box">
             <strong>r.drop</strong> = correlatie tussen item en totale schaal (zonder dat item zelf)<br>
@@ -273,7 +273,7 @@ alpha_result$alpha.drop               # "Alpha if item deleted"
         <div class="warning-box">
             Item met r.drop < .30 hangt zwak samen met rest van schaal → Kandidaat voor verwijdering! </div>
 
-                <h3>Regel 3: Inhoudelijke Check</h3>
+                <h3 id="regel-3-inhoudelijke-check">Regel 3: Inhoudelijke Check</h3>
 
                 <p>Vraag jezelf af:</p>
                 <ul>
@@ -284,9 +284,9 @@ alpha_result$alpha.drop               # "Alpha if item deleted"
 
                 <hr>
 
-                <h2>Praktijkvoorbeeld: Problematisch Item</h2>
+                <h2 id="praktijkvoorbeeld-problematisch-item">Praktijkvoorbeeld: Problematisch Item</h2>
 
-                <h3>Scenario: Zelfcontrole Schaal (α = .65)</h3>
+                <h3 id="scenario-zelfcontrole-schaal-α-65">Scenario: Zelfcontrole Schaal (α = .65)</h3>
 
                 <pre><code class="r-code"># STAP 1: Bereken alpha
 scale_items <- data |>
@@ -309,7 +309,7 @@ alpha_result$alpha.drop
 </code></pre>
         </div>
 
-        <h3>Analyse</h3>
+        <h3 id="analyse">Analyse</h3>
 
         <div class="example-box">
             <strong>Observaties:</strong>
@@ -343,7 +343,7 @@ data <- data |>
 </code></pre>
         </div>
 
-        <h3>1. Aantal Items</h3>
+        <h3 id="1-aantal-items">1. Aantal Items</h3>
 
         <aside class="info-box" role="note" aria-label="Informatie">
             Meer items = Hogere alpha (ceteris paribus)<br>
@@ -383,7 +383,7 @@ data <- data |>
             </tbody>
         </table>
 
-        <h3>2. Dimensionaliteit</h3>
+        <h3 id="2-dimensionaliteit">2. Dimensionaliteit</h3>
 
         <div class="warning-box">
             Cronbach's Alpha is alleen geldig voor <strong>unidimensionele</strong> schalen (items meten 1
@@ -391,7 +391,7 @@ data <- data |>
             Voor <strong>multidimensionele</strong> schalen: gebruik factoranalyse (gevorderde techniek)
         </div>
 
-        <h3>3. Homogeniteit vs. Heterogeniteit</h3>
+        <h3 id="3-homogeniteit-vs-heterogeniteit">3. Homogeniteit vs. Heterogeniteit</h3>
 
         <ul>
             <li><strong>Homogene items:</strong> Formuleren hetzelfde op verschillende manieren → Hogere alpha
@@ -402,7 +402,7 @@ data <- data |>
 
         <hr>
 
-        <h2>APA Rapportering</h2>
+        <h2 id="apa-rapportering">APA Rapportering</h2>
 
         <p>Rapporteer Cronbach's Alpha <strong>altijd</strong> in je methodesectie volgens APA-normen:</p>
 
@@ -428,7 +428,7 @@ data <- data |>
                 interne consistentie van de schaal in deze steekproef was goed (α = .88)."</p>
         </div>
 
-        <h3>Kwalificaties voor Alpha Waarden</h3>
+        <h3 id="kwalificaties-voor-alpha-waarden">Kwalificaties voor Alpha Waarden</h3>
 
         <table>
             <caption class="visually-hidden">Kwalificaties voor Cronbach's Alpha waarden in Nederlands en Engels
@@ -466,15 +466,15 @@ data <- data |>
 
         <hr>
 
-        <h2>Veelgestelde Vragen</h2>
+        <h2 id="veelgestelde-vragen">Veelgestelde Vragen</h2>
 
-        <h3>❓ Kan Alpha te HOOG zijn?</h3>
+        <h3 id="kan-alpha-te-hoog-zijn">❓ Kan Alpha te HOOG zijn?</h3>
 
         <p><strong>Ja!</strong> Alpha > .95 kan wijzen op <strong>redundantie</strong> - items zijn té
             vergelijkbaar
             en meten eigenlijk hetzelfde met verschillende woorden. Dit voegt geen informatie toe.</p>
 
-        <h3>❓ Wat als ik NEGATIVE alpha krijg?</h3>
+        <h3 id="wat-als-ik-negative-alpha-krijg">❓ Wat als ik NEGATIVE alpha krijg?</h3>
 
         <p><strong>Oorzaak:</strong> Items zijn <strong>negatief gecorreleerd</strong> - ze meten tegengestelde
             dingen!</p>
@@ -486,14 +486,14 @@ data <- data |>
             → Zie <a href="reverse-coding-guide.html">Reverse Coding Guide</a>
         </div>
 
-        <h3>❓ Hoeveel items MINIMAAL nodig?</h3>
+        <h3 id="hoeveel-items-minimaal-nodig">❓ Hoeveel items MINIMAAL nodig?</h3>
 
         <p><strong>Theoretisch:</strong> 2 items (maar alpha vaak te laag)<br>
             <strong>Praktisch:</strong> Minimaal <strong>3 items</strong> voor betrouwbare schaal<br>
             <strong>Ideaal:</strong> 4-6 items (balans tussen betrouwbaarheid en lengte vragenlijst)
         </p>
 
-        <h3>❓ Mag ik alpha verhogen door items toe te voegen?</h3>
+        <h3 id="mag-ik-alpha-verhogen-door-items-toe-te-voegen">❓ Mag ik alpha verhogen door items toe te voegen?</h3>
 
         <p><strong>Ja, MAAR:</strong> Alleen als nieuwe items <strong>theoretisch zinvol</strong> zijn en
             hetzelfde
@@ -502,7 +502,7 @@ data <- data |>
 
         <hr>
 
-        <h2>Checklist: Voor Je Schaal Gebruikt</h2>
+        <h2 id="checklist-voor-je-schaal-gebruikt">Checklist: Voor Je Schaal Gebruikt</h2>
 
         <div style="background-color: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h4>✅ Voordat je schaalvariabele gebruikt, check:</h4>
@@ -520,7 +520,7 @@ data <- data |>
         <hr>
 
         <div class="related-pages">
-            <h3>📚 Gerelateerde Pagina's</h3>
+            <h3 id="gerelateerde-paginas">📚 Gerelateerde Pagina's</h3>
             <ul>
                 <li><a href="scale-construction-theory.html">Scale Construction Theory</a></li>
                 <li><a href="reverse-coding-guide.html">Reverse Coding Guide</a></li>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 
 <head>
@@ -53,9 +53,9 @@
 
         <hr>
 
-        <h2>1️⃣ Nieuwe Variabele Maken (COMPUTE)</h2>
+        <h2 id="1️-nieuwe-variabele-maken-compute">1️⃣ Nieuwe Variabele Maken (COMPUTE)</h2>
 
-        <h3>📊 SPSS Syntax</h3>
+        <h3 id="spss-syntax">📊 SPSS Syntax</h3>
 
         <div class="code-box">
             <pre><code>COMPUTE leeftijd_maanden = leeftijd_jaren * 12.
@@ -63,7 +63,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>📊 R Code</h3>
+        <h3 id="r-code">📊 R Code</h3>
 
         <div class="code-box">
             <pre><code class="r-code">data <- data |>
@@ -73,7 +73,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>Kernverschillen</h3>
+        <h3 id="kernverschillen">Kernverschillen</h3>
 
         <table>
             <caption class="visually-hidden">Kernverschillen tussen SPSS COMPUTE en R mutate</caption>
@@ -110,9 +110,9 @@ EXECUTE.
 
         <hr>
 
-        <h2>2️⃣ Hercoderen naar Zelfde Variabele (RECODE)</h2>
+        <h2 id="2️-hercoderen-naar-zelfde-variabele-recode">2️⃣ Hercoderen naar Zelfde Variabele (RECODE)</h2>
 
-        <h3>📊 SPSS Syntax</h3>
+        <h3 id="spss-syntax">📊 SPSS Syntax</h3>
 
         <div class="code-box">
             <pre><code>RECODE leeftijd (18 thru 25=1) (26 thru 40=2) (41 thru 65=3) (66 thru highest=4).
@@ -120,7 +120,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>📊 R Code</h3>
+        <h3 id="r-code">📊 R Code</h3>
 
         <div class="code-box">
             <pre><code class="r-code">data <- data |>
@@ -143,9 +143,9 @@ EXECUTE.
 
         <hr>
 
-        <h2>3️⃣ Hercoderen naar Nieuwe Variabele (RECODE INTO)</h2>
+        <h2 id="3️-hercoderen-naar-nieuwe-variabele-recode-into">3️⃣ Hercoderen naar Nieuwe Variabele (RECODE INTO)</h2>
 
-        <h3>📊 SPSS Syntax</h3>
+        <h3 id="spss-syntax">📊 SPSS Syntax</h3>
 
         <div class="code-box">
             <pre><code>RECODE leeftijd (18 thru 25=1) (26 thru 40=2) (41 thru 65=3) (66 thru highest=4) 
@@ -154,7 +154,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>📊 R Code</h3>
+        <h3 id="r-code">📊 R Code</h3>
 
         <div class="code-box">
             <pre><code class="r-code">data <- data |>
@@ -177,9 +177,9 @@ EXECUTE.
 
         <hr>
 
-        <h2>4️⃣ Conditionele Bewerkingen (IF)</h2>
+        <h2 id="4️-conditionele-bewerkingen-if">4️⃣ Conditionele Bewerkingen (IF)</h2>
 
-        <h3>📊 SPSS Syntax</h3>
+        <h3 id="spss-syntax">📊 SPSS Syntax</h3>
 
         <div class="code-box">
             <pre><code>IF (geslacht = 1) risico_cat = 'Hoog'.
@@ -188,7 +188,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>📊 R Code (Methode 1: case_when)</h3>
+        <h3 id="r-code-methode-1-case_when">📊 R Code (Methode 1: case_when)</h3>
 
         <div class="code-box">
             <pre><code class="r-code">data <- data |>
@@ -201,7 +201,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>📊 R Code (Methode 2: ifelse)</h3>
+        <h3 id="r-code-methode-2-ifelse">📊 R Code (Methode 2: ifelse)</h3>
 
         <div class="code-box">
             <pre><code class="r-code">data <- data |>
@@ -211,7 +211,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>Welke Methode Kiezen?</h3>
+        <h3 id="welke-methode-kiezen">Welke Methode Kiezen?</h3>
 
         <table>
             <caption class="visually-hidden">Wanneer ifelse versus case_when te gebruiken</caption>
@@ -243,9 +243,9 @@ EXECUTE.
 
         <hr>
 
-        <h2>5️⃣ Schaalvariabele Maken (MEAN, SUM)</h2>
+        <h2 id="5️-schaalvariabele-maken-mean-sum">5️⃣ Schaalvariabele Maken (MEAN, SUM)</h2>
 
-        <h3>📊 SPSS Syntax: Mean van Items</h3>
+        <h3 id="spss-syntax-mean-van-items">📊 SPSS Syntax: Mean van Items</h3>
 
         <div class="code-box">
             <pre><code>COMPUTE stress_gem = MEAN(stress1, stress2, stress3, stress4).
@@ -253,7 +253,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>📊 R Code: Mean van Items</h3>
+        <h3 id="r-code-mean-van-items">📊 R Code: Mean van Items</h3>
 
         <div class="code-box">
             <pre><code class="r-code">data <- data |>
@@ -266,7 +266,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>📊 SPSS Syntax: Sum van Items</h3>
+        <h3 id="spss-syntax-sum-van-items">📊 SPSS Syntax: Sum van Items</h3>
 
         <div class="code-box">
             <pre><code>COMPUTE stress_som = SUM(stress1, stress2, stress3, stress4).
@@ -274,7 +274,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>📊 R Code: Sum van Items</h3>
+        <h3 id="r-code-sum-van-items">📊 R Code: Sum van Items</h3>
 
         <div class="code-box">
             <pre><code class="r-code">data <- data |>
@@ -287,7 +287,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>Missing Values Afhandeling</h3>
+        <h3 id="missing-values-afhandeling">Missing Values Afhandeling</h3>
 
         <table>
             <thead>
@@ -325,9 +325,9 @@ EXECUTE.
 
         <hr>
 
-        <h2>6️⃣ Reverse Coding</h2>
+        <h2 id="6️-reverse-coding">6️⃣ Reverse Coding</h2>
 
-        <h3>📊 SPSS Syntax</h3>
+        <h3 id="spss-syntax">📊 SPSS Syntax</h3>
 
         <div class="code-box">
             <pre><code>COMPUTE item2_rev = 6 - item2.
@@ -335,7 +335,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>📊 R Code</h3>
+        <h3 id="r-code">📊 R Code</h3>
 
         <div class="code-box">
             <pre><code class="r-code">data <- data |>
@@ -353,9 +353,9 @@ EXECUTE.
 
         <hr>
 
-        <h2>7️⃣ Tellen van Voorkomens (COUNT)</h2>
+        <h2 id="7️-tellen-van-voorkomens-count">7️⃣ Tellen van Voorkomens (COUNT)</h2>
 
-        <h3>📊 SPSS Syntax</h3>
+        <h3 id="spss-syntax">📊 SPSS Syntax</h3>
 
         <div class="code-box">
             <pre><code>COUNT slachtoffer_totaal = victim1 victim2 victim3 victim4 (1).
@@ -363,7 +363,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>📊 R Code</h3>
+        <h3 id="r-code">📊 R Code</h3>
 
         <div class="code-box">
             <pre><code class="r-code">data <- data |>
@@ -376,7 +376,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>Logica Uitgelegd</h3>
+        <h3 id="logica-uitgelegd">Logica Uitgelegd</h3>
 
         <table>
             <caption class="visually-hidden">Stapsgewijze uitleg van COUNT logica in R</caption>
@@ -408,9 +408,9 @@ EXECUTE.
 
         <hr>
 
-        <h2>8️⃣ Selecteren van Cases (SELECT IF, FILTER)</h2>
+        <h2 id="8️-selecteren-van-cases-select-if-filter">8️⃣ Selecteren van Cases (SELECT IF, FILTER)</h2>
 
-        <h3>📊 SPSS Syntax: SELECT IF</h3>
+        <h3 id="spss-syntax-select-if">📊 SPSS Syntax: SELECT IF</h3>
 
         <div class="code-box">
             <pre><code>SELECT IF (leeftijd >= 18).
@@ -418,7 +418,7 @@ EXECUTE.
 </code></pre>
         </div>
 
-        <h3>📊 R Code: filter()</h3>
+        <h3 id="r-code-filter">📊 R Code: filter()</h3>
 
         <div class="code-box">
             <pre><code class="r-code">data <- data |>
@@ -432,7 +432,7 @@ EXECUTE.
             - <strong>R filter():</strong> Creëert nieuwe dataset, origineel blijft intact (tenzij je overschrijft)
         </div>
 
-        <h3>Veilige Filtering in R</h3>
+        <h3 id="veilige-filtering-in-r">Veilige Filtering in R</h3>
 
         <div class="code-box">
             <pre><code class="r-code"># Maak NIEUWE dataset (origineel blijft intact)
@@ -445,9 +445,9 @@ data_volwassenen <- data |>
 
         <hr>
 
-        <h2>9️⃣ Groeperen en Aggregeren (AGGREGATE)</h2>
+        <h2 id="9️-groeperen-en-aggregeren-aggregate">9️⃣ Groeperen en Aggregeren (AGGREGATE)</h2>
 
-        <h3>📊 SPSS Syntax</h3>
+        <h3 id="spss-syntax">📊 SPSS Syntax</h3>
 
         <div class="code-box">
             <pre><code>AGGREGATE OUTFILE=* MODE=ADDVARIABLES
@@ -456,7 +456,7 @@ data_volwassenen <- data |>
 </code></pre>
         </div>
 
-        <h3>📊 R Code</h3>
+        <h3 id="r-code">📊 R Code</h3>
 
         <div class="code-box">
             <pre><code class="r-code">data <- data |>
@@ -466,7 +466,7 @@ data_volwassenen <- data |>
 </code></pre>
         </div>
 
-        <h3>Alternatief: Aparte Aggregatie Tabel</h3>
+        <h3 id="alternatief-aparte-aggregatie-tabel">Alternatief: Aparte Aggregatie Tabel</h3>
 
         <div class="code-box">
             <pre><code class="r-code"># Maak aparte tabel met gemiddeldes per buurt
@@ -482,16 +482,16 @@ data <- data |>
 
         <hr>
 
-        <h2>🔟 Crosstabs en Descriptives</h2>
+        <h2 id="crosstabs-en-descriptives">🔟 Crosstabs en Descriptives</h2>
 
-        <h3>📊 SPSS: CROSSTABS</h3>
+        <h3 id="spss-crosstabs">📊 SPSS: CROSSTABS</h3>
 
         <div class="code-box">
             <pre><code>CROSSTABS /TABLES=geslacht BY slachtoffer.
 </code></pre>
         </div>
 
-        <h3>📊 R: table() of xtabs()</h3>
+        <h3 id="r-table-of-xtabs">📊 R: table() of xtabs()</h3>
 
         <div class="code-box">
             <pre><code class="r-code"># Simpele kruistabel
@@ -505,14 +505,14 @@ janitor::tabyl(data, geslacht, slachtoffer)
 </code></pre>
         </div>
 
-        <h3>📊 SPSS: DESCRIPTIVES</h3>
+        <h3 id="spss-descriptives">📊 SPSS: DESCRIPTIVES</h3>
 
         <div class="code-box">
             <pre><code>DESCRIPTIVES VARIABLES=leeftijd inkomen.
 </code></pre>
         </div>
 
-        <h3>📊 R: summary() of describe()</h3>
+        <h3 id="r-summary-of-describe">📊 R: summary() of describe()</h3>
 
         <div class="code-box">
             <pre><code class="r-code"># Base R
@@ -525,7 +525,7 @@ psych::describe(data |> select(leeftijd, inkomen))
 
         <hr>
 
-        <h2>Algemene Syntaxverschillen</h2>
+        <h2 id="algemene-syntaxverschillen">Algemene Syntaxverschillen</h2>
 
         <table>
             <thead>
@@ -591,7 +591,7 @@ psych::describe(data |> select(leeftijd, inkomen))
 
         <hr>
 
-        <h2>Belangrijkste Voordelen van R</h2>
+        <h2 id="belangrijkste-voordelen-van-r">Belangrijkste Voordelen van R</h2>
 
         <div class="tip-box">
             <h4>✅ Waarom R Beter Is:</h4>
@@ -609,7 +609,7 @@ psych::describe(data |> select(leeftijd, inkomen))
 
         <hr>
 
-        <h2>Snelle Conversie Tabel</h2>
+        <h2 id="snelle-conversie-tabel">Snelle Conversie Tabel</h2>
 
         <table>
             <thead>
@@ -675,9 +675,9 @@ psych::describe(data |> select(leeftijd, inkomen))
 
         <hr>
 
-        <h2>Praktisch Voorbeeld: Complete Workflow</h2>
+        <h2 id="praktisch-voorbeeld-complete-workflow">Praktisch Voorbeeld: Complete Workflow</h2>
 
-        <h3>Dezelfde Analyse in SPSS en R</h3>
+        <h3 id="dezelfde-analyse-in-spss-en-r">Dezelfde Analyse in SPSS en R</h3>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
 
@@ -758,7 +758,7 @@ table(data_analyzed$leeftijd_cat, data_analyzed$stress_niveau)
         <hr>
 
         <div class="related-pages">
-            <h3>📚 Gerelateerde Pagina's</h3>
+            <h3 id="gerelateerde-paginas">📚 Gerelateerde Pagina's</h3>
             <ul>
                 <li><a href="operators-reference.html">Operators Reference</a> - Alle R operators in detail</li>
                 <li><a href="recoding-strategies.html">Hercoderingsstrategieën</a> - Best practices voor hercoderen</li>

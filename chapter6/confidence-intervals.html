@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 
 <head>
@@ -82,7 +82,7 @@
             </ul>
         </div>
 
-        <h3>Stap-voor-Stap Voorbeeld</h3>
+        <h3 id="stap-voor-stap-voorbeeld">Stap-voor-Stap Voorbeeld</h3>
         <div class="example-box">
             <p><strong>Gegeven:</strong> Relatiestress scores (schaal 1-5)</p>
             <ul>
@@ -112,7 +112,7 @@
 
         <h2 id="r-code">R Code voor Betrouwbaarheidsintervallen</h2>
 
-        <h3>Methode 1: Handmatig Berekenen</h3>
+        <h3 id="methode-1-handmatig-berekenen">Methode 1: Handmatig Berekenen</h3>
         <div class="code-box">
             <pre><code># Data voorbereiden
 stress <- data_wave1$W1_Relstress1_Gem
@@ -136,7 +136,7 @@ cat("SE =", round(se, 3), "\n")
 cat("95% BI = [", round(ondergrens, 3), ",", round(bovengrens, 3), "]\n")</code></pre>
         </div>
 
-        <h3>Methode 2: Met t.test()</h3>
+        <h3 id="methode-2-met-ttest">Methode 2: Met t.test()</h3>
         <div class="code-box">
             <pre><code># Eenvoudigste methode
 result <- t.test(data_wave1$W1_Relstress1_Gem)
@@ -151,7 +151,7 @@ result
 #  3.318  3.582</code></pre>
         </div>
 
-        <h3>Methode 3: Met psych::describe()</h3>
+        <h3 id="methode-3-met-psychdescribe">Methode 3: Met psych::describe()</h3>
         <div class="code-box">
             <pre><code>library(psych)
 
@@ -308,7 +308,7 @@ ggplot(plot_data, aes(x = variabele, y = gemiddelde)) +
             </ol>
         </div>
 
-        <h2>Complete Functie voor Rapportage</h2>
+        <h2 id="complete-functie-voor-rapportage">Complete Functie voor Rapportage</h2>
 
         <div class="code-box">
             <pre><code>rapporteer_met_ci <- function(x, var_name = "Variable", conf_level = 0.95) {
@@ -342,7 +342,7 @@ rapporteer_met_ci(data_wave1$W1_Relstress1_Gem,
         </div>
 
         <div class="summary-box">
-            <h3>Samenvattend</h3>
+            <h3 id="samenvattend">Samenvattend</h3>
             <ul>
                 <li><strong>95% BI:</strong> Bereik waarbinnen populatieparameter waarschijnlijk ligt</li>
                 <li><strong>Formule:</strong> M ± t × SE (waarbij SE = SD/√n)</li>

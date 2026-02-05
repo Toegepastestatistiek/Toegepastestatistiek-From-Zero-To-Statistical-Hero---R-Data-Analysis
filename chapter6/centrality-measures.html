@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 
 <head>
@@ -47,7 +47,7 @@
 
             <h2 id="mode">Modus: De Meest Voorkomende Waarde</h2>
 
-            <h3>Definitie</h3>
+            <h3 id="definitie">Definitie</h3>
             <p>De <strong>modus</strong> is de waarde of categorie die het vaakst voorkomt in de dataset. Dit is de
                 enige
                 centraliteitsmaat die bruikbaar is voor <strong>nominale</strong> variabelen.</p>
@@ -62,7 +62,7 @@
                 </ul>
             </div>
 
-            <h3>Praktijkvoorbeeld: Relatiestatus</h3>
+            <h3 id="praktijkvoorbeeld-relatiestatus">Praktijkvoorbeeld: Relatiestatus</h3>
             <div class="example-box">
                 <h4>Vraag: Hoeveel procent heeft een relatie?</h4>
                 <p><strong>Data:</strong> W1_Relatiestatus (0 = Nee, 1 = Ja)</p>
@@ -87,7 +87,7 @@
                 <p><strong>Modus = 1 (Ja)</strong> - Meeste respondenten hebben een relatie</p>
             </div>
 
-            <h3>R Code voor Modus</h3>
+            <h3 id="r-code-voor-modus">R Code voor Modus</h3>
             <div class="code-box">
                 <pre><code># Optie 1: Frequentietabel (visueel aflezen)
 table(data_wave1$W1_Relatiestatus, useNA = "always")
@@ -113,7 +113,7 @@ data_wave1 %>%
   arrange(desc(n))</code></pre>
             </div>
 
-            <h3>Bimodale Verdelingen</h3>
+            <h3 id="bimodale-verdelingen">Bimodale Verdelingen</h3>
             <div class="warning-box">
                 <p>Een verdeling kan <strong>twee modi</strong> hebben (bimodaal) als twee waarden even vaak voorkomen.
                     Dit
@@ -123,7 +123,7 @@ data_wave1 %>%
 
             <h2 id="median">Mediaan: De Middelste Waarde</h2>
 
-            <h3>Definitie</h3>
+            <h3 id="definitie">Definitie</h3>
             <p>De <strong>mediaan</strong> is de waarde waarboven en waaronder precies evenveel observaties liggen. Dit
                 is
                 het 50e percentiel (P50 of Q2).</p>
@@ -138,7 +138,7 @@ data_wave1 %>%
                 </ul>
             </div>
 
-            <h3>Handmatige Berekening</h3>
+            <h3 id="handmatige-berekening">Handmatige Berekening</h3>
             <div class="example-box">
                 <h4>Voorbeeld: Opleidingsniveau van 9 respondenten</h4>
                 <p><strong>Ruwe data:</strong> 2, 1, 3, 1, 2, 3, 1, 2, 3</p>
@@ -154,7 +154,7 @@ data_wave1 %>%
                 <p><strong>Mediaan = (2 + 2) / 2 = 2</strong> (gemiddelde van positie 5 en 6)</p>
             </div>
 
-            <h3>R Code voor Mediaan</h3>
+            <h3 id="r-code-voor-mediaan">R Code voor Mediaan</h3>
             <div class="code-box">
                 <pre><code># Mediaan berekenen
 mediaan <- median(data_wave1$W1_Diploma, na.rm = TRUE)
@@ -179,7 +179,7 @@ if (n %% 2 == 1) {
 }</code></pre>
             </div>
 
-            <h3>Kwartielen en Percentielen</h3>
+            <h3 id="kwartielen-en-percentielen">Kwartielen en Percentielen</h3>
             <div class="info-box">
                 <p><strong>Kwartielen</strong> verdelen data in 4 gelijke delen:</p>
                 <ul>
@@ -190,7 +190,7 @@ if (n %% 2 == 1) {
                 <p><strong>Percentielen</strong> verdelen data in 100 gelijke delen (P1 t/m P99)</p>
             </div>
 
-            <h3>Wanneer Mediaan Gebruiken?</h3>
+            <h3 id="wanneer-mediaan-gebruiken">Wanneer Mediaan Gebruiken?</h3>
             <div class="example-box">
                 <h4>✅ Mediaan is beter dan gemiddelde bij:</h4>
                 <ul>
@@ -209,7 +209,7 @@ if (n %% 2 == 1) {
 
             <h2 id="mean">Gemiddelde: De Rekenkundige Balans</h2>
 
-            <h3>Definitie</h3>
+            <h3 id="definitie">Definitie</h3>
             <p>Het <strong>gemiddelde</strong> (mean) is de som van alle waarden gedeeld door het aantal waarden.
                 Dit is
                 het
@@ -227,7 +227,7 @@ if (n %% 2 == 1) {
                     categorieën)</p>
             </div>
 
-            <h3>Formule en Berekening</h3>
+            <h3 id="formule-en-berekening">Formule en Berekening</h3>
             <div class="formula-box">
                 <p><strong>Steekproefgemiddelde:</strong></p>
                 <p class="math-formula">x̄ = (1/n) × Σ(x<sub>i</sub>) = (x₁ + x₂ + ... + x<sub>n</sub>) / n</p>
@@ -238,7 +238,7 @@ if (n %% 2 == 1) {
                 <p>x̄ = (2.5 + 3.0 + 3.5 + 4.0 + 2.0) / 5 = 15.0 / 5 = <strong>3.0</strong></p>
             </div>
 
-            <h3>R Code voor Gemiddelde</h3>
+            <h3 id="r-code-voor-gemiddelde">R Code voor Gemiddelde</h3>
             <div class="code-box">
                 <pre><code># Gemiddelde berekenen
 gemiddelde <- mean(data_wave1$W1_Relstress1_Gem, na.rm = TRUE)
@@ -256,7 +256,7 @@ gemiddelde_handmatig <- som / n
 all.equal(gemiddelde, gemiddelde_handmatig)  # Should be TRUE</code></pre>
             </div>
 
-            <h3>Eigenschappen van het Gemiddelde</h3>
+            <h3 id="eigenschappen-van-het-gemiddelde">Eigenschappen van het Gemiddelde</h3>
             <div class="properties-box">
                 <h4>1. Gevoelig voor Uitschieters</h4>
                 <p>Één extreme waarde kan het gemiddelde sterk beïnvloeden.</p>
@@ -278,7 +278,7 @@ all.equal(gemiddelde, gemiddelde_handmatig)  # Should be TRUE</code></pre>
 
             <h2 id="comparison">Modus vs. Mediaan vs. Gemiddelde</h2>
 
-            <h3>Vergelijkingstabel</h3>
+            <h3 id="vergelijkingstabel">Vergelijkingstabel</h3>
             <table class="comparison-table">
                 <tr>
                     <th>Eigenschap</th>
@@ -324,7 +324,7 @@ all.equal(gemiddelde, gemiddelde_handmatig)  # Should be TRUE</code></pre>
                 </tr>
             </table>
 
-            <h3>Keuze Beslisschema</h3>
+            <h3 id="keuze-beslisschema">Keuze Beslisschema</h3>
             <div class="decision-tree">
                 <h4>Welke centraliteitsmaat gebruiken?</h4>
                 <ol>
@@ -355,7 +355,7 @@ all.equal(gemiddelde, gemiddelde_handmatig)  # Should be TRUE</code></pre>
                 </ol>
             </div>
 
-            <h3>Praktijkvoorbeelden per Type</h3>
+            <h3 id="praktijkvoorbeelden-per-type">Praktijkvoorbeelden per Type</h3>
             <div class="example-grid">
                 <div class="example-card">
                     <h4>Gebruik MODUS</h4>
@@ -391,42 +391,42 @@ all.equal(gemiddelde, gemiddelde_handmatig)  # Should be TRUE</code></pre>
                 </div>
             </div>
 
-            <h2>Relatie bij Verschillende Verdelingen</h2>
+            <h2 id="relatie-bij-verschillende-verdelingen">Relatie bij Verschillende Verdelingen</h2>
 
             <div class="distribution-box">
-                <h3>Symmetrische Verdeling (Normaal)</h3>
+                <h3 id="symmetrische-verdeling-normaal">Symmetrische Verdeling (Normaal)</h3>
                 <p><strong>Modus = Mediaan = Gemiddelde</strong></p>
                 <p>Bij een perfect symmetrische verdeling vallen alle drie centraliteitsmaten samen.</p>
 
-                <h3>Rechts-scheve Verdeling (Positief Scheef)</h3>
+                <h3 id="rechts-scheve-verdeling-positief-scheef">Rechts-scheve Verdeling (Positief Scheef)</h3>
                 <p><strong>Modus &lt; Mediaan &lt; Gemiddelde</strong></p>
                 <p>Voorbeeld: Inkomen - paar zeer hoge inkomens trekken gemiddelde omhoog</p>
 
-                <h3>Links-scheve Verdeling (Negatief Scheef)</h3>
+                <h3 id="links-scheve-verdeling-negatief-scheef">Links-scheve Verdeling (Negatief Scheef)</h3>
                 <p><strong>Gemiddelde &lt; Mediaan &lt; Modus</strong></p>
                 <p>Voorbeeld: Leeftijd bij overlijden - paar zeer jonge overlijdens trekken gemiddelde omlaag</p>
             </div>
 
-            <h2>Veelgemaakte Fouten</h2>
+            <h2 id="veelgemaakte-fouten">Veelgemaakte Fouten</h2>
             <div class="mistakes-box">
-                <h3>❌ Fout 1: Gemiddelde van nominale variabelen</h3>
+                <h3 id="fout-1-gemiddelde-van-nominale-variabelen">❌ Fout 1: Gemiddelde van nominale variabelen</h3>
                 <p><strong>Verkeerd:</strong> mean(Geslacht) waar 0=Man, 1=Vrouw → 0.52</p>
                 <p><strong>Waarom fout?</strong> Geslacht heeft geen volgorde - "0.52" betekent niets!</p>
                 <p><strong>Correct:</strong> 48% man, 52% vrouw (Modus = Vrouw)</p>
 
-                <h3>❌ Fout 2: Gemiddelde bij sterke scheefheid</h3>
+                <h3 id="fout-2-gemiddelde-bij-sterke-scheefheid">❌ Fout 2: Gemiddelde bij sterke scheefheid</h3>
                 <p><strong>Verkeerd:</strong> Gemiddeld inkomen = €65,000 (terwijl mediaan = €35,000)</p>
                 <p><strong>Waarom misleidend?</strong> Paar miljonairs trekken gemiddelde omhoog</p>
                 <p><strong>Correct:</strong> Rapporteer mediaan bij scheve verdelingen</p>
 
-                <h3>❌ Fout 3: Mediaan van nominale variabelen</h3>
+                <h3 id="fout-3-mediaan-van-nominale-variabelen">❌ Fout 3: Mediaan van nominale variabelen</h3>
                 <p><strong>Verkeerd:</strong> median(Delicttype) waar 1=Diefstal, 2=Geweld, 3=Fraude</p>
                 <p><strong>Waarom fout?</strong> Geen natuurlijke volgorde - mediaan vereist ordinaal meetniveau!
                 </p>
                 <p><strong>Correct:</strong> Gebruik modus</p>
             </div>
 
-            <h2>R Code: Alle Centraliteitsmaten Tegelijk</h2>
+            <h2 id="r-code-alle-centraliteitsmaten-tegelijk">R Code: Alle Centraliteitsmaten Tegelijk</h2>
             <div class="code-box">
                 <pre><code># Voor metrische variabele - alle maten
 library(psych)
@@ -454,7 +454,7 @@ data_wave1 %>%
             </div>
 
             <div class="summary-box">
-                <h3>Samenvattend</h3>
+                <h3 id="samenvattend">Samenvattend</h3>
                 <ul>
                     <li><strong>Modus:</strong> Meest voorkomende waarde - voor alle meetniveaus</li>
                     <li><strong>Mediaan:</strong> Middelste waarde - robuust tegen uitschieters</li>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 
 <head>
@@ -45,7 +45,7 @@
 
         <h2 id="descriptives">Analyze → Descriptive Statistics → Descriptives</h2>
 
-        <h3>SPSS Menu</h3>
+        <h3 id="spss-menu">SPSS Menu</h3>
         <div class="example-box">
             <p><strong>SPSS stappen:</strong></p>
             <ol>
@@ -56,7 +56,7 @@
             </ol>
         </div>
 
-        <h3>R Equivalent</h3>
+        <h3 id="r-equivalent">R Equivalent</h3>
         <div class="code-box">
             <pre><code>library(psych)
 
@@ -93,7 +93,7 @@ data %>%
 
         <h2 id="frequencies">Analyze → Descriptive Statistics → Frequencies</h2>
 
-        <h3>SPSS Menu</h3>
+        <h3 id="spss-menu">SPSS Menu</h3>
         <div class="example-box">
             <p><strong>SPSS stappen:</strong></p>
             <ol>
@@ -105,7 +105,7 @@ data %>%
             </ol>
         </div>
 
-        <h3>R Equivalent</h3>
+        <h3 id="r-equivalent">R Equivalent</h3>
         <div class="code-box">
             <pre><code># Frequentietabel
 table(data$variabele)
@@ -132,7 +132,7 @@ ggplot(data, aes(x = variabele)) +
   theme_minimal()</code></pre>
         </div>
 
-        <h3>Vergelijkingstabel</h3>
+        <h3 id="vergelijkingstabel">Vergelijkingstabel</h3>
         <table class="alt-table">
             <tr>
                 <th>SPSS Output</th>
@@ -158,7 +158,7 @@ ggplot(data, aes(x = variabele)) +
 
         <h2 id="explore">Analyze → Descriptive Statistics → Explore</h2>
 
-        <h3>SPSS Menu</h3>
+        <h3 id="spss-menu">SPSS Menu</h3>
         <div class="example-box">
             <p><strong>SPSS stappen:</strong></p>
             <ol>
@@ -171,7 +171,7 @@ ggplot(data, aes(x = variabele)) +
             </ol>
         </div>
 
-        <h3>R Equivalent</h3>
+        <h3 id="r-equivalent">R Equivalent</h3>
         <div class="code-box">
             <pre><code>library(psych)
 library(ggplot2)
@@ -206,7 +206,7 @@ outliers <- boxplot.stats(data$variabele)$out
 cat("Uitschieters:", outliers)</code></pre>
         </div>
 
-        <h3>Per Groep (zoals Factor List in SPSS)</h3>
+        <h3 id="per-groep-zoals-factor-list-in-spss">Per Groep (zoals Factor List in SPSS)</h3>
         <div class="code-box">
             <pre><code># Beschrijvende statistieken per groep
 library(dplyr)
@@ -407,7 +407,7 @@ data %>%
             </ol>
         </div>
 
-        <h3>Veelgebruikte SPSS → R Vertalingen</h3>
+        <h3 id="veelgebruikte-spss-r-vertalingen">Veelgebruikte SPSS → R Vertalingen</h3>
         <table class="alt-table">
             <tr>
                 <th>SPSS Concept</th>
@@ -447,7 +447,7 @@ data %>%
             </tr>
         </table>
 
-        <h2>Volledige Workflow Vergelijking</h2>
+        <h2 id="volledige-workflow-vergelijking">Volledige Workflow Vergelijking</h2>
 
         <div class="example-box">
             <h4>Taak: Beschrijvende statistieken per geslacht voor 3 stressmaten</h4>
@@ -489,7 +489,7 @@ kable(results, digits = 2, caption = "Beschrijvende Statistieken per Geslacht")
         </div>
 
         <div class="summary-box">
-            <h3>Samenvattend</h3>
+            <h3 id="samenvattend">Samenvattend</h3>
             <ul>
                 <li><strong>SPSS Descriptives</strong> = R <code>psych::describe()</code></li>
                 <li><strong>SPSS Frequencies</strong> = R <code>table()</code> + <code>prop.table()</code></li>

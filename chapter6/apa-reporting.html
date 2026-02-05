@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 
 <head>
@@ -59,7 +59,7 @@
 
             <h2 id="descriptives">Beschrijvende Statistieken</h2>
 
-            <h3>Gemiddelde en Standaarddeviatie</h3>
+            <h3 id="gemiddelde-en-standaarddeviatie">Gemiddelde en Standaarddeviatie</h3>
             <div class="example-box">
                 <p><strong>Formaat:</strong> <em>M</em> = waarde, <em>SD</em> = waarde</p>
 
@@ -79,7 +79,7 @@
                 </ul>
             </div>
 
-            <h3>Met Betrouwbaarheidsintervallen</h3>
+            <h3 id="met-betrouwbaarheidsintervallen">Met Betrouwbaarheidsintervallen</h3>
             <div class="example-box">
                 <p><strong>Formaat:</strong> <em>M</em> = waarde, <em>SD</em> = waarde, 95% BI [ondergrens, bovengrens]
                 </p>
@@ -91,7 +91,7 @@
                 </ul>
             </div>
 
-            <h3>Mediaan en IQR (bij scheefheid)</h3>
+            <h3 id="mediaan-en-iqr-bij-scheefheid">Mediaan en IQR (bij scheefheid)</h3>
             <div class="example-box">
                 <p><strong>Formaat:</strong> <em>Mdn</em> = waarde, <em>IQR</em> = waarde</p>
 
@@ -168,7 +168,7 @@
 
             <h2 id="tables">Tabellen volgens APA</h2>
 
-            <h3>Basisstructuur</h3>
+            <h3 id="basisstructuur">Basisstructuur</h3>
             <div class="info-box">
                 <p><strong>APA Tabelregels:</strong></p>
                 <ul>
@@ -220,7 +220,7 @@
                     gemeten op 5-puntsschaal.</p>
             </div>
 
-            <h3>R Code voor APA Tabel</h3>
+            <h3 id="r-code-voor-apa-tabel">R Code voor APA Tabel</h3>
             <div class="code-box">
                 <pre><code>library(dplyr)
 library(knitr)
@@ -249,7 +249,7 @@ kable(apa_tabel,
 
             <h2 id="inline">Rapportage in Lopende Tekst</h2>
 
-            <h3>Enkelvoudige Resultaten</h3>
+            <h3 id="enkelvoudige-resultaten">Enkelvoudige Resultaten</h3>
             <div class="example-box">
                 <p><strong>Sjabloon:</strong> De gemiddelde [variabele] was <em>M</em> = [waarde], <em>SD</em> =
                     [waarde].
@@ -264,7 +264,7 @@ kable(apa_tabel,
                 </ul>
             </div>
 
-            <h3>Vergelijkingen tussen Groepen</h3>
+            <h3 id="vergelijkingen-tussen-groepen">Vergelijkingen tussen Groepen</h3>
             <div class="example-box">
                 <h4>Met t-toets:</h4>
                 <p>Mannen (<em>M</em> = 3.12, <em>SD</em> = 0.89) rapporteerden significant lagere relatiestress dan
@@ -280,7 +280,7 @@ kable(apa_tabel,
                 </p>
             </div>
 
-            <h3>Met Betrouwbaarheidsintervallen</h3>
+            <h3 id="met-betrouwbaarheidsintervallen">Met Betrouwbaarheidsintervallen</h3>
             <div class="example-box">
                 <p>Het verschil in relatiestress tussen mannen en vrouwen was <em>M</em><sub>verschil</sub> = 0.55, 95%
                     BI
@@ -289,7 +289,7 @@ kable(apa_tabel,
 
             <h2 id="common-stats">Veel Voorkomende Statistieken</h2>
 
-            <h3>1. Gemiddelde met SD</h3>
+            <h3 id="1-gemiddelde-met-sd">1. Gemiddelde met SD</h3>
             <div class="code-box">
                 <pre><code># R code
 m <- mean(x, na.rm = TRUE)
@@ -299,7 +299,7 @@ sd <- sd(x, na.rm = TRUE)
 # M = 3.45, SD = 0.82</code></pre>
             </div>
 
-            <h3>2. Correlatie</h3>
+            <h3 id="2-correlatie">2. Correlatie</h3>
             <div class="code-box">
                 <pre><code># R code
 cor.test(x, y)
@@ -308,7 +308,7 @@ cor.test(x, y)
 # r = .45, p = .003</code></pre>
             </div>
 
-            <h3>3. t-toets</h3>
+            <h3 id="3-t-toets">3. t-toets</h3>
             <div class="code-box">
                 <pre><code># R code
 t.test(x ~ groep, data = data)
@@ -317,7 +317,7 @@ t.test(x ~ groep, data = data)
 # t(148) = 3.21, p = .002</code></pre>
             </div>
 
-            <h3>4. Chi-kwadraat</h3>
+            <h3 id="4-chi-kwadraat">4. Chi-kwadraat</h3>
             <div class="code-box">
                 <pre><code># R code
 chisq.test(table(x, y))
@@ -352,7 +352,7 @@ chisq.test(table(x, y))
                         < .001.</p>
             </div>
 
-            <h2>APA Rapportage Functie in R</h2>
+            <h2 id="apa-rapportage-functie-in-r">APA Rapportage Functie in R</h2>
 
             <div class="code-box">
                 <pre><code>apa_rapporteer <- function(x, naam = "Variable", decimals = 2) {
@@ -381,7 +381,7 @@ apa_rapporteer(data_wave1$W1_Relstress1_Gem, "Relatiestress")
             </div>
 
             <div class="summary-box">
-                <h3>Samenvattend: APA Checklist</h3>
+                <h3 id="samenvattend-apa-checklist">Samenvattend: APA Checklist</h3>
                 <ul>
                     <li>✅ <strong>Cursief:</strong> M, SD, SE, p, t, F, r (niet: n, df, N)</li>
                     <li>✅ <strong>Spaties:</strong> M = 3.45 (niet M=3.45)</li>
