@@ -147,9 +147,10 @@ a:hover {
 }
 
 .module-description {
-  color: #555;
+  color: #2c3e50;
   line-height: 1.6;
   margin: 15px 0;
+  font-weight: 400;
 }
 
 .module-topics {
@@ -176,6 +177,34 @@ a:hover {
   padding-top: 15px;
 }
 
+/* === HEADER & NAVIGATION === */
+.site-header {
+  margin-bottom: 30px;
+}
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+.page-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 70vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
 /* === NAVIGATION === */
 .nav-bar {
   background-color: #5568d3;
@@ -186,6 +215,7 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(85, 104, 211, 0.3);
 }
 
 .nav-bar .logo {
@@ -208,11 +238,12 @@ a:hover {
 
 /* === BREADCRUMB === */
 .breadcrumb {
-  background-color: var(--light-bg);
+  background-color: #f8f9fa;
   padding: 10px 15px;
   border-radius: 5px;
   margin-bottom: 20px;
   font-size: 0.9em;
+  border: 1px solid #e0e0e0;
 }
 
 .breadcrumb a {
@@ -283,10 +314,13 @@ a:hover {
 /* Lead paragraph for introductions */
 .lead {
   font-size: 1.15em;
-  color: #555;
+  color: #2c3e50;
   line-height: 1.7;
   margin-bottom: 25px;
   font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 15px;
+  border-radius: 5px;
 }
 
 /* Key concept box - important conceptual information */
@@ -654,7 +688,8 @@ ul li::marker {
 }
 
 /* === INDEX PAGE SPECIFIC STYLES === */
-body {
+/* Background image only on index/home page */
+body.home-page {
   background-image: url('../27428-1.jpg');
   background-size: cover;
   background-attachment: fixed;
@@ -662,15 +697,21 @@ body {
   background-repeat: no-repeat;
 }
 
-body::before {
+body.home-page::before {
   content: '';
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   z-index: -1;
+}
+
+/* Ensure chapter pages have solid white background */
+body:not(.home-page) {
+  background-color: #ffffff;
+  background-image: none;
 }
 
 /* Hero section styling */
