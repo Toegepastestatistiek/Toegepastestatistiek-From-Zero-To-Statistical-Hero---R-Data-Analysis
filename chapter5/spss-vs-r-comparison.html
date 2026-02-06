@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPSS vs R Vergelijking - Variabele Manipulatie</title>
-    <link rel="stylesheet" href="../css/style.css?v=20260204">
+    <link rel="stylesheet" href="../css/style.css?v=20260205c">
     <script src="../js/site.js" defer></script>
 </head>
 
@@ -20,9 +20,9 @@
             </a>
             <nav class="primary-nav" aria-label="Hoofdnavigatie">
                 <a href="../index.html">Startpagina</a>
-                <a href="recoding-strategies.html">Recoding</a>
-                <a href="scale-construction-theory.html">Scale Theory</a>
-                <a href="operators-reference.html">Operators</a>
+                <a href="recoding-strategies.html">Hercoderen</a>
+                <a href="scale-construction-theory.html">Schaaltheorie</a>
+                <a href="operators-reference.html">Operatoren</a>
             </nav>
         </div>
 
@@ -40,35 +40,40 @@
             <h1>🔄 SPSS vs R: Variabele Manipulatie Vergelijking</h1>
         </header>
 
-        <p>Deze gids helpt SPSS-gebruikers om over te stappen naar R door directe vergelijkingen te tonen van
+        <p class="lead">Deze gids helpt SPSS-gebruikers om over te stappen naar R door directe vergelijkingen te tonen
+            van
             veelgebruikte
             bewerkingen.</p>
 
-        <aside class="info-box" role="note" aria-label="Informatie">
+        <div class="info-box">
             <strong>Voor SPSS-gebruikers:</strong> R kan ALLES wat SPSS kan, en veel meer! De syntaxis is anders, maar
             de
             logica is hetzelfde. Deze gids toont je exact hoe.
-        </aside>
+        </div>
 
         <hr>
 
-        <h2>1️⃣ Nieuwe Variabele Maken (COMPUTE)</h2>
+        <h2 id="1️-nieuwe-variabele-maken-compute">1️⃣ Nieuwe Variabele Maken (COMPUTE)</h2>
 
-        <h3>📊 SPSS Syntax</h3>
+        <h3 id="spss-syntax">📊 SPSS Syntax</h3>
 
-        <pre><code>COMPUTE leeftijd_maanden = leeftijd_jaren * 12.
+        <div class="code-box">
+            <pre><code>COMPUTE leeftijd_maanden = leeftijd_jaren * 12.
 EXECUTE.
 </code></pre>
+        </div>
 
-        <h3>📊 R Code</h3>
+        <h3 id="r-code">📊 R Code</h3>
 
-        <pre><code class="r-code">data <- data |>
+        <div class="code-box">
+            <pre><code class="r-code">data <- data |>
   dplyr::mutate(
     leeftijd_maanden = leeftijd_jaren * 12
   )
 </code></pre>
+        </div>
 
-        <h3>Kernverschillen</h3>
+        <h3 id="kernverschillen">Kernverschillen</h3>
 
         <table>
             <caption class="visually-hidden">Kernverschillen tussen SPSS COMPUTE en R mutate</caption>
@@ -105,17 +110,20 @@ EXECUTE.
 
         <hr>
 
-        <h2>2️⃣ Hercoderen naar Zelfde Variabele (RECODE)</h2>
+        <h2 id="2️-hercoderen-naar-zelfde-variabele-recode">2️⃣ Hercoderen naar Zelfde Variabele (RECODE)</h2>
 
-        <h3>📊 SPSS Syntax</h3>
+        <h3 id="spss-syntax">📊 SPSS Syntax</h3>
 
-        <pre><code>RECODE leeftijd (18 thru 25=1) (26 thru 40=2) (41 thru 65=3) (66 thru highest=4).
+        <div class="code-box">
+            <pre><code>RECODE leeftijd (18 thru 25=1) (26 thru 40=2) (41 thru 65=3) (66 thru highest=4).
 EXECUTE.
 </code></pre>
+        </div>
 
-        <h3>📊 R Code</h3>
+        <h3 id="r-code">📊 R Code</h3>
 
-        <pre><code class="r-code">data <- data |>
+        <div class="code-box">
+            <pre><code class="r-code">data <- data |>
   dplyr::mutate(
     leeftijd = dplyr::case_when(
       leeftijd >= 18 & leeftijd <= 25 ~ 1,
@@ -125,27 +133,31 @@ EXECUTE.
     )
   )
 </code></pre>
+        </div>
 
-        <aside class="warning-box" role="note" aria-label="Waarschuwing">
+        <div class="warning-box">
             <strong>Let op:</strong> In R <strong>overschrijf je de originele variabele</strong> als je dezelfde naam
             gebruikt!<br>
             In SPSS gebeurt dit ook met <code>RECODE</code>, maar in R is het explicieter.
-        </aside>
+        </div>
 
         <hr>
 
-        <h2>3️⃣ Hercoderen naar Nieuwe Variabele (RECODE INTO)</h2>
+        <h2 id="3️-hercoderen-naar-nieuwe-variabele-recode-into">3️⃣ Hercoderen naar Nieuwe Variabele (RECODE INTO)</h2>
 
-        <h3>📊 SPSS Syntax</h3>
+        <h3 id="spss-syntax">📊 SPSS Syntax</h3>
 
-        <pre><code>RECODE leeftijd (18 thru 25=1) (26 thru 40=2) (41 thru 65=3) (66 thru highest=4) 
+        <div class="code-box">
+            <pre><code>RECODE leeftijd (18 thru 25=1) (26 thru 40=2) (41 thru 65=3) (66 thru highest=4) 
   INTO leeftijd_cat.
 EXECUTE.
 </code></pre>
+        </div>
 
-        <h3>📊 R Code</h3>
+        <h3 id="r-code">📊 R Code</h3>
 
-        <pre><code class="r-code">data <- data |>
+        <div class="code-box">
+            <pre><code class="r-code">data <- data |>
   dplyr::mutate(
     leeftijd_cat = dplyr::case_when(
       leeftijd >= 18 & leeftijd <= 25 ~ 1,
@@ -155,27 +167,31 @@ EXECUTE.
     )
   )
 </code></pre>
+        </div>
 
-        <aside class="tip-box" role="note" aria-label="Tip">
+        <div class="tip-box">
             <strong>In R:</strong> Gebruik gewoon een <strong>nieuwe variabelenaam</strong> in <code>mutate()</code> -
             geen
             apart <code>INTO</code> commando nodig!
-        </aside>
+        </div>
 
         <hr>
 
-        <h2>4️⃣ Conditionele Bewerkingen (IF)</h2>
+        <h2 id="4️-conditionele-bewerkingen-if">4️⃣ Conditionele Bewerkingen (IF)</h2>
 
-        <h3>📊 SPSS Syntax</h3>
+        <h3 id="spss-syntax">📊 SPSS Syntax</h3>
 
-        <pre><code>IF (geslacht = 1) risico_cat = 'Hoog'.
+        <div class="code-box">
+            <pre><code>IF (geslacht = 1) risico_cat = 'Hoog'.
 IF (geslacht = 2) risico_cat = 'Laag'.
 EXECUTE.
 </code></pre>
+        </div>
 
-        <h3>📊 R Code (Methode 1: case_when)</h3>
+        <h3 id="r-code-methode-1-case_when">📊 R Code (Methode 1: case_when)</h3>
 
-        <pre><code class="r-code">data <- data |>
+        <div class="code-box">
+            <pre><code class="r-code">data <- data |>
   dplyr::mutate(
     risico_cat = dplyr::case_when(
       geslacht == 1 ~ "Hoog",
@@ -183,16 +199,19 @@ EXECUTE.
     )
   )
 </code></pre>
+        </div>
 
-        <h3>📊 R Code (Methode 2: ifelse)</h3>
+        <h3 id="r-code-methode-2-ifelse">📊 R Code (Methode 2: ifelse)</h3>
 
-        <pre><code class="r-code">data <- data |>
+        <div class="code-box">
+            <pre><code class="r-code">data <- data |>
   dplyr::mutate(
     risico_cat = ifelse(geslacht == 1, "Hoog", "Laag")
   )
 </code></pre>
+        </div>
 
-        <h3>Welke Methode Kiezen?</h3>
+        <h3 id="welke-methode-kiezen">Welke Methode Kiezen?</h3>
 
         <table>
             <caption class="visually-hidden">Wanneer ifelse versus case_when te gebruiken</caption>
@@ -224,17 +243,20 @@ EXECUTE.
 
         <hr>
 
-        <h2>5️⃣ Schaalvariabele Maken (MEAN, SUM)</h2>
+        <h2 id="5️-schaalvariabele-maken-mean-sum">5️⃣ Schaalvariabele Maken (MEAN, SUM)</h2>
 
-        <h3>📊 SPSS Syntax: Mean van Items</h3>
+        <h3 id="spss-syntax-mean-van-items">📊 SPSS Syntax: Mean van Items</h3>
 
-        <pre><code>COMPUTE stress_gem = MEAN(stress1, stress2, stress3, stress4).
+        <div class="code-box">
+            <pre><code>COMPUTE stress_gem = MEAN(stress1, stress2, stress3, stress4).
 EXECUTE.
 </code></pre>
+        </div>
 
-        <h3>📊 R Code: Mean van Items</h3>
+        <h3 id="r-code-mean-van-items">📊 R Code: Mean van Items</h3>
 
-        <pre><code class="r-code">data <- data |>
+        <div class="code-box">
+            <pre><code class="r-code">data <- data |>
   dplyr::mutate(
     stress_gem = rowMeans(
       dplyr::select(., stress1, stress2, stress3, stress4),
@@ -242,16 +264,20 @@ EXECUTE.
     )
   )
 </code></pre>
+        </div>
 
-        <h3>📊 SPSS Syntax: Sum van Items</h3>
+        <h3 id="spss-syntax-sum-van-items">📊 SPSS Syntax: Sum van Items</h3>
 
-        <pre><code>COMPUTE stress_som = SUM(stress1, stress2, stress3, stress4).
+        <div class="code-box">
+            <pre><code>COMPUTE stress_som = SUM(stress1, stress2, stress3, stress4).
 EXECUTE.
 </code></pre>
+        </div>
 
-        <h3>📊 R Code: Sum van Items</h3>
+        <h3 id="r-code-sum-van-items">📊 R Code: Sum van Items</h3>
 
-        <pre><code class="r-code">data <- data |>
+        <div class="code-box">
+            <pre><code class="r-code">data <- data |>
   dplyr::mutate(
     stress_som = rowSums(
       dplyr::select(., stress1, stress2, stress3, stress4),
@@ -259,8 +285,9 @@ EXECUTE.
     )
   )
 </code></pre>
+        </div>
 
-        <h3>Missing Values Afhandeling</h3>
+        <h3 id="missing-values-afhandeling">Missing Values Afhandeling</h3>
 
         <table>
             <thead>
@@ -289,50 +316,57 @@ EXECUTE.
             </tbody>
         </table>
 
-        <aside class="info-box" role="note" aria-label="Informatie">
+        <div class="info-box">
             <strong>R Voordeel:</strong> <code>na.rm = FALSE</code> geeft <code>NA</code> als één item missing is
             (striktere
             controle!).<br>
             SPSS berekent vaak mean/sum met missing waarden zonder waarschuwing.
-        </aside>
+        </div>
 
         <hr>
 
-        <h2>6️⃣ Reverse Coding</h2>
+        <h2 id="6️-reverse-coding">6️⃣ Reverse Coding</h2>
 
-        <h3>📊 SPSS Syntax</h3>
+        <h3 id="spss-syntax">📊 SPSS Syntax</h3>
 
-        <pre><code>COMPUTE item2_rev = 6 - item2.
+        <div class="code-box">
+            <pre><code>COMPUTE item2_rev = 6 - item2.
 EXECUTE.
 </code></pre>
+        </div>
 
-        <h3>📊 R Code</h3>
+        <h3 id="r-code">📊 R Code</h3>
 
-        <pre><code class="r-code">data <- data |>
+        <div class="code-box">
+            <pre><code class="r-code">data <- data |>
   dplyr::mutate(
     item2_rev = 6 - item2
   )
 </code></pre>
+        </div>
 
-        <aside class="tip-box" role="note" aria-label="Tip">
+        <div class="tip-box">
             <strong>Identiek!</strong> De formule <code>(Max + Min) - Oude waarde</code> werkt hetzelfde in beide
             programma's.<br>
             Voor 5-puntsschaal: <code>6 - item</code> (want 5+1=6)
-        </aside>
+        </div>
 
         <hr>
 
-        <h2>7️⃣ Tellen van Voorkomens (COUNT)</h2>
+        <h2 id="7️-tellen-van-voorkomens-count">7️⃣ Tellen van Voorkomens (COUNT)</h2>
 
-        <h3>📊 SPSS Syntax</h3>
+        <h3 id="spss-syntax">📊 SPSS Syntax</h3>
 
-        <pre><code>COUNT slachtoffer_totaal = victim1 victim2 victim3 victim4 (1).
+        <div class="code-box">
+            <pre><code>COUNT slachtoffer_totaal = victim1 victim2 victim3 victim4 (1).
 EXECUTE.
 </code></pre>
+        </div>
 
-        <h3>📊 R Code</h3>
+        <h3 id="r-code">📊 R Code</h3>
 
-        <pre><code class="r-code">data <- data |>
+        <div class="code-box">
+            <pre><code class="r-code">data <- data |>
   dplyr::mutate(
     slachtoffer_totaal = rowSums(
       dplyr::select(., victim1, victim2, victim3, victim4) == 1,
@@ -340,8 +374,9 @@ EXECUTE.
     )
   )
 </code></pre>
+        </div>
 
-        <h3>Logica Uitgelegd</h3>
+        <h3 id="logica-uitgelegd">Logica Uitgelegd</h3>
 
         <table>
             <caption class="visually-hidden">Stapsgewijze uitleg van COUNT logica in R</caption>
@@ -373,19 +408,23 @@ EXECUTE.
 
         <hr>
 
-        <h2>8️⃣ Selecteren van Cases (SELECT IF, FILTER)</h2>
+        <h2 id="8️-selecteren-van-cases-select-if-filter">8️⃣ Selecteren van Cases (SELECT IF, FILTER)</h2>
 
-        <h3>📊 SPSS Syntax: SELECT IF</h3>
+        <h3 id="spss-syntax-select-if">📊 SPSS Syntax: SELECT IF</h3>
 
-        <pre><code>SELECT IF (leeftijd >= 18).
+        <div class="code-box">
+            <pre><code>SELECT IF (leeftijd >= 18).
 EXECUTE.
 </code></pre>
+        </div>
 
-        <h3>📊 R Code: filter()</h3>
+        <h3 id="r-code-filter">📊 R Code: filter()</h3>
 
-        <pre><code class="r-code">data <- data |>
+        <div class="code-box">
+            <pre><code class="r-code">data <- data |>
   dplyr::filter(leeftijd >= 18)
 </code></pre>
+        </div>
 
         <div class="warning-box">
             <strong>VERSCHIL:</strong><br>
@@ -393,37 +432,44 @@ EXECUTE.
             - <strong>R filter():</strong> Creëert nieuwe dataset, origineel blijft intact (tenzij je overschrijft)
         </div>
 
-        <h3>Veilige Filtering in R</h3>
+        <h3 id="veilige-filtering-in-r">Veilige Filtering in R</h3>
 
-        <pre><code class="r-code"># Maak NIEUWE dataset (origineel blijft intact)
+        <div class="code-box">
+            <pre><code class="r-code"># Maak NIEUWE dataset (origineel blijft intact)
 data_volwassenen <- data |>
   dplyr::filter(leeftijd >= 18)
 
 # Originele 'data' nog steeds beschikbaar met alle leeftijden!
 </code></pre>
+        </div>
 
         <hr>
 
-        <h2>9️⃣ Groeperen en Aggregeren (AGGREGATE)</h2>
+        <h2 id="9️-groeperen-en-aggregeren-aggregate">9️⃣ Groeperen en Aggregeren (AGGREGATE)</h2>
 
-        <h3>📊 SPSS Syntax</h3>
+        <h3 id="spss-syntax">📊 SPSS Syntax</h3>
 
-        <pre><code>AGGREGATE OUTFILE=* MODE=ADDVARIABLES
+        <div class="code-box">
+            <pre><code>AGGREGATE OUTFILE=* MODE=ADDVARIABLES
   /BREAK=buurt_id
   /gem_inkomen=MEAN(inkomen).
 </code></pre>
+        </div>
 
-        <h3>📊 R Code</h3>
+        <h3 id="r-code">📊 R Code</h3>
 
-        <pre><code class="r-code">data <- data |>
+        <div class="code-box">
+            <pre><code class="r-code">data <- data |>
   dplyr::group_by(buurt_id) |>
   dplyr::mutate(gem_inkomen = mean(inkomen, na.rm = TRUE)) |>
   dplyr::ungroup()
 </code></pre>
+        </div>
 
-        <h3>Alternatief: Aparte Aggregatie Tabel</h3>
+        <h3 id="alternatief-aparte-aggregatie-tabel">Alternatief: Aparte Aggregatie Tabel</h3>
 
-        <pre><code class="r-code"># Maak aparte tabel met gemiddeldes per buurt
+        <div class="code-box">
+            <pre><code class="r-code"># Maak aparte tabel met gemiddeldes per buurt
 buurt_stats <- data |>
   dplyr::group_by(buurt_id) |>
   dplyr::summarise(gem_inkomen = mean(inkomen, na.rm = TRUE))
@@ -432,19 +478,23 @@ buurt_stats <- data |>
 data <- data |>
   dplyr::left_join(buurt_stats, by = "buurt_id")
 </code></pre>
+        </div>
 
         <hr>
 
-        <h2>🔟 Crosstabs en Descriptives</h2>
+        <h2 id="crosstabs-en-descriptives">🔟 Crosstabs en Descriptives</h2>
 
-        <h3>📊 SPSS: CROSSTABS</h3>
+        <h3 id="spss-crosstabs">📊 SPSS: CROSSTABS</h3>
 
-        <pre><code>CROSSTABS /TABLES=geslacht BY slachtoffer.
+        <div class="code-box">
+            <pre><code>CROSSTABS /TABLES=geslacht BY slachtoffer.
 </code></pre>
+        </div>
 
-        <h3>📊 R: table() of xtabs()</h3>
+        <h3 id="r-table-of-xtabs">📊 R: table() of xtabs()</h3>
 
-        <pre><code class="r-code"># Simpele kruistabel
+        <div class="code-box">
+            <pre><code class="r-code"># Simpele kruistabel
 table(data$geslacht, data$slachtoffer)
 
 # Met proporties
@@ -453,24 +503,29 @@ prop.table(table(data$geslacht, data$slachtoffer))
 # Mooiere output
 janitor::tabyl(data, geslacht, slachtoffer)
 </code></pre>
+        </div>
 
-        <h3>📊 SPSS: DESCRIPTIVES</h3>
+        <h3 id="spss-descriptives">📊 SPSS: DESCRIPTIVES</h3>
 
-        <pre><code>DESCRIPTIVES VARIABLES=leeftijd inkomen.
+        <div class="code-box">
+            <pre><code>DESCRIPTIVES VARIABLES=leeftijd inkomen.
 </code></pre>
+        </div>
 
-        <h3>📊 R: summary() of describe()</h3>
+        <h3 id="r-summary-of-describe">📊 R: summary() of describe()</h3>
 
-        <pre><code class="r-code"># Base R
+        <div class="code-box">
+            <pre><code class="r-code"># Base R
 summary(data |> select(leeftijd, inkomen))
 
 # Meer gedetailleerd (psych package)
 psych::describe(data |> select(leeftijd, inkomen))
 </code></pre>
+        </div>
 
         <hr>
 
-        <h2>Algemene Syntaxverschillen</h2>
+        <h2 id="algemene-syntaxverschillen">Algemene Syntaxverschillen</h2>
 
         <table>
             <thead>
@@ -536,7 +591,7 @@ psych::describe(data |> select(leeftijd, inkomen))
 
         <hr>
 
-        <h2>Belangrijkste Voordelen van R</h2>
+        <h2 id="belangrijkste-voordelen-van-r">Belangrijkste Voordelen van R</h2>
 
         <div class="tip-box">
             <h4>✅ Waarom R Beter Is:</h4>
@@ -554,7 +609,7 @@ psych::describe(data |> select(leeftijd, inkomen))
 
         <hr>
 
-        <h2>Snelle Conversie Tabel</h2>
+        <h2 id="snelle-conversie-tabel">Snelle Conversie Tabel</h2>
 
         <table>
             <thead>
@@ -620,15 +675,16 @@ psych::describe(data |> select(leeftijd, inkomen))
 
         <hr>
 
-        <h2>Praktisch Voorbeeld: Complete Workflow</h2>
+        <h2 id="praktisch-voorbeeld-complete-workflow">Praktisch Voorbeeld: Complete Workflow</h2>
 
-        <h3>Dezelfde Analyse in SPSS en R</h3>
+        <h3 id="dezelfde-analyse-in-spss-en-r">Dezelfde Analyse in SPSS en R</h3>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
 
             <div>
                 <h4>📊 SPSS Versie</h4>
-                <pre><code>* Selecteer volwassenen
+                <div class="code-box">
+                    <pre><code>* Selecteer volwassenen
 SELECT IF (leeftijd >= 18).
 
 * Maak leeftijdscategorie
@@ -649,11 +705,13 @@ DESCRIPTIVES VARIABLES=stress_gem.
 * Kruistabel
 CROSSTABS /TABLES=leeftijd_cat BY stress_niveau.
 </code></pre>
+                </div>
             </div>
 
             <div>
                 <h4>📊 R Versie</h4>
-                <pre><code class="r-code"># Complete workflow in 1 pipe
+                <div class="code-box">
+                    <pre><code class="r-code"># Complete workflow in 1 pipe
 data_analyzed <- data |>
   # Selecteer volwassenen
   dplyr::filter(leeftijd >= 18) |>
@@ -686,20 +744,21 @@ summary(data_analyzed$stress_gem)
 # Kruistabel
 table(data_analyzed$leeftijd_cat, data_analyzed$stress_niveau)
 </code></pre>
+                </div>
             </div>
 
         </div>
 
-        <aside class="info-box" role="note" aria-label="Informatie">
+        <div class="info-box">
             <strong>R Voordeel:</strong> Alle stappen in <strong>één logische flow</strong> met pipe
             <code>|></code>!<br>
             SPSS vereist meerdere aparte commando's met <code>EXECUTE.</code> tussendoor.
-        </aside>
+        </div>
 
         <hr>
 
         <div class="related-pages">
-            <h3>📚 Gerelateerde Pagina's</h3>
+            <h3 id="gerelateerde-paginas">📚 Gerelateerde Pagina's</h3>
             <ul>
                 <li><a href="operators-reference.html">Operators Reference</a> - Alle R operators in detail</li>
                 <li><a href="recoding-strategies.html">Hercoderingsstrategieën</a> - Best practices voor hercoderen</li>

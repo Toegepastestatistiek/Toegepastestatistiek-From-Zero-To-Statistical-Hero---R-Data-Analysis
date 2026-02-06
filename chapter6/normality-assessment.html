@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Normaliteit Beoordelen - Hoofdstuk 6</title>
-    <link rel="stylesheet" href="../css/style.css?v=20260204">
+    <link rel="stylesheet" href="../css/style.css?v=20260205c">
     <script src="../js/site.js" defer></script>
 </head>
 
@@ -71,7 +71,7 @@ Scheefheid < 0            Scheefheid ≈ 0          Scheefheid > 0
             </pre>
         </div>
 
-        <h3>R Code</h3>
+        <h3 id="r-code">R Code</h3>
         <div class="code-box">
             <pre><code>library(psych)
 
@@ -110,7 +110,7 @@ hist(data_wave1$W1_Relstress1_Gem,
             <p><strong>Vuistregel:</strong> |Kurtosis| < 1 is acceptabel voor normale verdeling</p>
         </div>
 
-        <h3>R Code</h3>
+        <h3 id="r-code">R Code</h3>
         <div class="code-box">
             <pre><code># Kurtosis berekenen
 kurtosis <- psych::kurtosi(data_wave1$W1_Relstress1_Gem, na.rm = TRUE)
@@ -128,7 +128,7 @@ if (kurtosis > 1) {
 
         <h2 id="tests">Normaliteitstesten</h2>
 
-        <h3>Shapiro-Wilk Test</h3>
+        <h3 id="shapiro-wilk-test">Shapiro-Wilk Test</h3>
         <p>De meest gebruikte test voor normaliteit.</p>
 
         <div class="info-box">
@@ -163,7 +163,7 @@ if (nrow(data_wave1) > 5000) {
             </p>
         </div>
 
-        <h3>Q-Q Plot (Quantile-Quantile Plot)</h3>
+        <h3 id="q-q-plot-quantile-quantile-plot">Q-Q Plot (Quantile-Quantile Plot)</h3>
         <p>Visuele methode om normaliteit te beoordelen.</p>
 
         <div class="code-box">
@@ -180,7 +180,7 @@ qqline(data_wave1$W1_Relstress1_Gem, col = "red", lwd = 2)
 
         <h2 id="solutions">Oplossingen bij Niet-Normaliteit</h2>
 
-        <h3>Optie 1: Data Transformatie</h3>
+        <h3 id="optie-1-data-transformatie">Optie 1: Data Transformatie</h3>
         <div class="example-box">
             <h4>Veelgebruikte Transformaties:</h4>
             <ul>
@@ -196,7 +196,7 @@ qqline(data_wave1$W1_Relstress1_Gem, col = "red", lwd = 2)
             </ul>
         </div>
 
-        <h3>Optie 2: Non-Parametrische Testen</h3>
+        <h3 id="optie-2-non-parametrische-testen">Optie 2: Non-Parametrische Testen</h3>
         <table class="alt-table">
             <tr>
                 <th>Parametrische Test</th>
@@ -216,7 +216,7 @@ qqline(data_wave1$W1_Relstress1_Gem, col = "red", lwd = 2)
             </tr>
         </table>
 
-        <h3>Optie 3: Robuuste Methoden</h3>
+        <h3 id="optie-3-robuuste-methoden">Optie 3: Robuuste Methoden</h3>
         <p>Gebruik mediaan en IQR in plaats van gemiddelde en SD bij scheefheid.</p>
 
         <div class="code-box">
@@ -229,7 +229,7 @@ median(data$inkomen)
 IQR(data$inkomen)</code></pre>
         </div>
 
-        <h2>Complete Normaliteitscheck</h2>
+        <h2 id="complete-normaliteitscheck">Complete Normaliteitscheck</h2>
         <div class="code-box">
             <pre><code>normaliteitscheck <- function(x, var_name = "Variable") {
   cat("\n=== Normaliteitscheck:", var_name, "===\n\n")
@@ -277,7 +277,7 @@ normaliteitscheck(data_wave1$W1_Relstress1_Gem, "Relatiestress")</code></pre>
         </div>
 
         <div class="summary-box">
-            <h3>Samenvattend</h3>
+            <h3 id="samenvattend">Samenvattend</h3>
             <ul>
                 <li><strong>Scheefheid:</strong> Meet asymmetrie (|scheef| < 1 is acceptabel)</li>
                 <li><strong>Kurtosis:</strong> Meet gepuntheid (|kurt| < 1 is acceptabel)</li>

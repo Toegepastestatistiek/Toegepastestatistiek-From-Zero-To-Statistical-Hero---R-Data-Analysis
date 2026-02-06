@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R Operators Naslaggids</title>
-    <link rel="stylesheet" href="../css/style.css?v=20260204">
+    <link rel="stylesheet" href="../css/style.css?v=20260205c">
     <script src="../js/site.js" defer></script>
 </head>
 
@@ -19,7 +19,7 @@
             </a>
             <nav class="primary-nav" aria-label="Hoofdnavigatie">
                 <a href="../index.html">Startpagina</a>
-                <a href="scale-construction-theory.html">Scale Theory</a>
+                <a href="scale-construction-theory.html">Schaaltheorie</a>
                 <a href="cronbach-alpha-explained.html">Cronbach's Alpha</a>
                 <a href="spss-vs-r-comparison.html">SPSS vs R</a>
             </nav>
@@ -39,13 +39,14 @@
             <h1>🔧 R Operators: Volledige Naslaggids</h1>
         </header>
 
-        <p>In R zijn <strong>operators</strong> speciale symbolen die bewerkingen uitvoeren op variabelen en waarden.
+        <p class="lead">In R zijn <strong>operators</strong> speciale symbolen die bewerkingen uitvoeren op variabelen
+            en waarden.
             Deze
             gids behandelt alle operators die je nodig hebt voor variabele manipulatie.</p>
 
         <hr>
 
-        <h2>1️⃣ Rekenkundige Operators (Arithmetic)</h2>
+        <h2 id="1️-rekenkundige-operators-arithmetic">1️⃣ Rekenkundige Operators (Arithmetic)</h2>
 
         <p>Voor wiskundige bewerkingen op numerieke variabelen.</p>
 
@@ -105,9 +106,10 @@
             </tbody>
         </table>
 
-        <h3>Praktijkvoorbeelden</h3>
+        <h3 id="praktijkvoorbeelden">Praktijkvoorbeelden</h3>
 
-        <pre><code class="r-code"># BMI berekenen
+        <div class="code-box">
+            <pre><code class="r-code"># BMI berekenen
 data <- data |>
   dplyr::mutate(
     BMI = gewicht_kg / (lengte_meter ^ 2)
@@ -125,10 +127,11 @@ data <- data |>
     percentage_correct = (aantal_correct / totaal_vragen) * 100
   )
 </code></pre>
+        </div>
 
         <hr>
 
-        <h2>2️⃣ Vergelijkingsoperators (Relational)</h2>
+        <h2 id="2️-vergelijkingsoperators-relational">2️⃣ Vergelijkingsoperators (Relational)</h2>
 
         <p>Voor het vergelijken van waarden. Resulteren altijd in <code>TRUE</code> of <code>FALSE</code>.</p>
 
@@ -188,15 +191,16 @@ data <- data |>
             </tbody>
         </table>
 
-        <aside class="warning-box" role="note" aria-label="Waarschuwing">
+        <div class="warning-box">
             <strong>LET OP:</strong> Gebruik <code>==</code> (dubbel is-teken) voor vergelijking, NIET <code>=</code>
             (enkele)!<br>
             <code>=</code> wordt gebruikt voor toewijzing (zoals <code>&lt;-</code>)
-        </aside>
+        </div>
 
-        <h3>Praktijkvoorbeelden</h3>
+        <h3 id="praktijkvoorbeelden">Praktijkvoorbeelden</h3>
 
-        <pre><code class="r-code"># Leeftijdscategorieën maken
+        <div class="code-box">
+            <pre><code class="r-code"># Leeftijdscategorieën maken
 data <- data |>
   dplyr::mutate(
     leeftijd_cat = dplyr::case_when(
@@ -224,10 +228,11 @@ data <- data |>
     )
   )
 </code></pre>
+        </div>
 
         <hr>
 
-        <h2>3️⃣ Logische Operators (Logical)</h2>
+        <h2 id="3️-logische-operators-logical">3️⃣ Logische Operators (Logical)</h2>
 
         <p>Voor het combineren van meerdere voorwaarden.</p>
 
@@ -269,7 +274,7 @@ data <- data |>
             </tbody>
         </table>
 
-        <h3>Waarscheidstabellen</h3>
+        <h3 id="waarscheidstabellen">Waarscheidstabellen</h3>
 
         <table>
             <caption class="visually-hidden">Waarscheidstabel voor logische operators</caption>
@@ -314,9 +319,10 @@ data <- data |>
             </tbody>
         </table>
 
-        <h3>Praktijkvoorbeelden</h3>
+        <h3 id="praktijkvoorbeelden">Praktijkvoorbeelden</h3>
 
-        <pre><code class="r-code"># Meerdere voorwaarden: BEIDE waar (&)
+        <div class="code-box">
+            <pre><code class="r-code"># Meerdere voorwaarden: BEIDE waar (&)
 data <- data |>
   dplyr::mutate(
     jongvolwassen_misdadiger = dplyr::case_when(
@@ -353,15 +359,16 @@ data <- data |>
     )
   )
 </code></pre>
+        </div>
 
-        <aside class="tip-box" role="note" aria-label="Tip">
+        <div class="tip-box">
             <strong>Tip:</strong> Gebruik haakjes <code>()</code> om de volgorde van evaluatie duidelijk te maken!<br>
             <code>(A & B) | C</code> is NIET hetzelfde als <code>A & (B | C)</code>
-        </aside>
+        </div>
 
         <hr>
 
-        <h2>4️⃣ Toewijzingsoperators (Assignment)</h2>
+        <h2 id="4️-toewijzingsoperators-assignment">4️⃣ Toewijzingsoperators (Assignment)</h2>
 
         <p>Voor het toewijzen van waarden aan variabelen.</p>
 
@@ -403,13 +410,14 @@ data <- data |>
             </tbody>
         </table>
 
-        <aside class="info-box" role="note" aria-label="Informatie">
+        <div class="info-box">
             <strong>Beste praktijk:</strong> Gebruik <code>&lt;-</code> voor toewijzingen aan objecten, en
             <code>=</code>
             voor argumenten binnen functies.
-        </aside>
+        </div>
 
-        <pre><code class="r-code"># GOED: <- voor objecten
+        <div class="code-box">
+            <pre><code class="r-code"># GOED: <- voor objecten
 data_subset <- data |> dplyr::filter(leeftijd > 18)
 
 # GOED: = voor functie-argumenten
@@ -418,12 +426,13 @@ gemiddelde <- mean(data$leeftijd, na.rm = TRUE)
 # NIET AANBEVOLEN: rechts toewijzen
 10 -> x  # Werkt, maar verwarrend
 </code></pre>
+        </div>
 
         <hr>
 
-        <h2>5️⃣ Speciale Operators voor Data Manipulatie</h2>
+        <h2 id="5️-speciale-operators-voor-data-manipulatie">5️⃣ Speciale Operators voor Data Manipulatie</h2>
 
-        <h3>Pipe Operator: <code>|></code> (native) of <code>%>%</code> (magrittr)</h3>
+        <h3 id="pipe-operator-native-of-magrittr">Pipe Operator: <code>|></code> (native) of <code>%>%</code> (magrittr)</h3>
 
         <p>De <strong>pipe</strong> stuurt het resultaat van de linkerkant door naar de rechterkant als eerste argument.
         </p>
@@ -451,7 +460,8 @@ gemiddelde <- mean(data$leeftijd, na.rm = TRUE)
             </tbody>
         </table>
 
-        <pre><code class="r-code"># Zonder pipe (genest, moeilijk leesbaar)
+        <div class="code-box">
+            <pre><code class="r-code"># Zonder pipe (genest, moeilijk leesbaar)
 result <- select(filter(data, leeftijd > 18), naam, leeftijd)
 
 # Met pipe (stap-voor-stap, leesbaar)
@@ -459,12 +469,14 @@ result <- data |>
   dplyr::filter(leeftijd > 18) |>
   dplyr::select(naam, leeftijd)
 </code></pre>
+        </div>
 
-        <h3>%in% Operator</h3>
+        <h3 id="in-operator">%in% Operator</h3>
 
         <p>Controleert of waarden voorkomen in een vector.</p>
 
-        <pre><code class="r-code"># Selecteer specifieke steden
+        <div class="code-box">
+            <pre><code class="r-code"># Selecteer specifieke steden
 data <- data |>
   dplyr::filter(stad %in% c("Gent", "Antwerpen", "Brussel"))
 
@@ -478,10 +490,11 @@ data <- data |>
     )
   )
 </code></pre>
+        </div>
 
         <hr>
 
-        <h2>6️⃣ Operator Volgorde (Precedence)</h2>
+        <h2 id="6️-operator-volgorde-precedence">6️⃣ Operator Volgorde (Precedence)</h2>
 
         <p>R evalueert operators in een specifieke volgorde. Van <strong>hoogste</strong> naar <strong>laagste</strong>
             prioriteit:</p>
@@ -554,9 +567,10 @@ data <- data |>
             </tbody>
         </table>
 
-        <h3>Voorbeelden</h3>
+        <h3 id="voorbeelden">Voorbeelden</h3>
 
-        <pre><code class="r-code"># Zonder haakjes (volgt precedence regels)
+        <div class="code-box">
+            <pre><code class="r-code"># Zonder haakjes (volgt precedence regels)
 result <- 2 + 3 * 4        # = 14 (eerst 3*4=12, dan 2+12=14)
 
 # Met haakjes (force volgorde)
@@ -568,15 +582,16 @@ result <- 10 > 5 & 3 < 7   # TRUE (eerst 10>5=TRUE, dan 3<7=TRUE, dan TRUE & TRU
 # Gebruik haakjes voor duidelijkheid
 result <- (10 > 5) & (3 < 7)   # Hetzelfde, maar DUIDELIJKER
 </code></pre>
+        </div>
 
-        <aside class="warning-box" role="note" aria-label="Waarschuwing">
+        <div class="warning-box">
             <strong>Beste praktijk:</strong> Gebruik <strong>altijd haakjes</strong> bij twijfel over volgorde!<br>
             Leesbaarheid > Korte code
-        </aside>
+        </div>
 
         <hr>
 
-        <h2>7️⃣ Veelgemaakte Fouten</h2>
+        <h2 id="7️-veelgemaakte-fouten">7️⃣ Veelgemaakte Fouten</h2>
 
         <table>
             <caption class="visually-hidden">Veelgemaakte fouten met R operators</caption>
@@ -618,7 +633,7 @@ result <- (10 > 5) & (3 < 7)   # Hetzelfde, maar DUIDELIJKER
 
         <hr>
 
-        <h2>8️⃣ Snelle Referentie: Gebruik per Taak</h2>
+        <h2 id="8️-snelle-referentie-gebruik-per-taak">8️⃣ Snelle Referentie: Gebruik per Taak</h2>
 
         <table>
             <caption class="visually-hidden">Snelle referentie: welke operator voor welke taak</caption>
@@ -671,7 +686,7 @@ result <- (10 > 5) & (3 < 7)   # Hetzelfde, maar DUIDELIJKER
         <hr>
 
         <nav class="related-pages" aria-label="Gerelateerde pagina's">
-            <h3>📚 Gerelateerde Pagina's</h3>
+            <h3 id="gerelateerde-paginas">📚 Gerelateerde Pagina's</h3>
             <ul>
                 <li><a href="spss-vs-r-comparison.html">SPSS vs R Comparison</a> - Operators in verschillende tools</li>
                 <li><a href="recoding-strategies.html">Recoding Strategies</a> - Operators toepassen voor hercoderen

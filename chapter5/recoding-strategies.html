@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hercoderingsstrategieën - Best Practices voor Dataverzameling</title>
-    <link rel="stylesheet" href="../css/style.css?v=20260204">
+    <link rel="stylesheet" href="../css/style.css?v=20260205c">
     <script src="../js/site.js" defer></script>
 </head>
 
@@ -22,7 +22,7 @@
                 <a href="../index.html">Startpagina</a>
                 <a href="scale-construction-theory.html">Schaaltheorie</a>
                 <a href="cronbach-alpha-explained.html">Cronbach's Alpha</a>
-                <a href="operators-reference.html">Operators</a>
+                <a href="operators-reference.html">Operatoren</a>
             </nav>
         </div>
 
@@ -40,17 +40,17 @@
             <h1>📋 Best Practices voor Dataverzameling en Groepering</h1>
         </header>
 
-        <h2>Waarom Continue Data Verzamelen?</h2>
+        <h2 id="waarom-continue-data-verzamelen">Waarom Continue Data Verzamelen?</h2>
 
-        <p>Bij het ontwerpen van je vragenlijst of dataverzameling is het <strong>altijd beter om continue
+        <p class="lead">Bij het ontwerpen van je vragenlijst of dataverzameling is het <strong>altijd beter om continue
                 variabelen</strong> te verzamelen (exacte waarden) in plaats van vooraf gegroepeerde categorieën.</p>
 
-        <aside class="info-box" role="note" aria-label="Informatie">
+        <div class="info-box">
             Verzamel continue data → Groepeer tijdens analyse. Verzamel NOOIT vooraf gegroepeerde data tijdens
             dataverzameling!
-        </aside>
+        </div>
 
-        <h3>Voordelen Continue Data</h3>
+        <h3 id="voordelen-continue-data">Voordelen Continue Data</h3>
 
         <table>
             <caption class="visually-hidden">Voordelen van continue data verzamelen</caption>
@@ -85,56 +85,56 @@
             </tbody>
         </table>
 
-        <h3>Juiste vs. Onjuiste Dataverzameling</h3>
+        <h3 id="juiste-vs-onjuiste-dataverzameling">Juiste vs. Onjuiste Dataverzameling</h3>
 
-        <aside class="example-box" role="note" aria-label="Voorbeeld">
+        <div class="example-box">
             <strong>Leeftijd:</strong><br>
             ✅ <strong>Goed:</strong> Vraag geboortejaar (1990, 1985, 2000) → kun je later naar wens groeperen<br>
             ❌ <strong>Fout:</strong> Vraag leeftijdscategorie (18-25, 26-35) → exact geboortejaar definitief verloren
-        </aside>
+        </div>
 
-        <aside class="example-box" role="note" aria-label="Voorbeeld">
+        <div class="example-box">
             <strong>Inkomen:</strong><br>
             ✅ <strong>Goed:</strong> Vraag exact maandinkomen in euro's (€2.450, €3.120)<br>
             ❌ <strong>Fout:</strong> Vraag inkomensgroep (€2000-€3000) → exacte waarde onbekend
-        </aside>
+        </div>
 
-        <aside class="example-box" role="note" aria-label="Voorbeeld">
+        <div class="example-box">
             <strong>Slachtofferschap:</strong><br>
             ✅ <strong>Goed:</strong> Hoeveel keer bent u het afgelopen jaar slachtoffer geworden? (exacte telling: 0, 1,
             2,
             3...)<br>
             ❌ <strong>Fout:</strong> Bent u slachtoffer geworden? (0=Nee, 1=Een keer, 2=Meerdere keren)
-        </aside>
+        </div>
 
         <hr>
 
-        <h2>Logische Groepering: Praktische Richtlijnen</h2>
+        <h2 id="logische-groepering-praktische-richtlijnen">Logische Groepering: Praktische Richtlijnen</h2>
 
         <p>Wanneer je continue variabelen <strong>tijdens de analysefase</strong> groepeert, volg deze principes:</p>
 
-        <h3>1. Gebruik Gelijke Intervallen (waar mogelijk)</h3>
+        <h3 id="1-gebruik-gelijke-intervallen-waar-mogelijk">1. Gebruik Gelijke Intervallen (waar mogelijk)</h3>
 
-        <aside class="tip-box" role="note" aria-label="Tip">
+        <div class="tip-box">
             <strong>Correct:</strong> 0-999, 1000-1999, 2000-2999, 3000+ <br>
             <strong>Fout:</strong> 0-999, 1000-2999, 3000-5000 (ongelijke intervallen zonder reden)
-        </aside>
+        </div>
 
         <p><strong>Let op:</strong> Laatste categorie kan open zijn (bijv. "€6000 of meer") als er weinig cases zijn in
             hogere categorieën.</p>
 
-        <h3>2. Voorkom Overlappende Grenzen</h3>
+        <h3 id="2-voorkom-overlappende-grenzen">2. Voorkom Overlappende Grenzen</h3>
 
-        <aside class="tip-box" role="note" aria-label="Tip">
+        <div class="tip-box">
             <strong>Correct:</strong> &lt; €2000, €2000-€3999, €4000-€5999, €6000+<br>
             <strong>Fout:</strong> &lt; €2000, €2000-€3000, €2000-€4000 (verwarrende overlap!)
-        </aside>
+        </div>
 
-        <aside class="warning-box" role="note" aria-label="Waarschuwing">
+        <div class="warning-box">
             Grenzen moeten elkaar NIET overlappen! Elke waarde moet in precies één categorie vallen.
-        </aside>
+        </div>
 
-        <h3>3. Theoretisch of Praktisch Gefundeerde Groepering</h3>
+        <h3 id="3-theoretisch-of-praktisch-gefundeerde-groepering">3. Theoretisch of Praktisch Gefundeerde Groepering</h3>
 
         <p>Je groepering moet <strong>altijd gebaseerd</strong> zijn op:</p>
 
@@ -148,7 +148,7 @@
 
         <hr>
 
-        <h2>Criminologie-specifieke Voorbeelden</h2>
+        <h2 id="criminologie-specifieke-voorbeelden">Criminologie-specifieke Voorbeelden</h2>
 
         <p>Hieronder vind je <strong>10 voorbeelden</strong> van hoe dezelfde variabele verschillend gegroepeerd kan
             worden
@@ -268,7 +268,7 @@
 
         <hr>
 
-        <h2>Praktisch Advies voor Je Onderzoek</h2>
+        <h2 id="praktisch-advies-voor-je-onderzoek">Praktisch Advies voor Je Onderzoek</h2>
 
         <ol>
             <li><strong>Verzamel altijd continue data</strong> tijdens dataverzameling (vraag exact geboortejaar, niet
@@ -305,7 +305,7 @@
         <hr>
 
         <div class="related-pages">
-            <h3>📚 Gerelateerde Pagina's</h3>
+            <h3 id="gerelateerde-paginas">📚 Gerelateerde Pagina's</h3>
             <ul>
                 <li><a href="operators-reference.html">R Operators Reference Guide</a></li>
                 <li><a href="spss-vs-r-comparison.html">SPSS vs R Comparison</a></li>

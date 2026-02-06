@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R Functies Gids - Hoofdstuk 6</title>
-    <link rel="stylesheet" href="../css/style.css?v=20260204">
+    <link rel="stylesheet" href="../css/style.css?v=20260205c">
     <script src="../js/site.js" defer></script>
 </head>
 
@@ -45,7 +45,7 @@
 
         <h2 id="base-r">Basis R Functies</h2>
 
-        <h3>Centraliteitsmaten</h3>
+        <h3 id="centraliteitsmaten">Centraliteitsmaten</h3>
         <div class="code-box">
             <pre><code># Gemiddelde
 mean(data$variabele, na.rm = TRUE)
@@ -62,7 +62,7 @@ calculate_mode <- function(x) {
 calculate_mode(data$variabele)</code></pre>
         </div>
 
-        <h3>Spreidingsmaten</h3>
+        <h3 id="spreidingsmaten">Spreidingsmaten</h3>
         <div class="code-box">
             <pre><code># Standaarddeviatie
 sd(data$variabele, na.rm = TRUE)
@@ -81,7 +81,7 @@ IQR(data$variabele, na.rm = TRUE)
 quantile(data$variabele, probs = c(0.25, 0.50, 0.75), na.rm = TRUE)</code></pre>
         </div>
 
-        <h3>Samenvatting</h3>
+        <h3 id="samenvatting">Samenvatting</h3>
         <div class="code-box">
             <pre><code># Basis samenvatting
 summary(data$variabele)
@@ -95,7 +95,7 @@ summary(data[, c("var1", "var2", "var3")])</code></pre>
 
         <p>De <code>psych</code> package biedt de meest uitgebreide functie voor beschrijvende statistieken.</p>
 
-        <h3>Installatie en Laden</h3>
+        <h3 id="installatie-en-laden">Installatie en Laden</h3>
         <div class="code-box">
             <pre><code># Installeren (eenmalig)
 install.packages("psych")
@@ -104,7 +104,7 @@ install.packages("psych")
 library(psych)</code></pre>
         </div>
 
-        <h3>Basis Gebruik</h3>
+        <h3 id="basis-gebruik">Basis Gebruik</h3>
         <div class="code-box">
             <pre><code># Eén variabele
 describe(data_wave1$W1_Relstress1_Gem)
@@ -118,7 +118,7 @@ describe(data_wave1[, c("W1_Relstress1_Gem",
 describe(data_wave1)</code></pre>
         </div>
 
-        <h3>Output Kolommen</h3>
+        <h3 id="output-kolommen">Output Kolommen</h3>
         <table class="alt-table">
             <tr>
                 <th>Kolom</th>
@@ -192,7 +192,7 @@ describe(data_wave1)</code></pre>
             </tr>
         </table>
 
-        <h3>Voorbeeld Output</h3>
+        <h3 id="voorbeeld-output">Voorbeeld Output</h3>
         <div class="example-box">
             <pre>
                      vars   n mean   sd median trimmed  mad  min  max range  skew kurtosis   se
@@ -202,7 +202,7 @@ W1_Financstress_Gem  3   150 3.21 0.95   3.20    3.22 1.04 1.00 5.00  4.00 -0.08
             </pre>
         </div>
 
-        <h3>Nuttige Opties</h3>
+        <h3 id="nuttige-opties">Nuttige Opties</h3>
         <div class="code-box">
             <pre><code># Fast = TRUE voor snellere berekening (geen skew/kurtosis)
 describe(data, fast = TRUE)
@@ -221,7 +221,7 @@ describe(data, IQR = TRUE)</code></pre>
 
         <p>De <code>skimr</code> package geeft een uitgebreid overzicht met mini-histogrammen.</p>
 
-        <h3>Installatie en Gebruik</h3>
+        <h3 id="installatie-en-gebruik">Installatie en Gebruik</h3>
         <div class="code-box">
             <pre><code># Installeren
 install.packages("skimr")
@@ -238,7 +238,7 @@ data_wave1 %>%
   skim()</code></pre>
         </div>
 
-        <h3>Voordelen van skimr</h3>
+        <h3 id="voordelen-van-skimr">Voordelen van skimr</h3>
         <div class="info-box">
             <ul>
                 <li>✅ <strong>Visuele histogrammen:</strong> Zie verdeling direct in console</li>
@@ -248,7 +248,7 @@ data_wave1 %>%
             </ul>
         </div>
 
-        <h3>Voorbeeld Output</h3>
+        <h3 id="voorbeeld-output">Voorbeeld Output</h3>
         <div class="example-box">
             <pre>
 ── Data Summary ────────────────────────
@@ -273,7 +273,7 @@ ________________________
 
         <p>De <code>dplyr</code> package is ideaal voor groepsgewijze statistieken.</p>
 
-        <h3>Basis Functies</h3>
+        <h3 id="basis-functies">Basis Functies</h3>
         <div class="code-box">
             <pre><code>library(dplyr)
 
@@ -289,7 +289,7 @@ data_wave1 %>%
   )</code></pre>
         </div>
 
-        <h3>Groepsgewijze Statistieken</h3>
+        <h3 id="groepsgewijze-statistieken">Groepsgewijze Statistieken</h3>
         <div class="code-box">
             <pre><code># Per geslacht
 data_wave1 %>%
@@ -306,7 +306,7 @@ data_wave1 %>%
 # Vrouw       75  3.67  0.74</code></pre>
         </div>
 
-        <h3>Across() voor Meerdere Variabelen</h3>
+        <h3 id="across-voor-meerdere-variabelen">Across() voor Meerdere Variabelen</h3>
         <div class="code-box">
             <pre><code># Zelfde statistieken voor meerdere variabelen
 data_wave1 %>%
@@ -391,7 +391,7 @@ results <- describe(data_wave1$W1_Relstress1_Gem)
 cat("M =", round(results$mean, 2), ", SD =", round(results$sd, 2))</code></pre>
         </div>
 
-        <h2>Custom Functie: Alles-in-Eén</h2>
+        <h2 id="custom-functie-alles-in-eén">Custom Functie: Alles-in-Eén</h2>
 
         <div class="code-box">
             <pre><code>complete_descriptives <- function(data, var_name) {
@@ -438,7 +438,7 @@ complete_descriptives(data_wave1, "W1_Relstress1_Gem")</code></pre>
         </div>
 
         <div class="summary-box">
-            <h3>Samenvattend</h3>
+            <h3 id="samenvattend">Samenvattend</h3>
             <ul>
                 <li><strong>Basis R:</strong> mean(), sd(), summary() voor snelle berekeningen</li>
                 <li><strong>psych::describe():</strong> Meest complete output, ideaal voor volledige analyse</li>

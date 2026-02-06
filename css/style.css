@@ -147,9 +147,10 @@ a:hover {
 }
 
 .module-description {
-  color: #555;
+  color: #2c3e50;
   line-height: 1.6;
   margin: 15px 0;
+  font-weight: 400;
 }
 
 .module-topics {
@@ -176,6 +177,34 @@ a:hover {
   padding-top: 15px;
 }
 
+/* === HEADER & NAVIGATION === */
+.site-header {
+  margin-bottom: 30px;
+}
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+.page-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 70vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
 /* === NAVIGATION === */
 .nav-bar {
   background-color: #5568d3;
@@ -186,6 +215,7 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(85, 104, 211, 0.3);
 }
 
 .nav-bar .logo {
@@ -208,11 +238,12 @@ a:hover {
 
 /* === BREADCRUMB === */
 .breadcrumb {
-  background-color: var(--light-bg);
+  background-color: #f8f9fa;
   padding: 10px 15px;
   border-radius: 5px;
   margin-bottom: 20px;
   font-size: 0.9em;
+  border: 1px solid #e0e0e0;
 }
 
 .breadcrumb a {
@@ -280,30 +311,179 @@ a:hover {
   color: #9b59b6;
 }
 
+/* Ensure all code blocks inside boxes are visible */
+.info-box pre,
+.warning-box pre,
+.tip-box pre,
+.example-box pre {
+  background: #ffffff;
+  color: #2c3e50;
+  border: 1px solid #dee2e6;
+  padding: 12px;
+  margin: 10px 0;
+}
+
+.info-box code,
+.warning-box code,
+.tip-box code,
+.example-box code {
+  color: #2c3e50;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 2px 5px;
+}
+
+/* Lead paragraph for introductions */
+.lead {
+  font-size: 1.15em;
+  color: #2c3e50;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* Key concept box - important conceptual information */
+.key-concept {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-left: 5px solid #4caf50;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.15);
+}
+
+.key-concept h3 {
+  margin-top: 0;
+  color: #2e7d32;
+  font-size: 1.2em;
+}
+
+.key-concept ul {
+  margin-bottom: 0;
+}
+
+/* Formula box - mathematical formulas and definitions */
+.formula-box {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  border-left: 5px solid #ff9800;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.15);
+}
+
+.formula-box p {
+  margin: 8px 0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.formula-box strong {
+  color: #e65100;
+}
+
+/* Code box - for code examples */
+.code-box {
+  background: #ffffff;
+  border-left: 5px solid #607d8b;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(96, 125, 139, 0.15);
+  border: 1px solid #e0e0e0;
+}
+
+.code-box h3 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-size: 1.1em;
+}
+
+.code-box h3:first-child {
+  margin-top: 0;
+}
+
+.code-box pre {
+  margin: 10px 0 20px 0;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 15px;
+  color: #2c3e50;
+  overflow-x: auto;
+}
+
+.code-box code {
+  color: #2c3e50;
+  background: transparent;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+/* Boxplot explanation - special formatting for ASCII art */
+.boxplot-explanation {
+  background: #fafafa;
+  border: 2px solid #90a4ae;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.boxplot-explanation pre {
+  background: transparent;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1em;
+  line-height: 1.3;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.boxplot-explanation p {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #37474f;
+}
+
+/* Highlight text within examples */
+.highlight {
+  background-color: #fff59d;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
 /* === CODE BLOCKS === */
 code {
-  background-color: var(--code-bg);
+  background-color: #f8f9fa;
   padding: 2px 6px;
   border-radius: 3px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.9em;
-  color: var(--accent-color);
+  color: #d63384;
+  font-weight: 500;
 }
 
 pre {
-  background-color: var(--code-bg);
-  border: 1px solid var(--border-color);
-  border-left: 4px solid var(--secondary-color);
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-left: 4px solid #3498db;
   padding: 15px;
   overflow-x: auto;
   border-radius: 5px;
   margin: 20px 0;
+  color: #2c3e50;
+  line-height: 1.5;
 }
 
 pre code {
   background-color: transparent;
   padding: 0;
-  color: var(--text-color);
+  color: #2c3e50;
+  font-weight: 400;
 }
 
 /* === TABLES === */
@@ -555,7 +735,8 @@ ul li::marker {
 }
 
 /* === INDEX PAGE SPECIFIC STYLES === */
-body {
+/* Background image only on index/home page */
+body.home-page {
   background-image: url('../27428-1.jpg');
   background-size: cover;
   background-attachment: fixed;
@@ -563,15 +744,21 @@ body {
   background-repeat: no-repeat;
 }
 
-body::before {
+body.home-page::before {
   content: '';
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   z-index: -1;
+}
+
+/* Ensure chapter pages have solid white background */
+body:not(.home-page) {
+  background-color: #ffffff;
+  background-image: none;
 }
 
 /* Hero section styling */

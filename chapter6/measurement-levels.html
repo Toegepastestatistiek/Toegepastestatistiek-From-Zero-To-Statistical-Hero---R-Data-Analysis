@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meetniveaus Begrijpen - Hoofdstuk 6</title>
-    <link rel="stylesheet" href="../css/style.css?v=20260204">
+    <link rel="stylesheet" href="../css/style.css?v=20260205c">
     <script src="../js/site.js" defer></script>
 </head>
 
@@ -47,14 +47,14 @@
         <p><strong>Definitie:</strong> Categorieën zonder natuurlijke volgorde. De getallen zijn labels, geen
             hoeveelheden.</p>
 
-        <h3>Eigenschappen</h3>
+        <h3 id="eigenschappen">Eigenschappen</h3>
         <ul>
             <li><strong>Geen volgorde:</strong> Categorie 1 is niet "meer" of "minder" dan categorie 2</li>
             <li><strong>Geen afstand:</strong> Het verschil tussen categorieën is niet meetbaar</li>
             <li><strong>Wel/niet gelijk:</strong> Je kunt alleen vergelijken of twee waarden gelijk zijn</li>
         </ul>
 
-        <h3>Voorbeelden</h3>
+        <h3 id="voorbeelden">Voorbeelden</h3>
         <div class="example-box">
             <h4>Criminologie voorbeelden:</h4>
             <ul>
@@ -66,7 +66,7 @@
             </ul>
         </div>
 
-        <h3>Toegestane Numerieke Maten</h3>
+        <h3 id="toegestane-numerieke-maten">Toegestane Numerieke Maten</h3>
         <table class="info-table">
             <tr>
                 <th>Toegestaan</th>
@@ -102,14 +102,14 @@
         <p><strong>Definitie:</strong> Categorieën met een natuurlijke volgorde, maar de afstand tussen categorieën is
             niet gelijk of niet bekend.</p>
 
-        <h3>Eigenschappen</h3>
+        <h3 id="eigenschappen">Eigenschappen</h3>
         <ul>
             <li><strong>Wel volgorde:</strong> Categorie 3 is "meer" dan categorie 2</li>
             <li><strong>Geen gelijke afstanden:</strong> Verschil tussen 1→2 ≠ verschil tussen 2→3</li>
             <li><strong>Rangorde:</strong> Je kunt sorteren van laag naar hoog</li>
         </ul>
 
-        <h3>Voorbeelden</h3>
+        <h3 id="voorbeelden">Voorbeelden</h3>
         <div class="example-box">
             <h4>Criminologie voorbeelden:</h4>
             <ul>
@@ -121,7 +121,7 @@
             </ul>
         </div>
 
-        <h3>Toegestane Numerieke Maten</h3>
+        <h3 id="toegestane-numerieke-maten">Toegestane Numerieke Maten</h3>
         <table class="info-table">
             <tr>
                 <th>Toegestaan</th>
@@ -164,14 +164,14 @@
         <p><strong>Definitie:</strong> Numerieke waarden met gelijke afstanden tussen eenheden en een betekenisvol
             nulpunt (ratio) of willekeurig nulpunt (interval).</p>
 
-        <h3>Eigenschappen</h3>
+        <h3 id="eigenschappen">Eigenschappen</h3>
         <ul>
             <li><strong>Gelijke afstanden:</strong> 1→2 is even groot als 2→3</li>
             <li><strong>Alle rekenkundige bewerkingen:</strong> +, -, ×, ÷</li>
             <li><strong>Meest informatief:</strong> Alle statistische technieken zijn mogelijk</li>
         </ul>
 
-        <h3>Twee Subtypen</h3>
+        <h3 id="twee-subtypen">Twee Subtypen</h3>
         <div class="example-box">
             <h4>Interval (willekeurig nulpunt):</h4>
             <ul>
@@ -190,7 +190,7 @@
             </ul>
         </div>
 
-        <h3>Voorbeelden uit C&W Studie</h3>
+        <h3 id="voorbeelden-uit-cw-studie">Voorbeelden uit C&W Studie</h3>
         <div class="example-box">
             <ul>
                 <li><strong>Leeftijd (jaren):</strong> Continue ratio-variabele</li>
@@ -202,7 +202,7 @@
             </ul>
         </div>
 
-        <h3>Toegestane Numerieke Maten</h3>
+        <h3 id="toegestane-numerieke-maten">Toegestane Numerieke Maten</h3>
         <table class="info-table">
             <tr>
                 <th>Alle Maten Toegestaan!</th>
@@ -226,7 +226,7 @@
 
         <h2 id="examples">Praktijkvoorbeelden: Meetniveau Bepalen</h2>
 
-        <h3>Oefening 1: Classificeer Deze Variabelen</h3>
+        <h3 id="oefening-1-classificeer-deze-variabelen">Oefening 1: Classificeer Deze Variabelen</h3>
         <div class="exercise-box">
             <table class="info-table">
                 <tr>
@@ -272,9 +272,9 @@
             </table>
         </div>
 
-        <h2>Beslisschema: Welk Meetniveau?</h2>
+        <h2 id="beslisschema-welk-meetniveau">Beslisschema: Welk Meetniveau?</h2>
         <div class="decision-box">
-            <h3>Stel jezelf deze vragen:</h3>
+            <h3 id="stel-jezelf-deze-vragen">Stel jezelf deze vragen:</h3>
             <ol>
                 <li><strong>Is er een natuurlijke volgorde?</strong>
                     <ul>
@@ -297,9 +297,9 @@
             </ol>
         </div>
 
-        <h2>Praktische Implicaties voor R-code</h2>
+        <h2 id="praktische-implicaties-voor-r-code">Praktische Implicaties voor R-code</h2>
         <div class="code-box">
-            <h3>Nominale variabele analyseren</h3>
+            <h3 id="nominale-variabele-analyseren">Nominale variabele analyseren</h3>
             <pre><code># Relatiestatus (0 = Nee, 1 = Ja)
 table(data$W1_Relatiestatus)  # Frequenties
 prop.table(table(data$W1_Relatiestatus))  # Percentages
@@ -307,7 +307,7 @@ calculate_mode(data$W1_Relatiestatus)  # Modus
 
 # FOUT: mean(data$W1_Relatiestatus)  # Gemiddelde is zinloos!</code></pre>
 
-            <h3>Ordinale variabele analyseren</h3>
+            <h3 id="ordinale-variabele-analyseren">Ordinale variabele analyseren</h3>
             <pre><code># Opleidingsniveau (1 = Laag, 2 = Midden, 3 = Hoog)
 median(data$W1_Diploma, na.rm = TRUE)  # Mediaan
 quantile(data$W1_Diploma, c(0.25, 0.50, 0.75), na.rm = TRUE)  # Kwartielen
@@ -315,7 +315,7 @@ IQR(data$W1_Diploma, na.rm = TRUE)  # Interkwartielafstand
 
 # CONTROVERSIEEL: mean(data$W1_Diploma)  # Technisch niet helemaal correct</code></pre>
 
-            <h3>Metrische variabele analyseren</h3>
+            <h3 id="metrische-variabele-analyseren">Metrische variabele analyseren</h3>
             <pre><code># Werkstress schaal (1-5, gemiddelde van items)
 mean(data$W1_Werkstress_Gem, na.rm = TRUE)  # Gemiddelde
 sd(data$W1_Werkstress_Gem, na.rm = TRUE)  # Standaardafwijking
@@ -323,28 +323,28 @@ psych::describe(data$W1_Werkstress_Gem)  # Alle maten tegelijk
 t.test(data$W1_Werkstress_Gem)$conf.int  # 95% CI</code></pre>
         </div>
 
-        <h2>Veelgemaakte Fouten en Waarschuwingen</h2>
+        <h2 id="veelgemaakte-fouten-en-waarschuwingen">Veelgemaakte Fouten en Waarschuwingen</h2>
         <div class="warning-box">
-            <h3>1. Gemiddelde van nominale variabelen</h3>
+            <h3 id="1-gemiddelde-van-nominale-variabelen">1. Gemiddelde van nominale variabelen</h3>
             <p><strong>Fout:</strong> mean(Geslacht) → 0.52 betekent... wat precies?</p>
             <p><strong>Correct:</strong> 48% man, 52% vrouw</p>
 
-            <h3>2. Likert-schalen als metrisch behandelen</h3>
+            <h3 id="2-likert-schalen-als-metrisch-behandelen">2. Likert-schalen als metrisch behandelen</h3>
             <p><strong>Controversie:</strong> Technisch zijn 5-puntsschalen ordinaal, maar in de praktijk worden ze vaak
                 als metrisch behandeld.</p>
             <p><strong>Oplossing:</strong> Dit is acceptabel als je minimaal 5 categorieën hebt en de verdeling niet te
                 scheef is.</p>
 
-            <h3>3. Categorieën tellen als getallen</h3>
+            <h3 id="3-categorieën-tellen-als-getallen">3. Categorieën tellen als getallen</h3>
             <p><strong>Fout:</strong> Delicttype 1, 2, 3 optellen → "gemiddeld delicttype 2.1"</p>
             <p><strong>Waarom fout:</strong> De getallen zijn labels, geen hoeveelheden!</p>
 
-            <h3>4. Metrische data onnodig categoriseren</h3>
+            <h3 id="4-metrische-data-onnodig-categoriseren">4. Metrische data onnodig categoriseren</h3>
             <p><strong>Suboptimaal:</strong> Leeftijd (ratio) → categorieën (ordinaal) → informatieverlies!</p>
             <p><strong>Beter:</strong> Houd leeftijd continue, gebruik categorieën alleen voor tabellen/grafieken.</p>
         </div>
 
-        <h2>Samenvatting</h2>
+        <h2 id="samenvatting">Samenvatting</h2>
         <div class="summary-box">
             <p><strong>Gouden regel:</strong> Het meetniveau bepaalt welke statistische analyses je kunt gebruiken. Als
                 je een ordinale variabele als metrisch behandelt, krijg je technisch incorrecte resultaten!</p>

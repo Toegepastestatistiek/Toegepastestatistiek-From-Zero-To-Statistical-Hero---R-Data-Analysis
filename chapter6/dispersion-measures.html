@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spreidingsmaten - Hoofdstuk 6</title>
-    <link rel="stylesheet" href="../css/style.css?v=20260204">
+    <link rel="stylesheet" href="../css/style.css?v=20260205c">
     <script src="../js/site.js" defer></script>
 </head>
 
@@ -44,7 +44,7 @@
             waarden dicht bij elkaar of wijd uiteen?"</p>
 
         <div class="key-concept">
-            <h3>Waarom Spreiding Belangrijk Is</h3>
+            <h3 id="waarom-spreiding-belangrijk-is">Waarom Spreiding Belangrijk Is</h3>
             <p>Twee datasets kunnen hetzelfde gemiddelde hebben, maar heel verschillende spreiding:</p>
             <ul>
                 <li><strong>Groep A:</strong> Werkstress scores: 3.0, 3.1, 3.2, 2.9, 3.0 → x̄ = 3.04, SD = 0.11 (weinig
@@ -57,7 +57,7 @@
 
         <h2 id="range">Bereik (Range)</h2>
 
-        <h3>Definitie</h3>
+        <h3 id="definitie">Definitie</h3>
         <p>Het <strong>bereik</strong> is het verschil tussen de hoogste en laagste waarde in de dataset.</p>
 
         <div class="formula-box">
@@ -66,7 +66,7 @@
             <p><strong>Meetniveau:</strong> Ordinaal, Metrisch</p>
         </div>
 
-        <h3>Voorbeelden</h3>
+        <h3 id="voorbeelden">Voorbeelden</h3>
         <div class="example-box">
             <h4>Voorbeeld 1: Opleidingsniveau (Ordinaal)</h4>
             <p><strong>Data:</strong> 1 (Laag), 1, 2 (Midden), 2, 3 (Hoog), 3, 3</p>
@@ -85,7 +85,7 @@
             </ul>
         </div>
 
-        <h3>R Code</h3>
+        <h3 id="r-code">R Code</h3>
         <div class="code-box">
             <pre><code># Bereik berekenen
 minimum <- min(data_wave1$W1_Diploma, na.rm = TRUE)
@@ -104,7 +104,7 @@ data_wave1 %>%
   )</code></pre>
         </div>
 
-        <h3>Nadelen van het Bereik</h3>
+        <h3 id="nadelen-van-het-bereik">Nadelen van het Bereik</h3>
         <div class="warning-box">
             <h4>⚠️ Zeer Gevoelig voor Uitschieters!</h4>
             <p><strong>Probleem:</strong> Één extreme waarde verandert het hele bereik drastisch.</p>
@@ -118,7 +118,7 @@ data_wave1 %>%
 
         <h2 id="iqr">Interkwartielafstand (IQR)</h2>
 
-        <h3>Definitie</h3>
+        <h3 id="definitie">Definitie</h3>
         <p>De <strong>interkwartielafstand</strong> (Interquartile Range, IQR) is het verschil tussen het derde kwartiel
             (Q3) en het eerste kwartiel (Q1). Dit meet de spreiding van de <strong>middelste 50%</strong> van de data.
         </p>
@@ -129,7 +129,7 @@ data_wave1 %>%
             <p><strong>Meetniveau:</strong> Ordinaal, Metrisch</p>
         </div>
 
-        <h3>Visualisatie met Boxplot</h3>
+        <h3 id="visualisatie-met-boxplot">Visualisatie met Boxplot</h3>
         <div class="boxplot-explanation">
             <pre>
     Maximum (of Q3 + 1.5×IQR)
@@ -149,7 +149,7 @@ data_wave1 %>%
             <p><strong>IQR bevat de middelste 50% van alle observaties</strong></p>
         </div>
 
-        <h3>Voorbeelden</h3>
+        <h3 id="voorbeelden">Voorbeelden</h3>
         <div class="example-box">
             <h4>Voorbeeld: 13 werkstress scores</h4>
             <p><strong>Data (gesorteerd):</strong> 1.5, 2.0, 2.2, 2.5, 2.8, 3.0, <span class="highlight">3.2</span>,
@@ -162,7 +162,7 @@ data_wave1 %>%
             </ul>
         </div>
 
-        <h3>R Code</h3>
+        <h3 id="r-code">R Code</h3>
         <div class="code-box">
             <pre><code># IQR direct berekenen
 iqr <- IQR(data_wave1$W1_Diploma, na.rm = TRUE)
@@ -182,7 +182,7 @@ boxplot(data_wave1$W1_Diploma,
         col = "lightblue")</code></pre>
         </div>
 
-        <h3>Uitschieters Detecteren met IQR</h3>
+        <h3 id="uitschieters-detecteren-met-iqr">Uitschieters Detecteren met IQR</h3>
         <div class="info-box">
             <h4>1.5 × IQR Regel (Tukey's Fence)</h4>
             <p>Een observatie is een <strong>uitschieter</strong> als:</p>
@@ -200,7 +200,7 @@ boxplot(data_wave1$W1_Diploma,
             <p>Waarden &lt; -0.275 of &gt; 6.725 zijn uitschieters</p>
         </div>
 
-        <h3>R Code: Uitschieters Detecteren</h3>
+        <h3 id="r-code-uitschieters-detecteren">R Code: Uitschieters Detecteren</h3>
         <div class="code-box">
             <pre><code># Uitschieters identificeren
 Q1 <- quantile(data_wave1$W1_Relstress1_Gem, 0.25, na.rm = TRUE)
@@ -221,7 +221,7 @@ cat("Ondergrens:", round(ondergrens, 2), "\n")
 cat("Bovengrens:", round(bovengrens, 2), "\n")</code></pre>
         </div>
 
-        <h3>Bereik vs. IQR</h3>
+        <h3 id="bereik-vs-iqr">Bereik vs. IQR</h3>
         <table class="comparison-table">
             <tr>
                 <th>Eigenschap</th>
@@ -252,7 +252,7 @@ cat("Bovengrens:", round(bovengrens, 2), "\n")</code></pre>
 
         <h2 id="sd">Standaardafwijking (SD)</h2>
 
-        <h3>Definitie</h3>
+        <h3 id="definitie">Definitie</h3>
         <p>De <strong>standaardafwijking</strong> meet de gemiddelde afwijking van elke observatie ten opzichte van het
             gemiddelde. Het is de wortel van de variantie.</p>
 
@@ -264,7 +264,7 @@ cat("Bovengrens:", round(bovengrens, 2), "\n")</code></pre>
             <p><strong>Eenheid:</strong> Zelfde als originele data (jaren, euro's, punten)</p>
         </div>
 
-        <h3>Stapsgewijze Berekening</h3>
+        <h3 id="stapsgewijze-berekening">Stapsgewijze Berekening</h3>
         <div class="example-box">
             <h4>Voorbeeld: Werkstress van 5 respondenten</h4>
             <p><strong>Scores:</strong> 2, 3, 3, 4, 4</p>
@@ -312,7 +312,7 @@ cat("Bovengrens:", round(bovengrens, 2), "\n")</code></pre>
             <p><strong>Stap 3:</strong> SD: s = √0.70 = <strong>0.84</strong></p>
         </div>
 
-        <h3>Waarom n-1? (Bessel's Correctie)</h3>
+        <h3 id="waarom-n-1-bessels-correctie">Waarom n-1? (Bessel's Correctie)</h3>
         <div class="info-box">
             <p><strong>Vraag:</strong> Waarom delen door (n-1) en niet door n?</p>
             <p><strong>Antwoord:</strong> We gebruiken n-1 omdat we het steekproefgemiddelde (x̄) gebruiken in plaats
@@ -325,7 +325,7 @@ cat("Bovengrens:", round(bovengrens, 2), "\n")</code></pre>
                 corrigeert dit.</p>
         </div>
 
-        <h3>R Code</h3>
+        <h3 id="r-code">R Code</h3>
         <div class="code-box">
             <pre><code># Standaardafwijking berekenen
 sd_waarde <- sd(data_wave1$W1_Relstress1_Gem, na.rm = TRUE)
@@ -343,7 +343,7 @@ sd_handmatig <- sqrt(variantie)
 all.equal(sd_waarde, sd_handmatig)</code></pre>
         </div>
 
-        <h3>SD Interpreteren: 68-95-99.7 Regel</h3>
+        <h3 id="sd-interpreteren-68-95-997-regel">SD Interpreteren: 68-95-99.7 Regel</h3>
         <div class="normal-distribution-box">
             <p>Bij een <strong>normale verdeling</strong> geldt:</p>
             <ul>
@@ -363,7 +363,7 @@ all.equal(sd_waarde, sd_handmatig)</code></pre>
 
         <h2 id="variance">Variantie</h2>
 
-        <h3>Definitie</h3>
+        <h3 id="definitie">Definitie</h3>
         <p>De <strong>variantie</strong> is het kwadraat van de standaardafwijking. Het meet de spreiding in
             gekwadrateerde eenheden.</p>
 
@@ -374,7 +374,7 @@ all.equal(sd_waarde, sd_handmatig)</code></pre>
             <p><strong>Eenheid:</strong> Gekwadrateerde originele eenheden (jaren², euro²)</p>
         </div>
 
-        <h3>Relatie SD en Variantie</h3>
+        <h3 id="relatie-sd-en-variantie">Relatie SD en Variantie</h3>
         <table class="relationship-table">
             <tr>
                 <th>Van</th>
@@ -393,7 +393,7 @@ all.equal(sd_waarde, sd_handmatig)</code></pre>
             </tr>
         </table>
 
-        <h3>R Code</h3>
+        <h3 id="r-code">R Code</h3>
         <div class="code-box">
             <pre><code># Variantie berekenen
 var_waarde <- var(data_wave1$W1_Relstress1_Gem, na.rm = TRUE)
@@ -409,7 +409,7 @@ cat("SD:", round(sd_waarde, 2), "\n")
 cat("Variantie:", round(var_waarde, 2), "\n")</code></pre>
         </div>
 
-        <h3>Wanneer Variantie vs. SD?</h3>
+        <h3 id="wanneer-variantie-vs-sd">Wanneer Variantie vs. SD?</h3>
         <div class="decision-box">
             <h4>Gebruik STANDAARDAFWIJKING (SD) voor:</h4>
             <ul>
@@ -427,7 +427,7 @@ cat("Variantie:", round(var_waarde, 2), "\n")</code></pre>
             </ul>
         </div>
 
-        <h2>Vergelijking Alle Spreidingsmaten</h2>
+        <h2 id="vergelijking-alle-spreidingsmaten">Vergelijking Alle Spreidingsmaten</h2>
         <table class="full-comparison">
             <tr>
                 <th>Maat</th>
@@ -466,26 +466,26 @@ cat("Variantie:", round(var_waarde, 2), "\n")</code></pre>
             </tr>
         </table>
 
-        <h2>Veelgemaakte Fouten</h2>
+        <h2 id="veelgemaakte-fouten">Veelgemaakte Fouten</h2>
         <div class="mistakes-box">
-            <h3>❌ Fout 1: SD van ordinale variabelen</h3>
+            <h3 id="fout-1-sd-van-ordinale-variabelen">❌ Fout 1: SD van ordinale variabelen</h3>
             <p><strong>Verkeerd:</strong> sd(Tevredenheid) waar 1=Ontevreden, 2=Neutraal, 3=Tevreden</p>
             <p><strong>Waarom fout?</strong> SD vereist metrisch meetniveau (gelijke afstanden)</p>
             <p><strong>Correct:</strong> Gebruik IQR voor ordinale variabelen</p>
 
-            <h3>❌ Fout 2: Variantie interpreteren</h3>
+            <h3 id="fout-2-variantie-interpreteren">❌ Fout 2: Variantie interpreteren</h3>
             <p><strong>Verkeerd:</strong> "Gemiddelde werkstress = 3.2 (Variantie = 0.70)"</p>
             <p><strong>Waarom misleidend?</strong> Variantie in gekwadrateerde eenheden - niet direct interpreteerbaar
             </p>
             <p><strong>Correct:</strong> "Gemiddelde = 3.2 (SD = 0.84)" - zelfde eenheid als data</p>
 
-            <h3>❌ Fout 3: Bereik bij uitschieters</h3>
+            <h3 id="fout-3-bereik-bij-uitschieters">❌ Fout 3: Bereik bij uitschieters</h3>
             <p><strong>Verkeerd:</strong> Alleen bereik rapporteren bij scheve verdelingen</p>
             <p><strong>Waarom problematisch?</strong> Één uitschieter geeft vertekend beeld van spreiding</p>
             <p><strong>Correct:</strong> Rapporteer IQR of verwijder uitschieters eerst</p>
         </div>
 
-        <h2>R Code: Alle Spreidingsmaten Tegelijk</h2>
+        <h2 id="r-code-alle-spreidingsmaten-tegelijk">R Code: Alle Spreidingsmaten Tegelijk</h2>
         <div class="code-box">
             <pre><code># Optie 1: Via psych::describe()
 library(psych)
@@ -509,7 +509,7 @@ data_wave1 %>%
         </div>
 
         <div class="summary-box">
-            <h3>Samenvattend</h3>
+            <h3 id="samenvattend">Samenvattend</h3>
             <ul>
                 <li><strong>Bereik:</strong> Max - Min, eenvoudig maar gevoelig voor uitschieters</li>
                 <li><strong>IQR:</strong> Q3 - Q1, robuust alternatief voor bereik</li>
