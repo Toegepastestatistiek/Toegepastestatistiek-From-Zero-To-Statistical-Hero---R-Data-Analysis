@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APA Tabellen in R - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css?v=20260206">
+    <script src="../js/site.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="logo" href="../index.html" aria-label="Terug naar startpagina">
+                📊 Statistical Hero <span class="logo-sub">- Hoofdstuk 6</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdnavigatie">
+                <a href="../index.html">Startpagina</a>
+                <a href="centrality-measures.html">Centraliteit</a>
+                <a href="dispersion-measures.html">Spreiding</a>
+                <a href="measurement-levels.html">Meetniveaus</a>
+                <a href="spss-vs-r.html">SPSS vs R</a>
+            </nav>
+        </div>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../index.html">Startpagina</a></li>
+                <li><a href="../chapter6.html">Hoofdstuk 6</a></li>
+                <li><a href="apa-reporting.html">APA Rapportage</a></li>
+                <li aria-current="page">APA Tabellen</li>
+            </ol>
+        </nav>
+    </header>
+
+    <main id="main-content" class="page-content" tabindex="-1">
+        <div class="container">
+            <header class="page-header">
+                <h1>APA Tabellen Maken in R</h1>
+            </header>
+
+            <p class="lead">Leer hoe je professionele APA-conforme tabellen maakt in R met het flextable pakket. Deze
+                tabellen kunnen direct naar Word geëxporteerd worden.</p>
+
+            <h2 id="apa-regels">APA Tabelregels</h2>
+
+            <div class="key-concept">
+                <h4>Belangrijke APA Richtlijnen</h4>
+                <ul>
+                    <li><strong>Lijnen:</strong> Alleen horizontale lijnen bovenaan, onder kolomkoppen, en onderaan</li>
+                    <li><strong>Geen verticale lijnen</strong></li>
+                    <li><strong>Tabelnummer:</strong> "Tabel 1" in bold boven de tabel</li>
+                    <li><strong>Titel:</strong> Cursief, beschrijvend, onder tabelnummer</li>
+                    <li><strong>Noot:</strong> Onder de tabel voor uitleg</li>
+                    <li><strong>Decimalen:</strong> Consistent aantal (meestal 2)</li>
+                </ul>
+            </div>
+
+            <h2 id="flextable">Methode: flextable Package</h2>
+
+            <div class="code-box">
+                <pre><code># Installeer indien nodig
+install.packages("flextable")
+
+# Laad package
+library(flextable)
+library(dplyr)</code></pre>
+            </div>
+
+            <h2 id="basis-tabel">Basis APA Tabel</h2>
+
+            <div class="code-box">
+                <pre><code># Maak descriptieve statistieken
+desc_stats <- wave1_coded |>
+  summarise(
+    N = sum(!is.na(W1_Relstress1_Gem)),
+    M = round(mean(W1_Relstress1_Gem, na.rm = TRUE), 2),
+    SD = round(sd(W1_Relstress1_Gem, na.rm = TRUE), 2),
+    Min = min(W1_Relstress1_Gem, na.rm = TRUE),
+    Max = max(W1_Relstress1_Gem, na.rm = TRUE)
+  )
+
+# Maak APA tabel
+apa_table <- flextable(desc_stats) |>
+  # Alleen horizontale lijnen
+  border_remove() |>
+  hline_top(border = fp_border(width = 1)) |>
+  hline(i = 1, part = "header", border = fp_border(width = 1)) |>
+  hline_bottom(border = fp_border(width = 1)) |>
+  # Lettertype
+  font(fontname = "Times New Roman", part = "all") |>
+  fontsize(size = 12, part = "all") |>
+  # Uitlijning
+  align(align = "center", part = "all") |>
+  # Titel toevoegen
+  set_caption(
+    caption = as_paragraph(
+      as_chunk("Tabel 1", props = fp_text(bold = TRUE)),
+      as_chunk("\n"),
+      as_chunk("Descriptieve Statistieken voor Relatiestress", 
+               props = fp_text(italic = TRUE))
+    )
+  )
+
+# Print tabel
+apa_table</code></pre>
+            </div>
+
+            <h2 id="meerdere-variabelen">Tabel met Meerdere Variabelen</h2>
+
+            <div class="code-box">
+                <pre><code># Functie voor descriptives
+get_descriptives <- function(data, var_name, label) {
+  data |>
+    summarise(
+      Variabele = label,
+      N = sum(!is.na(.data[[var_name]])),
+      M = round(mean(.data[[var_name]], na.rm = TRUE), 2),
+      SD = round(sd(.data[[var_name]], na.rm = TRUE), 2),
+      Mdn = round(median(.data[[var_name]], na.rm = TRUE), 2),
+      Min = round(min(.data[[var_name]], na.rm = TRUE), 2),
+      Max = round(max(.data[[var_name]], na.rm = TRUE), 2)
+    )
+}
+
+# Combineer meerdere variabelen
+desc_table <- bind_rows(
+  get_descriptives(wave1_coded, "W1_Relstress1_Gem", "Relatiestress"),
+  get_descriptives(wave1_coded, "W1_Leeftijd", "Leeftijd"),
+  get_descriptives(wave1_coded, "W1_Satisfaction_Gem", "Relatietevredenheid")
+)
+
+# Maak APA tabel
+apa_multi <- flextable(desc_table) |>
+  border_remove() |>
+  hline_top(border = fp_border(width = 1)) |>
+  hline(i = 1, part = "header", border = fp_border(width = 1)) |>
+  hline_bottom(border = fp_border(width = 1)) |>
+  font(fontname = "Times New Roman", part = "all") |>
+  fontsize(size = 12, part = "all") |>
+  align(j = 2:7, align = "center", part = "all") |>
+  align(j = 1, align = "left", part = "all") |>
+  autofit() |>
+  set_caption(
+    caption = as_paragraph(
+      as_chunk("Tabel 2", props = fp_text(bold = TRUE)),
+      as_chunk("\n"),
+      as_chunk("Descriptieve Statistieken voor Continue Variabelen", 
+               props = fp_text(italic = TRUE))
+    )
+  ) |>
+  add_footer_lines("Noot. N = steekproefgrootte; M = gemiddelde; SD = standaardafwijking; Mdn = mediaan.")
+
+apa_multi</code></pre>
+            </div>
+
+            <h2 id="groepsvergelijking">Tabel per Groep</h2>
+
+            <div class="code-box">
+                <pre><code># Descriptives per geslacht
+group_stats <- wave1_coded |>
+  group_by(W1_Geslacht) |>
+  summarise(
+    n = n(),
+    M = round(mean(W1_Relstress1_Gem, na.rm = TRUE), 2),
+    SD = round(sd(W1_Relstress1_Gem, na.rm = TRUE), 2),
+    .groups = "drop"
+  )
+
+# APA tabel met groepen
+apa_group <- flextable(group_stats) |>
+  set_header_labels(
+    W1_Geslacht = "Geslacht",
+    n = "n",
+    M = "M",
+    SD = "SD"
+  ) |>
+  border_remove() |>
+  hline_top(border = fp_border(width = 1)) |>
+  hline(i = 1, part = "header", border = fp_border(width = 1)) |>
+  hline_bottom(border = fp_border(width = 1)) |>
+  font(fontname = "Times New Roman", part = "all") |>
+  fontsize(size = 12, part = "all") |>
+  align(align = "center", part = "all") |>
+  autofit() |>
+  set_caption(
+    caption = as_paragraph(
+      as_chunk("Tabel 3", props = fp_text(bold = TRUE)),
+      as_chunk("\n"),
+      as_chunk("Relatiestress naar Geslacht", 
+               props = fp_text(italic = TRUE))
+    )
+  )
+
+apa_group</code></pre>
+            </div>
+
+            <h2 id="word-export">Exporteren naar Word</h2>
+
+            <div class="code-box">
+                <pre><code># Exporteer enkele tabel naar Word
+save_as_docx(apa_table, path = "Output/Tabel1_descriptives.docx")
+
+# Of in RMarkdown: tabellen worden automatisch correct weergegeven
+# wanneer je output: word_document gebruikt</code></pre>
+            </div>
+
+            <h2 id="correlatie-tabel">Correlatietabel (Bonus)</h2>
+
+            <div class="code-box">
+                <pre><code># Correlatiematrix maken
+cor_vars <- wave1_coded |>
+  select(W1_Relstress1_Gem, W1_Satisfaction_Gem, W1_Leeftijd) |>
+  na.omit()
+
+cor_matrix <- cor(cor_vars)
+
+# Naar dataframe voor flextable
+cor_df <- as.data.frame(cor_matrix) |>
+  tibble::rownames_to_column("Variabele") |>
+  mutate(across(where(is.numeric), ~round(., 2)))
+
+# Kolomnamen aanpassen
+names(cor_df) <- c("Variabele", "1. Stress", "2. Tevredenheid", "3. Leeftijd")
+cor_df$Variabele <- c("1. Relatiestress", "2. Relatietevredenheid", "3. Leeftijd")
+
+# APA correlatie tabel
+apa_cor <- flextable(cor_df) |>
+  border_remove() |>
+  hline_top(border = fp_border(width = 1)) |>
+  hline(i = 1, part = "header", border = fp_border(width = 1)) |>
+  hline_bottom(border = fp_border(width = 1)) |>
+  font(fontname = "Times New Roman", part = "all") |>
+  fontsize(size = 12, part = "all") |>
+  align(j = 2:4, align = "center", part = "all") |>
+  autofit() |>
+  set_caption(
+    caption = as_paragraph(
+      as_chunk("Tabel 4", props = fp_text(bold = TRUE)),
+      as_chunk("\n"),
+      as_chunk("Correlaties tussen Studievariabelen", 
+               props = fp_text(italic = TRUE))
+    )
+  ) |>
+  add_footer_lines("Noot. * p < .05, ** p < .01")
+
+apa_cor</code></pre>
+            </div>
+
+            <div class="warning-box">
+                <h4>Tips voor APA Tabellen</h4>
+                <ul>
+                    <li>Gebruik altijd <strong>Times New Roman 12pt</strong></li>
+                    <li>Rond af op <strong>2 decimalen</strong> (consistent)</li>
+                    <li>Zet <strong>nul weg</strong> voor correlaties (-.32 niet -0.32)</li>
+                    <li>Gebruik <strong>cursief</strong> voor statistieken (M, SD, p)</li>
+                    <li>Voeg altijd een <strong>noot</strong> toe met afkortingen</li>
+                </ul>
+            </div>
+
+            <nav class="page-navigation">
+                <a href="apa-reporting.html" class="prev">← APA Rapportage</a>
+                <a href="confidence-intervals.html" class="next">Betrouwbaarheidsintervallen →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Toegepaste Statistiek - From Zero To Statistical Hero</p>
+    </footer>
+</body>
+
+</html>

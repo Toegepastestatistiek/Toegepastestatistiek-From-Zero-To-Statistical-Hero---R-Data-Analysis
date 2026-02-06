@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SD vs SE - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css?v=20260206">
+    <script src="../js/site.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="logo" href="../index.html" aria-label="Terug naar startpagina">
+                📊 Statistical Hero <span class="logo-sub">- Hoofdstuk 6</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdnavigatie">
+                <a href="../index.html">Startpagina</a>
+                <a href="centrality-measures.html">Centraliteit</a>
+                <a href="dispersion-measures.html">Spreiding</a>
+                <a href="measurement-levels.html">Meetniveaus</a>
+                <a href="spss-vs-r.html">SPSS vs R</a>
+            </nav>
+        </div>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../index.html">Startpagina</a></li>
+                <li><a href="../chapter6.html">Hoofdstuk 6</a></li>
+                <li><a href="dispersion-measures.html">Spreidingsmaten</a></li>
+                <li aria-current="page">SD vs SE</li>
+            </ol>
+        </nav>
+    </header>
+
+    <main id="main-content" class="page-content" tabindex="-1">
+        <div class="container">
+            <header class="page-header">
+                <h1>SD vs SE: Een Cruciaal Onderscheid</h1>
+            </header>
+
+            <p class="lead">De standaardafwijking (SD) en standaardfout (SE) worden vaak verward, maar meten
+                fundamenteel verschillende dingen. Dit onderscheid is essentieel voor correcte statistische rapportage!
+            </p>
+
+            <h2 id="overzicht">Samenvatting van Verschillen</h2>
+
+            <table class="data-table">
+                <tr>
+                    <th>Kenmerk</th>
+                    <th>SD (Standaardafwijking)</th>
+                    <th>SE (Standaardfout)</th>
+                </tr>
+                <tr>
+                    <td><strong>Wat meet het?</strong></td>
+                    <td>Spreiding van individuele waarden</td>
+                    <td>Nauwkeurigheid van het gemiddelde</td>
+                </tr>
+                <tr>
+                    <td><strong>Beschrijft</strong></td>
+                    <td>De steekproef</td>
+                    <td>De schattingsprecisie</td>
+                </tr>
+                <tr>
+                    <td><strong>Symbool</strong></td>
+                    <td>SD, s, σ</td>
+                    <td>SE, SEM, SE(M)</td>
+                </tr>
+                <tr>
+                    <td><strong>Formule</strong></td>
+                    <td>√[Σ(x-x̄)²/(n-1)]</td>
+                    <td>SD / √n</td>
+                </tr>
+                <tr>
+                    <td><strong>Bij grotere n</strong></td>
+                    <td>Blijft gelijk*</td>
+                    <td>Wordt kleiner</td>
+                </tr>
+                <tr>
+                    <td><strong>Gebruik</strong></td>
+                    <td>Beschrijvende statistiek</td>
+                    <td>Inferentiële statistiek (BI, toetsen)</td>
+                </tr>
+            </table>
+            <p><small>* SD wordt een betere schatter, maar convergeert naar een stabiele waarde.</small></p>
+
+            <h2 id="sd-uitleg">Standaardafwijking (SD)</h2>
+
+            <div class="key-concept">
+                <h4>Wat is SD?</h4>
+                <p>De <strong>standaardafwijking</strong> meet hoe ver de individuele datapunten gemiddeld van het
+                    gemiddelde afwijken.</p>
+                <ul>
+                    <li>Kleine SD → Data dicht bij gemiddelde (homogeen)</li>
+                    <li>Grote SD → Data ver uitgespreid (heterogeen)</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Voorbeeld: Twee klassen met zelfde gemiddelde</h4>
+                <p><strong>Klas A:</strong> Scores 68, 70, 70, 72 → M = 70, SD = 1.63</p>
+                <p><strong>Klas B:</strong> Scores 50, 60, 80, 90 → M = 70, SD = 18.26</p>
+                <p><strong>Interpretatie:</strong> Beide klassen hebben gemiddeld 70, maar Klas B heeft veel meer
+                    variatie in prestaties.</p>
+            </div>
+
+            <h2 id="se-uitleg">Standaardfout (SE)</h2>
+
+            <div class="key-concept">
+                <h4>Wat is SE?</h4>
+                <p>De <strong>standaardfout</strong> meet de precisie waarmee het steekproefgemiddelde de populatie
+                    schat. Het is de standaardafwijking van de <em>steekproevenverdeling</em>.</p>
+                <ul>
+                    <li>Kleine SE → Nauwkeurige schatting van μ</li>
+                    <li>Grote SE → Onnauwkeurige schatting van μ</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Formule</h4>
+                <p style="font-size: 1.3em; text-align: center;">
+                    SE = SD / √n
+                </p>
+                <p><strong>Voorbeeld:</strong> SD = 10, n = 100</p>
+                <p>SE = 10 / √100 = 10 / 10 = 1</p>
+                <p><strong>Met n = 400:</strong> SE = 10 / √400 = 10 / 20 = 0.5</p>
+                <p>→ Grotere steekproef = kleinere SE = nauwkeuriger schatting!</p>
+            </div>
+
+            <h2 id="visueel">Visueel Verschil</h2>
+
+            <div class="example-box">
+                <h4>SD beschrijft individuele spreiding:</h4>
+                <pre>
+Individuen:  •  •  •  •  •  •  •  •  •  •
+             |←────── SD ──────→|
+                    M
+                </pre>
+
+                <h4>SE beschrijft onzekerheid van het gemiddelde:</h4>
+                <pre>
+Als we 100x steekproef trekken:
+Gemiddeldes: ° ° ° ° ° ° ° ° ° °
+               |←SE→|
+                 M
+                </pre>
+                <p>De SE is altijd kleiner dan de SD (tenzij n = 1).</p>
+            </div>
+
+            <h2 id="wanneer-welke">Wanneer Welke Rapporteren?</h2>
+
+            <div class="key-concept">
+                <h4>Gebruik SD wanneer:</h4>
+                <ul>
+                    <li>✅ Je de variabiliteit in je data wilt beschrijven</li>
+                    <li>✅ Je descriptieve statistiek rapporteert</li>
+                    <li>✅ Je wilt aangeven hoe heterogeen de groep is</li>
+                </ul>
+
+                <h4>Gebruik SE wanneer:</h4>
+                <ul>
+                    <li>✅ Je een betrouwbaarheidsinterval berekent</li>
+                    <li>✅ Je significantietoetsen uitvoert</li>
+                    <li>✅ Je de nauwkeurigheid van je schatting wilt communiceren</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Veelgemaakte Fout</h4>
+                <p>SE-balken in grafieken laten smalle foutmarges zien (want SE < SD), wat resultaten "beter" kan laten
+                        lijken dan ze zijn.</p>
+                        <p><strong>Tip:</strong> Vermeld ALTIJD of je SD of SE rapporteert!</p>
+            </div>
+
+            <h2 id="r-code">R Code</h2>
+
+            <div class="code-box">
+                <pre><code># SD en SE berekenen
+stress <- wave1_coded$W1_Relstress1_Gem
+
+# Basis statistieken
+n <- sum(!is.na(stress))
+gemiddelde <- mean(stress, na.rm = TRUE)
+sd <- sd(stress, na.rm = TRUE)
+se <- sd / sqrt(n)
+
+# Rapporteer
+cat("N =", n, "\n")
+cat("M =", round(gemiddelde, 2), "\n")
+cat("SD =", round(sd, 2), "\n")
+cat("SE =", round(se, 3), "\n")
+
+# 95% Betrouwbaarheidsinterval (gebaseerd op SE)
+ci_lower <- gemiddelde - 1.96 * se
+ci_upper <- gemiddelde + 1.96 * se
+cat("95% BI: [", round(ci_lower, 2), ",", round(ci_upper, 2), "]\n")</code></pre>
+            </div>
+
+            <h2 id="apa-rapportage">APA Rapportage</h2>
+
+            <div class="example-box">
+                <h4>Met SD (descriptief):</h4>
+                <p>"Relatiestress had een gemiddelde van 2.45 (<em>SD</em> = 0.92)."</p>
+
+                <h4>Met SE (inferentieel):</h4>
+                <p>"Relatiestress (<em>M</em> = 2.45, <em>SE</em> = 0.053) verschilde significant..."</p>
+
+                <h4>Met 95% BI (beste praktijk):</h4>
+                <p>"De gemiddelde relatiestress was 2.45, 95% CI [2.35, 2.55]."</p>
+            </div>
+
+            <h2 id="relatie-bi">Relatie met Betrouwbaarheidsintervallen</h2>
+
+            <div class="key-concept">
+                <h4>95% Betrouwbaarheidsinterval</h4>
+                <p style="font-size: 1.2em; text-align: center;">
+                    95% BI = M ± 1.96 × SE
+                </p>
+                <p>Het BI is direct gebaseerd op de SE, niet op de SD!</p>
+            </div>
+
+            <nav class="page-navigation">
+                <a href="variance-explained.html" class="prev">← Variantie Uitgelegd</a>
+                <a href="normality-assessment.html" class="next">Normaliteit Beoordelen →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Toegepaste Statistiek - From Zero To Statistical Hero</p>
+    </footer>
+</body>
+
+</html>

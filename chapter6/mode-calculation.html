@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modus Berekenen in R - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css?v=20260206">
+    <script src="../js/site.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="logo" href="../index.html" aria-label="Terug naar startpagina">
+                📊 Statistical Hero <span class="logo-sub">- Hoofdstuk 6</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdnavigatie">
+                <a href="../index.html">Startpagina</a>
+                <a href="centrality-measures.html">Centraliteit</a>
+                <a href="dispersion-measures.html">Spreiding</a>
+                <a href="measurement-levels.html">Meetniveaus</a>
+                <a href="spss-vs-r.html">SPSS vs R</a>
+            </nav>
+        </div>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../index.html">Startpagina</a></li>
+                <li><a href="../chapter6.html">Hoofdstuk 6</a></li>
+                <li><a href="centrality-measures.html">Centraliteitsmaten</a></li>
+                <li aria-current="page">Modus Berekenen</li>
+            </ol>
+        </nav>
+    </header>
+
+    <main id="main-content" class="page-content" tabindex="-1">
+        <div class="container">
+            <header class="page-header">
+                <h1>Modus Berekenen in R</h1>
+            </header>
+
+            <p class="lead">R heeft geen ingebouwde modus-functie. Hier leer je drie methoden om de modus te berekenen:
+                via frequentietabellen, een eigen functie, en met tidyverse.</p>
+
+            <h2 id="waarom-geen-mode">Waarom heeft R geen mode() functie?</h2>
+
+            <div class="warning-box">
+                <p><strong>Let op!</strong> De functie <code>mode()</code> in R geeft het <em>datatype</em> terug
+                    (numeric, character, etc.), NIET de statistische modus!</p>
+                <pre><code>mode(c(1, 2, 2, 3))
+# [1] "numeric"  ← Dit is NIET wat we willen!</code></pre>
+            </div>
+
+            <h2 id="methode-1">Methode 1: Frequentietabel (table)</h2>
+
+            <p>De eenvoudigste methode is een frequentietabel maken en de hoogste frequentie aflezen:</p>
+
+            <div class="code-box">
+                <pre><code># Maak frequentietabel
+freq_table <- table(data$variabele)
+print(freq_table)
+
+# Vind de modus
+modus <- names(freq_table)[which.max(freq_table)]
+print(paste("Modus:", modus))</code></pre>
+            </div>
+
+            <div class="example-box">
+                <h4>Voorbeeld: Relatiestatus</h4>
+                <pre><code>table(wave1_coded$W1_Relatiestatus)
+#  Nee   Ja 
+#   87  218 
+
+# Modus = "Ja" (hoogste frequentie: 218)</code></pre>
+            </div>
+
+            <h2 id="methode-2">Methode 2: Eigen Modus Functie</h2>
+
+            <p>Maak een herbruikbare functie voor de modus:</p>
+
+            <div class="code-box">
+                <pre><code># Basis modus functie
+calculate_mode <- function(x) {
+  # Verwijder NA's
+  x <- x[!is.na(x)]
+  
+  # Maak frequentietabel
+  freq_table <- table(x)
+  
+  # Vind modus (waarde met hoogste frequentie)
+  mode_value <- names(freq_table)[which.max(freq_table)]
+  mode_freq <- max(freq_table)
+  
+  return(list(
+    mode = mode_value,
+    frequency = mode_freq
+  ))
+}
+
+# Gebruik
+result <- calculate_mode(wave1_coded$W1_Relatiestatus)
+print(paste("Modus:", result$mode, "- Frequentie:", result$frequency))</code></pre>
+            </div>
+
+            <h3 id="uitgebreide-functie">Uitgebreide Functie (met multimodale detectie)</h3>
+
+            <div class="code-box">
+                <pre><code># Uitgebreide modus functie die meerdere modi detecteert
+calculate_mode_extended <- function(x) {
+  x <- x[!is.na(x)]
+  freq_table <- table(x)
+  max_freq <- max(freq_table)
+  
+  # Alle waarden met maximale frequentie
+  modes <- names(freq_table)[freq_table == max_freq]
+  
+  if (length(modes) == length(freq_table)) {
+    return("Geen modus (uniforme verdeling)")
+  } else if (length(modes) > 1) {
+    return(paste("Multimodaal:", paste(modes, collapse = ", ")))
+  } else {
+    return(paste("Modus:", modes))
+  }
+}</code></pre>
+            </div>
+
+            <h2 id="methode-3">Methode 3: Tidyverse Aanpak</h2>
+
+            <div class="code-box">
+                <pre><code>library(dplyr)
+
+# Modus met tidyverse
+wave1_coded |>
+  filter(!is.na(W1_Relatiestatus)) |>
+  count(W1_Relatiestatus, name = "frequentie") |>
+  mutate(percentage = round(frequentie / sum(frequentie) * 100, 1)) |>
+  arrange(desc(frequentie)) |>
+  slice(1)  # Eerste rij = modus</code></pre>
+            </div>
+
+            <h2 id="modus-per-groep">Modus per Groep Berekenen</h2>
+
+            <div class="code-box">
+                <pre><code># Modus per groep (bijv. per geslacht)
+wave1_coded |>
+  group_by(W1_Geslacht) |>
+  count(W1_Relatiestatus) |>
+  slice_max(n, n = 1) |>
+  ungroup()</code></pre>
+            </div>
+
+            <h2 id="spss-vergelijking">SPSS vs R Vergelijking</h2>
+
+            <table class="data-table">
+                <tr>
+                    <th>SPSS</th>
+                    <th>R</th>
+                </tr>
+                <tr>
+                    <td><code>FREQUENCIES variabele /STATISTICS=MODE.</code></td>
+                    <td><code>names(table(x))[which.max(table(x))]</code></td>
+                </tr>
+                <tr>
+                    <td>Geeft modus automatisch</td>
+                    <td>Vereist eigen functie of berekening</td>
+                </tr>
+            </table>
+
+            <div class="key-concept">
+                <h4>Belangrijke Tips</h4>
+                <ul>
+                    <li>Gebruik altijd <code>na.rm = TRUE</code> of filter NA's eerst</li>
+                    <li>Check voor multimodale verdelingen</li>
+                    <li>De modus werkt op ALLE meetniveaus (nominaal, ordinaal, metrisch)</li>
+                    <li>Bij continue data: overweeg categorisatie of gebruik andere maten</li>
+                </ul>
+            </div>
+
+            <nav class="page-navigation">
+                <a href="centrality-measures.html" class="prev">← Centraliteitsmaten</a>
+                <a href="median-vs-mean.html" class="next">Mediaan vs Gemiddelde →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Toegepaste Statistiek - From Zero To Statistical Hero</p>
+    </footer>
+</body>
+
+</html>

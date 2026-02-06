@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheefheid en Kurtosis - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css?v=20260206">
+    <script src="../js/site.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="logo" href="../index.html" aria-label="Terug naar startpagina">
+                📊 Statistical Hero <span class="logo-sub">- Hoofdstuk 6</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdnavigatie">
+                <a href="../index.html">Startpagina</a>
+                <a href="centrality-measures.html">Centraliteit</a>
+                <a href="dispersion-measures.html">Spreiding</a>
+                <a href="measurement-levels.html">Meetniveaus</a>
+                <a href="spss-vs-r.html">SPSS vs R</a>
+            </nav>
+        </div>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../index.html">Startpagina</a></li>
+                <li><a href="../chapter6.html">Hoofdstuk 6</a></li>
+                <li><a href="normality-assessment.html">Normaliteit</a></li>
+                <li aria-current="page">Scheefheid en Kurtosis</li>
+            </ol>
+        </nav>
+    </header>
+
+    <main id="main-content" class="page-content" tabindex="-1">
+        <div class="container">
+            <header class="page-header">
+                <h1>Scheefheid en Kurtosis Uitgelegd</h1>
+            </header>
+
+            <p class="lead">Scheefheid en kurtosis beschrijven de vorm van de verdeling. Ze zijn belangrijk voor het
+                beoordelen van normaliteit en de keuze van statistische technieken.</p>
+
+            <h2 id="scheefheid">Scheefheid (Skewness)</h2>
+
+            <div class="key-concept">
+                <h4>Definitie</h4>
+                <p><strong>Scheefheid</strong> meet de asymmetrie van de verdeling. Het geeft aan of de data meer naar
+                    links of rechts uitlopen.</p>
+                <ul>
+                    <li><strong>Symbool:</strong> γ₁ (gamma) of Sk</li>
+                    <li><strong>Normale verdeling:</strong> Scheefheid = 0</li>
+                </ul>
+            </div>
+
+            <h3 id="typen-scheefheid">Typen Scheefheid</h3>
+
+            <div class="example-box">
+                <h4>Rechts Scheef (Positief): Scheefheid > 0</h4>
+                <pre>
+  ▌
+  ▌▌
+ ▌▌▌▌
+▌▌▌▌▌▌▌▌▌▌▌▌▌▌
+────────────────────────
+        Md  M        →  Staart naar rechts
+                </pre>
+                <p><strong>Voorbeelden:</strong> Inkomen, responstijden, criminaliteitscijfers</p>
+                <p><strong>Kenmerk:</strong> Gemiddelde > Mediaan</p>
+            </div>
+
+            <div class="example-box">
+                <h4>Links Scheef (Negatief): Scheefheid < 0</h4>
+                        <pre>
+                        ▌
+                       ▌▌
+                     ▌▌▌▌
+        ▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌
+────────────────────────
+←  Staart naar links   M  Md
+                </pre>
+                        <p><strong>Voorbeelden:</strong> Examencijfers (plafondeffect), leeftijd bij pensioen</p>
+                        <p><strong>Kenmerk:</strong> Gemiddelde < Mediaan</p>
+            </div>
+
+            <div class="example-box">
+                <h4>Symmetrisch: Scheefheid ≈ 0</h4>
+                <pre>
+            ▌
+           ▌▌▌
+         ▌▌▌▌▌▌▌
+      ▌▌▌▌▌▌▌▌▌▌▌▌▌
+────────────────────────
+           M = Md
+                </pre>
+                <p><strong>Voorbeelden:</strong> IQ, lengte, meetfouten</p>
+                <p><strong>Kenmerk:</strong> Gemiddelde ≈ Mediaan</p>
+            </div>
+
+            <h3 id="interpretatie-scheefheid">Interpretatie Vuistregels</h3>
+
+            <table class="data-table">
+                <tr>
+                    <th>Scheefheid</th>
+                    <th>Interpretatie</th>
+                    <th>Actie</th>
+                </tr>
+                <tr>
+                    <td>-0.5 tot +0.5</td>
+                    <td>Ongeveer symmetrisch</td>
+                    <td>Parametrische toetsen OK</td>
+                </tr>
+                <tr>
+                    <td>-1 tot -0.5 of +0.5 tot +1</td>
+                    <td>Matig scheef</td>
+                    <td>Parametrische toetsen meestal OK</td>
+                </tr>
+                <tr>
+                    <td>
+                        < -1 of> +1
+                    </td>
+                    <td>Sterk scheef</td>
+                    <td>Overweeg transformatie of non-parametrisch</td>
+                </tr>
+            </table>
+
+            <h2 id="kurtosis">Kurtosis (Gepiektheid)</h2>
+
+            <div class="key-concept">
+                <h4>Definitie</h4>
+                <p><strong>Kurtosis</strong> meet de "zwaarte" van de staarten en de "gepiektheid" van de verdeling
+                    vergeleken met de normale verdeling.</p>
+                <ul>
+                    <li><strong>Symbool:</strong> γ₂ (gamma) of Ku</li>
+                    <li><strong>Normale verdeling:</strong> Kurtosis = 0 (excess kurtosis) of 3 (kurtosis)</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4>Let op: Twee definities!</h4>
+                <ul>
+                    <li><strong>Kurtosis:</strong> Normaal = 3</li>
+                    <li><strong>Excess kurtosis:</strong> Normaal = 0 (= kurtosis - 3)</li>
+                </ul>
+                <p>R's <code>psych::kurtosi()</code> geeft excess kurtosis (normaal = 0).</p>
+            </div>
+
+            <h3 id="typen-kurtosis">Typen Kurtosis</h3>
+
+            <div class="example-box">
+                <h4>Leptokurtisch (Kurtosis > 0): Spitse piek, zware staarten</h4>
+                <pre>
+            ▲
+           ▌▌▌
+          ▌▌▌▌▌
+         ▌▌▌▌▌▌▌
+────▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌────
+        (lange dunne staarten)
+                </pre>
+                <p><strong>Kenmerken:</strong> Meer extreme waarden dan normaal, hogere kans op uitschieters</p>
+            </div>
+
+            <div class="example-box">
+                <h4>Mesokurtisch (Kurtosis ≈ 0): Normale verdeling</h4>
+                <pre>
+           ▄▄▄
+         ▄▄███▄▄
+       ▄▄███████▄▄
+────▄▄▄████████████▄▄▄────
+                </pre>
+                <p><strong>Kenmerken:</strong> Normale verdeling, standaard referentiepunt</p>
+            </div>
+
+            <div class="example-box">
+                <h4>Platykurtisch (Kurtosis < 0): Platte piek, lichte staarten</h4>
+                        <pre>
+      ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+    ▄▄████████████████▄▄
+────████████████████████────
+        (korte lichte staarten)
+                </pre>
+                        <p><strong>Kenmerken:</strong> Meer uniforme verdeling, minder extreme waarden</p>
+            </div>
+
+            <h3 id="interpretatie-kurtosis">Interpretatie Vuistregels</h3>
+
+            <table class="data-table">
+                <tr>
+                    <th>Excess Kurtosis</th>
+                    <th>Type</th>
+                    <th>Interpretatie</th>
+                </tr>
+                <tr>
+                    <td>> +1</td>
+                    <td>Leptokurtisch</td>
+                    <td>Zware staarten, veel uitschieters</td>
+                </tr>
+                <tr>
+                    <td>-1 tot +1</td>
+                    <td>Mesokurtisch</td>
+                    <td>Ongeveer normaal</td>
+                </tr>
+                <tr>
+                    <td>
+                        < -1</td>
+                    <td>Platykurtisch</td>
+                    <td>Lichte staarten, uniforme verdeling</td>
+                </tr>
+            </table>
+
+            <h2 id="r-code">R Code</h2>
+
+            <div class="code-box">
+                <pre><code># Scheefheid en Kurtosis met psych package
+library(psych)
+
+stress <- wave1_coded$W1_Relstress1_Gem
+
+# Scheefheid
+scheefheid <- psych::skew(stress, na.rm = TRUE)
+cat("Scheefheid:", round(scheefheid, 3), "\n")
+
+# Kurtosis (excess kurtosis in psych)
+kurtosis <- psych::kurtosi(stress, na.rm = TRUE)
+cat("Kurtosis:", round(kurtosis, 3), "\n")
+
+# Interpretatie
+interpret_skew <- function(sk) {
+  if (abs(sk) < 0.5) return("Symmetrisch")
+  else if (abs(sk) < 1) return("Matig scheef")
+  else return("Sterk scheef")
+}
+
+interpret_kurt <- function(ku) {
+  if (ku > 1) return("Leptokurtisch (zware staarten)")
+  else if (ku < -1) return("Platykurtisch (lichte staarten)")
+  else return("Mesokurtisch (normaal)")
+}
+
+cat("Interpretatie scheefheid:", interpret_skew(scheefheid), "\n")
+cat("Interpretatie kurtosis:", interpret_kurt(kurtosis), "\n")</code></pre>
+            </div>
+
+            <h2 id="describe">Alles in Één met describe()</h2>
+
+            <div class="code-box">
+                <pre><code># psych::describe() geeft alles
+psych::describe(stress)
+
+#    vars   n mean   sd median trimmed  mad min max range skew kurtosis   se
+# X1    1 305 2.45 0.92   2.33    2.42 0.99   1   5     4 0.31    -0.54 0.05</code></pre>
+            </div>
+
+            <h2 id="normaliteit">Combineren voor Normaliteitsbeoordeling</h2>
+
+            <div class="key-concept">
+                <h4>Vuistregel voor Normaliteit</h4>
+                <p>Een verdeling is <strong>bij benadering normaal</strong> als:</p>
+                <ul>
+                    <li>Scheefheid tussen -1 en +1</li>
+                    <li>Kurtosis tussen -1 en +1</li>
+                    <li>Shapiro-Wilk p > 0.05 (formele toets)</li>
+                </ul>
+                <p><strong>Belangrijk:</strong> Bij n > 100 is de Centrale Limietstelling meestal voldoende voor
+                    robuustheid van parametrische toetsen.</p>
+            </div>
+
+            <nav class="page-navigation">
+                <a href="normality-assessment.html" class="prev">← Normaliteit Beoordelen</a>
+                <a href="r-functions-guide.html" class="next">R Functies →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Toegepaste Statistiek - From Zero To Statistical Hero</p>
+    </footer>
+</body>
+
+</html>
