@@ -988,20 +988,281 @@ body:not(.home-page) {
 
 
 
-/* === SYNTAX HIGHLIGHTING (OPTIONAL) === */
-.r-code {
-  color: #c7254e;
+/* === RSTUDIO-STYLE SYNTAX HIGHLIGHTING === */
+/* Matches RStudio's default "Textmate" theme for familiarity */
+
+/* Code container - RStudio console look */
+.rstudio-code {
+  background: #ffffff;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 15px;
+  margin: 15px 0;
+  font-family: 'Consolas', 'Monaco', 'Lucida Console', 'Liberation Mono', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-x: auto;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* RStudio-style line numbers */
+.rstudio-code .line-number {
+  color: #999999;
+  background: #f5f5f5;
+  padding: 0 10px 0 5px;
+  margin-right: 10px;
+  border-right: 1px solid #e0e0e0;
+  user-select: none;
+  display: inline-block;
+  min-width: 30px;
+  text-align: right;
+}
+
+/* R Code syntax highlighting - RStudio colors */
+.r-keyword {
+  color: #0000FF;  /* RStudio: blue for keywords */
+  font-weight: 600;
 }
 
 .r-function {
-  color: #8250df;
-}
-
-.r-comment {
-  color: #6a737d;
-  font-style: italic;
+  color: #4A148C;  /* RStudio: purple for functions */
 }
 
 .r-string {
-  color: #0a3069;
+  color: #008000;  /* RStudio: green for strings */
+}
+
+.r-number {
+  color: #099;     /* RStudio: teal for numbers */
+}
+
+.r-comment {
+  color: #008000;  /* RStudio: green for comments */
+  font-style: italic;
+}
+
+.r-operator {
+  color: #000000;  /* RStudio: black for operators */
+}
+
+.r-pipe {
+  color: #0000FF;  /* RStudio: blue for pipe %>% */
+  font-weight: 600;
+}
+
+.r-argument {
+  color: #666666;  /* RStudio: gray for argument names */
+}
+
+.r-constant {
+  color: #AA22FF;  /* RStudio: purple for TRUE/FALSE/NA */
+  font-weight: 600;
+}
+
+.r-package {
+  color: #795E26;  /* RStudio: brown for package names */
+}
+
+/* Output styling - RStudio console output */
+.r-output {
+  color: #333333;
+  background: #f8f9fa;
+  border-left: 3px solid #4CAF50;
+  padding: 10px 15px;
+  margin: 10px 0;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 12px;
+}
+
+.r-output::before {
+  content: "Output:";
+  display: block;
+  color: #666;
+  font-size: 11px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+/* RStudio-style code chunk header */
+.code-chunk-header {
+  background: linear-gradient(to bottom, #f0f0f0, #e5e5e5);
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.code-chunk-header .chunk-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.code-chunk-header .chunk-language {
+  background: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  color: #666;
+}
+
+/* Code chunk with header */
+.code-chunk {
+  margin: 20px 0;
+}
+
+.code-chunk .rstudio-code {
+  border-radius: 0 0 4px 4px;
+  margin-top: 0;
+}
+
+/* Interpretation box - for explaining results */
+.interpretation-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-left: 5px solid #4CAF50;
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.interpretation-box h4 {
+  color: #2e7d32;
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+}
+
+.interpretation-box h4::before {
+  content: "💡 ";
+}
+
+.interpretation-box p {
+  margin: 8px 0;
+  color: #1b5e20;
+}
+
+.interpretation-box ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.interpretation-box li {
+  margin: 5px 0;
+  color: #1b5e20;
+}
+
+/* Warning interpretation */
+.interpretation-warning {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  border-left: 5px solid #ff9800;
+}
+
+.interpretation-warning h4 {
+  color: #e65100;
+}
+
+.interpretation-warning h4::before {
+  content: "⚠️ ";
+}
+
+.interpretation-warning p,
+.interpretation-warning li {
+  color: #bf360c;
+}
+
+/* Copy button for code blocks */
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.code-box:hover .copy-btn,
+.rstudio-code:hover .copy-btn {
+  opacity: 1;
+}
+
+.copy-btn:hover {
+  background: #e0e0e0;
+}
+
+/* Comparison table for RStudio vs Code */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.comparison-table th {
+  background: #5568d3;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.comparison-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.comparison-table tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+/* RStudio Environment pane look */
+.environment-preview {
+  background: #ffffff;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  margin: 15px 0;
+}
+
+.environment-preview-header {
+  background: #f0f0f0;
+  padding: 8px 12px;
+  border-bottom: 1px solid #d4d4d4;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.environment-preview-content {
+  padding: 10px 12px;
+  font-family: 'Consolas', monospace;
+  font-size: 12px;
+}
+
+.environment-preview-row {
+  display: flex;
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.environment-preview-row:last-child {
+  border-bottom: none;
+}
+
+.environment-preview-name {
+  color: #0000FF;
+  width: 150px;
+}
+
+.environment-preview-type {
+  color: #666;
+  width: 100px;
+}
+
+.environment-preview-value {
+  color: #333;
+  flex: 1;
 }

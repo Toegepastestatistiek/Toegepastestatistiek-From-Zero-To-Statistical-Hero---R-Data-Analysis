@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediaan vs Gemiddelde - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css?v=20260206">
+    <script src="../js/site.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="logo" href="../index.html" aria-label="Terug naar startpagina">
+                📊 Statistical Hero <span class="logo-sub">- Hoofdstuk 6</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdnavigatie">
+                <a href="../index.html">Startpagina</a>
+                <a href="centrality-measures.html">Centraliteit</a>
+                <a href="dispersion-measures.html">Spreiding</a>
+                <a href="measurement-levels.html">Meetniveaus</a>
+                <a href="spss-vs-r.html">SPSS vs R</a>
+            </nav>
+        </div>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../index.html">Startpagina</a></li>
+                <li><a href="../chapter6.html">Hoofdstuk 6</a></li>
+                <li><a href="centrality-measures.html">Centraliteitsmaten</a></li>
+                <li aria-current="page">Mediaan vs Gemiddelde</li>
+            </ol>
+        </nav>
+    </header>
+
+    <main id="main-content" class="page-content" tabindex="-1">
+        <div class="container">
+            <header class="page-header">
+                <h1>Mediaan vs Gemiddelde: Wanneer Welke Gebruiken?</h1>
+            </header>
+
+            <p class="lead">Het gemiddelde en de mediaan zijn beide centraliteitsmaten, maar ze hebben verschillende
+                eigenschappen en toepassingen. Hier leer je wanneer je welke moet gebruiken.</p>
+
+            <h2 id="overzicht">Overzicht van Verschillen</h2>
+
+            <table class="data-table">
+                <tr>
+                    <th>Kenmerk</th>
+                    <th>Gemiddelde (M)</th>
+                    <th>Mediaan (Md)</th>
+                </tr>
+                <tr>
+                    <td><strong>Berekening</strong></td>
+                    <td>Som / Aantal</td>
+                    <td>Middelste waarde</td>
+                </tr>
+                <tr>
+                    <td><strong>Meetniveau</strong></td>
+                    <td>Interval/Ratio</td>
+                    <td>Ordinaal, Interval/Ratio</td>
+                </tr>
+                <tr>
+                    <td><strong>Uitschieters</strong></td>
+                    <td>⚠️ Zeer gevoelig</td>
+                    <td>✅ Robuust</td>
+                </tr>
+                <tr>
+                    <td><strong>Scheve verdeling</strong></td>
+                    <td>Wordt "meegetrokken"</td>
+                    <td>Blijft stabiel</td>
+                </tr>
+                <tr>
+                    <td><strong>Symbool</strong></td>
+                    <td>M, x̄, μ</td>
+                    <td>Md, Me, Q2, P50</td>
+                </tr>
+            </table>
+
+            <h2 id="uitschieters">Effect van Uitschieters</h2>
+
+            <div class="example-box">
+                <h4>Voorbeeld: Inkomen van 5 personen</h4>
+                <p><strong>Dataset A (zonder uitschieter):</strong></p>
+                <p>€30.000, €35.000, €40.000, €45.000, €50.000</p>
+                <ul>
+                    <li>Gemiddelde = €40.000</li>
+                    <li>Mediaan = €40.000</li>
+                </ul>
+
+                <p><strong>Dataset B (met uitschieter):</strong></p>
+                <p>€30.000, €35.000, €40.000, €45.000, <span class="highlight">€500.000</span></p>
+                <ul>
+                    <li>Gemiddelde = €130.000 ⚠️</li>
+                    <li>Mediaan = €40.000 ✅</li>
+                </ul>
+
+                <p><strong>Conclusie:</strong> De mediaan verandert niet door de uitschieter, het gemiddelde wel
+                    drastisch!</p>
+            </div>
+
+            <h2 id="scheve-verdeling">Effect van Scheve Verdelingen</h2>
+
+            <div class="key-concept">
+                <h4>Relatie tussen Gemiddelde, Mediaan en Scheefheid</h4>
+                <ul>
+                    <li><strong>Symmetrische verdeling:</strong> Gemiddelde ≈ Mediaan</li>
+                    <li><strong>Rechts scheef (positief):</strong> Gemiddelde > Mediaan</li>
+                    <li><strong>Links scheef (negatief):</strong> Gemiddelde < Mediaan</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Visualisatie Rechts Scheve Verdeling</h4>
+                <pre>
+    ▌
+    ▌▌
+   ▌▌▌
+  ▌▌▌▌▌
+ ▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌
+─────────────────────────────
+     Md  M         (uitlopers naar rechts)
+                </pre>
+                <p>De "staart" trekt het gemiddelde naar rechts, de mediaan blijft in het midden van de data.</p>
+            </div>
+
+            <h2 id="wanneer-welke">Wanneer Welke Gebruiken?</h2>
+
+            <h3>Gebruik het GEMIDDELDE wanneer:</h3>
+            <div class="code-box">
+                <ul>
+                    <li>✅ De verdeling symmetrisch is</li>
+                    <li>✅ Er geen uitschieters zijn</li>
+                    <li>✅ Je interval- of ratiodata hebt</li>
+                    <li>✅ Je verder wilt rekenen (bijv. t-toets)</li>
+                </ul>
+            </div>
+
+            <h3>Gebruik de MEDIAAN wanneer:</h3>
+            <div class="code-box">
+                <ul>
+                    <li>✅ De verdeling scheef is</li>
+                    <li>✅ Er uitschieters zijn</li>
+                    <li>✅ Je ordinale data hebt</li>
+                    <li>✅ Je "typische" waarde wilt rapporteren (bijv. inkomen)</li>
+                </ul>
+            </div>
+
+            <h2 id="r-code">R Code Vergelijking</h2>
+
+            <div class="code-box">
+                <pre><code># Beide maten berekenen
+gemiddelde <- mean(data$variabele, na.rm = TRUE)
+mediaan <- median(data$variabele, na.rm = TRUE)
+
+# Vergelijk
+cat("Gemiddelde:", round(gemiddelde, 2), "\n")
+cat("Mediaan:", mediaan, "\n")
+cat("Verschil:", round(gemiddelde - mediaan, 2), "\n")
+
+# Interpretatie van scheefheid
+if (abs(gemiddelde - mediaan) < 0.1 * sd(data$variabele, na.rm = TRUE)) {
+  cat("→ Verdeling lijkt symmetrisch\n")
+} else if (gemiddelde > mediaan) {
+  cat("→ Verdeling is rechts scheef (positief)\n")
+} else {
+  cat("→ Verdeling is links scheef (negatief)\n")
+}</code></pre>
+            </div>
+
+            <h2 id="praktisch-voorbeeld">Praktisch Voorbeeld: Relatiestress</h2>
+
+            <div class="code-box">
+                <pre><code># Analyseer relatiestress scores
+stress <- wave1_coded$W1_Relstress1_Gem
+
+# Beschrijvende statistieken
+cat("Gemiddelde:", round(mean(stress, na.rm = TRUE), 2), "\n")
+cat("Mediaan:", round(median(stress, na.rm = TRUE), 2), "\n")
+cat("SD:", round(sd(stress, na.rm = TRUE), 2), "\n")
+cat("Scheefheid:", round(psych::skew(stress, na.rm = TRUE), 2), "\n")
+
+# Histogram met beide maten
+library(ggplot2)
+ggplot(wave1_coded, aes(x = W1_Relstress1_Gem)) +
+  geom_histogram(bins = 20, fill = "steelblue", alpha = 0.7) +
+  geom_vline(aes(xintercept = mean(W1_Relstress1_Gem, na.rm = TRUE)), 
+             color = "red", linewidth = 1.5, linetype = "dashed") +
+  geom_vline(aes(xintercept = median(W1_Relstress1_Gem, na.rm = TRUE)), 
+             color = "green", linewidth = 1.5) +
+  labs(title = "Verdeling Relatiestress",
+       subtitle = "Rood = Gemiddelde, Groen = Mediaan")</code></pre>
+            </div>
+
+            <div class="warning-box">
+                <h4>Vuistregel voor Rapportage</h4>
+                <p>Bij scheve verdelingen (scheefheid > 1 of < -1): rapporteer ALTIJD de mediaan naast het gemiddelde,
+                        of rapporteer alleen de mediaan.</p>
+                        <p><strong>Voorbeeld APA:</strong> "Het mediaan inkomen was €42.000 (IQR = €25.000 - €68.000)."
+                        </p>
+            </div>
+
+            <nav class="page-navigation">
+                <a href="mode-calculation.html" class="prev">← Modus Berekenen</a>
+                <a href="dispersion-measures.html" class="next">Spreidingsmaten →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Toegepaste Statistiek - From Zero To Statistical Hero</p>
+    </footer>
+</body>
+
+</html>

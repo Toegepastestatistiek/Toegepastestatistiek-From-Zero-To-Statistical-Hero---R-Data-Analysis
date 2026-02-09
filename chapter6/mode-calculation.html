@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modus Berekenen in R - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css?v=20260206">
+    <script src="../js/site.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="logo" href="../index.html" aria-label="Terug naar startpagina">
+                📊 Statistical Hero <span class="logo-sub">- Hoofdstuk 6</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdnavigatie">
+                <a href="../index.html">Startpagina</a>
+                <a href="centrality-measures.html">Centraliteit</a>
+                <a href="dispersion-measures.html">Spreiding</a>
+                <a href="measurement-levels.html">Meetniveaus</a>
+                <a href="spss-vs-r.html">SPSS vs R</a>
+            </nav>
+        </div>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../index.html">Startpagina</a></li>
+                <li><a href="../chapter6.html">Hoofdstuk 6</a></li>
+                <li><a href="centrality-measures.html">Centraliteitsmaten</a></li>
+                <li aria-current="page">Modus Berekenen</li>
+            </ol>
+        </nav>
+    </header>
+
+    <main id="main-content" class="page-content" tabindex="-1">
+        <div class="container">
+            <header class="page-header">
+                <h1>Modus Berekenen in R</h1>
+            </header>
+
+            <p class="lead">R heeft geen ingebouwde modus-functie. Hier leer je drie methoden om de modus te berekenen:
+                via frequentietabellen, een eigen functie, en met tidyverse.</p>
+
+            <h2 id="waarom-geen-mode">Waarom heeft R geen mode() functie?</h2>
+
+            <div class="warning-box">
+                <p><strong>Let op!</strong> De functie <code>mode()</code> in R geeft het <em>datatype</em> terug
+                    (numeric, character, etc.), NIET de statistische modus!</p>
+                <div class="code-chunk">
+                    <div class="code-chunk-header">
+                        <span class="chunk-label">⚠️ Veelgemaakte fout</span>
+                        <span class="chunk-language">R</span>
+                    </div>
+                    <pre class="rstudio-code"><span class="r-comment"># Dit is FOUT - mode() geeft het datatype!</span>
+<span class="r-function">mode</span>(<span class="r-function">c</span>(<span class="r-number">1</span>, <span class="r-number">2</span>, <span class="r-number">2</span>, <span class="r-number">3</span>))</pre>
+                </div>
+                <div class="r-output">[1] "numeric"  ← Dit is het datatype, NIET de modus!</div>
+            </div>
+
+            <h2 id="methode-1">Methode 1: Frequentietabel (table)</h2>
+
+            <p>De eenvoudigste methode is een frequentietabel maken en de hoogste frequentie aflezen:</p>
+
+            <div class="code-chunk">
+                <div class="code-chunk-header">
+                    <span class="chunk-label">modus-frequentietabel</span>
+                    <span class="chunk-language">R</span>
+                </div>
+                <pre class="rstudio-code"><span class="r-comment"># Stap 1: Maak frequentietabel</span>
+freq_table <span class="r-operator">&lt;-</span> <span class="r-function">table</span>(data<span class="r-operator">$</span>variabele)
+<span class="r-function">print</span>(freq_table)
+
+<span class="r-comment"># Stap 2: Vind de modus (waarde met hoogste frequentie)</span>
+modus <span class="r-operator">&lt;-</span> <span class="r-function">names</span>(freq_table)[<span class="r-function">which.max</span>(freq_table)]
+<span class="r-function">print</span>(<span class="r-function">paste</span>(<span class="r-string">"Modus:"</span>, modus))</pre>
+            </div>
+
+            <div class="example-box">
+                <h4>Voorbeeld: Relatiestatus</h4>
+                <div class="code-chunk">
+                    <div class="code-chunk-header">
+                        <span class="chunk-label">voorbeeld-relatiestatus</span>
+                        <span class="chunk-language">R</span>
+                    </div>
+                    <pre class="rstudio-code"><span class="r-function">table</span>(wave1_coded<span class="r-operator">$</span>W1_Relatiestatus)</pre>
+                </div>
+                <div class="r-output">  Nee   Ja 
+   87  218</div>
+            </div>
+
+            <div class="interpretation-box">
+                <h4>Interpretatie van de Output</h4>
+                <p><strong>Modus = "Ja"</strong> (hoogste frequentie: 218 respondenten)</p>
+                <ul>
+                    <li>218 van de 305 respondenten (71.5%) hebben een relatie</li>
+                    <li>87 respondenten (28.5%) hebben geen relatie</li>
+                    <li><strong>Conclusie:</strong> De meerderheid van de steekproef heeft een relatie</li>
+                </ul>
+            </div>
+
+            <h2 id="methode-2">Methode 2: Eigen Modus Functie</h2>
+
+            <p>Maak een herbruikbare functie voor de modus:</p>
+
+            <div class="code-chunk">
+                <div class="code-chunk-header">
+                    <span class="chunk-label">modus-functie</span>
+                    <span class="chunk-language">R</span>
+                </div>
+                <pre class="rstudio-code"><span class="r-comment"># =============================================</span>
+<span class="r-comment"># Eigen modus functie - herbruikbaar</span>
+<span class="r-comment"># =============================================</span>
+
+calculate_mode <span class="r-operator">&lt;-</span> <span class="r-keyword">function</span>(x) {
+  <span class="r-comment"># Stap 1: Verwijder missing values (NA's)</span>
+  x <span class="r-operator">&lt;-</span> x[<span class="r-operator">!</span><span class="r-function">is.na</span>(x)]
+  
+  <span class="r-comment"># Stap 2: Maak frequentietabel</span>
+  freq_table <span class="r-operator">&lt;-</span> <span class="r-function">table</span>(x)
+  
+  <span class="r-comment"># Stap 3: Vind modus (waarde met hoogste frequentie)</span>
+  mode_value <span class="r-operator">&lt;-</span> <span class="r-function">names</span>(freq_table)[<span class="r-function">which.max</span>(freq_table)]
+  mode_freq <span class="r-operator">&lt;-</span> <span class="r-function">max</span>(freq_table)
+  
+  <span class="r-comment"># Stap 4: Geef resultaat terug als lijst</span>
+  <span class="r-keyword">return</span>(<span class="r-function">list</span>(
+    <span class="r-argument">mode</span> <span class="r-operator">=</span> mode_value,
+    <span class="r-argument">frequency</span> <span class="r-operator">=</span> mode_freq
+  ))
+}
+
+<span class="r-comment"># Gebruik de functie</span>
+result <span class="r-operator">&lt;-</span> <span class="r-function">calculate_mode</span>(wave1_coded<span class="r-operator">$</span>W1_Relatiestatus)
+<span class="r-function">print</span>(<span class="r-function">paste</span>(<span class="r-string">"Modus:"</span>, result<span class="r-operator">$</span>mode, <span class="r-string">"- Frequentie:"</span>, result<span class="r-operator">$</span>frequency))</pre>
+            </div>
+            
+            <div class="r-output">[1] "Modus: Ja - Frequentie: 218"</div>
+
+            <div class="interpretation-box">
+                <h4>Uitleg van de Functie</h4>
+                <ul>
+                    <li><code>x[!is.na(x)]</code> - Filtert alle NA (missing) waarden uit</li>
+                    <li><code>table(x)</code> - Telt hoe vaak elke waarde voorkomt</li>
+                    <li><code>which.max(freq_table)</code> - Vindt de positie van de hoogste waarde</li>
+                    <li><code>names(freq_table)[...]</code> - Haalt de naam (label) op van die positie</li>
+                </ul>
+            </div>
+
+            <h3 id="uitgebreide-functie">Uitgebreide Functie (met multimodale detectie)</h3>
+
+            <div class="code-chunk">
+                <div class="code-chunk-header">
+                    <span class="chunk-label">modus-uitgebreid</span>
+                    <span class="chunk-language">R</span>
+                </div>
+                <pre class="rstudio-code"><span class="r-comment"># =============================================</span>
+<span class="r-comment"># Uitgebreide modus functie</span>
+<span class="r-comment"># Detecteert ook bimodale/multimodale verdelingen</span>
+<span class="r-comment"># =============================================</span>
+
+calculate_mode_extended <span class="r-operator">&lt;-</span> <span class="r-keyword">function</span>(x) {
+  <span class="r-comment"># Verwijder NA's</span>
+  x <span class="r-operator">&lt;-</span> x[<span class="r-operator">!</span><span class="r-function">is.na</span>(x)]
+  freq_table <span class="r-operator">&lt;-</span> <span class="r-function">table</span>(x)
+  max_freq <span class="r-operator">&lt;-</span> <span class="r-function">max</span>(freq_table)
+  
+  <span class="r-comment"># Vind ALLE waarden met maximale frequentie</span>
+  modes <span class="r-operator">&lt;-</span> <span class="r-function">names</span>(freq_table)[freq_table <span class="r-operator">==</span> max_freq]
+  
+  <span class="r-comment"># Check type verdeling</span>
+  <span class="r-keyword">if</span> (<span class="r-function">length</span>(modes) <span class="r-operator">==</span> <span class="r-function">length</span>(freq_table)) {
+    <span class="r-keyword">return</span>(<span class="r-string">"Geen modus (uniforme verdeling)"</span>)
+  } <span class="r-keyword">else if</span> (<span class="r-function">length</span>(modes) <span class="r-operator">&gt;</span> <span class="r-number">1</span>) {
+    <span class="r-keyword">return</span>(<span class="r-function">paste</span>(<span class="r-string">"Multimodaal:"</span>, <span class="r-function">paste</span>(modes, <span class="r-argument">collapse</span> <span class="r-operator">=</span> <span class="r-string">", "</span>)))
+  } <span class="r-keyword">else</span> {
+    <span class="r-keyword">return</span>(<span class="r-function">paste</span>(<span class="r-string">"Modus:"</span>, modes))
+  }
+}</pre>
+            </div>
+
+            <div class="interpretation-box">
+                <h4>Wanneer gebruik je deze uitgebreide functie?</h4>
+                <ul>
+                    <li><strong>Bimodaal:</strong> Twee waarden komen even vaak voor (bijv. leeftijd met pieken bij 25 en 55 jaar)</li>
+                    <li><strong>Multimodaal:</strong> Meer dan twee waarden komen even vaak voor</li>
+                    <li><strong>Uniform:</strong> Alle waarden komen even vaak voor → geen modus</li>
+                </ul>
+            </div>
+
+            <h2 id="methode-3">Methode 3: Tidyverse Aanpak</h2>
+
+            <div class="code-chunk">
+                <div class="code-chunk-header">
+                    <span class="chunk-label">modus-tidyverse</span>
+                    <span class="chunk-language">R</span>
+                </div>
+                <pre class="rstudio-code"><span class="r-function">library</span>(dplyr)
+
+<span class="r-comment"># Modus berekenen met tidyverse pipe syntax</span>
+wave1_coded <span class="r-pipe">|&gt;</span>
+  <span class="r-function">filter</span>(<span class="r-operator">!</span><span class="r-function">is.na</span>(W1_Relatiestatus)) <span class="r-pipe">|&gt;</span>   <span class="r-comment"># Verwijder NA's</span>
+  <span class="r-function">count</span>(W1_Relatiestatus, <span class="r-argument">name</span> <span class="r-operator">=</span> <span class="r-string">"frequentie"</span>) <span class="r-pipe">|&gt;</span>  <span class="r-comment"># Tel frequenties</span>
+  <span class="r-function">mutate</span>(<span class="r-argument">percentage</span> <span class="r-operator">=</span> <span class="r-function">round</span>(frequentie <span class="r-operator">/</span> <span class="r-function">sum</span>(frequentie) <span class="r-operator">*</span> <span class="r-number">100</span>, <span class="r-number">1</span>)) <span class="r-pipe">|&gt;</span>  <span class="r-comment"># Bereken %</span>
+  <span class="r-function">arrange</span>(<span class="r-function">desc</span>(frequentie)) <span class="r-pipe">|&gt;</span>  <span class="r-comment"># Sorteer aflopend</span>
+  <span class="r-function">slice</span>(<span class="r-number">1</span>)  <span class="r-comment"># Eerste rij = modus</span></pre>
+            </div>
+
+            <div class="r-output"># A tibble: 1 × 3
+  W1_Relatiestatus frequentie percentage
+  &lt;fct&gt;                 &lt;int&gt;      &lt;dbl&gt;
+1 Ja                      218       71.5</div>
+
+            <div class="interpretation-box">
+                <h4>Voordelen van Tidyverse Aanpak</h4>
+                <ul>
+                    <li><strong>Leesbaar:</strong> Code leest als een verhaal van links naar rechts</li>
+                    <li><strong>Flexibel:</strong> Makkelijk uit te breiden met extra berekeningen</li>
+                    <li><strong>Percentage:</strong> Direct inzicht in relatieve frequentie (71.5%)</li>
+                </ul>
+            </div>
+
+            <h2 id="modus-per-groep">Modus per Groep Berekenen</h2>
+
+            <div class="code-chunk">
+                <div class="code-chunk-header">
+                    <span class="chunk-label">modus-per-groep</span>
+                    <span class="chunk-language">R</span>
+                </div>
+                <pre class="rstudio-code"><span class="r-comment"># Modus berekenen per subgroep (bijv. per geslacht)</span>
+wave1_coded <span class="r-pipe">|&gt;</span>
+  <span class="r-function">group_by</span>(W1_Geslacht) <span class="r-pipe">|&gt;</span>          <span class="r-comment"># Groepeer op geslacht</span>
+  <span class="r-function">count</span>(W1_Relatiestatus) <span class="r-pipe">|&gt;</span>        <span class="r-comment"># Tel per groep</span>
+  <span class="r-function">slice_max</span>(n, <span class="r-argument">n</span> <span class="r-operator">=</span> <span class="r-number">1</span>) <span class="r-pipe">|&gt;</span>           <span class="r-comment"># Neem hoogste n per groep</span>
+  <span class="r-function">ungroup</span>()</pre>
+            </div>
+
+            <div class="r-output"># A tibble: 2 × 3
+  W1_Geslacht W1_Relatiestatus     n
+  &lt;fct&gt;       &lt;fct&gt;            &lt;int&gt;
+1 Man         Ja                  98
+2 Vrouw       Ja                 120</div>
+
+            <div class="interpretation-box">
+                <h4>Interpretatie</h4>
+                <p>Bij <strong>beide geslachten</strong> is "Ja" de modus:</p>
+                <ul>
+                    <li><strong>Mannen:</strong> 98 van hen hebben een relatie (modus)</li>
+                    <li><strong>Vrouwen:</strong> 120 van hen hebben een relatie (modus)</li>
+                </ul>
+                <p>→ Geen verschil in modus tussen groepen, maar wel in absolute aantallen</p>
+            </div>
+
+            <h2 id="spss-vergelijking">SPSS vs R Vergelijking</h2>
+
+            <table class="comparison-table">
+                <tr>
+                    <th style="width: 50%;">SPSS Syntax</th>
+                    <th style="width: 50%;">R Code</th>
+                </tr>
+                <tr>
+                    <td><code>FREQUENCIES variabele<br>/STATISTICS=MODE.</code></td>
+                    <td><code>names(table(x))[which.max(table(x))]</code></td>
+                </tr>
+                <tr>
+                    <td>✅ Modus automatisch berekend</td>
+                    <td>⚠️ Vereist eigen functie of berekening</td>
+                </tr>
+                <tr>
+                    <td>❌ Minder flexibel</td>
+                    <td>✅ Volledig aanpasbaar</td>
+                </tr>
+            </table>
+
+            <div class="key-concept">
+                <h4>Belangrijke Tips</h4>
+                <ul>
+                    <li>Gebruik altijd <code>na.rm = TRUE</code> of filter NA's eerst</li>
+                    <li>Check voor multimodale verdelingen</li>
+                    <li>De modus werkt op ALLE meetniveaus (nominaal, ordinaal, metrisch)</li>
+                    <li>Bij continue data: overweeg categorisatie of gebruik andere maten</li>
+                </ul>
+            </div>
+
+            <nav class="page-navigation">
+                <a href="centrality-measures.html" class="prev">← Centraliteitsmaten</a>
+                <a href="median-vs-mean.html" class="next">Mediaan vs Gemiddelde →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Toegepaste Statistiek - From Zero To Statistical Hero</p>
+    </footer>
+</body>
+
+</html>

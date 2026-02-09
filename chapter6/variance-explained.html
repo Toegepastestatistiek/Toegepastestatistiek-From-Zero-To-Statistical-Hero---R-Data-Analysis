@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variantie Uitgelegd - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css?v=20260206">
+    <script src="../js/site.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="logo" href="../index.html" aria-label="Terug naar startpagina">
+                📊 Statistical Hero <span class="logo-sub">- Hoofdstuk 6</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdnavigatie">
+                <a href="../index.html">Startpagina</a>
+                <a href="centrality-measures.html">Centraliteit</a>
+                <a href="dispersion-measures.html">Spreiding</a>
+                <a href="measurement-levels.html">Meetniveaus</a>
+                <a href="spss-vs-r.html">SPSS vs R</a>
+            </nav>
+        </div>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../index.html">Startpagina</a></li>
+                <li><a href="../chapter6.html">Hoofdstuk 6</a></li>
+                <li><a href="dispersion-measures.html">Spreidingsmaten</a></li>
+                <li aria-current="page">Variantie Uitgelegd</li>
+            </ol>
+        </nav>
+    </header>
+
+    <main id="main-content" class="page-content" tabindex="-1">
+        <div class="container">
+            <header class="page-header">
+                <h1>Variantie Uitgelegd: Van Formule tot Interpretatie</h1>
+            </header>
+
+            <p class="lead">De variantie meet de gemiddelde gekwadrateerde afwijking van het gemiddelde. Het is de basis
+                voor veel statistische analyses, maar de interpretatie vereist enige uitleg.</p>
+
+            <h2 id="definitie">Wat is Variantie?</h2>
+
+            <div class="key-concept">
+                <h4>Definitie</h4>
+                <p>De <strong>variantie</strong> is de gemiddelde gekwadrateerde afwijking van de datapunten ten
+                    opzichte van het gemiddelde.</p>
+                <ul>
+                    <li><strong>Symbool steekproef:</strong> s² of Var</li>
+                    <li><strong>Symbool populatie:</strong> σ² (sigma kwadraat)</li>
+                    <li><strong>Meetniveau:</strong> Interval of Ratio</li>
+                </ul>
+            </div>
+
+            <h2 id="formule">De Formule Stap voor Stap</h2>
+
+            <div class="example-box">
+                <h4>Steekproefvariantie Formule</h4>
+                <p style="font-size: 1.3em; text-align: center;">
+                    s² = Σ(xᵢ - x̄)² / (n - 1)
+                </p>
+                <p><strong>Waar:</strong></p>
+                <ul>
+                    <li>xᵢ = individuele waarde</li>
+                    <li>x̄ = gemiddelde</li>
+                    <li>(xᵢ - x̄) = afwijking van gemiddelde</li>
+                    <li>(xᵢ - x̄)² = gekwadrateerde afwijking</li>
+                    <li>n - 1 = vrijheidsgraden (Bessel's correctie)</li>
+                </ul>
+            </div>
+
+            <h3 id="waarom-kwadrateren">Waarom Kwadrateren?</h3>
+
+            <div class="warning-box">
+                <p>Als we de afwijkingen NIET kwadrateren, is de som altijd 0!</p>
+                <p><strong>Voorbeeld:</strong> Data = 2, 4, 6 → Gemiddelde = 4</p>
+                <ul>
+                    <li>Afwijkingen: (2-4) + (4-4) + (6-4) = -2 + 0 + 2 = 0</li>
+                    <li>Gekwadrateerd: 4 + 0 + 4 = 8 ≠ 0 ✓</li>
+                </ul>
+            </div>
+
+            <h2 id="berekening">Handmatige Berekening</h2>
+
+            <div class="example-box">
+                <h4>Voorbeeld: 5 stressscores</h4>
+                <p><strong>Data:</strong> 2, 3, 4, 4, 7</p>
+
+                <p><strong>Stap 1:</strong> Bereken gemiddelde</p>
+                <p>x̄ = (2 + 3 + 4 + 4 + 7) / 5 = 20 / 5 = 4</p>
+
+                <p><strong>Stap 2:</strong> Bereken afwijkingen en kwadraten</p>
+                <table class="data-table">
+                    <tr>
+                        <th>xᵢ</th>
+                        <th>(xᵢ - x̄)</th>
+                        <th>(xᵢ - x̄)²</th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>-2</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>-1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>3</td>
+                        <td>9</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td><strong>Som</strong></td>
+                        <td>0</td>
+                        <td>14</td>
+                    </tr>
+                </table>
+
+                <p><strong>Stap 3:</strong> Deel door (n - 1)</p>
+                <p>s² = 14 / (5 - 1) = 14 / 4 = <strong>3.5</strong></p>
+            </div>
+
+            <h2 id="n-1">Waarom n - 1? (Bessel's Correctie)</h2>
+
+            <div class="key-concept">
+                <h4>Vrijheidsgraden</h4>
+                <p>We delen door (n - 1) in plaats van n omdat:</p>
+                <ul>
+                    <li>Het steekproefgemiddelde al 1 vrijheidsgraad "gebruikt"</li>
+                    <li>Dit geeft een zuivere schatter van de populatievariantie</li>
+                    <li>Als we door n delen, onderschatten we systematisch de variantie</li>
+                </ul>
+                <p><strong>Vuistregel:</strong> Steekproef → n-1, Populatie → n</p>
+            </div>
+
+            <h2 id="r-code">R Code voor Variantie</h2>
+
+            <div class="code-box">
+                <pre><code># Steekproefvariantie (standaard in R)
+var(data$variabele, na.rm = TRUE)
+
+# Populatievariantie (zelf berekenen)
+pop_var <- function(x) {
+  x <- x[!is.na(x)]
+  sum((x - mean(x))^2) / length(x)
+}
+
+# Voorbeeld met relatiestress
+stress <- wave1_coded$W1_Relstress1_Gem
+
+# Variantie
+variantie <- var(stress, na.rm = TRUE)
+cat("Variantie:", round(variantie, 3), "\n")
+
+# Standaardafwijking (wortel van variantie)
+sd <- sqrt(variantie)
+cat("SD:", round(sd, 3), "\n")
+
+# Verificatie
+cat("SD via sd():", round(sd(stress, na.rm = TRUE), 3), "\n")</code></pre>
+            </div>
+
+            <h2 id="interpretatie">Interpretatie van Variantie</h2>
+
+            <div class="warning-box">
+                <h4>Probleem: Eenheid is Gekwadrateerd!</h4>
+                <p>Als je variabele in "punten" gemeten is, is de variantie in "punten²".</p>
+                <p><strong>Voorbeeld:</strong> Stressscore (1-5 punten) → Variantie = 0.85 punten²</p>
+                <p>Dit is moeilijk te interpreteren! Daarom gebruiken we meestal de <strong>standaardafwijking</strong>
+                    (SD = √variantie) voor rapportage.</p>
+            </div>
+
+            <h2 id="toepassingen">Toepassingen van Variantie</h2>
+
+            <div class="key-concept">
+                <h4>Waar wordt variantie gebruikt?</h4>
+                <ul>
+                    <li><strong>ANOVA:</strong> Vergelijkt variantie tussen groepen vs. binnen groepen</li>
+                    <li><strong>Regressie:</strong> R² = verklaarde variantie / totale variantie</li>
+                    <li><strong>Factoranalyse:</strong> Zoekt gemeenschappelijke variantie</li>
+                    <li><strong>Betrouwbaarheid:</strong> Cronbach's α is gebaseerd op varianties</li>
+                </ul>
+            </div>
+
+            <h2 id="spss-vergelijking">SPSS vs R</h2>
+
+            <table class="data-table">
+                <tr>
+                    <th>Actie</th>
+                    <th>SPSS</th>
+                    <th>R</th>
+                </tr>
+                <tr>
+                    <td>Variantie berekenen</td>
+                    <td><code>DESCRIPTIVES /STATISTICS=VARIANCE</code></td>
+                    <td><code>var(x, na.rm = TRUE)</code></td>
+                </tr>
+                <tr>
+                    <td>Divisor</td>
+                    <td>n - 1 (standaard)</td>
+                    <td>n - 1 (standaard)</td>
+                </tr>
+            </table>
+
+            <nav class="page-navigation">
+                <a href="dispersion-measures.html" class="prev">← Spreidingsmaten</a>
+                <a href="sd-vs-se.html" class="next">SD vs SE →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Toegepaste Statistiek - From Zero To Statistical Hero</p>
+    </footer>
+</body>
+
+</html>

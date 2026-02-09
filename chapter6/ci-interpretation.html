@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betrouwbaarheidsinterval Interpretatie - Hoofdstuk 6</title>
+    <link rel="stylesheet" href="../css/style.css?v=20260206">
+    <script src="../js/site.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="logo" href="../index.html" aria-label="Terug naar startpagina">
+                📊 Statistical Hero <span class="logo-sub">- Hoofdstuk 6</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdnavigatie">
+                <a href="../index.html">Startpagina</a>
+                <a href="centrality-measures.html">Centraliteit</a>
+                <a href="dispersion-measures.html">Spreiding</a>
+                <a href="measurement-levels.html">Meetniveaus</a>
+                <a href="spss-vs-r.html">SPSS vs R</a>
+            </nav>
+        </div>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../index.html">Startpagina</a></li>
+                <li><a href="../chapter6.html">Hoofdstuk 6</a></li>
+                <li><a href="confidence-intervals.html">Betrouwbaarheidsintervallen</a></li>
+                <li aria-current="page">BI Interpretatie</li>
+            </ol>
+        </nav>
+    </header>
+
+    <main id="main-content" class="page-content" tabindex="-1">
+        <div class="container">
+            <header class="page-header">
+                <h1>Betrouwbaarheidsinterval Interpretatie</h1>
+            </header>
+
+            <p class="lead">Het betrouwbaarheidsinterval (BI) is een van de meest verkeerd geïnterpreteerde concepten in
+                de statistiek. Hier leer je de correcte interpretatie én veelgemaakte fouten.</p>
+
+            <h2 id="correcte-interpretatie">Correcte Interpretatie</h2>
+
+            <div class="key-concept">
+                <h4>Wat betekent een 95% BI?</h4>
+                <p><strong>Correcte interpretatie:</strong></p>
+                <p>"Als we dit onderzoek 100 keer zouden herhalen en telkens een 95% BI berekenen, dan zou <strong>95
+                        van de 100 intervallen</strong> de ware populatieparameter bevatten."</p>
+                <p><strong>Praktische formulering:</strong></p>
+                <p>"We zijn 95% zeker dat de ware populatiewaarde binnen dit interval ligt."</p>
+            </div>
+
+            <div class="example-box">
+                <h4>Voorbeeld</h4>
+                <p><strong>Resultaat:</strong> M = 2.45, 95% BI [2.35, 2.55]</p>
+                <p><strong>Correcte interpretatie:</strong> "De gemiddelde relatiestress in de populatie ligt met 95%
+                    zekerheid tussen 2.35 en 2.55."</p>
+            </div>
+
+            <h2 id="foute-interpretaties">Veelgemaakte Fouten</h2>
+
+            <div class="warning-box">
+                <h4>❌ FOUT: "95% van de data ligt in dit interval"</h4>
+                <p>Het BI gaat over het <em>gemiddelde</em>, niet over individuele waarden. Voor individuele waarden
+                    gebruik je het <strong>predictie-interval</strong>.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>❌ FOUT: "Er is 95% kans dat μ in dit interval ligt"</h4>
+                <p>De populatieparameter μ is een <em>vaste waarde</em>, geen kansvariabele. Het interval varieert, niet
+                    μ.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>❌ FOUT: "Het gemiddelde ligt waarschijnlijk in het midden van het BI"</h4>
+                <p>Het steekproefgemiddelde ligt <em>altijd</em> exact in het midden. De ware μ kan overal in het
+                    interval liggen met gelijke waarschijnlijkheid.</p>
+            </div>
+
+            <h2 id="visueel">Visuele Uitleg</h2>
+
+            <div class="example-box">
+                <h4>100 herhaalde steekproeven → 100 BI's</h4>
+                <pre>
+μ (ware waarde)
+        |
+   [----●----]  ✓ bevat μ
+      [----●----]  ✓ bevat μ
+ [----●----]  ✓ bevat μ
+           [----●----]  ✓ bevat μ
+                    [----●----]  ❌ MIST μ (5%)
+    [----●----]  ✓ bevat μ
+        [----●----]  ✓ bevat μ
+   ...
+                </pre>
+                <p>Van 100 BI's bevatten er gemiddeld 95 de ware μ, en 5 niet.</p>
+            </div>
+
+            <h2 id="breedte">Wat Bepaalt de Breedte van het BI?</h2>
+
+            <div class="key-concept">
+                <h4>Factoren die de BI-breedte beïnvloeden:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Factor</th>
+                        <th>Effect op BI</th>
+                    </tr>
+                    <tr>
+                        <td>Grotere steekproef (n↑)</td>
+                        <td>Smaller BI (preciezer)</td>
+                    </tr>
+                    <tr>
+                        <td>Kleinere SD</td>
+                        <td>Smaller BI (preciezer)</td>
+                    </tr>
+                    <tr>
+                        <td>Hoger betrouwbaarheidsniveau (99% vs 95%)</td>
+                        <td>Breder BI</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="code-box">
+                <h4>Formule voor 95% BI:</h4>
+                <pre>BI = M ± 1.96 × SE
+   = M ± 1.96 × (SD / √n)</pre>
+                <p>Grotere n → kleinere SE → smaller BI</p>
+            </div>
+
+            <h2 id="r-berekening">R Code voor BI</h2>
+
+            <div class="code-chunk">
+                <div class="code-chunk-header">
+                    <span class="chunk-label">bi-handmatig</span>
+                    <span class="chunk-language">R</span>
+                </div>
+                <pre class="rstudio-code"><span class="r-comment"># =============================================</span>
+<span class="r-comment"># Betrouwbaarheidsinterval - Handmatige berekening</span>
+<span class="r-comment"># =============================================</span>
+
+<span class="r-comment"># Selecteer variabele</span>
+stress <span class="r-operator">&lt;-</span> wave1_coded<span class="r-operator">$</span>W1_Relstress1_Gem
+
+<span class="r-comment"># Stap 1: Bereken benodigde waarden</span>
+n <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(<span class="r-operator">!</span><span class="r-function">is.na</span>(stress))           <span class="r-comment"># Aantal observaties</span>
+m <span class="r-operator">&lt;-</span> <span class="r-function">mean</span>(stress, <span class="r-argument">na.rm</span> <span class="r-operator">=</span> <span class="r-constant">TRUE</span>)   <span class="r-comment"># Gemiddelde</span>
+sd <span class="r-operator">&lt;-</span> <span class="r-function">sd</span>(stress, <span class="r-argument">na.rm</span> <span class="r-operator">=</span> <span class="r-constant">TRUE</span>)     <span class="r-comment"># Standaardafwijking</span>
+se <span class="r-operator">&lt;-</span> sd <span class="r-operator">/</span> <span class="r-function">sqrt</span>(n)                 <span class="r-comment"># Standaardfout: SE = SD/√n</span>
+
+<span class="r-comment"># Stap 2: Bereken 95% BI grenzen</span>
+<span class="r-comment"># Formule: M ± 1.96 × SE (voor 95%)</span>
+ci_lower <span class="r-operator">&lt;-</span> m <span class="r-operator">-</span> <span class="r-number">1.96</span> <span class="r-operator">*</span> se         <span class="r-comment"># Ondergrens</span>
+ci_upper <span class="r-operator">&lt;-</span> m <span class="r-operator">+</span> <span class="r-number">1.96</span> <span class="r-operator">*</span> se         <span class="r-comment"># Bovengrens</span>
+
+<span class="r-comment"># Stap 3: Output</span>
+<span class="r-function">cat</span>(<span class="r-string">"M ="</span>, <span class="r-function">round</span>(m, <span class="r-number">2</span>), <span class="r-string">"\n"</span>)
+<span class="r-function">cat</span>(<span class="r-string">"95% BI ["</span>, <span class="r-function">round</span>(ci_lower, <span class="r-number">2</span>), <span class="r-string">","</span>, <span class="r-function">round</span>(ci_upper, <span class="r-number">2</span>), <span class="r-string">"]\n"</span>)</pre>
+            </div>
+
+            <div class="r-output">M = 2.16 
+95% BI [ 2.06 , 2.26 ]</div>
+
+            <div class="interpretation-box">
+                <h4>Interpretatie</h4>
+                <p><strong>95% BI [2.06, 2.26]</strong> betekent:</p>
+                <ul>
+                    <li>We zijn 95% zeker dat de gemiddelde relatiestress in de populatie tussen 2.06 en 2.26 ligt</li>
+                    <li>Op een 1-5 schaal is dit relatief <strong>lage stress</strong></li>
+                    <li>Het interval is smal (breedte = 0.20) → <strong>nauwkeurige schatting</strong></li>
+                </ul>
+            </div>
+
+            <div class="code-chunk">
+                <div class="code-chunk-header">
+                    <span class="chunk-label">bi-ttest</span>
+                    <span class="chunk-language">R</span>
+                </div>
+                <pre class="rstudio-code"><span class="r-comment"># Met t.test() - accurater voor kleine steekproeven</span>
+<span class="r-comment"># Gebruikt t-distributie i.p.v. normale verdeling</span>
+
+t_result <span class="r-operator">&lt;-</span> <span class="r-function">t.test</span>(stress)
+<span class="r-function">cat</span>(<span class="r-string">"95% BI (t-distributie):"</span>, <span class="r-function">round</span>(t_result<span class="r-operator">$</span>conf.int, <span class="r-number">2</span>), <span class="r-string">"\n"</span>)</pre>
+            </div>
+
+            <div class="r-output">95% BI (t-distributie): 2.05 2.27</div>
+
+            <div class="interpretation-box">
+                <h4>Waarom t.test() gebruiken?</h4>
+                <ul>
+                    <li><strong>z-score (1.96):</strong> Aanname dat populatie-SD bekend is (zelden waar)</li>
+                    <li><strong>t-distributie:</strong> Houdt rekening met onzekerheid over SD</li>
+                    <li><strong>Voor n > 30:</strong> Verschil is minimaal (2.05-2.27 vs 2.06-2.26)</li>
+                    <li><strong>Voor kleine n:</strong> t-distributie geeft bredere, correctere intervallen</li>
+                </ul>
+            </div>
+
+            <h2 id="significantie">BI en Significantie</h2>
+
+            <div class="key-concept">
+                <h4>Overlap van BI's en significantie</h4>
+                <ul>
+                    <li><strong>Als 0 NIET in het BI ligt:</strong> p < .05 (significant verschil van 0)</li>
+                    <li><strong>Als twee BI's NIET overlappen:</strong> Groepen verschillen significant</li>
+                    <li><strong>Als twee BI's WEL overlappen:</strong> Kan nog steeds significant zijn! (tot ~25%
+                        overlap)</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Voorbeeld: Groepsvergelijking</h4>
+                <pre>
+Mannen:   M = 2.3, 95% BI [2.1, 2.5]
+Vrouwen:  M = 2.8, 95% BI [2.6, 3.0]
+
+        Mannen: [====●====]
+        Vrouwen:           [====●====]
+                                  
+                2.1   2.3   2.5   2.6   2.8   3.0
+                </pre>
+                <p><strong>Conclusie:</strong> BI's overlappen niet → Significant verschil tussen mannen en vrouwen.</p>
+            </div>
+
+            <h2 id="apa-rapportage">APA Rapportage</h2>
+
+            <div class="example-box">
+                <h4>Correcte APA-formaten:</h4>
+                <p><strong>In tekst:</strong></p>
+                <p>"Relatiestress (<em>M</em> = 2.45, 95% CI [2.35, 2.55]) was significant lager dan..."</p>
+
+                <p><strong>In tabel:</strong></p>
+                <table class="data-table">
+                    <tr>
+                        <th>Variabele</th>
+                        <th><em>M</em></th>
+                        <th><em>SD</em></th>
+                        <th>95% CI</th>
+                    </tr>
+                    <tr>
+                        <td>Relatiestress</td>
+                        <td>2.45</td>
+                        <td>0.92</td>
+                        <td>[2.35, 2.55]</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2 id="samenvatting">Samenvatting</h2>
+
+            <div class="key-concept">
+                <h4>Checklist voor BI Interpretatie</h4>
+                <ul>
+                    <li>✅ Het BI gaat over de <strong>populatieparameter</strong>, niet de steekproef</li>
+                    <li>✅ 95% verwijst naar de <strong>methode</strong>, niet naar dit specifieke interval</li>
+                    <li>✅ Smaller BI = <strong>preciezere</strong> schatting</li>
+                    <li>✅ Als 0 niet in BI → <strong>significant</strong> verschil van 0</li>
+                    <li>✅ Rapporteer ALTIJD het <strong>betrouwbaarheidsniveau</strong> (95%, 99%)</li>
+                </ul>
+            </div>
+
+            <nav class="page-navigation">
+                <a href="confidence-intervals.html" class="prev">← Betrouwbaarheidsintervallen</a>
+                <a href="../chapter6.html" class="next">Terug naar Hoofdstuk 6 →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Toegepaste Statistiek - From Zero To Statistical Hero</p>
+    </footer>
+</body>
+
+</html>
