@@ -298,24 +298,29 @@
         </div>
 
         <h2 id="praktische-implicaties-voor-r-code">Praktische Implicaties voor R-code</h2>
+
+        <h3 id="nominale-variabele-analyseren">Nominale variabele analyseren</h3>
         <div class="code-box">
-            <h3 id="nominale-variabele-analyseren">Nominale variabele analyseren</h3>
             <pre><code># Relatiestatus (0 = Nee, 1 = Ja)
 table(data$W1_Relatiestatus)  # Frequenties
 prop.table(table(data$W1_Relatiestatus))  # Percentages
 calculate_mode(data$W1_Relatiestatus)  # Modus
 
 # FOUT: mean(data$W1_Relatiestatus)  # Gemiddelde is zinloos!</code></pre>
+        </div>
 
-            <h3 id="ordinale-variabele-analyseren">Ordinale variabele analyseren</h3>
+        <h3 id="ordinale-variabele-analyseren">Ordinale variabele analyseren</h3>
+        <div class="code-box">
             <pre><code># Opleidingsniveau (1 = Laag, 2 = Midden, 3 = Hoog)
 median(data$W1_Diploma, na.rm = TRUE)  # Mediaan
 quantile(data$W1_Diploma, c(0.25, 0.50, 0.75), na.rm = TRUE)  # Kwartielen
 IQR(data$W1_Diploma, na.rm = TRUE)  # Interkwartielafstand
 
 # CONTROVERSIEEL: mean(data$W1_Diploma)  # Technisch niet helemaal correct</code></pre>
+        </div>
 
-            <h3 id="metrische-variabele-analyseren">Metrische variabele analyseren</h3>
+        <h3 id="metrische-variabele-analyseren">Metrische variabele analyseren</h3>
+        <div class="code-box">
             <pre><code># Werkstress schaal (1-5, gemiddelde van items)
 mean(data$W1_Werkstress_Gem, na.rm = TRUE)  # Gemiddelde
 sd(data$W1_Werkstress_Gem, na.rm = TRUE)  # Standaardafwijking
